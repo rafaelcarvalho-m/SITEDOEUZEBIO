@@ -1,0 +1,78 @@
+@import url("../style.css");
+
+.references-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.references-content {
+  width: min(880px, calc(100% - 48px));
+  margin: auto;
+  flex: 1;
+  padding: 76px 0 112px;
+}
+
+.references-header {
+  width: 100%;
+  padding: 24px max(24px, calc((100% - 880px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+}
+
+.references-brand img {
+  display: block;
+  width: 180px;
+  max-height: 130px;
+  object-fit: contain;
+}
+
+.references-back {
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.references-content h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.references-intro {
+  max-width: 620px;
+  margin: 24px 0 58px;
+  color: #4e5a51;
+  font-size: 1.05rem;
+}
+
+.reference-group {
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+
+.reference-group h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.reference-group p,
+.reference-group ul {
+  margin: 0;
+  color: #4e5a51;
+}
+
+.reference-group ul { padding-left: 20px; }
+.reference-group li + li { margin-top: 10px; }
+.reference-group a { color: var(--warm); font-weight: 700; }
+
+@media (max-width: 480px) {
+  .references-content { width: calc(100% - 36px); }
+  .references-brand img { width: 140px; }
+}

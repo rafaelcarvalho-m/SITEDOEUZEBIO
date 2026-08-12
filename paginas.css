@@ -1,0 +1,24 @@
+@import url("style.css");
+
+.internal-page { min-height: 100vh; display: flex; flex-direction: column; }
+.internal-header { background: var(--ink); }
+.internal-nav { width: min(1180px, calc(100% - 48px)); margin: auto; padding: 20px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.internal-brand img { display: block; width: 170px; max-height: 120px; object-fit: contain; }
+.internal-nav a:last-child { color: #fff; font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+.internal-hero { padding: 92px 0; background: linear-gradient(120deg, var(--ink), #294235); color: #fff; }
+.internal-container { width: min(1000px, calc(100% - 48px)); margin: auto; }
+.internal-hero h1 { max-width: 800px; margin: 0; font-family: "Archivo Black", sans-serif; font-size: clamp(2.7rem, 7vw, 5.8rem); letter-spacing: -.055em; line-height: .98; text-transform: uppercase; }
+.internal-hero .eyebrow { color: #ffc092; }
+.internal-main { flex: 1; padding: 82px 0 112px; }
+.internal-main p { color: #4e5a51; }
+.internal-lead { max-width: 700px; margin: 0 0 48px; font-size: 1.08rem; }
+.internal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+.internal-card { display: block; min-height: 290px; padding: 32px; border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); color: var(--ink); text-decoration: none; }
+.internal-card img { display: block; width: 100%; height: 175px; margin: -32px -32px 26px; width: calc(100% + 64px); object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
+.internal-card h2, .internal-article h2 { margin: 0 0 12px; font-size: 1.55rem; line-height: 1.15; }
+.internal-card p { margin: 0; }
+.internal-article { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: start; }
+.internal-article img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+.internal-article p { margin-top: 0; }
+.internal-footer { margin-top: auto; }
+@media (max-width: 700px) { .internal-nav, .internal-container { width: calc(100% - 36px); } .internal-hero { padding: 70px 0; } .internal-grid, .internal-article { grid-template-columns: 1fr; } .internal-article { gap: 28px; } }
