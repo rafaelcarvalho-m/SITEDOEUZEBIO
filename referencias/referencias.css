@@ -30,12 +30,35 @@
 }
 
 .references-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
   color: var(--warm);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
+
+  padding: 11px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.references-back:hover {
+  color: var(--white);
+  background-color: var(--warm);
+  border-color: var(--warm);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(201, 90, 22, 0.22);
 }
 
 .references-content h1 {
@@ -68,11 +91,261 @@
   color: #4e5a51;
 }
 
-.reference-group ul { padding-left: 20px; }
-.reference-group li + li { margin-top: 10px; }
-.reference-group a { color: var(--warm); font-weight: 700; }
+.reference-group ul {
+  padding-left: 20px;
+}
+
+.reference-group li + li {
+  margin-top: 10px;
+}
+
+.reference-group a {
+  color: var(--warm);
+  font-weight: 700;
+}
+
+/* =========================================================
+   FOOTER DA PÁGINA DE REFERÊNCIAS
+   ========================================================= */
+
+.references-page footer .footer-main {
+  width: min(1180px, calc(100% - 48px));
+  margin: auto;
+  padding: 64px 0 48px;
+
+  display: grid;
+
+  /*
+    O botão ocupa a última coluna,
+    seguindo a mesma lógica de posicionamento
+    utilizada no footer da index.html.
+  */
+  grid-template-columns: 1.1fr 1.25fr 1fr 1.4fr 1fr;
+
+  gap: 35px;
+  align-items: start;
+}
+
+/* Logo */
+
+.references-page footer .footer-brand {
+  display: block;
+}
+
+.references-page footer .footer-brand img {
+  width: 250px;
+  max-height: 210px;
+  margin-left: -10px;
+
+  object-fit: contain;
+
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.24));
+}
+
+/* Títulos */
+
+.references-page footer .footer-main h2,
+.references-page footer .footer-main h3 {
+  margin: 0 0 17px;
+  line-height: 1.25;
+}
+
+.references-page footer .footer-main h2 {
+  font-size: 1.1rem;
+}
+
+.references-page footer .footer-main h3 {
+  font-size: 0.79rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--warm-light);
+}
+
+/* Textos */
+
+.references-page footer .footer-main p,
+.references-page footer .footer-main a {
+  font-size: 0.8rem;
+  color: #b9c0bb;
+  line-height: 1.8;
+}
+
+/* Links */
+
+.references-page footer .footer-main a {
+  display: block;
+  text-decoration: none;
+  transition:
+    color 0.2s,
+    transform 0.2s;
+}
+
+.references-page footer .footer-main a:hover {
+  color: var(--warm);
+}
+
+.references-page footer .footer-main i {
+  margin-right: 7px;
+}
+
+/* =========================================================
+   BOTÃO "VOLTAR AO INÍCIO"
+   
+   O visual continua vindo do style.css através
+   da classe .footer-top, portanto permanece
+   exatamente igual ao botão da index.html.
+   ========================================================= */
+
+.references-page footer .footer-top {
+  justify-self: center;
+  align-self: start;
+  margin-top: 8px;
+}
+
+/* Copyright */
+
+.references-page footer .copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  padding: 18px 24px;
+  text-align: center;
+  color: #909b93;
+  font-size: 0.7rem;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .references-page footer .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px 45px;
+    align-items: start;
+  }
+
+  .references-page footer .footer-brand {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .references-page footer .footer-brand img {
+    width: 240px;
+    max-height: 195px;
+    margin-left: 0;
+  }
+
+  .references-page footer .footer-top {
+    justify-self: start;
+    align-self: start;
+    margin-top: 8px;
+  }
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
 
 @media (max-width: 480px) {
-  .references-content { width: calc(100% - 36px); }
-  .references-brand img { width: 140px; }
+  .references-content {
+    width: calc(100% - 36px);
+    padding: 60px 0 80px;
+  }
+
+  .references-header {
+    padding: 20px 18px;
+  }
+
+  .references-brand img {
+    width: 140px;
+  }
+
+  .references-back {
+    font-size: 0.68rem;
+  }
+
+  .references-page footer .footer-main {
+    width: calc(100% - 36px);
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 50px 0 35px;
+  }
+
+  .references-page footer .footer-brand {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .references-page footer .footer-brand img {
+    width: 235px;
+    max-height: 190px;
+    margin-left: 0;
+  }
+
+  .references-page footer .footer-top {
+    justify-self: center;
+    align-self: start;
+    width: fit-content;
+    margin-top: 8px;
+    padding: 12px 18px;
+    font-size: 0.76rem !important;
+  }
+}
+
+/* =========================================================
+   AJUSTE ESPECÍFICO DO FOOTER DA PÁGINA DE REFERÊNCIAS
+   ========================================================= */
+
+.references-page footer .footer-main {
+  grid-template-columns: 1.1fr 1.25fr 1fr 1.4fr;
+}
+
+/* Coloca o botão abaixo da logo, como na index.html */
+.references-page footer .footer-top {
+  grid-column: 1;
+  grid-row: 2;
+
+  justify-self: start;
+  align-self: start;
+
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  .references-page footer .footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .references-page footer .footer-top {
+    grid-column: 1;
+    grid-row: 3;
+
+    justify-self: start;
+  }
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .references-page footer .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .references-page footer .footer-top {
+    grid-column: 1;
+    grid-row: auto;
+
+    justify-self: center;
+  }
 }

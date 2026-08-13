@@ -273,6 +273,11 @@ a {
   transform: translateX(5px);
 }
 
+
+/* =========================
+   CALENDÁRIO ESCOLAR
+   ========================= */
+
 .calendar-section {
   display: grid;
   grid-template-columns: 0.82fr 1.18fr;
@@ -281,20 +286,141 @@ a {
   padding-top: 60px;
 }
 
-.calendar-shell {
-  padding: 8px;
-  background: var(--white);
-  box-shadow: var(--shadow);
-  border-radius: var(--radius);
-  overflow: hidden;
+.calendar-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.calendar-shell iframe {
+.calendar-shell {
+  position: relative;
+  width: 100%;
+  padding: 8px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow:
+    0 20px 45px rgba(31, 41, 35, 0.12),
+    0 4px 12px rgba(31, 41, 35, 0.06);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.calendar-shell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--warm);
+  z-index: 3;
+}
+
+.calendar-shell:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 26px 55px rgba(31, 41, 35, 0.16),
+    0 5px 15px rgba(31, 41, 35, 0.08);
+}
+
+.calendar-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 17px 11px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.calendar-label span {
+  color: var(--text-secondary);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.calendar-label strong {
+  color: var(--warm);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.calendar-pdf {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 0 7px 7px;
+  background: #252525;
+}
+
+.calendar-pdf iframe {
   display: block;
   width: 100%;
-  height: 390px;
+  height: 410px;
   border: 0;
 }
+
+.calendar-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  margin-top: 28px;
+  padding: 14px 24px;
+
+  background: var(--warm);
+  color: var(--white);
+
+  border: 1px solid var(--warm);
+  border-radius: 5px;
+
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  box-shadow: 0 8px 18px rgba(201, 90, 22, 0.18);
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.calendar-download i {
+  font-size: 0.9rem;
+  transition: transform 0.25s ease;
+}
+
+.calendar-download:hover {
+  background: var(--warm-light);
+  border-color: var(--warm-light);
+  color: var(--white);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(201, 90, 22, 0.28),
+    0 3px 8px rgba(31, 41, 35, 0.08);
+}
+
+.calendar-download:hover i {
+  transform: translateY(2px);
+}
+
+.calendar-download:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 12px rgba(201, 90, 22, 0.2);
+}
+
 
 .feature-banner {
   min-height: 440px;
@@ -794,6 +920,22 @@ footer {
     padding-top: 15px;
   }
 
+  .calendar-area {
+    width: 100%;
+  }
+
+  .calendar-shell {
+    width: 100%;
+  }
+
+  .calendar-pdf iframe {
+    height: 390px;
+  }
+
+  .calendar-download {
+    margin-top: 24px;
+  }
+
   .about-grid {
     margin-top: 38px;
   }
@@ -892,8 +1034,31 @@ footer {
     font-size: 0.76rem !important;
   }
 
-  .calendar-shell iframe {
+  .calendar-shell {
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .calendar-label {
+    padding: 11px 14px 10px;
+  }
+
+  .calendar-label span {
+    font-size: 0.62rem;
+  }
+
+  .calendar-label strong {
+    font-size: 0.74rem;
+  }
+
+  .calendar-pdf iframe {
     height: 330px;
+  }
+
+  .calendar-download {
+    width: fit-content;
+    padding: 13px 19px;
+    font-size: 0.7rem;
   }
 
   .feature-banner h2 {
