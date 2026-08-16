@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
+  <body class="home-page">
     <header class="hero" id="inicio">
       <nav class="topbar" aria-label="Navegação principal">
         <a class="brand" href="#inicio" aria-label="Página inicial">
@@ -49,7 +49,9 @@
         <div class="nav-links">
           <a href="#sobre">Sobre nós</a>
           <a href="#ensino">Ensino médio</a>
+          <a href="#agenda">Agenda</a>
           <a href="#projetos">Projetos</a>
+          <a href="#tour-360">Tour 360°</a>
           <a href="#contato">Contato</a>
         </div>
       </nav>
@@ -108,7 +110,7 @@
       <hr class="section-divider" aria-hidden="true" />
 
       <!-- CALENDÁRIO ESCOLAR -->
-      <section class="calendar-section section">
+      <section class="calendar-section section" id="agenda">
         <div class="calendar-copy reveal">
           <p class="eyebrow">Planejamento</p>
 
@@ -261,6 +263,38 @@
         </div>
       </section>
 
+      <hr class="section-divider" aria-hidden="true" />
+
+      <section
+        class="tour-section section"
+        id="tour-360"
+        aria-labelledby="tour-title"
+      >
+        <div class="tour-copy reveal">
+          <p class="eyebrow">Conheça a escola</p>
+
+          <h2 id="tour-title">
+            Explore o nosso entorno em <em>360°.</em>
+          </h2>
+
+          <p>
+            Navegue pela visualização do entorno do Colégio Estadual Euzébio
+            da Mota, na R. Clara Tedesco, 2773 — Boqueirão, Curitiba – PR,
+            81670-290.
+          </p>
+        </div>
+
+        <div class="tour-shell reveal">
+          <iframe
+            title="Visualização em 360 graus do entorno do Colégio Estadual Euzébio da Mota"
+            src="https://maps.google.com/maps?layer=c&amp;cbll=-25.503241,-49.253561&amp;cbp=11,0,0,0,0&amp;source=embed&amp;output=svembed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+      </section>
+
       <section class="contact-section section" id="contato">
         <div class="location-panel reveal">
           <p class="eyebrow">Visite-nos</p>
@@ -285,30 +319,49 @@
         </div>
 
         <aside class="contact-panel reveal">
-          <p class="eyebrow">Fale conosco</p>
+            <p class="eyebrow">Fale conosco</p>
 
-          <h2>Contato</h2>
+            <h2>Contato</h2>
 
-          <a href="#">
-            <i class="fa-brands fa-instagram"></i>
-            <span>Instagram</span>
-          </a>
+            <a href="#">
+              <i class="fa-brands fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
 
-          <a href="#">
-            <i class="fa-brands fa-facebook-f"></i>
-            <span>Facebook</span>
-          </a>
+            <a href="#">
+              <i class="fa-brands fa-facebook-f"></i>
+              <span>Facebook</span>
+            </a>
 
-          <a href="tel:+554132764234">
-            <i class="fa-solid fa-phone"></i>
-            <span>(41) 3276-4234</span>
-          </a>
+            <a href="tel:+554132764234">
+              <i class="fa-solid fa-phone"></i>
+              <span>(41) 3276-4234</span>
+            </a>
 
-          <a href="mailto:ctaeuzebiomota@seed.pr.gov.br">
-            <i class="fa-solid fa-envelope"></i>
-            <span>ctaeuzebiomota@seed.pr.gov.br</span>
-          </a>
+            <a href="mailto:ctaeuzebiomota@seed.pr.gov.br">
+              <i class="fa-solid fa-envelope"></i>
+              <span>ctaeuzebiomota@seed.pr.gov.br</span>
+            </a>
         </aside>
+
+        <section class="weather-panel reveal" aria-labelledby="weather-title">
+            <p class="eyebrow">Boqueirão · Curitiba</p>
+            <h2 id="weather-title">Previsão do tempo</h2>
+
+            <div class="weather-current" aria-live="polite">
+              <i class="fa-solid fa-cloud-sun" aria-hidden="true"></i>
+              <div>
+                <strong data-weather-temperature>--°C</strong>
+                <span data-weather-condition>Carregando previsão...</span>
+              </div>
+            </div>
+
+            <div class="weather-days" data-weather-days aria-live="polite">
+              <span>Carregando os próximos dias...</span>
+            </div>
+
+            <p class="weather-note">Previsão para o entorno da escola.</p>
+        </section>
       </section>
     </main>
 
@@ -451,6 +504,66 @@
           setTimeout(() => button.classList.remove("is-pressed"), 180);
         }),
       );
+
+      const weatherTemperature = document.querySelector(
+        "[data-weather-temperature]",
+      );
+      const weatherCondition = document.querySelector(
+        "[data-weather-condition]",
+      );
+      const weatherDays = document.querySelector("[data-weather-days]");
+
+      const weatherDetails = (code) => {
+        if (code === 0) return ["Céu limpo", "fa-sun"];
+        if ([1, 2, 3].includes(code)) return ["Parcialmente nublado", "fa-cloud-sun"];
+        if ([45, 48].includes(code)) return ["Neblina", "fa-smog"];
+        if ([51, 53, 55, 56, 57].includes(code)) return ["Garoa", "fa-cloud-rain"];
+        if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return ["Chuva", "fa-cloud-showers-heavy"];
+        if ([71, 73, 75, 77, 85, 86].includes(code)) return ["Neve", "fa-snowflake"];
+        if ([95, 96, 99].includes(code)) return ["Trovoadas", "fa-cloud-bolt"];
+        return ["Condições variáveis", "fa-cloud"];
+      };
+
+      fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=-25.503241&longitude=-49.253561&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America%2FSao_Paulo&forecast_days=3",
+      )
+        .then((response) => {
+          if (!response.ok) throw new Error("Previsão indisponível");
+          return response.json();
+        })
+        .then((data) => {
+          const [condition, icon] = weatherDetails(data.current.weather_code);
+
+          weatherTemperature.textContent = `${Math.round(data.current.temperature_2m)}°C`;
+          weatherCondition.textContent = condition;
+          document.querySelector(".weather-current > i").className =
+            `fa-solid ${icon}`;
+
+          weatherDays.innerHTML = data.daily.time
+            .map((date, index) => {
+              const [dayCondition, dayIcon] = weatherDetails(
+                data.daily.weather_code[index],
+              );
+              const label = new Intl.DateTimeFormat("pt-BR", {
+                weekday: "short",
+              }).format(new Date(`${date}T12:00:00`));
+
+              return `
+                <div class="weather-day">
+                  <span>${label}</span>
+                  <i class="fa-solid ${dayIcon}" aria-label="${dayCondition}"></i>
+                  <strong>${Math.round(data.daily.temperature_2m_max[index])}°</strong>
+                  <small>${Math.round(data.daily.temperature_2m_min[index])}°</small>
+                </div>
+              `;
+            })
+            .join("");
+        })
+        .catch(() => {
+          weatherTemperature.textContent = "--°C";
+          weatherCondition.textContent = "Previsão indisponível no momento.";
+          weatherDays.textContent = "Tente novamente mais tarde.";
+        });
     </script>
   </body>
 </html>
