@@ -1,1 +1,156 @@
 @import url("../style.css");
+
+/* Clube de Ciências */
+.science-page {
+  overflow-x: hidden;
+}
+
+.science-page .science-hero {
+  background-image:
+    linear-gradient(105deg, rgba(15, 25, 20, 0.78), rgba(15, 25, 20, 0.24)),
+    url("../imgs-site/foto-clubedeciencias.JPG");
+  background-position: center;
+}
+
+.science-page .science-hero .hero-content {
+  text-align: center;
+}
+
+.science-page .eyebrow,
+.science-page .section h2 em {
+  color: var(--green);
+}
+
+.science-page .science-hero .eyebrow,
+.science-page .science-hero h1 span {
+  color: var(--green-light);
+}
+
+.science-page .science-hero:after {
+  background: radial-gradient(
+    420px circle at var(--pointer-x, 70%) var(--pointer-y, 35%),
+    rgba(104, 173, 108, 0.2),
+    transparent 62%
+  );
+}
+
+.science-page .science-about .image-frame {
+  max-width: 340px;
+}
+
+.science-page .science-about .image-frame:after {
+  border-color: var(--green);
+}
+
+.science-page .science-about .image-frame img {
+  aspect-ratio: 0.76;
+  object-position: center;
+}
+
+.science-page .science-about .about-card {
+  padding: 20px 0 20px 22px;
+  border-left: 4px solid var(--green);
+}
+
+.science-page .science-about {
+  padding: 58px 0 64px;
+}
+
+.science-page .science-about .section-heading h2 {
+  font-size: clamp(2rem, 3.3vw, 3rem);
+}
+
+.science-page .science-about .about-grid {
+  gap: clamp(26px, 4vw, 54px);
+  margin-top: 32px;
+}
+
+.science-page .science-about .about-card h3 {
+  max-width: 420px;
+  margin-bottom: 18px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(1.85rem, 3vw, 2.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.science-page .science-about .about-card p {
+  max-width: 470px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.science-page .science-club-card {
+  min-height: 360px;
+}
+
+.science-page .science-club-card .card-content {
+  padding-right: 76px;
+}
+
+.science-page .science-club-card .card-content i {
+  color: var(--green-light);
+}
+
+.science-page .science-club-card:hover .card-content i {
+  color: var(--green);
+}
+
+.science-page .content-card:hover {
+  box-shadow: 0 22px 42px rgba(61, 135, 68, 0.3);
+}
+
+.science-page .nav-links a:hover {
+  color: var(--green-light);
+}
+
+.science-page .nav-toggle:hover {
+  color: var(--green-light);
+  border-color: var(--green);
+  background: rgba(61, 135, 68, 0.14);
+}
+
+.science-page .footer-main a:hover {
+  color: var(--green-light);
+}
+
+.science-page .footer-main h3 {
+  color: var(--green-light);
+}
+
+.science-page .footer-top:hover {
+  background: var(--green);
+  border-color: var(--green-light);
+  box-shadow: 0 14px 28px rgba(61, 135, 68, 0.3);
+}
+
+@media (min-width: 801px) {
+  .science-page .nav-links {
+    margin-right: auto;
+    margin-left: clamp(185px, 20vw, 300px);
+  }
+}
+
+@media (max-width: 800px) {
+  .science-page .science-about .image-frame {
+    max-width: 340px;
+  }
+
+  .science-page .science-about .about-card {
+    padding: 18px 0 18px 20px;
+  }
+
+  .science-page .science-club-card {
+    min-height: 285px;
+  }
+}
+
+@media (max-width: 480px) {
+  .science-page .science-about .about-card {
+    padding-left: 18px;
+  }
+
+  .science-page .science-club-card .card-content {
+    padding: 24px 68px 24px 24px;
+  }
+}

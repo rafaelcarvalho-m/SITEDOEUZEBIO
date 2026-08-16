@@ -479,6 +479,10 @@ a {
   );
 }
 
+.projects-section .eyebrow {
+  color: var(--green);
+}
+
 .section-intro {
   margin-bottom: 48px;
 }
