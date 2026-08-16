@@ -653,7 +653,7 @@ footer {
 .footer-main {
   width: min(1180px, calc(100% - 48px));
   margin: auto;
-  padding: 64px 0 48px;
+  padding: 42px 0 28px;
   display: grid;
   grid-template-columns: 1.1fr 1.25fr 1fr 1fr 1.4fr;
   gap: 35px;
@@ -718,9 +718,10 @@ footer {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: fit-content;
-  padding: 13px 21px;
+  gap: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   margin-top: 8px;
   background: transparent;
   color: var(--white) !important;
@@ -739,6 +740,26 @@ footer {
     color 0.25s ease;
 }
 
+/* O retorno ao topo fica discreto e alinhado à direita do rodapé. */
+.footer-main > .footer-top {
+  grid-column: -2;
+  grid-row: 2;
+  justify-self: end;
+  align-self: start;
+}
+
+.footer-top i,
+.back-to-top i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  margin-right: 0;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
 .footer-top::before,
 .back-to-top::before {
   content: "";
@@ -754,8 +775,6 @@ footer {
   transition: transform 0.55s ease;
 }
 
-.footer-top i,
-.back-to-top i,
 .footer-top,
 .back-to-top {
   z-index: 0;
@@ -783,7 +802,7 @@ footer {
 
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.11);
-  padding: 18px 24px;
+  padding: 14px 24px;
   text-align: center;
   color: #909b93;
   font-size: 0.7rem;
@@ -983,7 +1002,7 @@ footer {
 
   .footer-main {
     grid-template-columns: 1fr 1fr;
-    padding: 50px 0 35px;
+    padding: 36px 0 24px;
   }
 
   .footer-brand {
@@ -1019,6 +1038,8 @@ footer {
   .footer-main {
     grid-template-columns: 1fr;
     gap: 26px;
+    padding-top: 36px;
+    padding-bottom: 24px;
   }
 
   .footer-brand img {
@@ -1029,9 +1050,10 @@ footer {
 
   .footer-top,
   .back-to-top {
-    width: fit-content;
-    padding: 12px 18px;
-    font-size: 0.76rem !important;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 1rem !important;
   }
 
   .calendar-shell {

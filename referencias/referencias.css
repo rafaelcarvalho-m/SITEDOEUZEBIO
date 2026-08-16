@@ -111,7 +111,7 @@
 .references-page footer .footer-main {
   width: min(1180px, calc(100% - 48px));
   margin: auto;
-  padding: 64px 0 48px;
+  padding: 42px 0 28px;
 
   display: grid;
 
@@ -210,7 +210,7 @@
 
 .references-page footer .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.11);
-  padding: 18px 24px;
+  padding: 14px 24px;
   text-align: center;
   color: #909b93;
   font-size: 0.7rem;
@@ -271,7 +271,7 @@
     width: calc(100% - 36px);
     grid-template-columns: 1fr;
     gap: 26px;
-    padding: 50px 0 35px;
+    padding: 36px 0 24px;
   }
 
   .references-page footer .footer-brand {
@@ -300,15 +300,15 @@
    ========================================================= */
 
 .references-page footer .footer-main {
-  grid-template-columns: 1.1fr 1.25fr 1fr 1.4fr;
+  grid-template-columns: 1.1fr 1.25fr 1fr 1fr 1.4fr;
 }
 
-/* Coloca o botão abaixo da logo, como na index.html */
+/* Mantém o botão de seta na extremidade direita, como na index.html. */
 .references-page footer .footer-top {
-  grid-column: 1;
+  grid-column: -2;
   grid-row: 2;
 
-  justify-self: start;
+  justify-self: end;
   align-self: start;
 
   margin-top: 8px;
@@ -325,10 +325,10 @@
   }
 
   .references-page footer .footer-top {
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 3;
 
-    justify-self: start;
+    justify-self: end;
   }
 }
 
@@ -347,5 +347,9 @@
     grid-row: auto;
 
     justify-self: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    font-size: 1rem !important;
   }
 }
