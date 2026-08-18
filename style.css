@@ -104,8 +104,13 @@ a {
 }
 
 .hero-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
   width: min(1180px, calc(100% - 48px));
-  margin: clamp(100px, 17vh, 175px) auto 0;
+  margin: 0 auto;
+  translate: 0 -50%;
 }
 
 .eyebrow {
@@ -818,6 +823,10 @@ footer {
   gap: 35px;
 }
 
+.footer-main > div {
+  transform: translateY(clamp(20px, 4vw, 56px));
+}
+
 .footer-brand img {
   width: 295px;
   max-height: 230px;
@@ -1237,7 +1246,6 @@ footer {
 @media (max-width: 480px) {
   .hero-content {
     width: calc(100% - 36px);
-    margin-top: 150px;
   }
 
   .hero h1 {

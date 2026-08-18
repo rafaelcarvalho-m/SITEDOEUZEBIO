@@ -127,7 +127,7 @@
 @media (min-width: 801px) {
   .science-page .nav-links {
     margin-right: auto;
-    margin-left: clamp(185px, 20vw, 300px);
+    margin-left: clamp(130px, 14vw, 210px);
   }
 }
 
