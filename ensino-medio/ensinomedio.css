@@ -1,1 +1,379 @@
 @import url("../style.css");
+
+.technical-page {
+  overflow-x: hidden;
+}
+
+.technical-page #apresentacao,
+.technical-page #cursos {
+  scroll-margin-top: 0;
+}
+
+.technical-page .technical-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 720px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.technical-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      440px circle at var(--pointer-x, 72%) var(--pointer-y, 34%),
+      rgba(242, 145, 93, 0.2),
+      transparent 62%
+    ),
+    linear-gradient(105deg, rgba(15, 25, 20, 0.9), rgba(15, 25, 20, 0.3)),
+    linear-gradient(0deg, rgba(15, 25, 20, 0.5), transparent 48%);
+  transition: background 0.12s linear;
+}
+
+.technical-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  transform: scale(1.015);
+}
+
+.technical-page .topbar {
+  position: relative;
+  z-index: 5;
+}
+
+.technical-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: min(900px, calc(100% - 48px));
+  text-align: center;
+  translate: -50% -40%;
+}
+
+.technical-hero-content h1 {
+  margin: 0;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(3.3rem, 8vw, 7.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.technical-hero-content h1 span {
+  color: var(--warm-soft);
+}
+
+.technical-hero-content > p:not(.eyebrow) {
+  width: min(660px, 100%);
+  margin: 27px auto 31px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1rem;
+}
+
+.technical-intro {
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(44px, 7vw, 92px);
+  align-items: center;
+}
+
+.technical-intro h2,
+.technical-courses-heading h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+}
+
+.technical-intro h2 em,
+.technical-courses-heading h2 em {
+  color: var(--warm);
+  font-style: normal;
+}
+
+.technical-intro-copy > p:not(.eyebrow) {
+  margin: 22px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+}
+
+.technical-intro-copy > p + p:not(.eyebrow) {
+  margin-top: 13px;
+}
+
+.technical-course-jump {
+  font-size: 1.15rem;
+}
+
+.technical-course-jump:hover i {
+  transform: translateY(5px);
+}
+
+.technical-intro-media {
+  position: relative;
+  z-index: 0;
+  margin: 0;
+}
+
+.technical-intro-media::after {
+  content: "";
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  z-index: -1;
+  width: 42%;
+  height: 42%;
+  border: 11px solid var(--warm);
+}
+
+.technical-intro-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 600 / 399;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.technical-intro-media figcaption {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: min(360px, 78%);
+  padding: 23px 26px;
+  border-radius: var(--radius) 0 var(--radius) 0;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.technical-intro-media figcaption span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--warm-light);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.technical-intro-media figcaption strong {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.technical-courses-section {
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      rgba(61, 135, 68, 0.24),
+      transparent 28%
+    ),
+    var(--ink);
+  color: var(--white);
+}
+
+.technical-courses-heading {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(36px, 7vw, 96px);
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.technical-courses-heading .eyebrow {
+  color: var(--warm-light);
+}
+
+.technical-courses-heading > p {
+  margin: 0 0 6px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.94rem;
+}
+
+.technical-course-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.technical-course-card {
+  min-height: 330px;
+  border-top: 4px solid var(--warm);
+  cursor: default;
+}
+
+.technical-course-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.technical-course-card .card-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(15, 25, 20, 0.96),
+    rgba(15, 25, 20, 0.18) 76%
+  );
+}
+
+.technical-course-card .card-content {
+  z-index: 2;
+  padding: 30px;
+}
+
+.technical-course-card .card-content small {
+  color: #f6b889;
+}
+
+.technical-course-card .card-content strong {
+  max-width: calc(100% - 42px);
+  font-size: 1.28rem;
+}
+
+.technical-course-card .card-content i {
+  right: 30px;
+  bottom: 35px;
+}
+
+.technical-course-card:nth-child(1) img {
+  object-position: center;
+}
+
+.technical-course-card:nth-child(2) img {
+  object-position: 56% center;
+}
+
+.technical-course-card:nth-child(3) img {
+  object-position: center 42%;
+}
+
+.technical-page :focus-visible {
+  outline: 3px solid var(--warm-light);
+  outline-offset: 4px;
+}
+
+@media (min-width: 801px) {
+  .technical-page .nav-links {
+    margin-right: auto;
+    margin-left: clamp(130px, 14vw, 210px);
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 801px) {
+  .technical-course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .technical-course-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 310px;
+  }
+}
+
+@media (max-width: 800px) {
+  .technical-page .technical-hero {
+    min-height: 640px;
+  }
+
+  .technical-hero-media {
+    object-position: 58% center;
+  }
+
+  .technical-hero-content {
+    width: min(600px, calc(100% - 36px));
+    translate: -50% -34%;
+  }
+
+  .technical-hero-content h1 {
+    font-size: clamp(3rem, 13vw, 5.4rem);
+  }
+
+  .technical-intro {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .technical-intro-copy,
+  .technical-intro-media {
+    width: min(100%, 600px);
+  }
+
+  .technical-courses-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-bottom: 38px;
+  }
+
+  .technical-courses-heading > p {
+    margin: 0;
+  }
+
+  .technical-course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-course-card,
+  .technical-course-card:last-child {
+    grid-column: auto;
+    min-height: 285px;
+  }
+}
+
+@media (max-width: 480px) {
+  .technical-hero-content h1 {
+    font-size: clamp(2.75rem, 15vw, 4rem);
+  }
+
+  .technical-hero-content > p:not(.eyebrow) {
+    margin-top: 21px;
+    font-size: 0.9rem;
+  }
+
+  .technical-intro h2,
+  .technical-courses-heading h2 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .technical-intro-media::after {
+    right: -8px;
+    bottom: -10px;
+    border-width: 8px;
+  }
+
+  .technical-intro-media figcaption {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: calc(100% - 22px);
+    margin: -18px 0 0 22px;
+  }
+
+  .technical-course-card,
+  .technical-course-card:last-child {
+    min-height: 270px;
+  }
+
+  .technical-course-card .card-content {
+    padding: 24px;
+  }
+
+  .technical-course-card .card-content i {
+    right: 24px;
+    bottom: 29px;
+  }
+}

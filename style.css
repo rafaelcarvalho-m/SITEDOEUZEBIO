@@ -58,7 +58,7 @@ a {
       rgba(15, 25, 20, 0.74),
       rgba(15, 25, 20, 0.18)
     ),
-    url("imgs-site/img-home1000x664.JPG");
+    url("imgs-home-index/img-home1000x664.JPG");
 }
 
 .topbar {
@@ -448,11 +448,11 @@ a {
 }
 
 .education-banner {
-  background-image: url("imgs-site/img-ensinomedio1000x664.JPG");
+  background-image: url("imgs-home-index/img-ensinomedio1000x664.JPG");
 }
 
 .projects-banner {
-  background-image: url("imgs-site/img-clubedeciencias.JPG");
+  background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias.JPG");
   background-position: 60% 35%;
   background-size: 110% auto;
 }
