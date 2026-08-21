@@ -42,6 +42,11 @@ a {
   color: inherit;
 }
 
+:focus-visible {
+  outline: 3px solid var(--warm);
+  outline-offset: 4px;
+}
+
 .hero,
 .feature-banner {
   position: relative;
@@ -58,7 +63,7 @@ a {
       rgba(15, 25, 20, 0.74),
       rgba(15, 25, 20, 0.18)
     ),
-    url("imgs-home-index/img-home1000x664.JPG");
+    url("imgs-home-index/img-home1000x664.webp");
 }
 
 .topbar {
@@ -448,11 +453,11 @@ a {
 }
 
 .education-banner {
-  background-image: url("imgs-home-index/img-ensinomedio1000x664.JPG");
+  background-image: url("imgs-home-index/img-ensinomedio1000x664.webp");
 }
 
 .projects-banner {
-  background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias.JPG");
+  background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias.webp");
   background-position: 60% 35%;
   background-size: 110% auto;
 }
@@ -807,6 +812,16 @@ a {
 
 .weather-note {
   margin: 0;
+}
+
+.weather-note a {
+  color: var(--warm);
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+.weather-note a:hover {
+  color: var(--white);
 }
 
 footer {

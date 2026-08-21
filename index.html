@@ -7,12 +7,36 @@
       name="description"
       content="Colégio Estadual Euzébio da Mota — educação, projetos e comunidade escolar."
     />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1f2923" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Colégio Estadual Euzébio da Mota" />
+    <meta property="og:title" content="Colégio Estadual Euzébio da Mota" />
+    <meta
+      property="og:description"
+      content="Educação, projetos e comunidade escolar no Boqueirão, em Curitiba."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Colégio Estadual Euzébio da Mota" />
+    <meta
+      name="twitter:description"
+      content="Educação, projetos e comunidade escolar no Boqueirão, em Curitiba."
+    />
     <title>Colégio Estadual Euzébio da Mota</title>
 
     <link
       rel="shortcut icon"
       href="imgs-home-index/icon-512-maskable.png"
       type="image/png"
+    />
+
+    <link
+      rel="preload"
+      as="image"
+      href="imgs-home-index/img-home1000x664.webp"
+      type="image/webp"
+      fetchpriority="high"
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +58,24 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "School",
+        "name": "Colégio Estadual Euzébio da Mota",
+        "telephone": "+55 41 3276-4234",
+        "email": "ctaeuzebiomota@seed.pr.gov.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Clara Tedesco, 2773",
+          "addressLocality": "Curitiba",
+          "addressRegion": "PR",
+          "postalCode": "81670-290",
+          "addressCountry": "BR"
+        }
+      }
+    </script>
   </head>
 
   <body class="home-page">
@@ -43,7 +85,9 @@
           <img
             src="imgs-home-index/Cópia_de_E.M-removebg-preview.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
-            loading="lazy"
+            width="666"
+            height="374"
+            decoding="async"
           />
         </a>
 
@@ -80,8 +124,12 @@
         <div class="about-grid reveal">
           <figure class="image-frame">
             <img
-              src="sobrenos/imgs-sobrenos/img-saibamais600x398.JPG"
+              src="sobrenos/imgs-sobrenos/img-saibamais600x398.webp"
               alt="Ambiente do Colégio Estadual Euzébio da Mota"
+              width="600"
+              height="398"
+              loading="lazy"
+              decoding="async"
             />
           </figure>
 
@@ -172,8 +220,12 @@
             class="content-card reveal"
           >
             <img
-              src="ensino-medio/imgs-ensinomedio/imgs-ensinotecnico/img-teclado-ensinotec600x399.JPG"
+              src="ensino-medio/imgs-ensinomedio/imgs-ensinotecnico/img-teclado-ensinotec600x399.webp"
               alt="Detalhe de um teclado representando o Ensino Técnico"
+              width="600"
+              height="399"
+              loading="lazy"
+              decoding="async"
             />
 
             <span class="card-overlay"></span>
@@ -189,8 +241,12 @@
             class="content-card reveal"
           >
             <img
-              src="imgs-home-index/img-ensinoregular600x399.JPG"
+              src="imgs-home-index/img-ensinoregular600x399.webp"
               alt="Estudantes do ensino regular"
+              width="600"
+              height="399"
+              loading="lazy"
+              decoding="async"
             />
 
             <span class="card-overlay"></span>
@@ -222,8 +278,12 @@
             class="content-card reveal"
           >
             <img
-              src="projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias600x357.JPG"
+              src="projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias600x357.webp"
               alt="Atividades do Clube de Ciências"
+              width="600"
+              height="357"
+              loading="lazy"
+              decoding="async"
             />
 
             <span class="card-overlay"></span>
@@ -236,8 +296,12 @@
 
           <a href="projetos/rpg.html" class="content-card reveal">
             <img
-              src="projetos/imgs-projetos/imgs-rpg/img-rpg600x400.JPG"
+              src="projetos/imgs-projetos/imgs-rpg/img-rpg600x400.webp"
               alt="Atividade de RPG"
+              width="600"
+              height="399"
+              loading="lazy"
+              decoding="async"
             />
 
             <span class="card-overlay"></span>
@@ -250,8 +314,12 @@
 
           <a href="projetos/robotica.html" class="content-card reveal">
             <img
-              src="projetos/imgs-projetos/imgs-robotica/img-robotica600x400.JPG"
+              src="projetos/imgs-projetos/imgs-robotica/img-robotica600x400.webp"
               alt="Atividade de robótica"
+              width="600"
+              height="399"
+              loading="lazy"
+              decoding="async"
             />
 
             <span class="card-overlay"></span>
@@ -361,7 +429,16 @@
               <span>Carregando os próximos dias...</span>
             </div>
 
-            <p class="weather-note">Previsão para o entorno da escola.</p>
+            <p class="weather-note">
+              Previsão para o entorno da escola · Dados meteorológicos:
+              <a
+                href="https://open-meteo.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open-Meteo
+              </a>.
+            </p>
         </section>
       </section>
     </main>
@@ -372,6 +449,10 @@
           <img
             src="imgs-home-index/Cópia_de_E.M-removebg-preview.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+            loading="lazy"
+            decoding="async"
           />
         </a>
 
@@ -427,144 +508,7 @@
       </div>
     </footer>
 
-    <script>
-      const observer = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          }),
-        { threshold: 0.12 },
-      );
-
-      document
-        .querySelectorAll(".reveal")
-        .forEach((el) => observer.observe(el));
-
-      const nav = document.querySelector(".topbar"),
-        links = document.querySelector(".nav-links"),
-        toggle = document.createElement("button");
-
-      toggle.className = "nav-toggle";
-      toggle.type = "button";
-      toggle.setAttribute("aria-label", "Menu");
-      toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-
-      nav.append(toggle);
-
-      toggle.addEventListener("click", () => {
-        links.classList.toggle("nav-open");
-
-        toggle.setAttribute(
-          "aria-expanded",
-          links.classList.contains("nav-open"),
-        );
-      });
-
-      links.addEventListener("click", () =>
-        links.classList.remove("nav-open"),
-      );
-
-      const hero = document.querySelector(".hero");
-
-      hero.addEventListener("pointermove", (e) => {
-        const r = hero.getBoundingClientRect();
-
-        hero.style.setProperty(
-          "--pointer-x",
-          `${((e.clientX - r.left) / r.width) * 100}%`,
-        );
-
-        hero.style.setProperty(
-          "--pointer-y",
-          `${((e.clientY - r.top) / r.height) * 100}%`,
-        );
-      });
-
-      document.querySelectorAll(".content-card").forEach((card) => {
-        card.addEventListener("pointermove", (e) => {
-          const r = card.getBoundingClientRect(),
-            x = (e.clientX - r.left) / r.width - 0.5,
-            y = (e.clientY - r.top) / r.height - 0.5;
-
-          card.style.setProperty("--tilt-x", `${x * 5}deg`);
-          card.style.setProperty("--tilt-y", `${y * -5}deg`);
-        });
-
-        card.addEventListener("pointerleave", () => {
-          card.style.setProperty("--tilt-x", "0deg");
-          card.style.setProperty("--tilt-y", "0deg");
-        });
-      });
-
-      document.querySelectorAll(".button").forEach((button) =>
-        button.addEventListener("click", () => {
-          button.classList.add("is-pressed");
-          setTimeout(() => button.classList.remove("is-pressed"), 180);
-        }),
-      );
-
-      const weatherTemperature = document.querySelector(
-        "[data-weather-temperature]",
-      );
-      const weatherCondition = document.querySelector(
-        "[data-weather-condition]",
-      );
-      const weatherDays = document.querySelector("[data-weather-days]");
-
-      const weatherDetails = (code) => {
-        if (code === 0) return ["Céu limpo", "fa-sun"];
-        if ([1, 2, 3].includes(code)) return ["Parcialmente nublado", "fa-cloud-sun"];
-        if ([45, 48].includes(code)) return ["Neblina", "fa-smog"];
-        if ([51, 53, 55, 56, 57].includes(code)) return ["Garoa", "fa-cloud-rain"];
-        if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return ["Chuva", "fa-cloud-showers-heavy"];
-        if ([71, 73, 75, 77, 85, 86].includes(code)) return ["Neve", "fa-snowflake"];
-        if ([95, 96, 99].includes(code)) return ["Trovoadas", "fa-cloud-bolt"];
-        return ["Condições variáveis", "fa-cloud"];
-      };
-
-      fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=-25.503241&longitude=-49.253561&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=America%2FSao_Paulo&forecast_days=3",
-      )
-        .then((response) => {
-          if (!response.ok) throw new Error("Previsão indisponível");
-          return response.json();
-        })
-        .then((data) => {
-          const [condition, icon] = weatherDetails(data.current.weather_code);
-
-          weatherTemperature.textContent = `${Math.round(data.current.temperature_2m)}°C`;
-          weatherCondition.textContent = condition;
-          document.querySelector(".weather-current > i").className =
-            `fa-solid ${icon}`;
-
-          weatherDays.innerHTML = data.daily.time
-            .map((date, index) => {
-              const [dayCondition, dayIcon] = weatherDetails(
-                data.daily.weather_code[index],
-              );
-              const label = new Intl.DateTimeFormat("pt-BR", {
-                weekday: "short",
-              }).format(new Date(`${date}T12:00:00`));
-
-              return `
-                <div class="weather-day">
-                  <span>${label}</span>
-                  <i class="fa-solid ${dayIcon}" aria-label="${dayCondition}"></i>
-                  <strong>${Math.round(data.daily.temperature_2m_max[index])}°</strong>
-                  <small>${Math.round(data.daily.temperature_2m_min[index])}°</small>
-                </div>
-              `;
-            })
-            .join("");
-        })
-        .catch(() => {
-          weatherTemperature.textContent = "--°C";
-          weatherCondition.textContent = "Previsão indisponível no momento.";
-          weatherDays.textContent = "Tente novamente mais tarde.";
-        });
-    </script>
+    <script src="comum.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

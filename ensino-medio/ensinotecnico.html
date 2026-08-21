@@ -7,6 +7,28 @@
       name="description"
       content="Conheça o Ensino Técnico do Colégio Estadual Euzébio da Mota e as opções de Desenvolvimento de Sistemas, Administração e Gestão de Alimentos."
     />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1f2923" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Colégio Estadual Euzébio da Mota" />
+    <meta
+      property="og:title"
+      content="Ensino Técnico | Colégio Estadual Euzébio da Mota"
+    />
+    <meta
+      property="og:description"
+      content="Conheça os cursos técnicos oferecidos pelo Colégio Estadual Euzébio da Mota."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Ensino Técnico | Colégio Estadual Euzébio da Mota"
+    />
+    <meta
+      name="twitter:description"
+      content="Conheça os cursos técnicos oferecidos pelo Colégio Estadual Euzébio da Mota."
+    />
     <title>Ensino Técnico | Colégio Estadual Euzébio da Mota</title>
 
     <link
@@ -31,8 +53,10 @@
     <header class="technical-hero" id="inicio">
       <img
         class="technical-hero-media"
-        src="imgs-ensinomedio/imgs-ensinotecnico/img-teclado-ensinotec600x399.JPG"
+        src="imgs-ensinomedio/imgs-ensinotecnico/img-teclado-ensinotec600x399.webp"
         alt="Detalhe de um teclado em ambiente de aprendizagem"
+        width="600"
+        height="399"
         fetchpriority="high"
       />
 
@@ -45,6 +69,9 @@
           <img
             src="../imgs-home-index/Cópia_de_E.M-removebg-preview.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+            decoding="async"
           />
         </a>
 
@@ -95,9 +122,12 @@
 
         <figure class="technical-intro-media reveal">
           <img
-            src="imgs-ensinomedio/imgs-ensinotecnico/img-computadores-ensinotec600x399.JPG"
+            src="imgs-ensinomedio/imgs-ensinotecnico/img-computadores-ensinotec600x399.webp"
             alt="Computadores em ambiente de Ensino Técnico"
+            width="600"
+            height="399"
             loading="lazy"
+            decoding="async"
           />
           <figcaption>
             <span>Aprendizado aplicado</span>
@@ -130,9 +160,12 @@
               data-link-status="pending"
             >
               <img
-                src="imgs-ensinomedio/imgs-ensinotecnico/img-digtacao-ensinotec600x399.JPG"
+                src="imgs-ensinomedio/imgs-ensinotecnico/img-digtacao-ensinotec600x399.webp"
                 alt="Digitação em computador durante atividade de aprendizagem"
+                width="600"
+                height="399"
                 loading="lazy"
+                decoding="async"
               />
               <span class="card-overlay"></span>
               <span class="card-content">
@@ -151,9 +184,12 @@
               data-link-status="pending"
             >
               <img
-                src="imgs-ensinomedio/imgs-ensinotecnico/img-pessoascomputador-ensinotec600x399.JPG"
+                src="imgs-ensinomedio/imgs-ensinotecnico/img-pessoascomputador-ensinotec600x399.webp"
                 alt="Estudantes utilizando computadores em atividade escolar"
+                width="600"
+                height="399"
                 loading="lazy"
+                decoding="async"
               />
               <span class="card-overlay"></span>
               <span class="card-content">
@@ -172,9 +208,12 @@
               data-link-status="pending"
             >
               <img
-                src="imgs-ensinomedio/imgs-ensinotecnico/img-computadores-ensinotec600x399.JPG"
+                src="imgs-ensinomedio/imgs-ensinotecnico/img-computadores-ensinotec600x399.webp"
                 alt="Computadores disponíveis em ambiente de Ensino Técnico"
+                width="600"
+                height="399"
                 loading="lazy"
+                decoding="async"
               />
               <span class="card-overlay"></span>
               <span class="card-content">
@@ -197,7 +236,10 @@
           <img
             src="../imgs-home-index/Cópia_de_E.M-removebg-preview.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
             loading="lazy"
+            decoding="async"
           />
         </a>
 
@@ -252,99 +294,7 @@
       <div class="copyright">© 2026 Colégio Estadual Euzébio da Mota</div>
     </footer>
 
-    <script>
-      const revealElements = document.querySelectorAll(".reveal");
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      if (reduceMotion || !("IntersectionObserver" in window)) {
-        revealElements.forEach((element) =>
-          element.classList.add("is-visible"),
-        );
-      } else {
-        const observer = new IntersectionObserver(
-          (entries) =>
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            }),
-          { threshold: 0.12 },
-        );
-
-        revealElements.forEach((element) => observer.observe(element));
-      }
-
-      const nav = document.querySelector(".topbar");
-      const links = document.querySelector(".nav-links");
-      const toggle = document.createElement("button");
-
-      toggle.className = "nav-toggle";
-      toggle.type = "button";
-      toggle.setAttribute("aria-label", "Abrir menu");
-      toggle.setAttribute("aria-controls", "technical-navigation");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
-      nav.append(toggle);
-
-      const closeMenu = () => {
-        links.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Abrir menu");
-        toggle.innerHTML =
-          '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
-      };
-
-      toggle.addEventListener("click", () => {
-        const isOpen = links.classList.toggle("nav-open");
-
-        toggle.setAttribute("aria-expanded", String(isOpen));
-        toggle.setAttribute(
-          "aria-label",
-          isOpen ? "Fechar menu" : "Abrir menu",
-        );
-        toggle.innerHTML = `<i class="fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}" aria-hidden="true"></i>`;
-      });
-
-      links.addEventListener("click", closeMenu);
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeMenu();
-      });
-
-      const hero = document.querySelector(".technical-hero");
-
-      if (!reduceMotion) {
-        hero.addEventListener("pointermove", (event) => {
-          const bounds = hero.getBoundingClientRect();
-
-          hero.style.setProperty(
-            "--pointer-x",
-            `${((event.clientX - bounds.left) / bounds.width) * 100}%`,
-          );
-          hero.style.setProperty(
-            "--pointer-y",
-            `${((event.clientY - bounds.top) / bounds.height) * 100}%`,
-          );
-        });
-
-        document.querySelectorAll(".technical-course-card").forEach((card) => {
-          card.addEventListener("pointermove", (event) => {
-            const bounds = card.getBoundingClientRect();
-            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-
-            card.style.setProperty("--tilt-x", `${x * 5}deg`);
-            card.style.setProperty("--tilt-y", `${y * -5}deg`);
-          });
-
-          card.addEventListener("pointerleave", () => {
-            card.style.setProperty("--tilt-x", "0deg");
-            card.style.setProperty("--tilt-y", "0deg");
-          });
-        });
-      }
-    </script>
+    <script src="../comum.js"></script>
+    <script src="ensinomedio.js"></script>
   </body>
 </html>
