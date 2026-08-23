@@ -37,8 +37,7 @@
     toggle.setAttribute("aria-label", "Abrir menu");
     toggle.setAttribute("aria-controls", links.id);
     toggle.setAttribute("aria-expanded", "false");
-    toggle.innerHTML =
-      '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    toggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
     nav.append(toggle);
 
     const setMenuState = (isOpen) => {
@@ -108,4 +107,110 @@
   };
 
   window.SiteUI = Object.freeze({ pointerGlow, tiltCards });
+})();
+
+document.querySelectorAll(".button").forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.add("is-pressed");
+    window.setTimeout(() => button.classList.remove("is-pressed"), 180);
+  });
+});
+
+(() => {
+  const galleryLinks = [...document.querySelectorAll("[data-lightbox]")];
+
+  if (!galleryLinks.length) return;
+
+  const dialog = document.createElement("dialog");
+  dialog.className = "site-lightbox";
+  dialog.setAttribute("aria-labelledby", "site-lightbox-caption");
+  dialog.innerHTML = `
+    <div class="site-lightbox-shell">
+      <button class="site-lightbox-close" type="button" aria-label="Fechar imagem ampliada">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <figure class="site-lightbox-figure">
+        <img class="site-lightbox-image" alt="" />
+        <figcaption id="site-lightbox-caption">
+          <span class="site-lightbox-caption"></span>
+          <span class="site-lightbox-count" aria-live="polite"></span>
+        </figcaption>
+      </figure>
+      <button class="site-lightbox-previous" type="button" aria-label="Imagem anterior">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <button class="site-lightbox-next" type="button" aria-label="Próxima imagem">
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+  `;
+  document.body.append(dialog);
+
+  if (typeof dialog.showModal !== "function") return;
+
+  const lightboxImage = dialog.querySelector(".site-lightbox-image");
+  const lightboxCaption = dialog.querySelector(".site-lightbox-caption");
+  const lightboxCount = dialog.querySelector(".site-lightbox-count");
+  const closeButton = dialog.querySelector(".site-lightbox-close");
+  const previousButton = dialog.querySelector(".site-lightbox-previous");
+  const nextButton = dialog.querySelector(".site-lightbox-next");
+  let currentIndex = 0;
+  let returnFocus = null;
+
+  const showItem = (index) => {
+    currentIndex = (index + galleryLinks.length) % galleryLinks.length;
+    const link = galleryLinks[currentIndex];
+    const sourceImage = link.querySelector("img");
+
+    lightboxImage.src = link.getAttribute("href");
+    lightboxImage.alt = sourceImage?.alt || "Fotografia ampliada";
+    lightboxCaption.textContent =
+      link.dataset.lightboxCaption || sourceImage?.alt || "Fotografia";
+    lightboxCount.textContent = `${currentIndex + 1} / ${galleryLinks.length}`;
+  };
+
+  const openLightbox = (index, link) => {
+    returnFocus = link;
+    showItem(index);
+    dialog.showModal();
+    document.body.classList.add("site-lightbox-open");
+    closeButton.focus();
+  };
+
+  galleryLinks.forEach((link, index) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openLightbox(index, link);
+    });
+  });
+
+  const hasMultipleImages = galleryLinks.length > 1;
+  previousButton.hidden = !hasMultipleImages;
+  nextButton.hidden = !hasMultipleImages;
+  lightboxCount.hidden = !hasMultipleImages;
+
+  closeButton.addEventListener("click", () => dialog.close());
+  previousButton.addEventListener("click", () => showItem(currentIndex - 1));
+  nextButton.addEventListener("click", () => showItem(currentIndex + 1));
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  dialog.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft" && hasMultipleImages) {
+      event.preventDefault();
+      showItem(currentIndex - 1);
+    }
+
+    if (event.key === "ArrowRight" && hasMultipleImages) {
+      event.preventDefault();
+      showItem(currentIndex + 1);
+    }
+  });
+
+  dialog.addEventListener("close", () => {
+    document.body.classList.remove("site-lightbox-open");
+    returnFocus?.focus();
+  });
 })();

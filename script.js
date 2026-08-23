@@ -1,31 +1,19 @@
 window.SiteUI.pointerGlow(".hero");
 window.SiteUI.tiltCards(".content-card");
 
-document.querySelectorAll(".button").forEach((button) =>
-  button.addEventListener("click", () => {
-    button.classList.add("is-pressed");
-    setTimeout(() => button.classList.remove("is-pressed"), 180);
-  }),
-);
-
-const weatherTemperature = document.querySelector(
-  "[data-weather-temperature]",
-);
+const weatherTemperature = document.querySelector("[data-weather-temperature]");
 const weatherCondition = document.querySelector("[data-weather-condition]");
 const weatherDays = document.querySelector("[data-weather-days]");
 const weatherIcon = document.querySelector(".weather-current > i");
 
 const weatherDetails = (code) => {
   if (code === 0) return ["Céu limpo", "fa-sun"];
-  if ([1, 2, 3].includes(code))
-    return ["Parcialmente nublado", "fa-cloud-sun"];
+  if ([1, 2, 3].includes(code)) return ["Parcialmente nublado", "fa-cloud-sun"];
   if ([45, 48].includes(code)) return ["Neblina", "fa-smog"];
-  if ([51, 53, 55, 56, 57].includes(code))
-    return ["Garoa", "fa-cloud-rain"];
+  if ([51, 53, 55, 56, 57].includes(code)) return ["Garoa", "fa-cloud-rain"];
   if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code))
     return ["Chuva", "fa-cloud-showers-heavy"];
-  if ([71, 73, 75, 77, 85, 86].includes(code))
-    return ["Neve", "fa-snowflake"];
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return ["Neve", "fa-snowflake"];
   if ([95, 96, 99].includes(code)) return ["Trovoadas", "fa-cloud-bolt"];
   return ["Condições variáveis", "fa-cloud"];
 };
