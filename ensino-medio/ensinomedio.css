@@ -78,7 +78,7 @@
 .technical-hero-content > p:not(.eyebrow) {
   width: min(660px, 100%);
   margin: 27px auto 31px;
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(255, 255, 255, 0.94);
   font-size: 1rem;
 }
 
@@ -181,8 +181,10 @@
       rgba(61, 135, 68, 0.24),
       transparent 28%
     ),
-    var(--ink);
-  color: var(--white);
+    var(--glass-dark);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
 }
 
 .technical-courses-heading {
@@ -199,7 +201,7 @@
 
 .technical-courses-heading > p {
   margin: 0 0 6px;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--glass-text-secondary);
   font-size: 0.94rem;
 }
 

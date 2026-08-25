@@ -87,7 +87,7 @@
 .about-hero-content > p:last-child {
   width: min(620px, 100%);
   margin: 27px auto 0;
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(255, 255, 255, 0.94);
   font-size: 1rem;
 }
 
@@ -234,8 +234,14 @@
   position: relative;
   overflow: hidden;
   padding: 112px 0 124px;
-  background: var(--dark-surface);
-  color: var(--white);
+  background: var(--glass-deep);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
+}
+
+.history-section p {
+  text-align: left;
 }
 
 .history-section::after {
@@ -272,8 +278,9 @@
 
 .history-heading > p:last-child {
   margin: 0 0 6px;
-  color: rgba(255, 255, 255, 0.64);
+  color: var(--glass-text-secondary);
   font-size: 0.92rem;
+  text-align: justify;
 }
 
 .history-timeline {
@@ -310,12 +317,14 @@
   place-items: center;
   border: 3px solid var(--warm);
   border-radius: 50%;
-  background: var(--dark-surface);
-  color: var(--white);
+  background: var(--glass-deep);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
   font-size: 0.77rem;
   font-weight: 800;
   letter-spacing: 0.04em;
-  box-shadow: 0 0 0 8px var(--dark-surface);
+  box-shadow: 0 0 0 8px rgba(215, 221, 216, 0.84);
 }
 
 .history-timeline li:nth-child(even) time {
@@ -331,7 +340,7 @@
 
 .history-timeline p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.61);
+  color: var(--glass-text-secondary);
   font-size: 0.78rem;
   line-height: 1.65;
 }
@@ -500,10 +509,10 @@
   overflow: hidden;
   place-items: center;
   padding: 104px 24px;
-  background:
-    linear-gradient(115deg, rgba(31, 41, 35, 0.96), rgba(31, 41, 35, 0.84)),
-    var(--green);
-  color: var(--white);
+  background: var(--glass-deep);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
   text-align: center;
 }
 
@@ -543,7 +552,7 @@
 .about-closing p:not(.eyebrow) {
   width: min(650px, 100%);
   margin: 24px auto 30px;
-  color: rgba(255, 255, 255, 0.73);
+  color: var(--glass-text-secondary);
 }
 
 .about-closing .button-light {
@@ -578,7 +587,9 @@
     flex-direction: column;
     gap: 15px;
     border-top: 3px solid var(--warm);
-    background: var(--ink);
+    background: var(--glass-nav);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.3);
   }
 

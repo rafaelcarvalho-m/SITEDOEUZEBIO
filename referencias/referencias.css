@@ -19,7 +19,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--ink);
+  background: var(--glass-dark);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
 }
 
 .references-brand img {
@@ -68,7 +70,7 @@
 .references-intro {
   max-width: 620px;
   margin: 24px 0 58px;
-  color: #4e5a51;
+  color: var(--text-secondary);
   font-size: 1.05rem;
 }
 
@@ -85,7 +87,7 @@
 .reference-group p,
 .reference-group ul {
   margin: 0;
-  color: #4e5a51;
+  color: var(--text-secondary);
 }
 
 .reference-group ul {

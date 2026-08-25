@@ -6,16 +6,24 @@
   --green: #3d8744;
 
   /* Cores auxiliares */
-  --muted: #66736b;
+  --muted: #435348;
   --line: #dddcd5;
   --white: #ffffff;
   --warm-light: #e97b35;
-  --warm-soft: #d48755;
+  --warm-soft: #de6f2b;
   --green-light: #68ad6c;
-  --text-secondary: #505b54;
+  --text-secondary: #2f4136;
 
   /* Superfícies escuras */
   --dark-surface: #151c18;
+
+  /* Fundos escuros em vidro fosco (os rodapés não usam estas variáveis). */
+  --glass-dark: rgba(226, 230, 226, 0.78);
+  --glass-deep: rgba(215, 221, 216, 0.84);
+  --glass-nav: rgba(232, 235, 232, 0.3);
+  --glass-blur: blur(30px) saturate(145%);
+  --glass-text: #132019;
+  --glass-text-secondary: #263a2e;
 
   /* Elementos visuais */
   --shadow: 0 20px 55px rgba(31, 41, 35, 0.11);
@@ -40,6 +48,17 @@ body {
 
 a {
   color: inherit;
+}
+
+main p,
+main li,
+header p {
+  font-weight: 500;
+}
+
+p:not(.eyebrow),
+.reference-group li {
+  text-align: justify;
 }
 
 :focus-visible {
@@ -252,10 +271,14 @@ a {
 }
 
 .about-card p,
-.calendar-copy > p {
+.calendar-copy > p:not(.eyebrow) {
   font-size: 0.96rem;
   color: var(--text-secondary);
-  margin: 0 0 15px;
+  margin: 24px 0 15px;
+}
+
+.about-card p {
+  margin-top: 0;
 }
 
 .text-link {
@@ -365,7 +388,9 @@ a {
   width: 100%;
   overflow: hidden;
   border-radius: 0 0 7px 7px;
-  background: #252525;
+  background: var(--glass-dark);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
 }
 
 .calendar-pdf iframe {
@@ -666,8 +691,10 @@ a {
 }
 
 .contact-panel {
-  background: var(--ink);
-  color: var(--white);
+  background: var(--glass-dark);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
 }
 
 .contact-panel .eyebrow {
@@ -683,7 +710,7 @@ a {
   align-items: center;
   gap: 14px;
   padding: 14px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-top: 1px solid rgba(31, 41, 35, 0.14);
   text-decoration: none;
   font-size: 0.83rem;
   transition:
@@ -710,8 +737,10 @@ a {
 
 .weather-panel {
   grid-column: 1 / -1;
-  background: var(--dark-surface);
-  color: var(--white);
+  background: var(--glass-deep);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
   border-top: 4px solid var(--warm);
   box-shadow: var(--shadow);
 }
@@ -729,7 +758,7 @@ a {
   align-items: center;
   gap: 16px;
   padding-bottom: 22px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(31, 41, 35, 0.16);
 }
 
 .weather-current > i {
@@ -750,7 +779,7 @@ a {
 
 .weather-current span,
 .weather-note {
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--glass-text-secondary);
   font-size: 0.78rem;
 }
 
@@ -760,7 +789,7 @@ a {
   gap: 8px;
   min-height: 92px;
   padding: 20px 0 14px;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--glass-text-secondary);
   font-size: 0.76rem;
 }
 
@@ -774,7 +803,7 @@ a {
   justify-items: center;
   gap: 3px;
   padding: 7px 3px;
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 1px solid rgba(31, 41, 35, 0.16);
   line-height: 1.25;
 }
 
@@ -795,12 +824,12 @@ a {
 }
 
 .weather-day strong {
-  color: var(--white);
+  color: var(--glass-text);
   font-size: 0.88rem;
 }
 
 .weather-day small {
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--glass-text-secondary);
   font-size: 0.72rem;
 }
 
@@ -815,11 +844,13 @@ a {
 }
 
 .weather-note a:hover {
-  color: var(--white);
+  color: var(--glass-text);
 }
 
 footer {
-  background: var(--dark-surface);
+  background: rgba(21, 28, 24, 0.88);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   color: var(--white);
 }
 
@@ -1218,7 +1249,9 @@ footer {
     top: 94px;
     width: min(280px, calc(100vw - 48px));
     padding: 18px 22px;
-    background: var(--ink);
+    background: var(--glass-nav);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
     display: none;
     flex-direction: column;
@@ -1251,7 +1284,9 @@ footer {
     top: 94px;
     width: min(280px, calc(100vw - 36px));
     padding: 18px 22px;
-    background: var(--ink);
+    background: var(--glass-nav);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
     display: none;
     flex-direction: column;

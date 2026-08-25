@@ -233,8 +233,10 @@
 .rpg-page .rpg-experience {
   background:
     radial-gradient(circle at 88% 18%, rgba(201, 90, 22, 0.2), transparent 25%),
-    var(--ink);
-  color: var(--white);
+    var(--glass-dark);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
 }
 
 .rpg-page .rpg-experience-inner {
@@ -289,7 +291,7 @@
 .rpg-page .rpg-experience-copy > p:last-of-type {
   max-width: 560px;
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--glass-text-secondary);
 }
 
 .rpg-page .rpg-pillars {
@@ -306,9 +308,9 @@
   align-items: center;
   gap: 9px;
   padding: 9px 13px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(31, 41, 35, 0.16);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--glass-text-secondary);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -482,8 +484,10 @@
       rgba(61, 135, 68, 0.22),
       transparent 27%
     ),
-    var(--ink);
-  color: var(--white);
+    var(--glass-dark);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--glass-text);
 }
 
 .robotics-page .robotics-process-inner {
@@ -538,7 +542,7 @@
 .robotics-page .robotics-process-copy > p:last-of-type {
   max-width: 560px;
   margin: 24px 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--glass-text-secondary);
 }
 
 .robotics-page .robotics-pillars {
@@ -555,9 +559,9 @@
   align-items: center;
   gap: 9px;
   padding: 9px 13px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(31, 41, 35, 0.16);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--glass-text-secondary);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.05em;
