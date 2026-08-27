@@ -38,7 +38,7 @@
     toggle.setAttribute("aria-controls", links.id);
     toggle.setAttribute("aria-expanded", "false");
     toggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
-    nav.append(toggle);
+    links.before(toggle);
 
     const setMenuState = (isOpen) => {
       links.classList.toggle("nav-open", isOpen);
@@ -48,7 +48,10 @@
     };
 
     toggle.addEventListener("click", () => {
-      setMenuState(!links.classList.contains("nav-open"));
+      const willOpen = !links.classList.contains("nav-open");
+      setMenuState(willOpen);
+
+      if (willOpen) links.querySelector("a")?.focus();
     });
 
     links.addEventListener("click", (event) => {

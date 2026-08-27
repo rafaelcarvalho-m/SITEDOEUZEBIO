@@ -187,6 +187,18 @@
   color: var(--glass-text);
 }
 
+.technical-courses.section {
+  padding-bottom: 64px;
+}
+
+.technical-page .site-updated {
+  width: 100%;
+  margin: 0;
+  padding: 18px 24px 22px;
+  background: var(--glass-dark);
+  color: var(--glass-text-secondary);
+}
+
 .technical-courses-heading {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -212,7 +224,7 @@
 .technical-course-card {
   min-height: 330px;
   border-top: 4px solid var(--warm);
-  cursor: default;
+  cursor: pointer;
 }
 
 .technical-course-card::before {

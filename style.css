@@ -16,6 +16,7 @@
 
   /* Superfícies escuras */
   --dark-surface: #151c18;
+  --footer-gray: #424d47;
 
   /* Fundos escuros em vidro fosco (os rodapés não usam estas variáveis). */
   --glass-dark: rgba(226, 230, 226, 0.78);
@@ -660,7 +661,7 @@ p:not(.eyebrow),
 .location-panel,
 .contact-panel,
 .weather-panel {
-  background: var(--white);
+  background: var(--glass-dark);
   padding: 42px;
   box-shadow: 0 10px 30px rgba(31, 41, 35, 0.06);
   border-radius: var(--radius);
@@ -683,6 +684,37 @@ p:not(.eyebrow),
   font-size: 0.88rem;
   color: var(--text-secondary);
   margin: 0;
+}
+
+.map-directions {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 18px;
+  color: var(--warm);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.map-directions:hover {
+  color: var(--ink);
+}
+
+.site-updated {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  align-items: center;
+  width: min(1180px, calc(100% - 48px));
+  margin: -32px auto 58px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .address i {
@@ -848,9 +880,7 @@ p:not(.eyebrow),
 }
 
 footer {
-  background: rgba(21, 28, 24, 0.88);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
+  background: var(--footer-gray);
   color: var(--white);
 }
 
@@ -898,7 +928,7 @@ footer {
 .footer-main p,
 .footer-main a {
   font-size: 0.8rem;
-  color: #b9c0bb;
+  color: #d1d6d2;
   line-height: 1.8;
 }
 

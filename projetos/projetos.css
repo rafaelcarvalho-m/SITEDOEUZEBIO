@@ -155,6 +155,147 @@
   }
 }
 
+/* Blocos temporários para expansão dos projetos */
+.project-future-section {
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(201, 90, 22, 0.15),
+      transparent 24%
+    ),
+    #111914;
+  color: var(--white);
+}
+
+.project-future-heading {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(34px, 7vw, 92px);
+  align-items: end;
+  margin-bottom: 46px;
+}
+
+.project-future-heading h2 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4.2vw, 3.7rem);
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.project-future-heading h2 em {
+  color: var(--warm-light);
+  font-style: normal;
+}
+
+.project-future-heading > p {
+  margin: 0 0 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.project-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.project-info-card {
+  min-height: 260px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.project-info-card > i {
+  margin-bottom: 25px;
+  color: var(--warm-light);
+  font-size: 1.35rem;
+}
+
+.project-info-card h3 {
+  margin: 0 0 11px;
+  font-size: 1.12rem;
+}
+
+.project-info-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.88rem;
+}
+
+.project-info-card small {
+  display: block;
+  margin-top: 20px;
+  color: #f6b889;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-placeholder {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: start;
+  margin-top: 20px;
+  padding: 28px 30px;
+  border: 1px dashed rgba(255, 255, 255, 0.26);
+  border-radius: var(--radius);
+}
+
+.project-placeholder > i {
+  color: var(--warm-light);
+  font-size: 1.3rem;
+}
+
+.project-placeholder strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.project-placeholder p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.project-updated {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin: 30px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .project-future-heading,
+  .project-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-future-heading {
+    gap: 22px;
+  }
+
+  .project-info-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-info-card {
+    padding: 25px;
+  }
+
+  .project-placeholder {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* RPG */
 .rpg-page {
   overflow-x: hidden;

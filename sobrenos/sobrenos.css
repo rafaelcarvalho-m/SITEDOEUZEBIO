@@ -785,3 +785,118 @@
     padding: 78px 18px;
   }
 }
+
+.about-profile-section {
+  background:
+    radial-gradient(
+      circle at 88% 10%,
+      rgba(201, 90, 22, 0.16),
+      transparent 24%
+    ),
+    var(--glass-dark);
+  color: var(--glass-text);
+}
+
+.about-profile-heading {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(36px, 7vw, 96px);
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+.about-profile-heading h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.about-profile-heading h2 em {
+  color: var(--warm-light);
+  font-style: normal;
+}
+
+.about-profile-heading > p {
+  margin: 0 0 5px;
+  color: var(--glass-text-secondary);
+}
+
+.about-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-profile-card {
+  min-height: 300px;
+  padding: 30px;
+  border: 1px solid rgba(31, 41, 35, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.about-profile-card > i {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(201, 90, 22, 0.18);
+  color: var(--warm-light);
+}
+
+.about-profile-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+.about-profile-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.about-profile-card small {
+  display: block;
+  margin-top: 22px;
+  color: var(--warm);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-updated {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin: 34px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .about-profile-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-profile-heading,
+  .about-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-profile-heading {
+    gap: 22px;
+  }
+
+  .about-profile-card {
+    min-height: 0;
+  }
+}
