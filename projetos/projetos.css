@@ -2,12 +2,37 @@
 
 /* Clube de Ciências */
 .science-page {
+  --science-navy: #0b4f6c;
+  --science-petrol: #087c9e;
+  --science-petrol-light: #4aa6be;
+  --science-cream: #f0e0c0;
+  --science-cream-light: #fff5e3;
+  --science-orange: #d07000;
+  --science-orange-light: #e58c2f;
+
+  /* A paleta da logo substitui o tema global somente nesta página. */
+  --ink: var(--science-navy);
+  --paper: var(--science-cream-light);
+  --warm: var(--science-orange);
+  --warm-light: var(--science-orange-light);
+  --warm-soft: var(--science-cream);
+  --green: var(--science-petrol);
+  --green-light: var(--science-petrol-light);
+  --muted: #58717c;
+  --line: rgba(11, 79, 108, 0.16);
+  --text-secondary: #3e5c68;
+  --glass-dark: rgba(240, 224, 192, 0.76);
+  --glass-deep: rgba(231, 211, 178, 0.84);
+  --glass-text: var(--science-navy);
+  --glass-text-secondary: #3c5c69;
+
   overflow-x: hidden;
+  background: var(--science-cream-light);
 }
 
 .science-page .science-hero {
   background-image:
-    linear-gradient(105deg, rgba(15, 25, 20, 0.78), rgba(15, 25, 20, 0.24)),
+    linear-gradient(105deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.24)),
     url("imgs-projetos/imgs-clubedeciencias/foto-clubedeciencias.webp");
   background-position: center;
 }
@@ -16,40 +41,51 @@
   text-align: center;
 }
 
-.science-page .eyebrow,
-.science-page .section h2 em {
-  color: var(--green);
+.science-page .eyebrow {
+  color: var(--science-petrol);
 }
 
-.science-page .science-hero .eyebrow,
+.science-page .section h2 em {
+  color: var(--science-petrol);
+}
+
+.science-page .science-hero .eyebrow {
+  color: var(--science-petrol-light);
+}
+
 .science-page .science-hero h1 span {
-  color: var(--green-light);
+  color: var(--science-petrol-light);
 }
 
 .science-page .science-hero:after {
   background: radial-gradient(
     420px circle at var(--pointer-x, 70%) var(--pointer-y, 35%),
-    rgba(104, 173, 108, 0.2),
+    rgba(255, 255, 255, 0.14),
     transparent 62%
   );
 }
 
+.science-page .section-divider {
+  border-top-color: rgba(0, 80, 112, 0.24);
+}
+
 .science-page .science-about .image-frame {
-  max-width: 340px;
+  max-width: 420px;
 }
 
 .science-page .science-about .image-frame:after {
-  border-color: var(--green);
+  border-color: var(--science-petrol);
 }
 
 .science-page .science-about .image-frame img {
-  aspect-ratio: 0.76;
+  aspect-ratio: 1;
+  object-fit: cover;
   object-position: center;
 }
 
 .science-page .science-about .about-card {
   padding: 20px 0 20px 22px;
-  border-left: 4px solid var(--green);
+  border-left: 4px solid var(--science-petrol);
 }
 
 .science-page .science-about {
@@ -89,39 +125,55 @@
 }
 
 .science-page .science-club-card .card-content i {
-  color: var(--green-light);
+  color: var(--white);
 }
 
 .science-page .science-club-card:hover .card-content i {
-  color: var(--green);
+  color: var(--science-petrol-light);
+}
+
+.science-page .science-club-card .card-overlay {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.06) 70%
+  );
 }
 
 .science-page .content-card:hover {
-  box-shadow: 0 22px 42px rgba(61, 135, 68, 0.3);
+  box-shadow: 0 22px 42px rgba(8, 124, 158, 0.3);
 }
 
 .science-page .nav-links a:hover {
-  color: var(--green-light);
+  color: var(--science-petrol-light);
 }
 
 .science-page .nav-toggle:hover {
-  color: var(--green-light);
-  border-color: var(--green);
-  background: rgba(61, 135, 68, 0.14);
+  color: var(--science-petrol-light);
+  border-color: var(--science-petrol-light);
+  background: rgba(74, 166, 190, 0.16);
 }
 
 .science-page .footer-main a:hover {
-  color: var(--green-light);
+  color: var(--science-petrol-light);
 }
 
 .science-page .footer-main h3 {
-  color: var(--green-light);
+  color: var(--science-petrol-light);
 }
 
 .science-page .footer-top:hover {
-  background: var(--green);
-  border-color: var(--green-light);
-  box-shadow: 0 14px 28px rgba(61, 135, 68, 0.3);
+  background: var(--science-petrol);
+  border-color: var(--science-petrol-light);
+  box-shadow: 0 14px 28px rgba(8, 124, 158, 0.32);
+}
+
+.science-page .footer-top:active {
+  box-shadow: 0 5px 12px rgba(8, 124, 158, 0.24);
+}
+
+.science-page :focus-visible {
+  outline-color: var(--science-petrol-light);
 }
 
 @media (min-width: 801px) {

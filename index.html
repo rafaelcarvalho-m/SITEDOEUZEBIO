@@ -104,11 +104,21 @@
         </a>
 
         <div class="nav-links">
-          <a href="#sobre">Sobre nós</a>
+          <a href="#sobre">Sobre</a>
           <a href="#agenda">Agenda</a>
-          <a href="#ensino">Ensino médio</a>
+          <a href="#ensino">Ensino</a>
           <a href="#projetos">Projetos</a>
-          <a href="#tour-360">Tour 360°</a>
+          <details class="nav-dropdown">
+            <summary>
+              Explorar
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </summary>
+            <div class="nav-dropdown-menu">
+              <a href="#tour-360">Tour 360°</a>
+              <a href="#apoio">Apoio</a>
+              <a href="#biblioteca">Biblioteca</a>
+            </div>
+          </details>
           <a href="#contato">Contato</a>
         </div>
       </nav>
@@ -275,12 +285,15 @@
         </div>
 
         <div class="card-grid three-columns">
-          <a href="projetos/clube-de-ciencias.html" class="content-card reveal">
+          <a
+            href="projetos/clube-de-ciencias.html"
+            class="content-card science-card reveal"
+          >
             <img
-              src="projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias600x357.webp"
-              alt="Atividades do Clube de Ciências"
-              width="600"
-              height="357"
+              src="projetos/imgs-projetos/imgs-clubedeciencias/foto-logo-clubedeciecias.jpeg"
+              alt="Logotipo do Clube de Ciências Friends Science"
+              width="500"
+              height="500"
               loading="lazy"
               decoding="async"
             />
@@ -360,6 +373,106 @@
           ></iframe>
         </div>
       </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <section
+        class="home-support section"
+        id="apoio"
+        aria-labelledby="support-title"
+      >
+        <div class="home-support-copy reveal">
+          <span class="home-support-symbol" aria-hidden="true">
+            <i class="fa-solid fa-infinity"></i>
+          </span>
+          <p class="eyebrow">Apoio à aprendizagem</p>
+          <h2 id="support-title">
+            Cada estudante aprende de <em>um jeito.</em>
+          </h2>
+          <p class="home-support-description">
+            O Apoio oferece reforço escolar para estudantes neurodivergentes,
+            respeitando diferentes ritmos, formas de compreender e maneiras de
+            organizar os estudos.
+          </p>
+          <a class="button button-light home-support-action" href="apoio/apoio.html">
+            Conheça o Apoio
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="home-support-points">
+          <article class="home-support-card reveal">
+            <i class="fa-solid fa-route" aria-hidden="true"></i>
+            <div>
+              <h3>Ritmos respeitados</h3>
+              <p>
+                Reforço organizado de acordo com as necessidades de
+                aprendizagem.
+              </p>
+            </div>
+          </article>
+
+          <article class="home-support-card reveal">
+            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+            <div>
+              <h3>Estratégias diversas</h3>
+              <p>Diferentes caminhos para compreender, praticar e avançar.</p>
+            </div>
+          </article>
+
+          <article class="home-support-card reveal">
+            <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
+            <div>
+              <h3>Ambiente acolhedor</h3>
+              <p>Escuta, respeito e confiança durante todo o processo.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <section
+        class="home-library section"
+        id="biblioteca"
+        aria-labelledby="library-title"
+      >
+        <figure class="home-library-image reveal">
+          <img
+            src="biblioteca/imgs-biblioteca/biblioteca-espaco-de-leitura.webp"
+            alt="Biblioteca do Colégio Estadual Euzébio da Mota com mesas, cadeiras e estantes"
+            width="600"
+            height="399"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <figcaption>
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+            Biblioteca escolar
+          </figcaption>
+        </figure>
+
+        <div class="home-library-copy reveal">
+          <p class="eyebrow">Leitura e pesquisa</p>
+
+          <h2 id="library-title">
+            Um espaço para descobrir <em>novos caminhos.</em>
+          </h2>
+
+          <p>
+            Conheça nossa biblioteca, um ambiente dedicado à leitura, ao estudo
+            e à descoberta de novas ideias.
+          </p>
+
+          <a class="button button-light" href="biblioteca/biblioteca.html">
+            Conheça a biblioteca
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
 
       <section class="contact-section section" id="contato">
         <div class="location-panel reveal">
@@ -451,7 +564,6 @@
           </p>
         </section>
       </section>
-
     </main>
 
     <footer>
