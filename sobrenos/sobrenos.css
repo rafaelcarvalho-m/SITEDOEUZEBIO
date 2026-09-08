@@ -62,7 +62,7 @@
   top: 50%;
   left: 50%;
   z-index: 1;
-  width: min(900px, calc(100% - 48px));
+  width: min(var(--hero-content-max), calc(100% - var(--layout-gutter)));
   text-align: center;
   translate: -50% -42%;
 }
@@ -259,7 +259,7 @@
 .history-shell {
   position: relative;
   z-index: 1;
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: auto;
 }
 
@@ -898,5 +898,39 @@
 
   .about-profile-card {
     min-height: 0;
+  }
+}
+
+@media (min-width: 1600px) {
+  .about-page .about-hero {
+    min-height: min(900px, 100svh);
+  }
+
+  .history-section {
+    padding: 140px 0 155px;
+  }
+
+  .beyond-card {
+    min-height: 340px;
+    padding: 34px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .about-page .about-hero {
+    min-height: min(1600px, 100svh);
+  }
+
+  .history-section {
+    padding: 200px 0 220px;
+  }
+
+  .beyond-grid {
+    gap: 34px;
+  }
+
+  .beyond-card {
+    min-height: 460px;
+    padding: 48px;
   }
 }

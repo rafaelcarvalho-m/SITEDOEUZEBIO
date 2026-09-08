@@ -582,3 +582,24 @@ Não existe pendência funcional solicitada pelo usuário. Os próximos passos d
 ## INSTRUÇÃO PARA A IA QUE RECEBER ESTE DOCUMENTO
 
 Este documento representa o estado do trabalho no momento em que a conversa anterior foi encerrada. Considere todas as informações, decisões, regras, arquivos e pendências descritas aqui como contexto de continuidade. Não reinicie o projeto nem refaça etapas já concluídas sem necessidade. Continue a partir do ponto indicado em “Estado atual” e “Pendências e próximos passos”. Caso novas informações fornecidas pelo usuário entrem em conflito com este documento, priorize sempre as instruções mais recentes do usuário.
+## 9. Atualizacao — qualidade e responsividade das imagens
+
+Data: 8 de setembro de 2026
+
+### O que foi feito
+
+- Identificada a causa do desfoque: imagens de 600 px estavam sendo ampliadas em monitores Full HD e TVs.
+- Recuperadas fotos originais em alta resolucao do historico do projeto e exportadas para WebP otimizado.
+- Criadas versoes de ate 3200 x 2126 para banners/herois e de 1600 px para conteudos e galerias.
+- Adicionados srcset em imagens principais para o navegador escolher uma versao leve no celular e nitida em telas grandes.
+- Atualizados os fundos responsivos dos herois da Home, Ensino, Projetos, RPG, Robotica, Sobre Nos e Biblioteca.
+- Criadas versoes de maior resolucao para as cinco imagens da Biblioteca.
+- Home e Biblioteca foram conferidas em 1920 x 1080; a Home tambem em 3840 x 2160.
+- A verificacao confirmou que as referencias locais de imagens, CSS e links apontam para arquivos existentes.
+
+### Pendencias
+
+- Fazer uma revisao visual completa de todas as paginas em celular, Full HD e TV, caso necessario.
+- Se novas fotos originais da Biblioteca forem disponibilizadas, avaliar a substituicao das versoes restauradas atuais.
+- Capturas temporarias ficam em C:\\Users\\rafae\\AppData\\Local\\Temp e nao fazem parte do projeto.
+- Verificar a velocidade do site (pois a animação de scrollar esta travando muito)

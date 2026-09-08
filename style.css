@@ -1,4 +1,11 @@
 :root {
+  /* Medidas responsivas do layout */
+  --layout-max: 1180px;
+  --content-max: 1000px;
+  --hero-content-max: 900px;
+  --reading-max: 880px;
+  --layout-gutter: 48px;
+
   /* Cores principais */
   --ink: #1f2923;
   --paper: #faf9f5;
@@ -83,7 +90,7 @@ p:not(.eyebrow),
 }
 
 .topbar {
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: auto;
   padding: 22px 0;
   display: flex;
@@ -215,7 +222,7 @@ p:not(.eyebrow),
   top: 50%;
   left: 0;
   right: 0;
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: 0 auto;
   translate: 0 -50%;
 }
@@ -282,13 +289,13 @@ p:not(.eyebrow),
 }
 
 .section {
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: auto;
   padding: 112px 0;
 }
 
 .section-divider {
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: 0 auto;
   border: 0;
   border-top: 1px solid rgba(31, 41, 35, 0.16);
@@ -602,7 +609,11 @@ p:not(.eyebrow),
   border-radius: var(--radius);
   color: var(--white);
   background:
-    radial-gradient(circle at 12% 15%, rgba(201, 90, 22, 0.24), transparent 34%),
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(201, 90, 22, 0.24),
+      transparent 34%
+    ),
     var(--ink);
   box-shadow: var(--shadow);
   scroll-margin-top: 24px;
@@ -1018,7 +1029,7 @@ p:not(.eyebrow),
   justify-content: center;
   gap: 9px;
   align-items: center;
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: -32px auto 58px;
   color: var(--muted);
   font-size: 0.7rem;
@@ -1195,7 +1206,7 @@ footer {
 }
 
 .footer-main {
-  width: min(1180px, calc(100% - 48px));
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: auto;
   padding: 42px 0 28px;
   display: grid;
@@ -1563,6 +1574,217 @@ footer {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Monitor Full HD (como o Dell P2222H): aproveita melhor a largura de 1920 px. */
+@media (min-width: 1600px) {
+  :root {
+    --layout-max: clamp(1280px, 78vw, 1500px);
+    --content-max: 1200px;
+    --hero-content-max: 1160px;
+    --reading-max: 1040px;
+    --layout-gutter: clamp(64px, 5vw, 96px);
+    font-size: clamp(16px, 0.89vw, 18px);
+  }
+
+  .hero {
+    min-height: min(900px, 100svh);
+    background-image:
+      linear-gradient(105deg, rgba(15, 25, 20, 0.74), rgba(15, 25, 20, 0.18)),
+      url("imgs-home-index/img-home3200x2126.webp");
+  }
+
+  .education-banner {
+    background-image: url("imgs-home-index/img-ensinomedio3200x2126.webp");
+  }
+
+  .projects-banner {
+    background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias3200x2126.webp");
+  }
+
+  .topbar {
+    padding: 28px 0;
+  }
+
+  .brand img {
+    width: 340px;
+  }
+
+  .hero-copy {
+    width: min(520px, 100%);
+  }
+
+  .section {
+    padding: 132px 0;
+  }
+
+  .feature-banner {
+    min-height: 520px;
+  }
+
+  .calendar-pdf iframe {
+    height: 500px;
+  }
+
+  .tour-shell iframe {
+    height: 450px;
+  }
+
+  .home-library-image,
+  .home-library-image img,
+  .home-library-copy {
+    min-height: 560px;
+  }
+
+  .content-card {
+    min-height: 390px;
+  }
+
+  .location-panel,
+  .contact-panel,
+  .weather-panel {
+    padding: 50px;
+  }
+
+  .map-wrap {
+    height: 360px;
+  }
+
+  .footer-main {
+    gap: 48px;
+    padding: 52px 0 36px;
+  }
+
+  .footer-brand img {
+    width: 330px;
+  }
+
+  .site-lightbox {
+    width: min(1280px, calc(100% - var(--layout-gutter)));
+  }
+}
+
+/* TVs e monitores de altíssima resolução: leitura confortável à distância. */
+@media (min-width: 2560px) {
+  :root {
+    --layout-max: clamp(1900px, 60vw, 2400px);
+    --content-max: 1800px;
+    --hero-content-max: 1800px;
+    --reading-max: 1500px;
+    --layout-gutter: clamp(96px, 5vw, 180px);
+    font-size: clamp(26px, 0.75vw, 32px);
+  }
+
+  .hero {
+    min-height: min(1600px, 100svh);
+  }
+
+  .topbar {
+    padding: 44px 0;
+  }
+
+  .brand img {
+    width: 460px;
+    max-height: 300px;
+  }
+
+  .nav-links,
+  .home-page .nav-links {
+    gap: clamp(38px, 2vw, 72px);
+    margin-right: clamp(120px, 7vw, 260px);
+  }
+
+  .button {
+    gap: 16px;
+    padding: 18px 28px;
+  }
+
+  .hero-copy {
+    width: min(720px, 100%);
+    margin: 36px 0 46px;
+  }
+
+  .section {
+    padding: 190px 0;
+  }
+
+  .about-grid,
+  .calendar-section,
+  .tour-section {
+    gap: clamp(90px, 6vw, 180px);
+  }
+
+  .feature-banner {
+    min-height: 720px;
+  }
+
+  .calendar-pdf iframe {
+    height: 720px;
+  }
+
+  .tour-shell iframe {
+    height: 640px;
+  }
+
+  .home-library-image,
+  .home-library-image img,
+  .home-library-copy {
+    min-height: 700px;
+  }
+
+  .card-grid {
+    gap: 42px;
+  }
+
+  .content-card {
+    min-height: 520px;
+  }
+
+  .card-content {
+    padding: 42px;
+  }
+
+  .card-content i {
+    right: 42px;
+    bottom: 50px;
+  }
+
+  .contact-section {
+    gap: 42px;
+  }
+
+  .location-panel,
+  .contact-panel,
+  .weather-panel {
+    padding: 68px;
+  }
+
+  .map-wrap {
+    height: 520px;
+  }
+
+  .footer-main {
+    gap: 70px;
+    padding: 72px 0 50px;
+  }
+
+  .footer-brand img {
+    width: 450px;
+    max-height: 340px;
+  }
+
+  .footer-top,
+  .back-to-top,
+  .site-lightbox-close,
+  .site-lightbox-previous,
+  .site-lightbox-next {
+    width: 64px;
+    height: 64px;
+  }
+
+  .site-lightbox {
+    width: min(1800px, calc(100% - var(--layout-gutter)));
   }
 }
 

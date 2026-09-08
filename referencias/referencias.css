@@ -7,7 +7,7 @@
 }
 
 .references-content {
-  width: min(880px, calc(100% - 48px));
+  width: min(var(--reading-max), calc(100% - var(--layout-gutter)));
   margin: auto;
   flex: 1;
   padding: 76px 0 112px;
