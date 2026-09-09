@@ -682,7 +682,7 @@
   font-weight: 700;
 }
 
-/* Tema azul exclusivo dos clubes das professoras Gabrielle e Marlene. */
+/* Tema azul exclusivo dos clubes das professoras Gabriele e Marlene. */
 .detail-blue .eyebrow,
 .detail-blue .detail-facts dt {
   color: var(--club-blue);
@@ -1158,7 +1158,7 @@
 }
 
 @media (min-width: 801px) {
-  .gabrielle-page .nav-links,
+  .gabriele-page .nav-links,
   .marlene-page .nav-links {
     margin-right: auto;
     margin-left: clamp(72px, 7vw, 105px);

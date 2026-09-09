@@ -11,13 +11,21 @@
     revealElements.forEach((element) => element.classList.add("is-visible"));
   } else {
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        }),
+      (entries) => {
+        const visibleElements = entries
+          .filter((entry) => entry.isIntersecting)
+          .map((entry) => entry.target);
+
+        visibleElements.forEach((element) => observer.unobserve(element));
+
+        if (visibleElements.length) {
+          window.requestAnimationFrame(() => {
+            visibleElements.forEach((element) =>
+              element.classList.add("is-visible"),
+            );
+          });
+        }
+      },
       { threshold: 0.12 },
     );
 
@@ -75,17 +83,27 @@
 
     if (!element || reduceMotion || !finePointer) return;
 
-    element.addEventListener("pointermove", (event) => {
-      const bounds = element.getBoundingClientRect();
+    let pointerFrame = 0;
+    let latestPointerEvent;
 
-      element.style.setProperty(
-        "--pointer-x",
-        `${((event.clientX - bounds.left) / bounds.width) * 100}%`,
-      );
-      element.style.setProperty(
-        "--pointer-y",
-        `${((event.clientY - bounds.top) / bounds.height) * 100}%`,
-      );
+    element.addEventListener("pointermove", (event) => {
+      latestPointerEvent = event;
+
+      if (pointerFrame) return;
+
+      pointerFrame = window.requestAnimationFrame(() => {
+        const bounds = element.getBoundingClientRect();
+
+        element.style.setProperty(
+          "--pointer-x",
+          `${((latestPointerEvent.clientX - bounds.left) / bounds.width) * 100}%`,
+        );
+        element.style.setProperty(
+          "--pointer-y",
+          `${((latestPointerEvent.clientY - bounds.top) / bounds.height) * 100}%`,
+        );
+        pointerFrame = 0;
+      });
     });
   };
 
@@ -93,16 +111,33 @@
     if (reduceMotion || !finePointer) return;
 
     document.querySelectorAll(selector).forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const bounds = card.getBoundingClientRect();
-        const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-        const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      let tiltFrame = 0;
+      let latestPointerEvent;
 
-        card.style.setProperty("--tilt-x", `${x * 5}deg`);
-        card.style.setProperty("--tilt-y", `${y * -5}deg`);
+      card.addEventListener("pointermove", (event) => {
+        latestPointerEvent = event;
+
+        if (tiltFrame) return;
+
+        tiltFrame = window.requestAnimationFrame(() => {
+          const bounds = card.getBoundingClientRect();
+          const x =
+            (latestPointerEvent.clientX - bounds.left) / bounds.width - 0.5;
+          const y =
+            (latestPointerEvent.clientY - bounds.top) / bounds.height - 0.5;
+
+          card.style.setProperty("--tilt-x", `${x * 5}deg`);
+          card.style.setProperty("--tilt-y", `${y * -5}deg`);
+          tiltFrame = 0;
+        });
       });
 
       card.addEventListener("pointerleave", () => {
+        if (tiltFrame) {
+          window.cancelAnimationFrame(tiltFrame);
+          tiltFrame = 0;
+        }
+
         card.style.setProperty("--tilt-x", "0deg");
         card.style.setProperty("--tilt-y", "0deg");
       });

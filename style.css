@@ -29,7 +29,7 @@
   --glass-dark: rgba(226, 230, 226, 0.78);
   --glass-deep: rgba(215, 221, 216, 0.84);
   --glass-nav: rgba(232, 235, 232, 0.3);
-  --glass-blur: blur(30px) saturate(145%);
+  --glass-blur: blur(14px) saturate(125%);
   --glass-text: #132019;
   --glass-text-secondary: #263a2e;
 
@@ -90,6 +90,8 @@ p:not(.eyebrow),
 }
 
 .topbar {
+  position: relative;
+  z-index: 20;
   width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: auto;
   padding: 22px 0;
@@ -1369,19 +1371,15 @@ footer {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translate3d(0, 18px, 0);
   transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-}
-
-.topbar {
-  position: relative;
 }
 
 .hero:after {
@@ -1577,6 +1575,22 @@ footer {
   }
 }
 
+@media (min-width: 1200px) {
+  .hero {
+    background-image:
+      linear-gradient(105deg, rgba(15, 25, 20, 0.74), rgba(15, 25, 20, 0.18)),
+      url("imgs-home-index/img-home1600x1063.webp");
+  }
+
+  .education-banner {
+    background-image: url("imgs-home-index/img-ensinomedio1600x1063.webp");
+  }
+
+  .projects-banner {
+    background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias1600x1063.webp");
+  }
+}
+
 /* Monitor Full HD (como o Dell P2222H): aproveita melhor a largura de 1920 px. */
 @media (min-width: 1600px) {
   :root {
@@ -1592,15 +1606,15 @@ footer {
     min-height: min(900px, 100svh);
     background-image:
       linear-gradient(105deg, rgba(15, 25, 20, 0.74), rgba(15, 25, 20, 0.18)),
-      url("imgs-home-index/img-home3200x2126.webp");
+      url("imgs-home-index/img-home1920x1276.webp");
   }
 
   .education-banner {
-    background-image: url("imgs-home-index/img-ensinomedio3200x2126.webp");
+    background-image: url("imgs-home-index/img-ensinomedio1920x1276.webp");
   }
 
   .projects-banner {
-    background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias3200x2126.webp");
+    background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias1920x1276.webp");
   }
 
   .topbar {
@@ -1678,6 +1692,17 @@ footer {
 
   .hero {
     min-height: min(1600px, 100svh);
+    background-image:
+      linear-gradient(105deg, rgba(15, 25, 20, 0.74), rgba(15, 25, 20, 0.18)),
+      url("imgs-home-index/img-home3200x2126.webp");
+  }
+
+  .education-banner {
+    background-image: url("imgs-home-index/img-ensinomedio3200x2126.webp");
+  }
+
+  .projects-banner {
+    background-image: url("projetos/imgs-projetos/imgs-clubedeciencias/img-clubedeciencias3200x2126.webp");
   }
 
   .topbar {

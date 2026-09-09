@@ -39,9 +39,9 @@ Estado atual: as últimas solicitações foram implementadas. Não existe uma ta
 - O footer das páginas novas deve ter a mesma largura e estrutura do footer do `index.html`.
 - Privacidade, Referências e Acessibilidade são exceções: preservar a logo e ajustar apenas a distribuição/espaçamento dos outros elementos.
 - As páginas detalhadas com somente o título no banner devem usar `top: 60%` e centralização óptica.
-- Administração, Alimentos, Exatas, Humanas, Desenvolvimento de Sistemas, Gabrielle e Marlene seguem atualmente o padrão de título único centralizado.
+- Administração, Alimentos, Exatas, Humanas, Desenvolvimento de Sistemas, Gabriele e Marlene seguem atualmente o padrão de título único centralizado.
 - Alimentos e Humanas usam tema laranja.
-- Gabrielle e Marlene usam tema verde, inclusive no footer e nos hovers dos cards.
+- Gabriele e Marlene usam tema azul, inclusive no footer e nos hovers dos cards.
 - A Biblioteca usa o tema laranja institucional. Não reintroduzir a antiga paleta azul.
 - O hero da Biblioteca não deve exibir o texto vertical “Colégio Estadual / Euzébio da Mota” nem a linha vertical decorativa que existiam na primeira versão.
 - Os rótulos de `.detail-facts` como “Área”, “Modalidade”, “Duração e turno” e “Matrícula” são elementos `<dt>`, não `<h2>`.
@@ -196,7 +196,7 @@ Arquivo: `ensino-medio/humanas.html`
 - A seção final recebeu `detail-path-spaced`.
 - Footer padronizado com o index.
 
-### 3.8 Páginas Gabrielle e Marlene
+### 3.8 Páginas Gabriele e Marlene
 
 Arquivos:
 
@@ -206,18 +206,18 @@ Arquivos:
 Ambas usam:
 
 ```html
-class="detail-page detail-green title-only-detail-page"
+class="detail-page detail-blue title-only-detail-page"
 ```
 
 Alterações compartilhadas:
 
 - Removidos o eyebrow “Clube de Ciências” e a descrição auxiliar dos banners.
-- Mantidos somente os títulos `Professora Gabrielle` e `Professora Marlene`.
+- Mantidos somente os títulos `Professora Gabriele` e `Professora Marlene`.
 - Títulos centralizados, em `top: 60%`, com compensação óptica.
 - Removidos os blocos de última atualização.
 - Seções de participação receberam `detail-path-spaced`.
 - Footers padronizados com o index.
-- Tema verde aplicado a:
+- Tema azul aplicado a:
   - títulos e palavras em destaque;
   - eyebrows internos;
   - rótulos de `.detail-facts`;
@@ -231,25 +231,25 @@ Alterações compartilhadas:
 Estilos exclusivos ficam em `paginas.css`, sob o comentário:
 
 ```css
-/* Tema verde exclusivo dos clubes das professoras Gabrielle e Marlene. */
+/* Tema azul exclusivo dos clubes das professoras Gabriele e Marlene. */
 ```
 
 Seletores principais:
 
 ```css
-.detail-green .eyebrow,
-.detail-green .detail-facts dt
+.detail-blue .eyebrow,
+.detail-blue .detail-facts dt
 
-.detail-green .nav-links a:hover
-.detail-green :focus-visible
-.detail-green .subject-card:hover
-.detail-green .footer-main h3
-.detail-green .footer-main a:hover
-.detail-green .footer-top:hover
-.detail-green .footer-top:active
+.detail-blue .nav-links a:hover
+.detail-blue :focus-visible
+.detail-blue .subject-card:hover
+.detail-blue .footer-main h3
+.detail-blue .footer-main a:hover
+.detail-blue .footer-top:hover
+.detail-blue .footer-top:active
 ```
 
-A página da Marlene foi renderizada integralmente em desktop após a alteração. Não havia laranja residual visível. As duas imagens de hero usadas por Gabrielle e Marlene existem no disco.
+A página da Marlene foi renderizada integralmente em desktop após a alteração. Não havia laranja residual visível. As duas imagens de hero usadas por Gabriele e Marlene existem no disco.
 
 ### 3.9 Cards de disciplinas
 
@@ -270,7 +270,7 @@ Hover padrão dos cards:
 - número/ícone em cor escura;
 - sombra e deslocamento para cima.
 
-Nas páginas `detail-green` (Gabrielle e Marlene), o hover é sobrescrito para verde.
+Nas páginas `detail-blue` (Gabriele e Marlene), o hover é sobrescrito para azul.
 
 ### 3.10 Rótulos de informações rápidas
 
@@ -284,7 +284,7 @@ O seletor global abaixo deixa “Área”, “Modalidade”, “Duração e turn
 }
 ```
 
-Gabrielle e Marlene sobrescrevem esses rótulos para `var(--green)`.
+Gabriele e Marlene sobrescrevem esses rótulos para `var(--club-blue)`.
 
 ### 3.11 Footers
 
@@ -305,7 +305,7 @@ Páginas novas que receberam a mesma estrutura de cinco colunas do index:
 - Alimentos;
 - Exatas;
 - Humanas;
-- Clube Gabrielle;
+- Clube Gabriele;
 - Clube Marlene.
 
 Foram adicionados os blocos `footer-reference` e “Redes sociais” onde faltavam.
@@ -474,8 +474,8 @@ Capturas temporárias de validação foram gravadas em `C:\Users\rafae\AppData\L
 - `ensino-medio/alimentos.html`: curso detalhado.
 - `ensino-medio/exatas.html`: área detalhada.
 - `ensino-medio/humanas.html`: área detalhada.
-- `projetos/clube-gabrielle.html`: clube detalhado com tema verde.
-- `projetos/clube-marlene.html`: clube detalhado com tema verde.
+- `projetos/clube-gabriele.html`: clube detalhado com tema azul.
+- `projetos/clube-marlene.html`: clube detalhado com tema azul.
 - `privacidade.html`: página legal com fundo principal branco.
 - `acessibilidade.html`: página legal com footer especial.
 - `referencias/referencias.html`: referências e créditos.
@@ -485,7 +485,7 @@ Capturas temporárias de validação foram gravadas em `C:\Users\rafae\AppData\L
 
 - `.detail-page`: base das páginas detalhadas.
 - `.title-only-detail-page`: posiciona banners de título único em `top: 60%` e aplica compensação óptica.
-- `.detail-green`: tema verde atualmente exclusivo de Gabrielle e Marlene.
+- `.detail-blue`: tema azul atualmente exclusivo de Gabriele e Marlene.
 - `.detail-hero-content-centered`: centralização horizontal do conteúdo do banner.
 - `.detail-path-spaced`: adiciona espaço antes das seções finais.
 - `.detail-facts`: caixa de informações rápidas.
@@ -525,7 +525,7 @@ A compensação existe porque Archivo Black com `letter-spacing: -0.06em` pareci
 4. Manter o footer das demais páginas novas igual ao index: cinco colunas no desktop e mesma largura global.
 5. Manter Privacidade com todo o fundo do `<main>` branco.
 6. Manter Alimentos e Humanas em laranja.
-7. Manter Gabrielle e Marlene em verde, inclusive cards, hovers e footer.
+7. Manter Gabriele e Marlene em azul, inclusive cards, hovers e footer.
 8. Não reintroduzir blocos “Última atualização”.
 9. Não confundir `<dt>` de `.detail-facts` com `<h2>`.
 10. Ao centralizar títulos de banners detalhados, usar o padrão compartilhado e não criar offsets isolados sem verificar visualmente.
@@ -551,7 +551,7 @@ Não existe pendência funcional solicitada pelo usuário. Os próximos passos d
 
 1. Fazer regressão responsiva em 390 px, 800 px e 1440 px para todas as páginas com `.title-only-detail-page`.
 2. Verificar especialmente `Desenvolvimento de Sistemas` em celular. Uma captura antiga, anterior à padronização final, mostrou quebra agressiva da palavra “Desenvolvimento” e possível recorte lateral. Isso não foi solicitado nem corrigido definitivamente.
-3. Testar visualmente o estado `:hover` dos cards de Gabrielle e Marlene com automação de navegador; a regra CSS foi verificada, mas a captura final não simulou o ponteiro sobre os cards.
+3. Testar visualmente o estado `:hover` dos cards de Gabriele e Marlene com automação de navegador; a regra CSS foi verificada, mas a captura final não simulou o ponteiro sobre os cards.
 4. Remover CSS sem uso relacionado a `.site-updated`, `.detail-updated`, `.project-updated`, `.about-updated` e `.references-updated`, somente se houver autorização para limpeza. Esses seletores não criam espaço atualmente.
 5. Verificar links sociais `href="#"`, que continuam como placeholders.
 6. Revisar os textos temporários/Lorem ipsum dos clubes quando o conteúdo oficial estiver disponível.
@@ -560,8 +560,8 @@ Não existe pendência funcional solicitada pelo usuário. Os próximos passos d
 
 - O usuário percebe desalinhamento óptico mesmo quando `text-align: center` estava correto; por isso existe o `translateX(clamp(8px, 2.4vw, 34px))`.
 - O padrão vertical desejado para os banners detalhados de título único é `top: 60%`.
-- A classe `detail-green` aparece atualmente somente em Gabrielle e Marlene. Os overrides verdes foram escritos usando essa classe.
-- O hover padrão de `.subject-card` é laranja; `.detail-green .subject-card:hover` é obrigatoriamente verde.
+- A classe `detail-blue` aparece atualmente somente em Gabriele e Marlene. Os overrides azuis foram escritos usando essa classe.
+- O hover padrão de `.subject-card` é laranja; `.detail-blue .subject-card:hover` é obrigatoriamente azul.
 - No hover dos cards, o texto fica branco e o número/ícone continua escuro, conforme solicitação anterior.
 - A seção de disciplinas usa quatro colunas no desktop e duas em telas menores para caber melhor após clicar no link do header.
 - A ausência de “Última atualização” foi verificada com busca global no HTML.
@@ -569,7 +569,7 @@ Não existe pendência funcional solicitada pelo usuário. Os próximos passos d
 - `Referências`, `Privacidade` e `Acessibilidade` não usam exatamente a mesma composição de conteúdo do index; elas usam uma grade especial para distribuir os blocos sem mexer na logo.
 - O espaçador dessas grades especiais é `0.12fr`, após ter sido reduzido a pedido do usuário.
 - O fundo branco de Privacidade deve ser aplicado ao `main` inteiro e ao `.internal-main`; aplicar apenas ao container deixa faixas laterais acinzentadas.
-- As imagens de hero de Gabrielle e Marlene foram confirmadas no disco.
+- As imagens de hero de Gabriele e Marlene foram confirmadas no disco.
 - A Biblioteca é acessada por `biblioteca/biblioteca.html` e usa `biblioteca/biblioteca.css`.
 - A chamada da Biblioteca na home está entre o Tour 360° e Contato; o botão deve continuar apontando para `biblioteca/biblioteca.html`.
 - A identidade visual final da Biblioteca é laranja, com fundos `var(--ink)` e superfícies claras alinhadas ao restante do site.
@@ -582,6 +582,7 @@ Não existe pendência funcional solicitada pelo usuário. Os próximos passos d
 ## INSTRUÇÃO PARA A IA QUE RECEBER ESTE DOCUMENTO
 
 Este documento representa o estado do trabalho no momento em que a conversa anterior foi encerrada. Considere todas as informações, decisões, regras, arquivos e pendências descritas aqui como contexto de continuidade. Não reinicie o projeto nem refaça etapas já concluídas sem necessidade. Continue a partir do ponto indicado em “Estado atual” e “Pendências e próximos passos”. Caso novas informações fornecidas pelo usuário entrem em conflito com este documento, priorize sempre as instruções mais recentes do usuário.
+
 ## 9. Atualizacao — qualidade e responsividade das imagens
 
 Data: 8 de setembro de 2026
@@ -603,3 +604,32 @@ Data: 8 de setembro de 2026
 - Se novas fotos originais da Biblioteca forem disponibilizadas, avaliar a substituicao das versoes restauradas atuais.
 - Capturas temporarias ficam em C:\\Users\\rafae\\AppData\\Local\\Temp e nao fazem parte do projeto.
 - Verificar a velocidade do site (pois a animação de scrollar esta travando muito)
+
+## 10. Atualização — desempenho da rolagem
+
+Data: 9 de setembro de 2026
+
+### O que foi feito
+
+- Investigada a pendência de travamentos durante a rolagem, com medição automatizada no Edge/Chromium em 1920 × 1080 e 390 × 844.
+- Identificado que, em Full HD, três fundos da home mudavam diretamente de aproximadamente 1000 px para 3200 px. Cards também tinham intervalos grandes entre as opções de 600 px e 3200 px, elevando o uso de memória após a melhoria de nitidez.
+- Criadas versões intermediárias WebP de 1600 × 1063/1064 para conteúdo e de 1920 × 1276 para Full HD. Os WebPs de 3200 × 2126 foram preservados para telas 4K.
+- Atualizados `srcset`, `sizes` e o preload da home para o navegador escolher a menor imagem adequada à área ocupada.
+- Em `style.css`, os fundos de 1920 px são usados entre 1600 e 2559 px; os fundos de 3200 px passam a ser usados somente a partir de 2560 px.
+- Em larguras intermediárias, a partir de 1200 px, os fundos usam as novas versões de 1600 px.
+- A mesma separação 1920/3200 foi aplicada aos heróis de Clube de Ciências, RPG e Robótica em `projetos/projetos.css`.
+- O desfoque compartilhado das superfícies de vidro foi reduzido de 30 px/145% para 14 px/125%, preservando o efeito com menor custo de composição.
+- A animação `.reveal` foi reduzida de 0,7 s/24 px para 0,5 s/18 px e passou a usar `translate3d`.
+- Em `comum.js`, entradas visíveis e efeitos de ponteiro/tilt passaram a ser agrupados com `requestAnimationFrame`, limitando atualizações ao ritmo de renderização do navegador.
+
+### Validação
+
+- Na medição Full HD da home, a rolagem ficou em 60 fps, sem quadros acima de 33 ms e com pior quadro de 16,8 ms. Antes do ajuste, havia quadro de 49,9 ms.
+- O navegador confirmou o uso dos três fundos de 1920 × 1276 em Full HD e das versões menores no celular.
+- Capturas do topo da home foram revisadas em 1920 × 1080 e 390 × 844.
+- Todas as referências locais de HTML e CSS apontam para arquivos existentes.
+- `node --check comum.js` e `git diff --check` passaram; permanecem apenas os avisos esperados de LF/CRLF.
+
+### Observação futura
+
+- Os dois mapas do Google e o visualizador local de PDF continuam como iframes com `loading="lazy"`. Em máquinas mais fracas, o carregamento desses componentes externos pode causar uma pausa isolada ao chegar perto deles. Alterar para carregamento somente após clique é uma opção futura, mas muda a experiência visual e não foi aplicado nesta etapa.
