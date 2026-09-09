@@ -633,3 +633,32 @@ Data: 9 de setembro de 2026
 ### Observação futura
 
 - Os dois mapas do Google e o visualizador local de PDF continuam como iframes com `loading="lazy"`. Em máquinas mais fracas, o carregamento desses componentes externos pode causar uma pausa isolada ao chegar perto deles. Alterar para carregamento somente após clique é uma opção futura, mas muda a experiência visual e não foi aplicado nesta etapa.
+
+## 11. Atualização — menu móvel e grafia de Gabriele
+
+Data: 9 de setembro de 2026
+
+### O que foi feito
+
+- Corrigida a ordem de empilhamento do cabeçalho compartilhado em `style.css`.
+- A regra base de `.topbar` passou a usar `position: relative` e `z-index: 20`.
+- Com isso, quando o menu responsivo é aberto, o painel de navegação permanece visualmente acima do título do hero, inclusive na home sobre “Colégio Estadual Euzébio da Mota”.
+- A declaração duplicada de `position: relative` que existia mais abaixo em `style.css` foi removida, mantendo a configuração da `.topbar` centralizada em uma única regra.
+
+### Validação
+
+- O menu aberto foi testado no Edge/Chromium com viewport real de `390 × 844`.
+- O teste confirmou que o menu sobrepõe a região do título na camada correta e recebe a interação nessa área.
+- A página permaneceu sem overflow horizontal: largura do documento e do viewport iguais a `390 px`.
+- `node --check comum.js` e `git diff --check` passaram; permanecem somente os avisos esperados de LF/CRLF.
+
+### Grafia de Gabriele
+
+- A correção de “Gabrielle” para “Gabriele” já estava concluída no código do site e não precisou ser refeita.
+- O arquivo atual é `projetos/clube-gabriele.html`.
+- Links internos, textos, classe de página, URL canônica e `sitemap.xml` usam “Gabriele”.
+- Uma busca nos arquivos HTML, CSS, JavaScript e XML não encontrou ocorrências restantes de “Gabrielle”.
+
+### Estado atual
+
+- O ajuste solicitado está concluído e não há implementação ativa pendente desta etapa.
