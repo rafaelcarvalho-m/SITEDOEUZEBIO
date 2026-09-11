@@ -69,6 +69,13 @@ p:not(.eyebrow),
   text-align: justify;
 }
 
+@media (max-width: 620px) {
+  p:not(.eyebrow),
+  .reference-group li {
+    text-align: left;
+  }
+}
+
 :focus-visible {
   outline: 3px solid var(--warm);
   outline-offset: 4px;
@@ -294,6 +301,22 @@ p:not(.eyebrow),
   width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
   margin: auto;
   padding: 112px 0;
+}
+
+.home-page #sobre,
+.home-page #agenda,
+.home-page #ensino,
+.home-page #projetos,
+.home-page #tour-360,
+.home-page #apoio,
+.home-page #biblioteca,
+.home-page #contato {
+  scroll-margin-top: 28px;
+}
+
+.home-page .section {
+  padding-top: 70px;
+  padding-bottom: 76px;
 }
 
 .section-divider {
@@ -553,7 +576,7 @@ p:not(.eyebrow),
 }
 
 .feature-banner {
-  min-height: 440px;
+  min-height: 380px;
   display: grid;
   place-items: center;
   text-align: center;
@@ -590,7 +613,7 @@ p:not(.eyebrow),
 }
 
 .cards-section {
-  padding-bottom: 120px;
+  padding-bottom: 78px;
 }
 
 .education-section,
@@ -603,10 +626,10 @@ p:not(.eyebrow),
   isolation: isolate;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
-  gap: clamp(48px, 7vw, 92px);
+  gap: clamp(40px, 6vw, 76px);
   align-items: center;
-  margin: 0 auto 120px;
-  padding: clamp(54px, 6vw, 78px);
+  margin: 0 auto 78px;
+  padding: clamp(46px, 5vw, 62px);
   overflow: hidden;
   border-radius: var(--radius);
   color: var(--white);
@@ -619,6 +642,10 @@ p:not(.eyebrow),
     var(--ink);
   box-shadow: var(--shadow);
   scroll-margin-top: 24px;
+}
+
+.home-page .home-support.section {
+  padding: clamp(38px, 4vw, 50px);
 }
 
 .home-support::before {
@@ -636,9 +663,9 @@ p:not(.eyebrow),
 
 .home-support-symbol {
   display: grid;
-  width: 58px;
-  height: 58px;
-  margin-bottom: 28px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 18px;
   place-items: center;
   border: 1px solid rgba(242, 145, 93, 0.55);
   border-radius: 50%;
@@ -667,14 +694,14 @@ p:not(.eyebrow),
 
 .home-support-description {
   max-width: 620px;
-  margin: 25px 0 0;
+  margin: 18px 0 0;
   color: rgba(255, 255, 255, 0.78);
   text-align: left;
 }
 
 .home-support-action {
   align-self: flex-start;
-  margin-top: 30px;
+  margin-top: 22px;
 }
 
 .home-support-action:hover {
@@ -689,10 +716,10 @@ p:not(.eyebrow),
 
 .home-support-card {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 18px;
+  grid-template-columns: 42px 1fr;
+  gap: 14px;
   align-items: start;
-  padding: 22px;
+  padding: 17px 18px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.055);
@@ -712,8 +739,8 @@ p:not(.eyebrow),
 
 .home-support-card > i {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   place-items: center;
   border-radius: 50%;
   color: var(--warm-light);
@@ -788,16 +815,20 @@ p:not(.eyebrow),
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
   margin-top: 24px;
-  margin-bottom: 112px;
+  margin-bottom: 78px;
   padding: 0;
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
+.home-page .home-library.section {
+  padding: 0;
+}
+
 .home-library-image {
   position: relative;
-  min-height: 470px;
+  min-height: 410px;
   margin: 0;
   overflow: hidden;
   background: var(--ink);
@@ -814,7 +845,7 @@ p:not(.eyebrow),
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 470px;
+  min-height: 410px;
   object-fit: cover;
   transition: transform 0.55s ease;
 }
@@ -847,8 +878,8 @@ p:not(.eyebrow),
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 470px;
-  padding: clamp(42px, 5vw, 72px);
+  min-height: 410px;
+  padding: clamp(38px, 4.5vw, 58px);
   color: var(--white);
   background: var(--ink);
 }
@@ -886,7 +917,7 @@ p:not(.eyebrow),
 }
 
 .section-intro {
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .card-grid {
@@ -905,7 +936,7 @@ p:not(.eyebrow),
 .content-card {
   position: relative;
   display: block;
-  min-height: 330px;
+  min-height: 300px;
   overflow: hidden;
   border-radius: var(--radius);
   text-decoration: none;
@@ -1633,8 +1664,13 @@ footer {
     padding: 132px 0;
   }
 
+  .home-page .section {
+    padding-top: 88px;
+    padding-bottom: 96px;
+  }
+
   .feature-banner {
-    min-height: 520px;
+    min-height: 440px;
   }
 
   .calendar-pdf iframe {
@@ -1648,11 +1684,11 @@ footer {
   .home-library-image,
   .home-library-image img,
   .home-library-copy {
-    min-height: 560px;
+    min-height: 480px;
   }
 
   .content-card {
-    min-height: 390px;
+    min-height: 330px;
   }
 
   .location-panel,
@@ -1734,6 +1770,11 @@ footer {
     padding: 190px 0;
   }
 
+  .home-page .section {
+    padding-top: 118px;
+    padding-bottom: 128px;
+  }
+
   .about-grid,
   .calendar-section,
   .tour-section {
@@ -1741,7 +1782,7 @@ footer {
   }
 
   .feature-banner {
-    min-height: 720px;
+    min-height: 560px;
   }
 
   .calendar-pdf iframe {
@@ -1755,7 +1796,7 @@ footer {
   .home-library-image,
   .home-library-image img,
   .home-library-copy {
-    min-height: 700px;
+    min-height: 600px;
   }
 
   .card-grid {
@@ -1763,7 +1804,7 @@ footer {
   }
 
   .content-card {
-    min-height: 520px;
+    min-height: 420px;
   }
 
   .card-content {
@@ -1934,6 +1975,11 @@ footer {
     padding: 76px 0;
   }
 
+  .home-page .section {
+    padding-top: 54px;
+    padding-bottom: 60px;
+  }
+
   .about-grid,
   .calendar-section,
   .tour-section,
@@ -1944,9 +1990,14 @@ footer {
   }
 
   .home-support {
-    gap: 42px;
-    margin-bottom: 76px;
-    padding: 52px 30px;
+    gap: 32px;
+    margin-bottom: 60px;
+    padding: 40px 26px;
+  }
+
+  .home-page .home-support.section {
+    gap: 26px;
+    padding: 32px 22px;
   }
 
   .calendar-section {
@@ -1975,17 +2026,17 @@ footer {
 
   .home-library {
     margin-top: 8px;
-    margin-bottom: 76px;
+    margin-bottom: 60px;
   }
 
   .home-library-image,
   .home-library-image img {
-    min-height: 360px;
+    min-height: 320px;
   }
 
   .home-library-copy {
     min-height: 0;
-    padding: 48px 32px 52px;
+    padding: 40px 28px 44px;
   }
 
   .about-grid {
@@ -2011,7 +2062,7 @@ footer {
   }
 
   .feature-banner {
-    min-height: 330px;
+    min-height: 300px;
   }
 
   .three-columns,
@@ -2020,7 +2071,7 @@ footer {
   }
 
   .content-card {
-    min-height: 285px;
+    min-height: 260px;
   }
 
   .education-section,
@@ -2033,7 +2084,7 @@ footer {
   }
 
   .cards-section {
-    padding-bottom: 76px;
+    padding-bottom: 60px;
   }
 
   .location-panel,

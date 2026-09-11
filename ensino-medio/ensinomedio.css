@@ -6,7 +6,7 @@
 
 .technical-page #apresentacao,
 .technical-page #cursos {
-  scroll-margin-top: 0;
+  scroll-margin-top: 28px;
 }
 
 .technical-page .technical-hero {
@@ -87,6 +87,11 @@
   grid-template-columns: 0.92fr 1.08fr;
   gap: clamp(44px, 7vw, 92px);
   align-items: center;
+}
+
+.technical-intro.section {
+  padding-top: 72px;
+  padding-bottom: 78px;
 }
 
 .technical-intro h2,
@@ -188,6 +193,7 @@
 }
 
 .technical-courses.section {
+  padding-top: 72px;
   padding-bottom: 64px;
 }
 
@@ -204,7 +210,7 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: clamp(36px, 7vw, 96px);
   align-items: end;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .technical-courses-heading .eyebrow {
@@ -222,7 +228,7 @@
 }
 
 .technical-course-card {
-  min-height: 330px;
+  min-height: 300px;
   border-top: 4px solid var(--warm);
   cursor: pointer;
 }
@@ -319,7 +325,12 @@
 
   .technical-intro {
     grid-template-columns: 1fr;
-    gap: 64px;
+    gap: 48px;
+  }
+
+  .technical-intro.section {
+    padding-top: 56px;
+    padding-bottom: 62px;
   }
 
   .technical-intro-copy,
@@ -330,7 +341,7 @@
   .technical-courses-heading {
     grid-template-columns: 1fr;
     gap: 22px;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .technical-courses-heading > p {
@@ -341,10 +352,15 @@
     grid-template-columns: 1fr;
   }
 
+  .technical-courses.section {
+    padding-top: 58px;
+    padding-bottom: 60px;
+  }
+
   .technical-course-card,
   .technical-course-card:last-child {
     grid-column: auto;
-    min-height: 285px;
+    min-height: 260px;
   }
 }
 
@@ -379,7 +395,7 @@
 
   .technical-course-card,
   .technical-course-card:last-child {
-    min-height: 270px;
+    min-height: 250px;
   }
 
   .technical-course-card .card-content {
@@ -398,7 +414,7 @@
   }
 
   .technical-course-card {
-    min-height: 390px;
+    min-height: 340px;
   }
 }
 

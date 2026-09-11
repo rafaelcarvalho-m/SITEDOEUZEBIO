@@ -643,6 +643,69 @@
   color: var(--white);
 }
 
+/* Ritmo compacto e âncoras consistentes nas páginas de Ensino. */
+.education-detail-page #informacoes,
+.education-detail-page #disciplinas,
+.education-detail-page #formacao {
+  scroll-margin-top: 28px;
+}
+
+.education-detail-page .detail-overview {
+  gap: clamp(36px, 6vw, 78px);
+  padding-top: 70px;
+  padding-bottom: 76px;
+}
+
+.education-detail-page .detail-subjects .section {
+  padding-top: 60px;
+  padding-bottom: 68px;
+}
+
+.education-detail-page .subject-card {
+  min-height: 108px;
+  padding: 17px;
+}
+
+.education-detail-page .detail-path-spaced {
+  padding-top: 66px;
+  padding-bottom: 72px;
+}
+
+.education-detail-page .detail-cta {
+  padding: 68px 0;
+}
+
+/* Ritmo vertical específico da página de Desenvolvimento de Sistemas. */
+.systems-detail-page #informacoes,
+.systems-detail-page #disciplinas {
+  scroll-margin-top: 28px;
+}
+
+.systems-detail-page .detail-overview {
+  gap: clamp(36px, 6vw, 78px);
+  padding-top: 70px;
+  padding-bottom: 76px;
+}
+
+.systems-detail-page .detail-subjects .section {
+  padding-top: 86px;
+  padding-bottom: 94px;
+}
+
+.systems-detail-page .subject-card {
+  min-height: 128px;
+  padding: 20px;
+}
+
+.systems-detail-page .detail-path-spaced {
+  padding-top: 68px;
+  padding-bottom: 76px;
+}
+
+.systems-detail-page .detail-cta {
+  padding: 68px 0;
+}
+
 .legal-page .internal-hero {
   background: linear-gradient(125deg, #59645e, var(--footer-gray));
   color: var(--white);
@@ -842,8 +905,22 @@
 
 @media (max-width: 520px) {
   .detail-hero-content h1 {
-    overflow-wrap: anywhere;
-    font-size: clamp(2.5rem, 14vw, 3.8rem);
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+    font-size: clamp(2.25rem, 11vw, 3rem);
+  }
+
+  .title-only-detail-page .detail-hero-content h1 {
+    transform: translateX(3px);
+  }
+
+  .systems-detail-page .detail-hero-content h1 {
+    font-size: clamp(1.65rem, 8.2vw, 2.25rem);
+  }
+
+  .administration-detail-page .detail-hero-content h1 {
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
   }
 
   .detail-steps {
@@ -903,7 +980,7 @@
 
 .regular-page #sobre,
 .regular-page #areas {
-  scroll-margin-top: 0;
+  scroll-margin-top: 28px;
 }
 
 .showcase-page .showcase-hero {
@@ -975,6 +1052,11 @@
   grid-template-columns: 0.88fr 1.12fr;
   gap: clamp(42px, 8vw, 110px);
   align-items: center;
+}
+
+.regular-page .showcase-intro {
+  padding-top: 72px;
+  padding-bottom: 78px;
 }
 
 .showcase-heading h2 {
@@ -1061,6 +1143,7 @@
 }
 
 .regular-areas.section {
+  padding-top: 72px;
   padding-bottom: 64px;
 }
 
@@ -1077,7 +1160,7 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: clamp(36px, 7vw, 96px);
   align-items: end;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 }
 
 .regular-areas-heading .eyebrow {
@@ -1107,7 +1190,7 @@
 }
 
 .regular-area-card {
-  min-height: 330px;
+  min-height: 300px;
   border-top: 4px solid var(--warm);
   cursor: pointer;
 }
@@ -1188,10 +1271,15 @@
     gap: 34px;
   }
 
+  .regular-page .showcase-intro {
+    padding-top: 56px;
+    padding-bottom: 62px;
+  }
+
   .regular-areas-heading {
     grid-template-columns: 1fr;
     gap: 22px;
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .regular-areas-heading > p {
@@ -1202,8 +1290,13 @@
     grid-template-columns: 1fr;
   }
 
+  .regular-areas.section {
+    padding-top: 58px;
+    padding-bottom: 60px;
+  }
+
   .regular-area-card {
-    min-height: 285px;
+    min-height: 260px;
   }
 }
 
@@ -1221,7 +1314,7 @@
   }
 
   .regular-area-card {
-    min-height: 270px;
+    min-height: 250px;
   }
 
   .regular-area-card .card-content {
@@ -1331,5 +1424,66 @@
 
   .detail-cta {
     padding: 160px 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .education-detail-page .detail-overview {
+    gap: 32px;
+    padding-top: 54px;
+    padding-bottom: 60px;
+  }
+
+  .education-detail-page .detail-subjects .section {
+    padding-top: 52px;
+    padding-bottom: 58px;
+  }
+
+  .education-detail-page .subject-card {
+    min-height: 104px;
+    padding: 14px;
+  }
+
+  .education-detail-page .detail-path-spaced {
+    padding-top: 56px;
+    padding-bottom: 62px;
+  }
+
+  .education-detail-page .detail-cta {
+    padding: 58px 0;
+  }
+
+  .systems-detail-page .detail-subjects .section {
+    padding-top: 68px;
+    padding-bottom: 74px;
+  }
+
+  .systems-detail-page .subject-card {
+    min-height: 116px;
+    padding: 17px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .systems-detail-page .detail-subjects .section {
+    padding-top: 98px;
+    padding-bottom: 106px;
+  }
+
+  .systems-detail-page .subject-card {
+    min-height: 154px;
+    padding: 26px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .systems-detail-page .detail-subjects .section {
+    padding-top: 130px;
+    padding-bottom: 140px;
+  }
+
+  .systems-detail-page .subject-card {
+    min-height: 210px;
+    padding: 36px;
   }
 }

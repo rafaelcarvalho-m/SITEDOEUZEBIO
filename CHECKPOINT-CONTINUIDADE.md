@@ -662,3 +662,103 @@ Data: 9 de setembro de 2026
 ### Estado atual
 
 - O ajuste solicitado está concluído e não há implementação ativa pendente desta etapa.
+
+## 12. Atualização — consistência visual e conteúdo definitivo
+
+Data: 10 de setembro de 2026
+
+### O que foi feito
+
+- Revisadas visualmente as 20 páginas do site em desktop (`1440 × 1000`) e celular (`390 × 844`), preservando as variações de cor intencionais.
+- Corrigidos os títulos longos das páginas de Desenvolvimento de Sistemas, Administração e dos clubes para impedir cortes e quebras no meio de palavras em telas pequenas.
+- Removidos textos `Lorem ipsum`, avisos de conteúdo temporário e painéis de “em atualização” em Sobre Nós, Humanas, Alimentos, RPG, Robótica, Gabriele e Marlene; informações variáveis agora orientam a consulta à equipe do colégio sem inventar dados.
+- Substituída a imagem de computadores da página de Alimentos por uma composição editorial temática em WebP. A página de Referências identifica explicitamente a geração por IA e informa que a imagem não representa as instalações do colégio.
+- Alimentos e Humanas receberam cartões de formação completos, alinhados ao padrão visual das demais páginas.
+- Referências recebeu hero escuro, título em Archivo Black e hierarquia tipográfica compatível com o restante do site, sem alterar a composição especial do rodapé.
+- Reduzidos os espaços verticais excessivos nas seções de iniciativas e encerramento de Sobre Nós.
+- A página 404 recebeu chamada principal e rodapé completo.
+- Parágrafos e itens de referências deixam de usar texto justificado em telas estreitas, evitando espaçamentos irregulares entre palavras.
+
+### Validação
+
+- Todas as páginas foram recapturadas após as alterações; os títulos longos também passaram por uma segunda captura móvel específica.
+- Todas as referências locais de `href` e `src` apontam para arquivos existentes.
+- `Prettier` e `git diff --check` passaram; permanecem apenas os avisos esperados de LF/CRLF.
+- A busca global não encontrou `Lorem ipsum`, “Conteúdo temporário”, “Conteúdo em construção” nem avisos de conteúdo “em atualização” nos arquivos HTML.
+
+### Estado atual
+
+- A revisão de consistência solicitada está concluída.
+
+## 13. Atualização — recorte do emblema do Clube de Ciências
+
+Data: 10 de setembro de 2026
+
+### O que foi feito
+
+- O fundo azul-quadrado da imagem interna do Clube de Ciências foi removido com edição assistida por IA.
+- O novo recorte transparente foi salvo em WebP com `840 × 840` e aproximadamente 71 KB; o JPEG original foi preservado.
+- A moldura e a sombra retangulares foram removidas apenas dessa imagem, mantendo o emblema integrado ao fundo creme da página.
+- O carregamento deixou de ser adiado porque a imagem aparece próxima ao início do conteúdo.
+- As dimensões responsivas foram confirmadas em `420 × 420` no desktop e `340 × 340` no celular, sem corte ou deformação.
+
+### Estado atual
+
+- A substituição da imagem e a validação responsiva estão concluídas.
+
+## 14. Atualização — compactação, âncoras e sequência dos headers
+
+Data: 10 de setembro de 2026
+
+### O que foi feito
+
+- Os blocos de Sobre Nós foram compactados para que a navegação por âncoras não deixe o conteúdo principal cortado ou excessivamente afastado após um clique no header.
+- As imagens da seção Iniciativas receberam mais distância em relação aos cards de texto, preservando uma separação visual clara no desktop e no celular.
+- A mesma revisão de altura, espaçamento e âncoras foi aplicada às páginas do Ensino Técnico e do Ensino Regular.
+- As páginas internas de Administração, Alimentos, Desenvolvimento de Sistemas, Exatas e Humanas receberam uma classe comum para manter os ajustes restritos às páginas de ensino.
+- Em Desenvolvimento de Sistemas, a seção Disciplinas foi deliberadamente ampliada em vez de compactada, com cards e respiros maiores em todos os tamanhos de tela.
+- A sequência dos links nos headers das páginas internas foi corrigida para acompanhar a ordem real do conteúdo: Informações aparece antes de Disciplinas ou Formação.
+- Os headers das páginas de entrada do Ensino Técnico e do Ensino Regular também foram conferidos e já estavam na sequência correta.
+
+### Validação
+
+- Sobre Nós, Ensino Técnico, Ensino Regular e as cinco páginas internas foram revisados em `1440 × 1000` e `390 × 844`.
+- Não foram encontrados cortes, sobreposições ou overflow horizontal nas capturas finais.
+- Os arquivos alterados passaram pelo Prettier sem mudanças adicionais.
+
+### Estado atual
+
+- A compactação, a exceção ampliada de Disciplinas e a sequência dos headers estão concluídas em todas as páginas solicitadas.
+
+## 15. Atualização — compactação da Home, Apoio e Biblioteca
+
+Data: 10 de setembro de 2026
+
+### O que foi feito
+
+- A Home recebeu o mesmo padrão de compactação aplicado às páginas de ensino, com redução dos respiros das seções, banners, cards, Apoio, Biblioteca e contato.
+- As seções da Home, Apoio e Biblioteca receberam margens de rolagem uniformes para que os títulos não fiquem cortados ao navegar pelo header.
+- A página Apoio teve o hero reduzido e o conjunto formado por título, descrição e botão centralizado, seguindo a métrica visual dos outros heróis do site.
+- Os cards, blocos de conteúdo, galerias e chamadas de Apoio e Biblioteca foram compactados em desktop, celular, Full HD e telas maiores.
+- Na Home, a especificidade das regras de Apoio e Biblioteca foi corrigida para impedir que o padding geral das seções aumente novamente esses dois componentes.
+- O retângulo de Apoio foi reduzido, incluindo ícone, respiros e cards internos; a Biblioteca voltou a usar `padding: 0`, deixando o conteúdo centralizado verticalmente sem faixas vazias.
+- A ordem dos headers foi conferida com a ordem real das seções e já estava correta nas três páginas.
+- Os links de Facebook dos rodapés de Apoio e Biblioteca passaram a usar o mesmo endereço real utilizado na Home.
+
+### Conteúdo ainda não informado
+
+- O site ainda não possui um endereço oficial de Instagram; os quatro acessos de Instagram dessas páginas continuam sem destino real.
+- A página Apoio não informa horários, disponibilidade, responsáveis ou critérios operacionais confirmados e orienta o contato com a equipe pedagógica.
+- A página Biblioteca não informa horários de funcionamento, catálogo, regras de empréstimo/devolução ou contato específico da equipe.
+- Os textos de carregamento da previsão do tempo na Home são estados temporários substituídos pelo JavaScript, e não conteúdo editorial pendente.
+
+### Validação
+
+- As três páginas foram revisadas em `1440 × 1000` e `390 × 844`.
+- Todas as âncoras do header existem, seguem a ordem do documento e abrem com `28 px` de margem superior.
+- Nenhuma das páginas apresentou overflow horizontal.
+- Após o refinamento final da Home, o bloco de Apoio caiu de `640 px` para `567 px` no desktop e de `1111 px` para `952 px` no celular; o bloco da Biblioteca caiu de `772 px` para `626 px` e de `866 px` para `752 px`, respectivamente.
+
+### Estado atual
+
+- A compactação, o posicionamento e a revisão dos headers estão concluídos; permanecem pendentes somente os dados institucionais que não podem ser preenchidos sem confirmação da escola.
