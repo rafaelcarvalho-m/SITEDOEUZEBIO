@@ -2,13 +2,13 @@
 
 /* Clube de Ciências */
 .science-page {
-  --science-navy: #0b4f6c;
-  --science-petrol: #087c9e;
-  --science-petrol-light: #4aa6be;
-  --science-cream: #f0e0c0;
-  --science-cream-light: #fff5e3;
-  --science-orange: #d07000;
-  --science-orange-light: #e58c2f;
+  --science-navy: #101813;
+  --science-petrol: #e9681b;
+  --science-petrol-light: #ff9a5c;
+  --science-cream: #f1ddc8;
+  --science-cream-light: #fff7ef;
+  --science-orange: #e9681b;
+  --science-orange-light: #ff9a5c;
 
   /* A paleta da logo substitui o tema global somente nesta página. */
   --ink: var(--science-navy);
@@ -18,11 +18,11 @@
   --warm-soft: var(--science-cream);
   --green: var(--science-petrol);
   --green-light: var(--science-petrol-light);
-  --muted: #58717c;
-  --line: rgba(11, 79, 108, 0.16);
-  --text-secondary: #3e5c68;
-  --glass-dark: rgba(240, 224, 192, 0.76);
-  --glass-deep: rgba(231, 211, 178, 0.84);
+  --muted: #6f5c50;
+  --line: rgba(233, 104, 27, 0.16);
+  --text-secondary: #654f43;
+  --glass-dark: rgba(241, 221, 200, 0.76);
+  --glass-deep: rgba(234, 207, 178, 0.84);
   --glass-text: var(--science-navy);
   --glass-text-secondary: #3c5c69;
 
@@ -66,7 +66,7 @@
 }
 
 .science-page .section-divider {
-  border-top-color: rgba(0, 80, 112, 0.24);
+  border-top-color: rgba(233, 104, 27, 0.3);
 }
 
 .science-page .science-about .image-frame {
@@ -80,11 +80,11 @@
 }
 
 .science-page .science-about .image-frame img {
-  aspect-ratio: 1;
+  aspect-ratio: 600 / 399;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  box-shadow: none;
+  box-shadow: var(--shadow);
 }
 
 .science-page .science-about .about-card {
@@ -145,7 +145,7 @@
 }
 
 .science-page .content-card:hover {
-  box-shadow: 0 22px 42px rgba(8, 124, 158, 0.3);
+  box-shadow: 0 22px 42px rgba(233, 104, 27, 0.36);
 }
 
 .science-page .nav-links a:hover {
@@ -155,7 +155,7 @@
 .science-page .nav-toggle:hover {
   color: var(--science-petrol-light);
   border-color: var(--science-petrol-light);
-  background: rgba(74, 166, 190, 0.16);
+  background: rgba(246, 184, 137, 0.16);
 }
 
 .science-page .footer-main a:hover {
@@ -169,11 +169,11 @@
 .science-page .footer-top:hover {
   background: var(--science-petrol);
   border-color: var(--science-petrol-light);
-  box-shadow: 0 14px 28px rgba(8, 124, 158, 0.32);
+  box-shadow: 0 14px 28px rgba(233, 104, 27, 0.38);
 }
 
 .science-page .footer-top:active {
-  box-shadow: 0 5px 12px rgba(8, 124, 158, 0.24);
+  box-shadow: 0 5px 12px rgba(233, 104, 27, 0.3);
 }
 
 .science-page :focus-visible {

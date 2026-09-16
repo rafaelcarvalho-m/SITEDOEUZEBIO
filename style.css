@@ -768,7 +768,7 @@ p:not(.eyebrow),
 }
 
 .projects-section .science-card:hover i {
-  color: #087c9e;
+  color: var(--warm);
 }
 
 .tour-section {

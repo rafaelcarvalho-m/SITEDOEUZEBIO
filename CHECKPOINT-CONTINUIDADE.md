@@ -762,3 +762,59 @@ Data: 10 de setembro de 2026
 ### Estado atual
 
 - A compactação, o posicionamento e a revisão dos headers estão concluídos; permanecem pendentes somente os dados institucionais que não podem ser preenchidos sem confirmação da escola.
+
+## 16. Atualização — projetos dos Clubes de Ciências
+
+Data: 16 de setembro de 2026
+
+### Clube de Ciências geral
+
+- Os cards da página `projetos/clube-de-ciencias.html` foram mantidos no formato original: foto, título, ícone e acesso direto às páginas de Gabriele e Marlene.
+- A logo azul específica da professora Gabriele foi retirada da página geral e mantida somente em `projetos/clube-gabriele.html`.
+- A página geral mantém o tema laranja institucional.
+
+### Página da professora Gabriele
+
+- A página `projetos/clube-gabriele.html` mantém sua identidade azul.
+- O texto original da proposta foi preservado.
+- Foi criada uma seção própria, separada por `<hr>`, com a logo azul maior à esquerda e texto provisório em Lorem ipsum à direita.
+- Essa seção usa fundo branco padrão, sem círculo, borda ou fundo azul atrás da logo, e se reorganiza verticalmente no celular.
+
+### Página da professora Marlene
+
+- A página `projetos/clube-marlene.html` passou a usar laranja institucional em todos os elementos antes azuis: acentos, títulos, navegação, hover dos cards, cards de percurso, etapas, chamada final, rodapé, foco e controles.
+- A página mantém a classe compartilhada `detail-blue` para preservar a estrutura, mas possui variáveis laranja específicas em `.marlene-page`; a página de Gabriele continua azul.
+- O tema do navegador da página foi atualizado para `#c95a16`.
+- A galeria foi reduzida a quatro cards representativos: Horta em pneus, Canteiro de cultivo, Estrutura de observação e Estufa.
+- O card de Mudas em desenvolvimento foi removido, e o Canteiro de cultivo passou a usar `marlene-canteiro-02-600x399.webp`.
+- A foto original `_DSC3829.JPG` foi preservada e exportada para WebP responsivo da Estufa em 600, 1600, 1920 e 3200 px.
+- As imagens dos quatro cards são clicáveis e usam o lightbox compartilhado de `comum.js`, com ampliação, legenda, navegação e restauração de foco.
+- Os botões `Saiba mais` usam `<details>` acessível, com texto provisório em Lorem ipsum, seta animada no hover e indicação de fechamento quando abertos.
+- Os cards usam três colunas no desktop, duas em telas intermediárias e uma no celular. A galeria e a seção de cards usam fundo branco padrão.
+
+### Ajustes adicionais desta continuidade
+
+- A imagem temática gerada por IA da página de Alimentos foi removida, assim como suas referências em `referencias/referencias.html`; o WebP correspondente foi excluído.
+- A página `404.html` teve CSS, logo, favicon e links corrigidos para funcionar quando a rota inexistente for exibida em subpastas publicadas.
+- Os JPGs originais das fotos de Marlene foram preservados na pasta `projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene`; as versões WebP são derivadas para uso no site.
+
+### Validação
+
+- Caminhos das imagens usadas pela galeria foram conferidos no disco.
+- `git diff --check` passou; os avisos de LF/CRLF continuam sendo os avisos esperados do PowerShell/Git.
+- Não foram alteradas as identidades azuis específicas de Gabriele nem os demais clubes do projeto.
+
+## 17. Atualização — laranja mais vivo no Clube de Ciências geral
+
+Data: 16 de setembro de 2026
+
+### O que foi feito
+
+- O laranja da página geral `projetos/clube-de-ciencias.html` foi intensificado para ficar mais vivo e próximo da presença visual da página da Marlene.
+- As variáveis próprias da página passaram a usar `#e9681b` como laranja principal e `#ff9a5c` como laranja claro para destaques, hovers e ícones.
+- Divisor, sombra dos cards e estados de hover do botão de retorno ao topo também receberam o novo tom mais luminoso.
+- A alteração ficou restrita ao escopo `.science-page`; as páginas de Gabriele e Marlene não tiveram suas variáveis alteradas nesta etapa.
+
+### Validação
+
+- `git diff --check` foi executado após a alteração.

@@ -283,6 +283,14 @@
   --detail-accent-soft: rgba(8, 124, 158, 0.14);
 }
 
+.detail-page.detail-blue.marlene-page {
+  --club-blue-dark: #8f3d0f;
+  --club-blue: #c95a16;
+  --club-blue-light: #f6b889;
+  --detail-accent: var(--club-blue);
+  --detail-accent-soft: rgba(201, 90, 22, 0.14);
+}
+
 .detail-hero {
   position: relative;
   isolation: isolate;
@@ -395,6 +403,42 @@
   margin: 24px 0 0;
   color: var(--text-secondary);
   font-size: 1rem;
+}
+
+.gabriele-club-showcase {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+.gabriele-club-feature {
+  display: grid;
+  grid-template-columns: minmax(380px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(84px, 11vw, 170px);
+  align-items: center;
+  width: min(var(--content-max), calc(100% - var(--layout-gutter)));
+  margin: 0 auto;
+}
+
+.gabriele-club-mark {
+  width: min(480px, 100%);
+  margin: 0;
+  padding: 0;
+}
+
+.gabriele-club-mark img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gabriele-club-feature-copy p {
+  margin: 0;
+  padding: 12px 0 12px 32px;
+  border-left: 3px solid var(--club-blue);
+  color: var(--text-secondary);
+  font-size: 1.12rem;
+  line-height: 1.85;
 }
 
 .detail-updated {
@@ -751,6 +795,146 @@
   color: var(--club-blue);
 }
 
+.marlene-gallery-heading,
+.marlene-gallery-grid {
+  width: min(var(--content-max), calc(100% - var(--layout-gutter)));
+  margin-inline: auto;
+}
+
+.marlene-gallery-heading {
+  max-width: 740px;
+  margin-bottom: 34px;
+}
+
+.marlene-gallery-heading h2 {
+  margin: 10px 0 14px;
+  font-family: "Archivo Black", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+.marlene-gallery-heading h2 em {
+  color: var(--club-blue);
+  font-style: normal;
+}
+
+.marlene-gallery-heading > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.marlene-gallery-placeholder {
+  margin-top: 12px !important;
+  color: color-mix(in srgb, var(--muted) 80%, transparent) !important;
+  font-style: italic;
+}
+
+.marlene-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.marlene-gallery-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(8, 124, 158, 0.2);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.marlene-gallery-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 600 / 399;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.marlene-gallery-card-image-link {
+  display: block;
+  overflow: hidden;
+}
+
+.marlene-gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.marlene-gallery-card-copy {
+  padding: 22px;
+}
+
+.marlene-gallery-card-copy h3 {
+  margin: 0 0 16px;
+  color: var(--club-blue);
+  font-family: "Archivo Black", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.12;
+}
+
+.marlene-gallery-card details summary {
+  width: max-content;
+  cursor: pointer;
+  list-style: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.marlene-gallery-card details summary::-webkit-details-marker {
+  display: none;
+}
+
+.marlene-gallery-card details summary::after {
+  content: "→";
+  margin-left: 10px;
+  font-size: 1.05em;
+  transition: transform 0.25s ease;
+}
+
+.marlene-gallery-card details summary:hover,
+.marlene-gallery-card details summary:focus-visible {
+  color: var(--white);
+  background: var(--club-blue);
+  box-shadow: 0 12px 22px rgba(8, 124, 158, 0.28);
+  transform: translateY(-3px);
+}
+
+.marlene-gallery-card details summary:hover::after,
+.marlene-gallery-card details summary:focus-visible::after {
+  transform: translateX(4px);
+}
+
+.marlene-gallery-card details[open] summary {
+  color: var(--white);
+  background: var(--club-blue);
+}
+
+.marlene-gallery-card details[open] summary::after {
+  content: "×";
+  transform: none;
+}
+
+.marlene-gallery-card-panel {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--club-blue);
+  background: #edf5f5;
+}
+
+.marlene-gallery-card-panel p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
 .detail-blue .detail-hero::after {
   background:
     linear-gradient(105deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.38)),
@@ -830,6 +1014,36 @@
   box-shadow: 0 5px 12px rgba(8, 124, 158, 0.22);
 }
 
+.marlene-page .marlene-gallery-card {
+  border-color: rgba(201, 90, 22, 0.2);
+}
+
+.marlene-page .marlene-gallery-card details summary:hover,
+.marlene-page .marlene-gallery-card details summary:focus-visible {
+  box-shadow: 0 12px 22px rgba(201, 90, 22, 0.28);
+}
+
+.marlene-page .marlene-gallery-card-panel {
+  background: #fff7ef;
+}
+
+.marlene-page .nav-toggle:hover {
+  background: rgba(246, 184, 137, 0.16);
+}
+
+.marlene-page .subject-card:hover,
+.marlene-page .detail-steps li:hover {
+  box-shadow: 0 18px 34px rgba(201, 90, 22, 0.3);
+}
+
+.marlene-page .footer-top:hover {
+  box-shadow: 0 14px 28px rgba(201, 90, 22, 0.3);
+}
+
+.marlene-page .footer-top:active {
+  box-shadow: 0 5px 12px rgba(201, 90, 22, 0.22);
+}
+
 @media (min-width: 1201px) {
   .legal-page .footer-main {
     grid-template-columns: 1.1fr 0.12fr 1.25fr 1fr 1.4fr;
@@ -869,6 +1083,29 @@
 }
 
 @media (max-width: 800px) {
+  .gabriele-club-feature {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .gabriele-club-showcase {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .gabriele-club-mark {
+    width: min(420px, 88vw);
+    justify-self: center;
+  }
+
+  .gabriele-club-feature-copy p {
+    padding-left: 24px;
+  }
+
+  .marlene-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .detail-hero {
     min-height: 580px;
   }
@@ -904,6 +1141,15 @@
 }
 
 @media (max-width: 520px) {
+  .marlene-gallery-heading {
+    margin-bottom: 26px;
+  }
+
+  .marlene-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .detail-hero-content h1 {
     overflow-wrap: normal;
     word-break: normal;
