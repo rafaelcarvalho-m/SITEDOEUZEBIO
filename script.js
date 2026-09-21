@@ -15,6 +15,40 @@ document.addEventListener("click", (event) => {
   }
 });
 
+document.querySelectorAll("[data-events-carousel]").forEach((carousel) => {
+  const track = carousel.querySelector(".events-track");
+  // Todos os cards presentes no HTML entram no carrossel; não há limite fixo.
+  const slides = [...carousel.querySelectorAll("[data-event-slide]")];
+  const previousButton = carousel.querySelector("[data-events-previous]");
+  const nextButton = carousel.querySelector("[data-events-next]");
+  const position = carousel.querySelector("[data-events-position]");
+
+  if (!track || !slides.length || !previousButton || !nextButton || !position) {
+    return;
+  }
+
+  let currentSlide = 0;
+  const hasMultipleSlides = slides.length > 1;
+
+  const showSlide = (index) => {
+    currentSlide = Math.max(0, Math.min(index, slides.length - 1));
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    position.textContent = `${currentSlide + 1} / ${slides.length}`;
+    previousButton.disabled = !hasMultipleSlides || currentSlide === 0;
+    nextButton.disabled =
+      !hasMultipleSlides || currentSlide === slides.length - 1;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.setAttribute("aria-hidden", String(slideIndex !== currentSlide));
+      slide.toggleAttribute("inert", slideIndex !== currentSlide);
+    });
+  };
+
+  previousButton.addEventListener("click", () => showSlide(currentSlide - 1));
+  nextButton.addEventListener("click", () => showSlide(currentSlide + 1));
+  showSlide(0);
+});
+
 navDropdown?.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     navDropdown.open = false;

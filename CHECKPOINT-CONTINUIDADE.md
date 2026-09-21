@@ -818,3 +818,57 @@ Data: 16 de setembro de 2026
 ### Validação
 
 - `git diff --check` foi executado após a alteração.
+
+## 18. Atualização — mural de eventos na Home
+
+Data: 21 de setembro de 2026
+
+### O que foi feito
+
+- Inserida a seção `#eventos` como a primeira seção da Home, imediatamente após o hero e antes de `#sobre`.
+- Criado um carrossel manual e acessível em `index.html`, com controles anterior/próximo, posição anunciada e suporte automático a novos cards.
+- Como não foram fornecidas datas ou eventos oficiais, o card atual é apenas uma imagem de teste; nenhum compromisso foi inventado.
+- Adicionado um comentário de manutenção no HTML: para publicar um evento, basta duplicar um `<article data-event-slide>` e atualizar data, título, texto e link. Não é necessário alterar o JavaScript.
+- A lógica fica em `script.js`; os controles ficam desativados enquanto houver apenas um card e passam a funcionar ao inserir mais eventos. Cards fora da visualização recebem `inert`, evitando foco em conteúdo oculto.
+- Os estilos responsivos e visuais ficam em `style.css`, seguindo o tema institucional laranja, verde-escuro e superfícies claras.
+- O atalho para Eventos foi colocado no menu `Explorar`, preservando o espaço do cabeçalho em larguras intermediárias.
+- Cards futuros podem receber fotografias próprias com a classe `has-event-image` e uma `<figure class="event-image">`; o CSS usa `object-fit: cover`, mantém o recorte responsivo e preserva o layout sem imagem para comunicados simples.
+- As fotografias dos eventos devem ser salvas na pasta `eventos/`, na raiz do projeto, para ficarem fáceis de localizar no Explorador de Arquivos. A pasta contém um `.gitkeep` e uma foto horizontal do Clube de Ciências usada apenas como teste.
+- O título da seção foi simplificado para `Eventos`. O card de teste é exclusivamente visual, sem texto de calendário, e sua imagem preenche toda a área disponível. A estrutura com data e texto continua disponível no CSS para futuros cards que precisem dessas informações.
+- A seção foi compactada para ocupar menos altura na tela. O carrossel não possui limite fixo: todos os elementos adicionais com `data-event-slide` são incluídos automaticamente e podem ser navegados pelas setas.
+
+### Validação
+
+- `node --check script.js` e `git diff --check` passaram; os avisos de LF/CRLF permanecem esperados neste ambiente.
+
+## 19. Tarefa prioritária para a próxima IA — auditoria e melhoria geral
+
+Status: **PENDENTE — executar na próxima continuidade.**
+
+A próxima IA que acessar este checkpoint deve executar a tarefa abaixo. Não deve apenas resumir o prompt ou apresentar recomendações: deve inspecionar o projeto, implementar as melhorias comprovadas, validar o resultado e registrar o trabalho neste checkpoint.
+
+### Prompt de execução
+
+> Você é um engenheiro front-end sênior, designer de interfaces e especialista em acessibilidade.
+>
+> Analise e melhore o projeto localizado em `C:\Users\rafae\OneDrive\Desktop\SITEDOEUZEBIO`.
+>
+> O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído com HTML, CSS e JavaScript puro. Não utilize frameworks nem crie uma etapa de build. Preserve todas as alterações existentes, não faça restaurações amplas e não invente informações sobre a escola.
+>
+> Faça uma auditoria completa de experiência do usuário, responsividade em 390 px, 768 px, 1440 px, 1920 px e 4K, acessibilidade WCAG, SEO técnico, performance de imagens/CSS/JavaScript, clareza do conteúdo, links quebrados, imagens ausentes e erros de console.
+>
+> Preserve a identidade visual atual: verde-escuro, laranja institucional, Montserrat, Archivo Black e Font Awesome. Preserve as exceções visuais intencionais de Gabriele, Marlene, Biblioteca e Clube de Ciências. Mantenha o carrossel de Eventos, com as imagens na pasta raiz `eventos/` e sem limite fixo de cards.
+>
+> Corrija os problemas encontrados usando alterações pequenas e organizadas. Não invente telefone, horários, redes sociais, datas de eventos ou outros dados institucionais. Quando faltar informação oficial, use uma formulação neutra e oriente o visitante a procurar a equipe do colégio.
+>
+> Verifique especialmente hierarquia de headings, textos alternativos, foco de teclado, menu móvel, `aria-label`, `aria-live`, `aria-expanded`, contraste, redução de movimento, lightbox, carrossel, `srcset`, `sizes`, `loading`, iframes, fontes externas, animações, listeners de ponteiro e JavaScript executado em páginas que não precisam dele.
+>
+> Verifique também `title`, `meta description`, canonical, Open Graph, Twitter Cards, sitemap, robots.txt, dados estruturados, links internos, página 404 e consistência do nome “Colégio Estadual Euzébio da Mota”.
+>
+> Depois de implementar as correções, execute `node --check script.js`, `git diff --check` e uma auditoria de todos os caminhos locais de imagens, links e arquivos. Quando possível, faça uma revisão visual em celular e desktop.
+>
+> Atualize este `CHECKPOINT-CONTINUIDADE.md` com a data, as alterações realizadas, os testes executados e as pendências que dependem de informações oficiais. Ao finalizar, informe exatamente quais arquivos foram alterados e por quê.
+
+### Regra de conclusão
+
+A tarefa só deve ser considerada concluída depois de implementar as melhorias necessárias, executar as validações e atualizar este checkpoint com os resultados. Se algum problema não puder ser resolvido sem informação oficial ou decisão do usuário, registrar o bloqueio com clareza em vez de inventar uma solução.
