@@ -124,12 +124,28 @@
   min-height: 360px;
 }
 
+.science-page .science-club-card.gabriele-logo-card img,
+.science-page .science-club-card.marlene-logo-card img {
+  object-fit: contain;
+  background: #ffffff;
+}
+
 .science-page .science-club-card .card-content {
   padding-right: 76px;
 }
 
 .science-page .science-club-card .card-content i {
   color: var(--white);
+}
+
+.science-page .gabriele-logo-card .card-content small,
+.science-page .gabriele-logo-card .card-content strong {
+  color: #72c8e0;
+}
+
+.science-page .marlene-logo-card .card-content small,
+.science-page .marlene-logo-card .card-content strong {
+  color: #ffc092;
 }
 
 .science-page .science-club-card:hover .card-content i {

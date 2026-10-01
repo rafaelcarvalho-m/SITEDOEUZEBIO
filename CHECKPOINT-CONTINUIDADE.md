@@ -872,3 +872,252 @@ A próxima IA que acessar este checkpoint deve executar a tarefa abaixo. Não de
 ### Regra de conclusão
 
 A tarefa só deve ser considerada concluída depois de implementar as melhorias necessárias, executar as validações e atualizar este checkpoint com os resultados. Se algum problema não puder ser resolvido sem informação oficial ou decisão do usuário, registrar o bloqueio com clareza em vez de inventar uma solução.
+
+## 20. Atualização — altura e responsividade do carrossel de Eventos
+
+Data: 23 de setembro de 2026
+
+### O que foi feito
+
+- Corrigida a expansão vertical do card de evento com imagem. A altura deixou de depender da proporção natural da fotografia e passou a usar `clamp(220px, 25vw, 350px)`, mantendo o carrossel compacto em celulares, tablets, desktops e telas grandes.
+- A imagem do card agora ocupa a altura controlada pelo carrossel com `object-fit: cover`, preservando o recorte sem esticar a seção.
+- Adicionado `min-width: 0` ao viewport, trilho e cards para impedir que conteúdos futuros ampliem a largura mínima do grid e reintroduzam rolagem horizontal.
+- O `body` passou a usar `overflow-x: clip` como proteção adicional contra overflow lateral.
+
+### Validação
+
+- A altura do card foi conferida em `390 × 844`, `768 × 844`, `1440 × 1000`, `1920 × 1080` e `3840 × 2160`: respectivamente 220, 220, 350, 350 e 350 px.
+- A largura do documento permaneceu igual à área útil do viewport em todos os tamanhos, sem overflow horizontal. O teste também foi repetido com cards duplicados no trilho para confirmar que os slides ocultos continuam recortados pelo viewport.
+- `node --check script.js` e `git diff --check` foram executados com sucesso; os avisos de LF/CRLF permanecem esperados neste ambiente.
+
+### Pendências
+
+- A auditoria geral descrita na seção 19 continua pendente e deve ser executada em uma etapa própria; este ajuste tratou especificamente o carrossel e a responsividade solicitados.
+
+## 21. Atualização — inclusão de novas fotos no carrossel
+
+Data: 23 de setembro de 2026
+
+- As instruções de manutenção do mural foram simplificadas diretamente em `index.html`: basta salvar a nova imagem em `eventos/`, duplicar um `<article data-event-slide>` e trocar `src`, `alt`, `width` e `height`.
+- A lógica existente já navega por todos os artigos sem limite fixo, atualiza a posição anunciada e mantém os slides ocultos fora da navegação por teclado. Não é necessário alterar `script.js`.
+- Adicionada a logo azul do Clube de Ciências da professora Gabriele em `eventos/logo-clube-de-ciencias-gabriele.webp` como segundo slide. O slide usa fundo azul e `object-fit: contain` para preservar a logo quadrada inteira.
+- Em revisão automatizada, o carrossel exibiu `1 / 2`, habilitou o botão próximo, avançou para `2 / 2` e permaneceu sem overflow horizontal em `390 × 844`, `1440 × 1000` e `3840 × 2160`.
+
+## 22. Atualização — logo da professora Marlene no card de clubes
+
+Data: 23 de setembro de 2026
+
+- Identificada a nova imagem `projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/img-clubedeciencias-marlene.png`, com 1254 × 1254 px.
+- O card da professora Marlene em `projetos/clube-de-ciencias.html` passou a usar essa logo no lugar da fotografia anterior, com texto alternativo específico e dimensões intrínsecas corretas.
+- Criada uma regra específica em `projetos/projetos.css` com `object-fit: contain` e fundo claro, mantendo a logo quadrada inteira dentro do card responsivo.
+- Atualizada a referência da logo da Gabriele em `projetos/clube-gabriele.html` para acompanhar os arquivos renomeados na pasta de imagens e evitar caminho quebrado.
+- O card da professora Gabriele também passou a usar a logo azul correspondente. Os dois cards agora preenchem toda a área de imagem com fundo branco, sem deformar ou cortar as logos.
+
+### Validação
+
+- Os dois cards foram conferidos em `390 × 844`, `1440 × 1000` e `1920 × 1080`; as logos permaneceram inteiras, sem distorção ou overflow horizontal.
+- `node --check script.js`, `node --check comum.js` e `git diff --check` passaram; os avisos de LF/CRLF permanecem esperados neste ambiente.
+
+## 23. Atualização — substituição do carrossel de Eventos por cards
+
+Data: 29 de setembro de 2026
+
+### O que foi feito
+
+- O carrossel da Home foi substituído por uma grade responsiva de cards, inspirada nos cards de registros da página da professora Marlene.
+- Cada card agora apresenta foto, etiqueta, título e descrição breve, com as imagens abrindo no lightbox existente quando selecionadas.
+- Os dois registros já disponíveis em `eventos/` foram reaproveitados como exemplos editáveis: o espaço do Clube de Ciências e a identidade visual do clube.
+- Os controles, atributos e a lógica JavaScript exclusivos do carrossel foram removidos de `index.html`, `style.css` e `script.js`.
+- O comentário de manutenção da Home foi atualizado para direcionar o cadastro de novos eventos para `eventos/eventos.js`.
+
+### Validação
+
+- `node --check script.js` passou.
+- `git diff --check` passou; os avisos de conversão LF/CRLF permanecem esperados neste ambiente.
+- Os caminhos das duas imagens usadas na seção foram conferidos e estão válidos.
+- Não restaram referências aos seletores ou atributos antigos do carrossel.
+
+### Pendências
+
+- A seção ainda usa registros do Clube de Ciências porque não foram fornecidas fotos, títulos ou descrições de eventos oficiais. Novos cards podem ser adicionados no cadastro quando esse conteúdo estiver disponível.
+
+## 24. Atualização — cadastro centralizado de eventos
+
+Data: 29 de setembro de 2026
+
+### O que foi feito
+
+- Criado `eventos/eventos.js` como cadastro central dos cards da Home.
+- A equipe responsável agora pode adicionar um evento salvando a imagem em `eventos/` e duplicando/preenchendo um único objeto no cadastro, sem duplicar HTML ou alterar o layout.
+- `index.html` passou a fornecer apenas o contêiner e um template acessível; o JavaScript preenche imagem, texto alternativo, legenda, etiqueta, ícone, título, descrição e dimensões.
+- O cadastro é carregado antes de `comum.js`, preservando o lightbox existente para os cards gerados dinamicamente.
+- Incluído um aviso alternativo para visitantes com JavaScript desativado.
+
+### Validação
+
+- `node --check eventos/eventos.js`, `node --check script.js` e `node --check comum.js` passaram.
+- `git diff --check` passou; os avisos de conversão LF/CRLF permanecem esperados neste ambiente.
+- Os dois registros atuais foram renderizados a partir do cadastro e os caminhos das imagens foram conferidos.
+
+## 25. Atualização — remoção das etiquetas dos cards de Eventos
+
+Data: 29 de setembro de 2026
+
+- Removidas as etiquetas “Em destaque” e “Projeto em destaque” dos cards.
+- O cadastro de novos eventos ficou mais simples: agora exige apenas imagem, texto alternativo, legenda, título, descrição e dimensões.
+- O template e o CSS foram ajustados para manter somente título e descrição abaixo da foto.
+
+## 26. Atualização — simplificação do cabeçalho de Eventos
+
+Data: 29 de setembro de 2026
+
+- Removido o texto “Vida escolar” do cabeçalho da seção.
+- A seção agora apresenta diretamente o título “Eventos”, sua descrição e os cards.
+
+## 27. Atualização — centralização do título de Eventos
+
+Data: 29 de setembro de 2026
+
+- O título “Eventos” foi centralizado no cabeçalho da seção.
+- O alinhamento e a estrutura dos cards foram mantidos.
+
+## 28. Atualização — centralização da descrição de Eventos
+
+Data: 29 de setembro de 2026
+
+- O texto descritivo abaixo do título “Eventos” também foi centralizado.
+- Os cards continuam com o mesmo alinhamento e estrutura responsiva.
+
+## 30. Atualização — prévia e página completa da Galeria
+
+Data: 29 de setembro de 2026
+
+### O que foi feito
+
+- Adicionada uma prévia da Galeria na Home, logo depois de Eventos e antes de Sobre nós.
+- Criada a página completa `galeria/galeria.html`, acessível pelo botão “Ver galeria completa”.
+- Criado o cadastro único `galeria/galeria.js`, que alimenta a prévia da Home e a galeria completa.
+- As imagens usam versões menores para a grade, versões maiores no lightbox, `srcset`, `sizes`, textos alternativos e legendas.
+- A página completa recebeu metadados, navegação própria, layout responsivo e inclusão no `sitemap.xml`.
+
+### Validação
+
+- Os caminhos das quatro imagens do cadastro foram conferidos.
+- A galeria carrega seu cadastro antes de `comum.js`, mantendo o lightbox para os cards gerados.
+
+## 29. Atualização — textos provisórios dos cards de Eventos
+
+Data: 29 de setembro de 2026
+
+- Os títulos e as descrições visíveis dos cards foram substituídos por textos provisórios em Lorem ipsum.
+- Os textos alternativos das imagens foram preservados para manter a acessibilidade.
+
+## 31. Atualização — auditoria geral de acessibilidade, SEO e responsividade
+
+Data: 30 de setembro de 2026
+
+### O que foi feito
+
+- Corrigidos os metadados `og:url` ausentes em `apoio/apoio.html` e `biblioteca/biblioteca.html`.
+- Completados `twitter:title` e `twitter:description` da página `404.html`, que permanece com `noindex`.
+- Incluída a Biblioteca no `sitemap.xml` e atualizada a data da Home para refletir as alterações recentes.
+- Removidos links sociais mortos com `href="#"`. Onde não havia URL oficial confirmada, o rodapé passou a orientar o visitante a consultar a escola; os links oficiais já existentes foram preservados.
+- Ajustado o título da Home para reduzir sua escala de forma fluida em telas estreitas, mantendo `COLÉGIO ESTADUAL` sem corte em 390 px.
+- O botão do menu móvel passou a usar um ícone CSS próprio, independente do carregamento do Font Awesome, mantendo `aria-label`, `aria-controls` e `aria-expanded`.
+
+### Validação
+
+- `node --check` passou em `comum.js`, `script.js`, `eventos/eventos.js`, `galeria/galeria.js` e `biblioteca/biblioteca.js`.
+- Auditoria estática passou em 21 páginas HTML: um `<h1>` por página, `alt` nas imagens, links/recursos locais válidos e âncoras internas existentes.
+- Verificação via Chrome/DevTools Protocol em 390, 768, 1440, 1920 e 3840 px não encontrou overflow horizontal no documento. As imagens de hero de Ensino Técnico e Sobre Nós usam `scale(1.015)` intencionalmente e continuam recortadas pelo próprio hero.
+- Menu móvel testado: abre, atualiza `aria-expanded` e fecha com Escape.
+- Lightbox testado na Galeria e na Biblioteca: abre, identifica a legenda e fecha corretamente.
+- `git diff --check` passou; os avisos de LF/CRLF são os avisos recorrentes deste ambiente.
+- A captura headless registrou somente falhas de rede para recursos externos bloqueados pelo ambiente, como fontes/CDN e a previsão meteorológica; a previsão possui tratamento de falha e não gerou exceção de JavaScript.
+- A nova execução do Prettier não foi concluída porque a política do PowerShell bloqueou `npx.ps1`; a formatação manual foi mantida no padrão existente.
+
+### Arquivos alterados nesta etapa
+
+- `404.html`, `apoio/apoio.html`, `biblioteca/biblioteca.html`, `index.html`, `sitemap.xml`, `style.css` e `comum.js`.
+- `ensino-medio/administracao.html`, `ensino-medio/alimentos.html`, `ensino-medio/desenvolvimento-de-sistemas.html`, `ensino-medio/ensinoregular.html`, `ensino-medio/ensinotecnico.html`, `ensino-medio/exatas.html` e `ensino-medio/humanas.html`.
+- `projetos/clube-de-ciencias.html`, `projetos/clube-gabriele.html`, `projetos/clube-marlene.html`, `projetos/robotica.html`, `projetos/rpg.html`, `referencias/referencias.html` e `sobrenos/sobrenos.html`.
+- Este checkpoint, para registrar a continuidade.
+
+### Pendências
+
+- Permanecem os textos provisórios em Lorem ipsum dos cards de Eventos e de algumas seções dos clubes, aguardando conteúdo oficial.
+- A URL do Facebook já existente foi preservada; outros canais sociais continuam sem ser inventados enquanto a escola não fornecer os endereços oficiais.
+
+## 32. Atualização — acessibilidade, clubes e padronização dos cards de Eventos
+
+Data: 30 de setembro de 2026
+
+### O que foi feito
+
+- Integrado o widget oficial VLibras em `comum.js`, carregado pelas páginas do site. O botão visual com o avatar de Libras é fornecido pelo próprio widget oficial e aparece no padrão de acessibilidade conhecido do gov.br.
+- Adicionado bloqueio de seleção de texto em `style.css` como medida de dissuasão contra cópias casuais. Campos editáveis continuam selecionáveis e a seleção é liberada quando o visitante abre o widget VLibras. Esse bloqueio não substitui proteção de conteúdo: capturas de tela, ferramentas de desenvolvedor e outras formas de reprodução continuam possíveis.
+- Atualizada `acessibilidade.html` para explicar o widget VLibras e o comportamento da seleção de texto.
+- Adicionado no canto superior direito da Home um botão temporário somente com ícone vetorial de formulário, sem texto visível e sem link fictício. O nome e a finalidade permanecem disponíveis por `aria-label`, título e descrição para tecnologias assistivas.
+- Atualizados os cards de `projetos/clube-de-ciencias.html`: o card da Gabriele agora exibe “CLUBE FRIENDS SCIENCE” em azul, com “Professora Gabriele” em texto menor; o card da Marlene exibe “CLUBE LITLLE SCIENTISTS”, com “Professora Marlene” em texto menor.
+- Atualizados os títulos visíveis, títulos de navegador e metadados de `projetos/clube-gabriele.html` e `projetos/clube-marlene.html`. Nas páginas individuais, o nome da professora aparece pequeno acima do título do clube; a identidade da Gabriele também recebe o nome do clube em azul junto à logo.
+- Os cards de Eventos da Home passaram a usar a mesma linguagem dos cards da página da Marlene: imagem com proporção controlada, zoom suave, título colorido, botão “Saiba mais”, painel expansível e sombra compartilhada. A alteração foi feita no template de `index.html`, no cadastro dinâmico `eventos/eventos.js` e em `style.css`.
+
+### Validação
+
+- `node --check comum.js`, `node --check eventos/eventos.js` e `node --check script.js` passaram.
+- `git diff --check` passou; os avisos de conversão LF/CRLF permanecem esperados neste ambiente.
+- A renderização headless da Home confirmou a presença do botão temporário e dos cards dinâmicos com os painéis “Saiba mais”.
+- Os caminhos relativos dos scripts, folhas de estilo e imagens foram conferidos; os únicos falsos positivos da checagem são as URLs absolutas específicas da página 404, já existentes para o deploy do GitHub Pages.
+- O widget utiliza a integração oficial documentada pelo VLibras: `https://vlibras.gov.br/app/vlibras-plugin.js`.
+
+### Pendências
+
+- O formulário continua propositalmente sem destino até que sejam definidos o serviço, as perguntas e o endereço de envio.
+- Os títulos e descrições Lorem ipsum dos eventos e de algumas áreas dos clubes continuam provisórios, aguardando conteúdo oficial.
+
+## 33. Atualização — reposicionamento do botão temporário
+
+Data: 30 de setembro de 2026
+
+- O botão temporário de formulário da Home foi ampliado para 62 × 62 px e reposicionado no canto inferior direito.
+- Foi mantida uma margem lateral para evitar sobreposição com o botão do VLibras, inclusive em telas menores.
+- O ícone também foi ampliado para preservar sua leitura dentro do botão circular.
+
+## 34. Atualização — ajuste horizontal do botão temporário
+
+Data: 30 de setembro de 2026
+
+- O botão foi aproximado da borda direita, mantendo-se acima do VLibras para evitar sobreposição.
+
+## 35. Atualização — ajuste vertical do botão temporário
+
+Data: 30 de setembro de 2026
+
+- O botão foi deslocado mais para baixo, permanecendo próximo ao canto inferior direito e com espaçamento mínimo em relação ao VLibras.
+
+## 36. Atualização — dica visual do botão temporário
+
+Data: 30 de setembro de 2026
+
+- Adicionado um balão de dica acima do botão com o texto “Pesquisa de opinião”.
+- A dica aparece ao passar o mouse e também ao focar o botão pelo teclado.
+
+## 37. Atualização — camada superior do botão e da dica
+
+Data: 30 de setembro de 2026
+
+- O botão temporário foi movido para fora do cabeçalho e recebeu `z-index: 1000`.
+- O botão e o balão de “Pesquisa de opinião” agora ficam acima das imagens dos cards e das imagens de fundo dos títulos.
+
+## 38. Atualização — ajuste final de posição do botão
+
+Data: 30 de setembro de 2026
+
+- O botão foi movido levemente para a esquerda e para baixo, preservando a margem de segurança em relação ao VLibras.
+
+## 39. Atualização — remoção do texto temporário do botão
+
+Data: 30 de setembro de 2026
+
+- Removida a mensagem “Formulário do site — em breve” do botão e de sua identificação acessível.
+- O botão permanece identificado como “Pesquisa de opinião”, com o balão visual correspondente.

@@ -45,14 +45,18 @@
     toggle.setAttribute("aria-label", "Abrir menu");
     toggle.setAttribute("aria-controls", links.id);
     toggle.setAttribute("aria-expanded", "false");
-    toggle.innerHTML = '<i class="fa-solid fa-bars" aria-hidden="true"></i>';
+    const updateToggleIcon = (isOpen) => {
+      toggle.innerHTML = `<span class="nav-toggle-icon${isOpen ? " is-close" : ""}" aria-hidden="true"></span>`;
+    };
+
+    updateToggleIcon(false);
     links.before(toggle);
 
     const setMenuState = (isOpen) => {
       links.classList.toggle("nav-open", isOpen);
       toggle.setAttribute("aria-expanded", String(isOpen));
       toggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-      toggle.innerHTML = `<i class="fa-solid ${isOpen ? "fa-xmark" : "fa-bars"}" aria-hidden="true"></i>`;
+      updateToggleIcon(isOpen);
     };
 
     toggle.addEventListener("click", () => {
@@ -145,6 +149,35 @@
   };
 
   window.SiteUI = Object.freeze({ pointerGlow, tiltCards });
+})();
+
+(() => {
+  const vlibrasScript = document.querySelector("script[data-vlibras-widget]");
+
+  if (!vlibrasScript) {
+    const script = document.createElement("script");
+    script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+    script.async = true;
+    script.dataset.vlibrasWidget = "true";
+    script.addEventListener("load", () => {
+      if (window.VLibras?.Widget && !document.querySelector("[vw]")) {
+        new window.VLibras.Widget("https://vlibras.gov.br/app");
+      }
+    });
+    document.head.append(script);
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) return;
+
+    if (
+      event.target.closest(
+        ".vw-access-button, .vw-plugin-top-wrapper, [vw]",
+      )
+    ) {
+      document.body.classList.add("text-selection-enabled");
+    }
+  });
 })();
 
 document.querySelectorAll(".button").forEach((button) => {
