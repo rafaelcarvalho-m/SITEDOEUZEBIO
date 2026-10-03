@@ -272,6 +272,7 @@ p:not(.eyebrow),
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.07em;
+  text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
   -webkit-backdrop-filter: blur(10px);
@@ -450,14 +451,14 @@ p:not(.eyebrow),
    ========================= */
 
 .events-section {
-  padding-top: 30px !important;
-  padding-bottom: 30px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
 }
 
 .events-shell {
   display: grid;
-  gap: clamp(26px, 3vw, 38px);
-  padding: clamp(22px, 3vw, 38px);
+  gap: clamp(16px, 2vw, 26px);
+  padding: clamp(16px, 2.4vw, 26px);
   border-radius: var(--radius);
   background:
     radial-gradient(
@@ -472,7 +473,7 @@ p:not(.eyebrow),
 .events-intro h2 {
   margin: 0;
   color: var(--white);
-  font-size: clamp(2.25rem, 4vw, 3.8rem);
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.055em;
   line-height: 1.04;
@@ -481,16 +482,17 @@ p:not(.eyebrow),
 
 .events-intro > p:last-child {
   max-width: 58ch;
-  margin: 16px auto 0;
+  margin: 9px auto 0;
   color: rgba(255, 255, 255, 0.78);
-  line-height: 1.65;
+  font-size: 0.92rem;
+  line-height: 1.45;
   text-align: center;
 }
 
 .events-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 14px;
   min-width: 0;
 }
 
@@ -517,7 +519,7 @@ p:not(.eyebrow),
 }
 
 .event-image {
-  aspect-ratio: 600 / 399;
+  aspect-ratio: 16 / 8;
   margin: 0;
   overflow: hidden;
   background: var(--paper);
@@ -549,14 +551,14 @@ p:not(.eyebrow),
 }
 
 .event-card-copy {
-  padding: 22px;
+  padding: 16px;
 }
 
 .event-card h3 {
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   color: var(--warm);
   font-family: "Archivo Black", sans-serif;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   line-height: 1.12;
 }
 
@@ -606,8 +608,8 @@ p:not(.eyebrow),
 }
 
 .event-card-panel {
-  margin-top: 14px;
-  padding: 14px 16px;
+  margin-top: 10px;
+  padding: 10px 12px;
   border-left: 3px solid var(--warm);
   background: #fff7ef;
 }
@@ -615,8 +617,8 @@ p:not(.eyebrow),
 .event-card-panel p {
   margin: 0;
   color: var(--text-secondary);
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.82rem;
+  line-height: 1.5;
 }
 
 /* =========================
@@ -650,6 +652,16 @@ p:not(.eyebrow),
 
 .home-gallery-heading .button {
   margin-top: 24px;
+  background: var(--ink);
+  color: var(--white);
+  box-shadow: 0 10px 22px rgba(31, 41, 35, 0.14);
+}
+
+.home-gallery-heading .button:hover,
+.home-gallery-heading .button:focus-visible {
+  background: var(--warm);
+  color: var(--white);
+  box-shadow: 0 12px 24px rgba(31, 41, 35, 0.2);
 }
 
 .gallery-preview-grid,
@@ -685,6 +697,11 @@ p:not(.eyebrow),
   background: var(--paper);
 }
 
+.gallery-card .gallery-image--portrait img {
+  object-fit: contain;
+  background: var(--ink);
+}
+
 .gallery-card img {
   display: block;
   width: 100%;
@@ -695,26 +712,6 @@ p:not(.eyebrow),
 
 .gallery-card:hover img {
   transform: scale(1.05);
-}
-
-.gallery-card-copy {
-  padding: 22px;
-}
-
-.gallery-card-copy h3 {
-  margin: 0 0 12px;
-  color: var(--ink);
-  font-family: "Archivo Black", sans-serif;
-  font-size: 1.3rem;
-  letter-spacing: -0.035em;
-  line-height: 1.12;
-}
-
-.gallery-card-copy p {
-  margin: 0;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.65;
 }
 
 .section-divider {
@@ -728,8 +725,7 @@ p:not(.eyebrow),
 .section-intro h2,
 .calendar-copy h2,
 .location-panel h2,
-.contact-panel h2,
-.weather-panel h2 {
+.contact-panel h2 {
   font-size: clamp(2rem, 4vw, 3.65rem);
   letter-spacing: -0.055em;
   line-height: 1.04;
@@ -1162,10 +1158,6 @@ p:not(.eyebrow),
 }
 
 .projects-section .content-card:hover i {
-  color: var(--green);
-}
-
-.projects-section .science-card:hover i {
   color: var(--warm);
 }
 
@@ -1411,8 +1403,7 @@ p:not(.eyebrow),
 }
 
 .location-panel,
-.contact-panel,
-.weather-panel {
+.contact-panel {
   background: var(--glass-dark);
   padding: 42px;
   box-shadow: 0 10px 30px rgba(31, 41, 35, 0.06);
@@ -1517,118 +1508,6 @@ p:not(.eyebrow),
   width: 20px;
   text-align: center;
   font-size: 1.05rem;
-}
-
-.weather-panel {
-  grid-column: 1 / -1;
-  background: var(--glass-deep);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  color: var(--glass-text);
-  border-top: 4px solid var(--warm);
-  box-shadow: var(--shadow);
-}
-
-.weather-panel .eyebrow {
-  color: var(--warm);
-}
-
-.weather-panel h2 {
-  margin-bottom: 25px;
-}
-
-.weather-current {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding-bottom: 22px;
-  border-bottom: 1px solid rgba(31, 41, 35, 0.16);
-}
-
-.weather-current > i {
-  width: 46px;
-  color: var(--warm);
-  font-size: 2.35rem;
-  text-align: center;
-}
-
-.weather-current div {
-  display: grid;
-  line-height: 1.25;
-}
-
-.weather-current strong {
-  font-size: 1.65rem;
-}
-
-.weather-current span,
-.weather-note {
-  color: var(--glass-text-secondary);
-  font-size: 0.78rem;
-}
-
-.weather-days {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  min-height: 92px;
-  padding: 20px 0 14px;
-  color: var(--glass-text-secondary);
-  font-size: 0.76rem;
-}
-
-.weather-days > span {
-  grid-column: 1 / -1;
-  align-self: center;
-}
-
-.weather-day {
-  display: grid;
-  justify-items: center;
-  gap: 3px;
-  padding: 7px 3px;
-  border-left: 1px solid rgba(31, 41, 35, 0.16);
-  line-height: 1.25;
-}
-
-.weather-day:first-child {
-  border-left: 0;
-}
-
-.weather-day span {
-  font-size: 0.67rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.weather-day i {
-  color: var(--warm);
-  font-size: 1.1rem;
-}
-
-.weather-day strong {
-  color: var(--glass-text);
-  font-size: 0.88rem;
-}
-
-.weather-day small {
-  color: var(--glass-text-secondary);
-  font-size: 0.72rem;
-}
-
-.weather-note {
-  margin: 0;
-}
-
-.weather-note a {
-  color: var(--warm);
-  font-weight: 700;
-  text-underline-offset: 3px;
-}
-
-.weather-note a:hover {
-  color: var(--glass-text);
 }
 
 footer {
@@ -2146,8 +2025,7 @@ footer {
   }
 
   .location-panel,
-  .contact-panel,
-  .weather-panel {
+  .contact-panel {
     padding: 50px;
   }
 
@@ -2275,8 +2153,7 @@ footer {
   }
 
   .location-panel,
-  .contact-panel,
-  .weather-panel {
+  .contact-panel {
     padding: 68px;
   }
 
@@ -2444,13 +2321,13 @@ footer {
   }
 
   .events-shell {
-    gap: 18px;
-    padding: 22px 20px;
+    gap: 14px;
+    padding: 16px 14px;
   }
 
   .events-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .home-support {
@@ -2469,7 +2346,7 @@ footer {
   }
 
   .event-card-copy {
-    padding: 20px 20px 22px;
+    padding: 14px;
   }
 
   .calendar-area {
@@ -2556,8 +2433,7 @@ footer {
   }
 
   .location-panel,
-  .contact-panel,
-  .weather-panel {
+  .contact-panel {
     padding: 30px 24px;
   }
 
@@ -2591,6 +2467,81 @@ footer {
   .gallery-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .events-section {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .events-shell {
+    gap: 12px;
+    padding: 14px 12px;
+  }
+
+  .events-intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .events-intro > p:last-child {
+    max-width: 34ch;
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .event-card {
+    display: grid;
+    grid-template-columns: minmax(104px, 0.42fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
+  .event-image,
+  .event-image-link {
+    height: 100%;
+    min-height: 116px;
+  }
+
+  .event-image {
+    aspect-ratio: auto;
+  }
+
+  .event-logo-card .event-image img {
+    padding: 12px;
+  }
+
+  .event-card-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 11px 12px;
+  }
+
+  .event-card h3 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+  }
+
+  .event-card details summary {
+    padding: 10px 12px;
+    font-size: 0.68rem;
+  }
+
+  .event-card-panel {
+    margin-top: 8px;
+    padding: 8px 10px;
+  }
+
+  .event-card-panel p {
+    font-size: 0.76rem;
+    line-height: 1.4;
   }
 }
 
@@ -2692,34 +2643,6 @@ footer {
     width: fit-content;
     padding: 13px 19px;
     font-size: 0.7rem;
-  }
-
-  .weather-current {
-    gap: 12px;
-    padding-bottom: 18px;
-  }
-
-  .weather-current > i {
-    width: 38px;
-    font-size: 2rem;
-  }
-
-  .weather-current strong {
-    font-size: 1.45rem;
-  }
-
-  .weather-days {
-    gap: 0;
-    min-height: 84px;
-    padding: 16px 0 10px;
-  }
-
-  .weather-day {
-    padding: 6px 2px;
-  }
-
-  .weather-day span {
-    font-size: 0.61rem;
   }
 
   .feature-banner h2 {

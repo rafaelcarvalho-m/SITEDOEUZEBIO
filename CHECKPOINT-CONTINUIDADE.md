@@ -1121,3 +1121,225 @@ Data: 30 de setembro de 2026
 
 - Removida a mensagem “Formulário do site — em breve” do botão e de sua identificação acessível.
 - O botão permanece identificado como “Pesquisa de opinião”, com o balão visual correspondente.
+
+## 40. Fechamento consolidado — alterações prontas para publicação
+
+Data: 30 de setembro de 2026
+
+### Resumo da etapa
+
+- Integrado o widget oficial VLibras em todas as páginas por meio de `comum.js`.
+- Criado bloqueio de seleção de texto como medida de dissuasão contra cópia casual, com exceção de campos editáveis e liberação ao abrir o VLibras.
+- Atualizada `acessibilidade.html` com a descrição dos recursos de Libras e da proteção de conteúdo.
+- Adicionado na Home o botão circular de pesquisa de opinião, somente com ícone, balão “Pesquisa de opinião”, identificação acessível e posicionamento responsivo acima das imagens e dos fundos visuais.
+- Atualizados os nomes dos clubes: `CLUBE FRIENDS SCIENCE` para Gabriele e `CLUBE LITLLE SCIENTISTS` para Marlene, nos cards, títulos das páginas e identificação da logo da Gabriele.
+- Padronizados os cards de Eventos da Home com o estilo dos cards da página da professora Marlene, incluindo painel expansível “Saiba mais”.
+- Mantidos no checkpoint os registros anteriores de SEO, responsividade, galeria, eventos, logos e auditoria geral.
+
+### Arquivos diretamente envolvidos nesta etapa
+
+- `index.html`
+- `comum.js`
+- `style.css`
+- `paginas.css`
+- `projetos/projetos.css`
+- `projetos/clube-de-ciencias.html`
+- `projetos/clube-gabriele.html`
+- `projetos/clube-marlene.html`
+- `eventos/eventos.js`
+- `acessibilidade.html`
+- `privacidade.html`
+- `referencias/referencias.html`
+- `404.html`
+- `CHECKPOINT-CONTINUIDADE.md`
+
+### Validação final
+
+- `node --check comum.js`, `node --check eventos/eventos.js` e `node --check script.js` passaram.
+- `git diff --check` passou; os avisos de LF/CRLF são esperados neste ambiente.
+- As 21 páginas HTML incluem `comum.js` para receber o widget VLibras e o comportamento compartilhado.
+- Não restaram referências aos seletores antigos do carrossel de Eventos.
+
+### Texto sugerido para o GitHub
+
+Atualização do site com integração ao VLibras, proteção contra seleção de texto, novos títulos dos clubes, cards de eventos padronizados e botão flutuante de pesquisa de opinião.
+
+## 41. Atualização — humanização dos textos institucionais
+
+Data: 1º de outubro de 2026
+
+### O que foi feito
+
+- Reescritos os textos institucionais e promocionais da Home, Apoio, Biblioteca,
+  Ensino, Projetos e Sobre Nós para reduzir slogans genéricos, abstrações e
+  estruturas repetitivas.
+- Priorizadas frases mais diretas, referências ao cotidiano escolar e
+  informações concretas já presentes no projeto, sem inventar horários, eventos,
+  atividades ou dados da instituição.
+- Atualizados os títulos e descrições do cadastro da Galeria em
+  `galeria/galeria.js`.
+- Mantidos exatamente como estavam todos os trechos com `Lorem ipsum` dos
+  eventos e dos clubes de Gabriele e Marlene, conforme solicitado.
+
+### Arquivos alterados nesta etapa
+
+- `index.html`, `galeria/galeria.js`, `apoio/apoio.html` e
+  `biblioteca/biblioteca.html`.
+- `ensino-medio/administracao.html`, `ensino-medio/alimentos.html`,
+  `ensino-medio/desenvolvimento-de-sistemas.html`,
+  `ensino-medio/ensinoregular.html`, `ensino-medio/ensinotecnico.html`,
+  `ensino-medio/exatas.html` e `ensino-medio/humanas.html`.
+- `projetos/clube-de-ciencias.html`, `projetos/clube-gabriele.html`,
+  `projetos/clube-marlene.html`, `projetos/robotica.html`, `projetos/rpg.html` e
+  `sobrenos/sobrenos.html`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validação
+
+- `node --check` passou em `eventos/eventos.js`, `galeria/galeria.js`,
+  `comum.js` e `script.js`.
+- `git diff --check` passou; os avisos de conversão LF/CRLF continuam esperados
+  neste ambiente.
+
+- O cadastro `eventos/eventos.js` não foi alterado e os trechos com `Lorem ipsum`
+  continuam presentes nos eventos e nos clubes.
+
+## 42. Atualização — compactação responsiva da seção de Eventos
+
+Data: 1º de outubro de 2026
+
+### O que foi feito
+
+- Reduzidos os paddings, espaçamentos, títulos, imagens e textos dos cards da
+  seção de Eventos na Home.
+- Em telas desktop e tablet, a grade mantém duas colunas com cards mais baixos.
+- Em telas de até 600 px, os cards passam para um formato horizontal, com a
+  imagem ao lado do conteúdo, reduzindo a altura total da seção.
+- Ajustados os tamanhos do botão, do painel expansível e da imagem da logo para
+  preservar a leitura em telas estreitas.
+
+### Arquivos alterados nesta etapa
+
+- `style.css`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validação
+
+- `git diff --check` passou; os avisos de conversão LF/CRLF continuam esperados
+  neste ambiente.
+- As regras foram conferidas nos pontos de quebra base, tablet e celular:
+  desktop, até 800 px e até 600 px.
+
+## 43. Atualização — Galeria somente com fotos e novos registros
+
+Data: 1º de outubro de 2026
+
+### O que foi feito
+
+- Removidos os títulos e as descrições visíveis dos cards da prévia da Home e
+  da página completa da Galeria; os cards agora mostram somente as fotos.
+- Mantido o lightbox para ampliar as imagens, com textos alternativos e
+  identificações das fotografias preservados para acessibilidade.
+- O botão “Ver galeria completa” recebeu fundo escuro, hover laranja e
+  `box-shadow`, seguindo o padrão visual dos demais botões do site.
+- Ampliado o cadastro de `galeria/galeria.js` com registros da Biblioteca,
+  Robótica, RPG e Clube de Ciências.
+- A prévia da Home passou a mostrar seis fotos; a página completa mostra todo o
+  cadastro disponível.
+
+### Arquivos alterados nesta etapa
+
+- `index.html`, `galeria/galeria.html`, `galeria/galeria.js` e `style.css`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validação
+
+- `node --check galeria/galeria.js` passou.
+- Os 19 caminhos de imagem usados pelo cadastro foram conferidos e estão
+  válidos.
+- `git diff --check` passou; os avisos de conversão LF/CRLF continuam esperados
+  neste ambiente.
+
+## 44. Atualização — inclusão das fotos do Ensino Técnico na Galeria
+
+Data: 1º de outubro de 2026
+
+### O que foi feito
+
+- Adicionadas ao cadastro da Galeria as fotos do laboratório de informática,
+  digitação, estudantes usando computadores e teclado do Ensino Técnico.
+- A prévia da Home passou a mostrar oito fotos, incluindo os novos registros
+  dos computadores; a página completa continua mostrando todo o cadastro.
+- Foram usadas as versões menores para a grade e as versões maiores no
+  lightbox, mantendo os textos alternativos correspondentes.
+
+### Arquivos alterados nesta etapa
+
+- `galeria/galeria.js`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validação
+
+- `node --check galeria/galeria.js` passou.
+- Os 27 caminhos únicos de imagem usados no cadastro foram conferidos e estão
+  válidos.
+- `git diff --check` passou; os avisos de conversão LF/CRLF continuam esperados
+  neste ambiente.
+
+## 45. Atualizacao — varredura completa das pastas de imagens
+
+Data: 1 de outubro de 2026
+
+### O que foi feito
+
+- Vasculhadas as pastas de Biblioteca, Ensino Medio, projetos, Robotica,
+  RPG, Clube de Ciencias, projeto Marlene, Sobre nos, Home e Eventos.
+- Adicionadas novas fotos de patios, fachadas, biblioteca, salas de aula,
+  laboratorio de informatica, Robotica, RPG e horta escolar.
+- Incluidas as fotos horizontais e uma foto vertical de garrafas PET, com
+  tratamento visual proprio para a imagem vertical.
+- Mantidas apenas uma entrada por foto; arquivos de resolucao maior continuam
+  sendo usados no lightbox quando disponiveis.
+- A pagina completa da Galeria agora possui 38 registros. A previa da Home
+  continua limitada aos primeiros oito para preservar a composicao da secao.
+
+### Arquivos alterados nesta etapa
+
+- `galeria/galeria.js`, `style.css`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validacao
+
+- `node --check galeria/galeria.js` passou.
+- Os 68 caminhos unicos de imagem usados pelo cadastro foram conferidos e
+  todos existem nas pastas do site.
+
+## 46. Atualizacao — cards de Projetos, Pesquisa de opiniao e remocao da previsao
+
+Data: 2 de outubro de 2026
+
+### O que foi feito
+
+- Os cards de Projetos na Home agora usam laranja no icone durante o hover,
+  alinhados ao comportamento do card do Clube de Ciencias.
+- O botao flutuante de Pesquisa de opiniao agora abre o formulario informado
+  pelo usuario em uma nova aba:
+  `https://forms.gle/VaMBXP2f2MReUNUm8`
+- Removidos da Home o painel de previsao do tempo, o codigo de consulta da API
+  meteorologica e todos os estilos responsivos relacionados.
+- Removidas as referencias restantes a previsao do tempo da Politica de
+  Privacidade e da pagina de Referencias.
+
+### Arquivos alterados nesta etapa
+
+- `index.html`, `script.js`, `style.css`, `privacidade.html` e
+  `referencias/referencias.html`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validacao
+
+- `node --check script.js` passou.
+- A busca por `weather`, `forecast`, `previsao do tempo`, `open-meteo` e
+  `data-weather` nao encontrou referencias fora deste checkpoint.
+- `git diff --check` passou; os avisos de conversao LF/CRLF continuam esperados
+  neste ambiente.
