@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Confira os registros de eventos, projetos e atividades do Colégio Estadual Euzébio da Mota."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1f2923" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Colégio Estadual Euzébio da Mota" />
+    <meta
+      property="og:title"
+      content="Eventos | Colégio Estadual Euzébio da Mota"
+    />
+    <meta
+      property="og:description"
+      content="Confira os registros de eventos, projetos e atividades do Colégio Estadual Euzébio da Mota."
+    />
+    <meta
+      property="og:url"
+      content="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/eventos/eventos.html"
+    />
+    <meta
+      property="og:image"
+      content="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/eventos/evento-clube-de-ciencias-teste.webp"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Eventos | Colégio Estadual Euzébio da Mota"
+    />
+    <meta
+      name="twitter:description"
+      content="Confira os registros de eventos, projetos e atividades do Colégio Estadual Euzébio da Mota."
+    />
+    <meta
+      name="twitter:image"
+      content="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/eventos/evento-clube-de-ciencias-teste.webp"
+    />
+    <link
+      rel="canonical"
+      href="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/eventos/eventos.html"
+    />
+    <title>Eventos | Colégio Estadual Euzébio da Mota</title>
+    <link
+      rel="shortcut icon"
+      href="../imgs-home-index/icon-512-maskable.png"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../paginas.css" />
+    <link rel="stylesheet" href="eventos.css" />
+  </head>
+
+  <body
+    class="detail-page title-only-detail-page events-page"
+    data-events-prefix="../"
+    id="inicio"
+  >
+    <header class="detail-hero events-hero">
+      <img
+        class="detail-hero-media"
+        src="evento-clube-de-ciencias-teste.webp"
+        alt=""
+        width="1600"
+        height="1063"
+        fetchpriority="high"
+      />
+      <nav class="topbar" aria-label="Navegação de Eventos">
+        <a class="brand" href="../index.html" aria-label="Voltar à página inicial">
+          <img
+            src="../imgs-home-index/logo-escola.png"
+            alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+          />
+        </a>
+        <a class="detail-home-button" href="../index.html">
+          Voltar para a página inicial
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </a>
+      </nav>
+      <div class="detail-hero-content detail-hero-content-centered reveal">
+        <p class="eyebrow">Vida escolar</p>
+        <h1>Eventos</h1>
+      </div>
+    </header>
+
+    <main>
+      <nav class="events-breadcrumb" aria-label="Você está em">
+        <ol>
+          <li><a href="../index.html">Início</a></li>
+          <li aria-current="page">Eventos</li>
+        </ol>
+      </nav>
+
+      <section
+        class="events-page-section section"
+        aria-labelledby="events-page-title"
+      >
+        <div class="events-page-heading reveal">
+          <p class="eyebrow">Registros da comunidade escolar</p>
+          <h2 id="events-page-title">Momentos que <em>compartilhamos.</em></h2>
+          <p>
+            Veja registros de atividades e iniciativas do Colégio Estadual
+            Euzébio da Mota.
+          </p>
+        </div>
+
+        <div class="events-tools" data-events-tools hidden>
+          <label class="events-search" data-events-search-wrap hidden>
+            <span>Buscar por título</span>
+            <span class="events-search-field">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input
+                type="search"
+                data-events-search
+                autocomplete="off"
+                placeholder="Digite um título"
+              />
+            </span>
+          </label>
+          <div class="events-filter-group" data-category-filters hidden>
+            <p>Categoria</p>
+            <div class="events-filter-pills" data-category-pills></div>
+          </div>
+          <div class="events-filter-group" data-year-filters hidden>
+            <p>Ano</p>
+            <div class="events-filter-pills" data-year-pills></div>
+          </div>
+        </div>
+
+        <p class="events-results-status sr-only" data-events-status aria-live="polite"></p>
+        <div class="events-page-grid" data-events-grid></div>
+
+        <div class="events-date-groups" data-date-groups hidden>
+          <section data-upcoming-group hidden aria-labelledby="upcoming-title">
+            <h3 id="upcoming-title">Próximos eventos</h3>
+            <div class="events-page-grid" data-upcoming-grid></div>
+          </section>
+          <section data-past-group hidden aria-labelledby="past-title">
+            <h3 id="past-title">Eventos anteriores</h3>
+            <div class="events-page-grid" data-past-grid></div>
+          </section>
+          <section data-undated-group hidden aria-labelledby="undated-title">
+            <h3 id="undated-title">Outros registros</h3>
+            <div class="events-page-grid" data-undated-grid></div>
+          </section>
+        </div>
+
+        <p class="events-empty" data-events-empty hidden>
+          Nenhum evento encontrado.
+        </p>
+        <noscript>
+          <p class="events-empty">Ative o JavaScript para visualizar os eventos.</p>
+        </noscript>
+
+        <template id="event-card-template">
+          <article class="events-page-card reveal">
+            <a class="events-page-image-link" href="#" data-lightbox>
+              <figure class="events-page-image">
+                <img alt="" width="1600" height="1063" loading="lazy" decoding="async" />
+              </figure>
+            </a>
+            <div class="events-page-card-copy">
+              <div class="event-card-metadata"></div>
+              <h3 class="event-card-title"></h3>
+            </div>
+          </article>
+        </template>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-main">
+        <a class="footer-brand" href="../index.html">
+          <img
+            src="../imgs-home-index/logo-escola.png"
+            alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <div>
+          <h2>Colégio Estadual<br />Euzébio da Mota</h2>
+          <p>Ensino Fundamental, Médio e EJA<br />Curitiba – Paraná</p>
+        </div>
+        <div class="footer-reference">
+          <h3>Explorar</h3>
+          <a href="eventos.html" aria-current="page">Eventos</a>
+          <a href="../index.html#galeria">Galeria</a>
+          <a href="../acessibilidade.html">Acessibilidade</a>
+        </div>
+        <div>
+          <h3>Redes sociais</h3>
+          <a
+            href="https://web.facebook.com/euzebiodamotapr/?_rdc=1&amp;_rdr#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            Facebook
+          </a>
+        </div>
+        <div class="footer-creators">
+          <h3>Criação do site</h3>
+          <p>Felipe Nolasco Tromer<br />Lorenzo Risardi Soares<br />Rafael Mira de Carvalho</p>
+        </div>
+        <a
+          href="#inicio"
+          class="footer-top"
+          aria-label="Voltar ao início"
+          title="Voltar ao início"
+        >
+          <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="copyright">© 2026 Colégio Estadual Euzébio da Mota</div>
+    </footer>
+
+    <script src="eventos.js"></script>
+    <script src="eventos-page.js"></script>
+    <script src="../comum.js"></script>
+  </body>
+</html>

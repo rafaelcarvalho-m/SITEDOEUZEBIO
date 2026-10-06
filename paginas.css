@@ -283,14 +283,6 @@
   --detail-accent-soft: rgba(8, 124, 158, 0.14);
 }
 
-.detail-page.detail-blue.marlene-page {
-  --club-blue-dark: #8f3d0f;
-  --club-blue: #c95a16;
-  --club-blue-light: #f6b889;
-  --detail-accent: var(--club-blue);
-  --detail-accent-soft: rgba(201, 90, 22, 0.14);
-}
-
 .detail-hero {
   position: relative;
   isolation: isolate;
@@ -369,6 +361,46 @@
   color: var(--detail-accent);
 }
 
+.events-page .detail-hero-content h1,
+.gallery-page .detail-hero-content h1 {
+  color: var(--warm);
+}
+
+.detail-home-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  border-radius: 999px;
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.detail-home-button:hover,
+.detail-home-button:focus-visible {
+  border-color: var(--warm);
+  background: var(--warm);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
+}
+
+.detail-home-button i {
+  font-size: 0.8rem;
+}
+
 .club-teacher-label {
   margin: 0 0 16px !important;
   font-size: clamp(0.68rem, 1.2vw, 0.9rem) !important;
@@ -417,12 +449,12 @@
   font-size: 1rem;
 }
 
-.gabriele-club-showcase {
+.club-showcase {
   padding-top: 96px;
   padding-bottom: 96px;
 }
 
-.gabriele-club-feature {
+.club-feature {
   display: grid;
   grid-template-columns: minmax(380px, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(84px, 11vw, 170px);
@@ -431,20 +463,20 @@
   margin: 0 auto;
 }
 
-.gabriele-club-mark {
+.club-mark {
   width: min(480px, 100%);
   margin: 0;
   padding: 0;
 }
 
-.gabriele-club-mark img {
+.club-mark img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-.gabriele-club-feature-copy p {
+.club-feature-copy p {
   margin: 0;
   padding: 12px 0 12px 32px;
   border-left: 3px solid var(--club-blue);
@@ -453,15 +485,22 @@
   line-height: 1.85;
 }
 
-.gabriele-club-feature-copy .club-name-label {
+.club-feature-copy .club-name-label {
   margin-bottom: 18px;
   padding: 0;
   border-left: 0;
   color: var(--club-blue);
   font-family: "Archivo Black", sans-serif;
-  font-size: clamp(1.45rem, 2.6vw, 2.15rem);
+  font-size: clamp(1.15rem, 3vw, 2.15rem);
   letter-spacing: -0.045em;
   line-height: 1.05;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.marlene-club-mark img {
+  clip-path: circle(49%);
+  mix-blend-mode: multiply;
 }
 
 .detail-updated {
@@ -519,6 +558,40 @@
   margin: 4px 0 0;
   color: var(--ink);
   font-weight: 700;
+}
+
+/* Distribui as informações dos clubes em uma grade compacta. */
+.gabriele-page .detail-facts,
+.marlene-page .detail-facts {
+  padding: 26px;
+}
+
+.gabriele-page .detail-facts h2,
+.marlene-page .detail-facts h2 {
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+}
+
+.gabriele-page .detail-facts dl,
+.marlene-page .detail-facts dl {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gabriele-page .detail-facts div,
+.marlene-page .detail-facts div {
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid rgba(31, 41, 35, 0.1);
+  border-top: 3px solid var(--detail-accent);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.46);
+}
+
+.gabriele-page .detail-facts dd,
+.marlene-page .detail-facts dd {
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
 .detail-subjects {
@@ -812,7 +885,7 @@
   font-weight: 700;
 }
 
-/* Tema azul exclusivo dos clubes das professoras Gabriele e Marlene. */
+/* Tema azul compartilhado pelos clubes das professoras Gabriele e Marlene. */
 .detail-blue .eyebrow,
 .detail-blue .detail-facts dt {
   color: var(--club-blue);
@@ -1038,33 +1111,33 @@
 }
 
 .marlene-page .marlene-gallery-card {
-  border-color: rgba(201, 90, 22, 0.2);
+  border-color: rgba(8, 124, 158, 0.2);
 }
 
 .marlene-page .marlene-gallery-card details summary:hover,
 .marlene-page .marlene-gallery-card details summary:focus-visible {
-  box-shadow: 0 12px 22px rgba(201, 90, 22, 0.28);
+  box-shadow: 0 12px 22px rgba(8, 124, 158, 0.28);
 }
 
 .marlene-page .marlene-gallery-card-panel {
-  background: #fff7ef;
+  background: #edf5f5;
 }
 
 .marlene-page .nav-toggle:hover {
-  background: rgba(246, 184, 137, 0.16);
+  background: rgba(74, 166, 190, 0.16);
 }
 
 .marlene-page .subject-card:hover,
 .marlene-page .detail-steps li:hover {
-  box-shadow: 0 18px 34px rgba(201, 90, 22, 0.3);
+  box-shadow: 0 18px 34px rgba(8, 124, 158, 0.3);
 }
 
 .marlene-page .footer-top:hover {
-  box-shadow: 0 14px 28px rgba(201, 90, 22, 0.3);
+  box-shadow: 0 14px 28px rgba(8, 124, 158, 0.3);
 }
 
 .marlene-page .footer-top:active {
-  box-shadow: 0 5px 12px rgba(201, 90, 22, 0.22);
+  box-shadow: 0 5px 12px rgba(8, 124, 158, 0.22);
 }
 
 @media (min-width: 1201px) {
@@ -1106,22 +1179,42 @@
 }
 
 @media (max-width: 800px) {
-  .gabriele-club-feature {
+  .events-page .topbar,
+  .gallery-page .topbar {
+    width: calc(100% - 36px);
+    gap: 12px;
+  }
+
+  .events-page .brand img,
+  .gallery-page .brand img {
+    width: 148px;
+    max-height: 112px;
+  }
+
+  .detail-home-button {
+    min-height: 42px;
+    gap: 7px;
+    padding: 10px 11px;
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+  }
+
+  .club-feature {
     grid-template-columns: 1fr;
     gap: 32px;
   }
 
-  .gabriele-club-showcase {
+  .club-showcase {
     padding-top: 72px;
     padding-bottom: 72px;
   }
 
-  .gabriele-club-mark {
+  .club-mark {
     width: min(420px, 88vw);
     justify-self: center;
   }
 
-  .gabriele-club-feature-copy p {
+  .club-feature-copy p {
     padding-left: 24px;
   }
 
@@ -1225,6 +1318,22 @@
   .detail-facts,
   .detail-steps li {
     padding: 24px;
+  }
+
+  .gabriele-page .detail-facts,
+  .marlene-page .detail-facts {
+    padding: 22px;
+  }
+
+  .gabriele-page .detail-facts dl,
+  .marlene-page .detail-facts dl {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .gabriele-page .detail-facts div,
+  .marlene-page .detail-facts div {
+    padding: 11px 12px;
   }
 
   .placeholder-panel {

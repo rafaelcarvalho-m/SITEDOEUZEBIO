@@ -1343,3 +1343,157 @@ Data: 2 de outubro de 2026
   `data-weather` nao encontrou referencias fora deste checkpoint.
 - `git diff --check` passou; os avisos de conversao LF/CRLF continuam esperados
   neste ambiente.
+
+## 47. Atualizacao — cards de Eventos seguindo o padrao da Galeria
+
+Data: 5 de outubro de 2026
+
+### O que foi feito
+
+- Os cards da secao Eventos na Home passaram a usar o mesmo tipo visual dos
+  cards da Galeria: cards com a fotografia ocupando toda a area, sem titulo,
+  descricao ou painel expansivel.
+- As imagens dos Eventos continuam usando o lightbox compartilhado. Ao abrir
+  uma foto, o visitante pode navegar pelas imagens com as setas laterais, pelo
+  teclado ou pelo contador do lightbox, como na pagina completa da Galeria.
+- Mantido o tratamento especial da logo do Clube de Ciencias para que ela
+  apareca inteira dentro do card.
+- As imagens da pre-visao da Galeria na Home deixaram de ser clicaveis e nao
+  abrem mais o lightbox. A pagina completa `galeria/galeria.html` continua com
+  os cards clicaveis e a navegacao entre todas as fotos.
+
+### Arquivos alterados nesta etapa
+
+- `index.html`.
+- `eventos/eventos.js`.
+- `galeria/galeria.js`.
+- `style.css`.
+- Este checkpoint, para registrar a continuidade.
+
+### Validacao
+
+- A navegacao do lightbox continua compartilhada entre os cards de Eventos e
+  os cards da pagina completa da Galeria.
+- A pre-visao da Home remove o elemento de link antes de inserir cada imagem,
+  portanto nao deixa href, foco de teclado ou gatilho de lightbox.
+- `node --check eventos/eventos.js` passou.
+- `node --check galeria/galeria.js` passou.
+- `git diff --check` passou; os avisos de conversao LF/CRLF continuam esperados
+  neste ambiente.
+
+## TAREFA: pagina de Eventos + vitrine na Home
+
+Data de inicio: 5 de outubro de 2026
+
+### Objetivo
+
+Criar `eventos/eventos.html` seguindo o padrao das paginas internas e converter
+a secao `#eventos` da Home em uma vitrine visual que encaminha para a pagina
+completa. `eventos/eventos.js` permanece como fonte unica dos dados. Preservar
+as identidades visuais e as regras de
+acessibilidade/performance informadas pelo usuario.
+
+### Checklist de execucao
+
+- [x] 1. Registrar a tarefa no checkpoint antes de alterar codigo. (feito antes das mudancas no codigo)
+- [x] 2. Revisar e ajustar o cadastro unico: imagem, alt, width, height obrigatorios; titulo, descricao, data ISO, categoria, local e objectPosition opcionais.
+- [x] 3. Criar pagina, CSS e JS de Eventos; incluir hero, breadcrumb, grade responsiva, recursos condicionais e lightbox via `comum.js`.
+- [x] 4. Construir a vitrine assimetrica da Home com 1 a 4 eventos, links para a pagina, foco/hover acessiveis e reducao de movimento.
+- [x] 5. Integrar link de Eventos nos headers/footers, estado ativo, sitemap e metadados completos.
+- [x] 6. Validar scripts, whitespace, caminhos locais, breakpoints 390/768/1440/1920/3840 e ausencia de overflow horizontal.
+- [x] 7. Fechar este registro com arquivos, validacoes e pendencias.
+
+### Estado ao iniciar
+
+- Worktree ja tinha alteracoes do usuario em `CHECKPOINT-CONTINUIDADE.md`,
+  `eventos/eventos.js`, `galeria/galeria.js`, `index.html` e `style.css`.
+- A Home usa cards de eventos somente com fotos e lightbox. A pre-visualizacao
+  da galeria na Home nao e clicavel; a pagina completa da Galeria preserva o
+  lightbox compartilhado.
+- Nenhuma implementacao da nova pagina de Eventos foi iniciada ainda.
+- Leitura do checkpoint concluida; `index.html`, `eventos/eventos.js`,
+  `galeria/galeria.html`, `galeria/galeria.js`, `comum.js`, `script.js` e as
+  regras pertinentes de `style.css` foram inspecionados.
+- Os eventos atuais nao possuem data, categoria ou local; esses controles devem
+  permanecer ocultos ate que dados reais sejam cadastrados.
+- Etapa 2 concluida: o cadastro agora documenta os campos obrigatorios e
+  opcionais e mantem variante de logo e
+  objectPosition opcionais. `eventos/eventos.js` expoe a lista para a pagina e
+  suporta prefixo de caminhos, vitrine da Home e cards da pagina completa.
+- A implementacao da pagina dedicada e da vitrine foi concluida; a auditoria
+  final esta registrada abaixo.
+
+### Progresso intermediario — etapas 3 a 5
+
+- Criados `eventos/eventos.html`, `eventos/eventos.css` e
+  `eventos/eventos-page.js`. A pagina usa o cadastro de `eventos.js`, exibe
+  busca somente quando ha titulos, filtros por categoria/ano somente quando
+  esses dados existem, e separa eventos futuros/passados apenas com datas.
+- A pagina usa o lightbox de `comum.js`, cards responsivos, breadcrumb,
+  metadados sociais/canonical, um H1 e navegacao/rodape com estado atual.
+- A Home agora tem vitrine assimetrica de ate quatro registros, imagem
+  destacada, overlay, seta, estados hover/foco, CTA para a pagina completa e
+  ajuste para movimento reduzido via regra global existente.
+- Link para a pagina de Eventos inserido nos headers e footers das paginas
+  existentes; links atuais da Galeria foram ajustados para a pagina nova.
+- `sitemap.xml` inclui a nova rota e a data da Home foi atualizada.
+- Arquivos tocados ate aqui: `eventos/eventos.html`, `eventos/eventos.css`,
+  `eventos/eventos-page.js`, `eventos/eventos.js`, `index.html`, `style.css`,
+  `sitemap.xml`, os demais HTML existentes com navegacao/rodape e este
+  checkpoint. A auditoria, a correcao do achado e a validacao visual foram
+  concluidas.
+
+### Fechamento da tarefa — auditoria e validacao
+
+- Corrigida a incompatibilidade entre o cadastro de Eventos e o template dos
+  cards: `eventos/eventos.js` agora usa `.events-page-image-link` e
+  `.events-page-image img`, permitindo a montagem correta da pagina dedicada.
+- `node --check eventos/eventos.js` e `node --check eventos/eventos-page.js`
+  passaram.
+- O Prettier 3.6.2 confirmou a formatacao de `eventos/eventos.js`,
+  `eventos/eventos-page.js`, `eventos/eventos.css` e `eventos/eventos.html`.
+- `git diff --check` passou; os avisos de LF/CRLF sao esperados neste ambiente.
+- A auditoria de `href` e `src` locais em todas as paginas HTML passou. As
+  URLs absolutas especificas do deploy no `404.html` foram normalizadas para
+  a verificacao local.
+- A validacao headless passou nos breakpoints 390, 768, 1440, 1920 e 3840 px,
+  sem overflow horizontal. A pagina dedicada exibiu dois cards e um H1,
+  carregou as imagens, manteve busca/filtros condicionais e confirmou o
+  lightbox com navegacao por seta e teclado. A Home exibiu os dois cards da
+  vitrine, todos encaminhando para `eventos/eventos.html`.
+
+### Estado final
+
+- A tarefa da pagina dedicada de Eventos e da vitrine da Home esta concluida.
+- Nao ha pendencias tecnicas conhecidas. Os campos de data, categoria e local
+  continuam ocultos enquanto nao houver dados reais no cadastro.
+
+## Atualizacao — titulos alinhados à Home
+
+Data: 5 de outubro de 2026
+
+- O primeiro evento usa o mesmo titulo exibido na Home: `Espaco do Clube de Ciencias`.
+- O segundo evento usa o mesmo titulo exibido na Home: `Logo do Clube de Ciencias`.
+
+## Atualizacao — cards orientados às artes dos eventos
+
+Data: 5 de outubro de 2026
+
+- A grade da pagina de Eventos passou a usar duas colunas em telas maiores,
+  deixando os cards e as imagens mais amplos.
+- As descricoes Lorem ipsum foram removidas do cadastro e da exibicao dos
+  cards; a arte passa a ser o elemento principal para explicar cada evento.
+- Os cards exibem somente um titulo curto, menor e com menos destaque visual.
+- Os rotulos da vitrine de Eventos na Home tambem foram reduzidos para nao
+  competir com as imagens.
+
+## Atualizacao — headers de Eventos e Galeria
+
+Data: 5 de outubro de 2026
+
+- Removida a navegacao interna dos headers de `eventos/eventos.html` e
+  `galeria/galeria.html`.
+- Mantido somente o botao `Voltar para a pagina inicial`, ao lado da logo.
+- Os titulos `Eventos` e `Galeria` agora usam o laranja institucional.
+- O botao recebeu tratamento responsivo para continuar cabendo ao lado da
+  logo em telas pequenas.

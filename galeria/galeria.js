@@ -375,8 +375,13 @@ if (galleryGrid && galleryTemplate) {
     const imageFrame = card.querySelector(".gallery-image");
     const image = card.querySelector(".gallery-image img");
 
-    imageLink.href = `${pathPrefix}${item.image}`;
-    imageLink.dataset.lightboxCaption = item.caption;
+    if (isPreview) {
+      imageLink.replaceWith(imageFrame);
+    } else {
+      imageLink.href = `${pathPrefix}${item.image}`;
+      imageLink.dataset.lightboxCaption = item.caption;
+    }
+
     imageFrame?.classList.toggle(
       "gallery-image--portrait",
       item.variant === "portrait",
