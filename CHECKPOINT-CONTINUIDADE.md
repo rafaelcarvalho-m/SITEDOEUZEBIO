@@ -1656,6 +1656,38 @@ Data: 7 de outubro de 2026
 - A nova aba usa o iframe panoramico do Google Maps fornecido para a entrada
   da escola e foi integrada ao mesmo sistema de abas e navegacao por teclado.
 
+## Atualizacao — imagens do Apoio
+
+Data: 7 de outubro de 2026
+
+- As seis fotos adicionadas em `apoio/imgs-apoio` foram preservadas e receberam
+  versoes redimensionadas para 600 px e 1600 px, com nomes descritivos.
+- A pagina `apoio/apoio.html` recebeu seis cards de imagens distribuidos pela
+  introducao, pilares, estrategias e secao `Registros`, com textos
+  alternativos, legendas, `srcset` responsivo e ampliacao pelo lightbox
+  compartilhado do site.
+- O link `Registros` foi incluido no header da pagina Apoio.
+
+## Atualizacao — imagens do Apoio distribuidas pelo conteudo
+
+Data: 7 de outubro de 2026
+
+- As fotos deixaram de ficar concentradas em uma unica grade.
+- Uma imagem foi colocada na introducao, duas na secao `Como funciona`, uma
+  em `Estrategias` e duas permaneceram em `Registros`.
+- O lightbox e os tamanhos responsivos foram mantidos em todos os cards.
+
+## Atualizacao — imagens alinhadas ao conteudo e capa do Apoio
+
+Data: 7 de outubro de 2026
+
+- A foto de alfabetizacao passou a ser a capa visual do hero do Apoio.
+- A introducao usa a foto dos cartoes; `Como funciona` usa as fotos de letras
+  e acompanhamento; `Estrategias` usa a explicacao de matematica; e
+  `Registros` usa o material concreto de matematica.
+- Cada foto ficou associada ao trecho que melhor explica seu uso, com legenda,
+  texto alternativo e ampliacao preservados.
+
 ## Atualizacao — compactacao adicional de Sobre Nos
 
 Data: 7 de outubro de 2026
@@ -1680,3 +1712,68 @@ Data: 7 de outubro de 2026
 
 - Removido o bloco `Início / Eventos` da pagina `eventos/eventos.html` para
   deixar o conteudo mais direto depois do header.
+
+## Atualizacao — padronizacao das imagens do Apoio
+
+Data: 7 de outubro de 2026
+
+- As imagens de conteudo receberam versoes recortadas no mesmo formato 3:2,
+  com arquivos de 600 x 400 e 1600 x 1067.
+- Os cards agora usam a mesma altura visual no desktop e no celular, mantendo
+  o recorte central e evitando blocos com tamanhos diferentes.
+- A capa permanece em formato panoramico para preencher o hero.
+
+## Atualizacao — espacos da pagina Apoio ajustados
+
+Data: 7 de outubro de 2026
+
+- Reduzidos os espacos verticais entre introducao, pilares, estrategias,
+  registros e chamada final.
+- Diminuida a distancia entre as colunas de conteudo para evitar areas vazias
+  excessivas em telas largas.
+- A imagem final passou a ocupar uma largura maior e os ajustes de 1600 px e
+  4K foram compactados para manter a pagina mais continua.
+
+## Atualizacao — centralizacao de Registros do Apoio
+
+Data: 7 de outubro de 2026
+
+- O titulo, a identificacao da secao e os elementos do bloco `Registros do
+  Apoio` foram centralizados.
+- O texto descritivo permanece justificado.
+- A imagem abaixo do texto passou a ocupar uma coluna única e ficou centralizada
+  junto com o restante da seção.
+
+## Atualizacao — espaco visual em Apoio a aprendizagem
+
+Data: 7 de outubro de 2026
+
+- O titulo da introducao foi alinhado verticalmente ao conteudo e a imagem da
+  coluna ao lado, reduzindo o espaco vazio percebido nessa parte da pagina.
+
+## Atualizacao — imagem de Registros centralizada
+
+Data: 7 de outubro de 2026
+
+- A imagem de `Registros do Apoio` foi centralizada abaixo do titulo, mantendo
+  a largura menor de 640 px.
+
+## Atualizacao — capa do Apoio simplificada
+
+Data: 7 de outubro de 2026
+
+- Removidos da capa o texto `Reforco e acolhimento`, a frase descritiva e o
+  botao de chamada.
+- A capa agora apresenta somente a imagem e o titulo `Apoio`.
+
+## Atualizacao — auditoria geral de navegacao e responsividade
+
+Data: 7 de outubro de 2026
+
+- A auditoria das paginas HTML confirmou um `h1` por pagina, IDs sem
+  duplicacao, imagens com `alt`, links locais e ancoras existentes.
+- Os arquivos JavaScript passaram no `node --check`.
+- A responsividade foi revisada nos estilos globais e especificos; os maiores
+  respiros da pagina Apoio foram reduzidos e as imagens foram padronizadas.
+- Foram removidas versoes antigas nao utilizadas das imagens derivadas do
+  Apoio; os seis arquivos originais foram preservados.
