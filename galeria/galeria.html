@@ -85,8 +85,8 @@
       <nav class="topbar" aria-label="Navegação da galeria">
         <a
           class="brand"
-          href="../index.html"
-          aria-label="Voltar à página inicial"
+          href="../index.html#galeria"
+          aria-label="Voltar à seção da galeria"
         >
           <img
             src="../imgs-home-index/logo-escola.png"
@@ -95,8 +95,13 @@
             height="374"
           />
         </a>
-        <a class="detail-home-button" href="../index.html">
-          Voltar para a página inicial
+        <a
+          class="detail-home-button"
+          href="../index.html#galeria"
+          aria-label="Voltar ao início"
+          onclick="if (window.history.length > 1) { window.history.back(); return false; }"
+        >
+          Voltar ao início
           <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
         </a>
       </nav>
@@ -143,7 +148,7 @@
 
     <footer>
       <div class="footer-main">
-        <a class="footer-brand" href="../index.html">
+        <a class="footer-brand" href="../index.html#galeria">
           <img
             src="../imgs-home-index/logo-escola.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"

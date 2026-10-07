@@ -1600,3 +1600,83 @@ Data: 6 de outubro de 2026
   projeto ou estrutura correspondente.
 - O registro visual dos minifoguetes foi adicionado com sua descricao completa,
   para que nenhum dos projetos em desenvolvimento fique sem informacao.
+
+## Atualizacao — avisos de informacoes em atualizacao em RPG e Robotica
+
+Data: 6 de outubro de 2026
+
+- Os blocos finais das paginas de RPG e Robotica agora indicam que novas
+  informacoes serao publicadas assim que forem confirmadas pela equipe do
+  colegio.
+- Foram mantidos os conteudos ja existentes, sem inventar horarios,
+  responsaveis ou resultados ainda nao informados.
+
+## Atualizacao — retornos contextuais da navegacao
+
+Data: 7 de outubro de 2026
+
+- Os botoes Home, logos e marcas de retorno das paginas internas agora levam
+  para a secao correspondente da Home: Sobre, Eventos, Ensino, Projetos,
+  Apoio, Biblioteca e Galeria.
+- Os retornos entre paginas relacionadas tambem preservam o contexto: Clubes
+  retorna para `clube-de-ciencias.html#clubes`, cursos tecnicos para
+  `ensinotecnico.html#cursos` e areas do Ensino Regular para
+  `ensinoregular.html#areas`.
+- O breadcrumb de Eventos foi alinhado ao mesmo destino `#eventos`.
+- A validacao estatica confirmou que os links principais restantes sem ancora
+  pertencem as paginas institucionais que retornam legitimamente ao inicio da
+  Home ou ao topo da propria pagina.
+
+## Atualizacao — headers simplificados de Eventos e Galeria
+
+Data: 7 de outubro de 2026
+
+- Os headers de `eventos/eventos.html` e `galeria/galeria.html` agora exibem
+  somente a marca e o botao de retorno contextual.
+- O retorno de Eventos aponta para `../index.html#eventos`; o retorno da
+  Galeria aponta para `../index.html#galeria`.
+- A navegacao completa e o menu Explorar foram removidos do header de Eventos,
+  mantendo o mesmo padrao visual ja usado na Galeria.
+
+## Atualizacao — retorno pelo historico em Eventos e Galeria
+
+Data: 7 de outubro de 2026
+
+- Os botoes dos dois headers agora exibem `Voltar ao início`.
+- Ao clicar, o navegador retorna pela sessao anterior (`history.back()`),
+  preservando a pagina e a posicao em que o usuario estava.
+- Os links `#eventos` e `#galeria` permanecem como fallback para acesso direto.
+
+## Atualizacao — aba Entrada na localizacao
+
+Data: 7 de outubro de 2026
+
+- A aba de localizacao da Home agora possui a opcao `Entrada` entre `360°` e
+  `Por dentro`.
+- A nova aba usa o iframe panoramico do Google Maps fornecido para a entrada
+  da escola e foi integrada ao mesmo sistema de abas e navegacao por teclado.
+
+## Atualizacao — compactacao adicional de Sobre Nos
+
+Data: 7 de outubro de 2026
+
+- Reduzidos os espacos verticais da introducao, historia, iniciativas,
+  galeria, perfil e encerramento da pagina `sobrenos/sobrenos.html`.
+- Ajustados os espacos especificos para celular e telas grandes, evitando que
+  a versao 2K/4K crie blocos excessivamente altos.
+- Mantidas as ancoras, a leitura dos textos, a responsividade e a hierarquia
+  visual da pagina.
+
+## Atualizacao — imagem principal de Sobre Nos reduzida
+
+Data: 7 de outubro de 2026
+
+- A imagem principal da introducao foi reduzida para ocupar menos espaco no
+  desktop e no celular, mantendo seu alinhamento e a legenda sobreposta.
+
+## Atualizacao — breadcrumb removido de Eventos
+
+Data: 7 de outubro de 2026
+
+- Removido o bloco `Início / Eventos` da pagina `eventos/eventos.html` para
+  deixar o conteudo mais direto depois do header.

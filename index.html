@@ -650,6 +650,18 @@
             </button>
             <button
               class="visit-tab"
+              id="visit-tab-entrance"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="visit-view-entrance"
+              data-visit-tab="entrance"
+            >
+              <i class="fa-solid fa-door-open" aria-hidden="true"></i>
+              Entrada
+            </button>
+            <button
+              class="visit-tab"
               id="visit-tab-inside"
               type="button"
               role="tab"
@@ -719,6 +731,29 @@
               </div>
               <p class="visit-view-note">
                 Explore o entorno da escola em uma visualização panorâmica.
+              </p>
+            </div>
+
+            <div
+              class="visit-view"
+              id="visit-view-entrance"
+              role="tabpanel"
+              aria-labelledby="visit-tab-entrance"
+              data-visit-view="entrance"
+              hidden
+            >
+              <div class="map-wrap">
+                <iframe
+                  title="Visualização da entrada do Colégio Estadual Euzébio da Mota"
+                  src="https://www.google.com/maps/embed?pb=!4v1791411519753!6m8!1m7!1sCAoSF0NJSE0wb2dLRUlDQWdJRFU3WUtjb0FF!2m2!1d-25.50346937057401!2d-49.253559315692!3f63.31169604422854!4f-6.555495472934041!5f0.8707234758789318"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+              <p class="visit-view-note">
+                Veja a entrada do Colégio Estadual Euzébio da Mota em uma
+                visualização panorâmica.
               </p>
             </div>
 
