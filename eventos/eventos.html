@@ -88,10 +88,25 @@
             height="374"
           />
         </a>
-        <a class="detail-home-button" href="../index.html">
-          Voltar para a página inicial
-          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-        </a>
+        <div class="nav-links">
+          <a href="../index.html#sobre">Sobre</a>
+          <a href="../index.html#eventos" aria-current="page">Eventos</a>
+          <a href="../index.html#agenda">Agenda</a>
+          <a href="../index.html#ensino">Ensino</a>
+          <a href="../index.html#projetos">Projetos</a>
+          <details class="nav-dropdown">
+            <summary>
+              Explorar
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </summary>
+            <div class="nav-dropdown-menu">
+              <a href="../index.html#apoio">Apoio</a>
+              <a href="../index.html#biblioteca">Biblioteca</a>
+              <a href="../index.html#galeria">Galeria</a>
+            </div>
+          </details>
+          <a href="../index.html#contato">Contato</a>
+        </div>
       </nav>
       <div class="detail-hero-content detail-hero-content-centered reveal">
         <p class="eyebrow">Vida escolar</p>
@@ -236,5 +251,6 @@
     <script src="eventos.js"></script>
     <script src="eventos-page.js"></script>
     <script src="../comum.js"></script>
+    <script src="../script.js"></script>
   </body>
 </html>

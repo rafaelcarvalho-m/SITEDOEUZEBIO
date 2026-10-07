@@ -112,6 +112,7 @@
 
         <div class="nav-links">
           <a href="#sobre">Sobre</a>
+          <a href="#eventos">Eventos</a>
           <a href="#agenda">Agenda</a>
           <a href="#ensino">Ensino</a>
           <a href="#projetos">Projetos</a>
@@ -121,10 +122,9 @@
               <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="nav-dropdown-menu">
-              <a href="#galeria">Galeria</a>
-              <a href="#tour-360">Tour 360°</a>
               <a href="#apoio">Apoio</a>
               <a href="#biblioteca">Biblioteca</a>
+              <a href="#galeria">Galeria</a>
             </div>
           </details>
           <a href="#contato">Contato</a>
@@ -161,93 +161,6 @@
     >
 
     <main>
-      <!--
-        SEÇÃO DE EVENTOS
-        Para adicionar um evento, salve a foto em eventos/ e edite o cadastro
-        em eventos/eventos.js. O JavaScript gera os cards automaticamente.
-      -->
-      <section
-        class="events-section section"
-        id="eventos"
-        aria-labelledby="events-title"
-      >
-        <div class="events-shell">
-          <div class="events-intro reveal">
-            <h2 id="events-title">Eventos</h2>
-            <p>
-              Acompanhe os registros de atividades e iniciativas da comunidade
-              escolar.
-            </p>
-          </div>
-
-          <div class="home-events-grid" data-events-home-grid></div>
-
-          <a class="button events-all-link" href="eventos/eventos.html">
-            Ver todos os eventos
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-
-          <template id="event-home-card-template">
-            <a class="event-showcase-card reveal" href="eventos/eventos.html">
-              <figure class="event-showcase-image">
-                <img alt="" width="1600" height="1063" loading="lazy" decoding="async" />
-                <figcaption class="event-showcase-label"></figcaption>
-                <span class="event-showcase-arrow" aria-hidden="true">
-                  <i class="fa-solid fa-arrow-right"></i>
-                </span>
-                </figure>
-            </a>
-          </template>
-
-          <noscript>
-            <p class="events-no-script">
-              Ative o JavaScript para visualizar os eventos.
-            </p>
-          </noscript>
-        </div>
-      </section>
-
-      <hr class="section-divider" aria-hidden="true" />
-
-      <section
-        class="home-gallery section"
-        id="galeria"
-        aria-labelledby="gallery-title"
-      >
-        <div class="home-gallery-heading reveal">
-          <p class="eyebrow">Registros da escola</p>
-          <h2 id="gallery-title">Galeria</h2>
-          <p>
-            Reunimos aqui imagens dos espaços, projetos e momentos do cotidiano
-            do Colégio Estadual Euzébio da Mota.
-          </p>
-          <a class="button" href="galeria/galeria.html">
-            Ver galeria completa
-            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
-        <div class="gallery-preview-grid" data-gallery-preview></div>
-
-        <template id="gallery-card-template">
-          <article class="gallery-card reveal">
-            <a class="gallery-card-image-link" href="#">
-              <figure class="gallery-image">
-                <img
-                  alt=""
-                  width="600"
-                  height="399"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </figure>
-            </a>
-          </article>
-        </template>
-      </section>
-
-      <hr class="section-divider" aria-hidden="true" />
-
       <section class="about section" id="sobre">
         <div class="section-heading reveal">
           <p class="eyebrow">Nossa escola</p>
@@ -293,6 +206,60 @@
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
+        </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <!--
+        SEÇÃO DE EVENTOS
+        Para adicionar um evento, salve a foto em eventos/ e edite o cadastro
+        em eventos/eventos.js. O JavaScript gera os cards automaticamente.
+      -->
+      <section
+        class="events-section section"
+        id="eventos"
+        aria-labelledby="events-title"
+      >
+        <div class="events-shell">
+          <div class="events-intro reveal">
+            <h2 id="events-title">Eventos</h2>
+            <p>
+              Acompanhe os registros de atividades e iniciativas da comunidade
+              escolar.
+            </p>
+          </div>
+
+          <div class="home-events-grid" data-events-home-grid></div>
+
+          <a class="button events-all-link" href="eventos/eventos.html">
+            Ver todos os eventos
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+
+          <template id="event-home-card-template">
+            <a class="event-showcase-card reveal" href="eventos/eventos.html">
+              <figure class="event-showcase-image">
+                <img
+                  alt=""
+                  width="1600"
+                  height="1063"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="event-showcase-label"></figcaption>
+                <span class="event-showcase-arrow" aria-hidden="true">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </span>
+              </figure>
+            </a>
+          </template>
+
+          <noscript>
+            <p class="events-no-script">
+              Ative o JavaScript para visualizar os eventos.
+            </p>
+          </noscript>
         </div>
       </section>
 
@@ -499,36 +466,6 @@
       <hr class="section-divider" aria-hidden="true" />
 
       <section
-        class="tour-section section"
-        id="tour-360"
-        aria-labelledby="tour-title"
-      >
-        <div class="tour-copy reveal">
-          <p class="eyebrow">Conheça a escola</p>
-
-          <h2 id="tour-title">Veja onde a escola <em>fica.</em></h2>
-
-          <p>
-            Use a visualização para conhecer o entorno do Colégio Estadual
-            Euzébio da Mota, na R. Clara Tedesco, 2773, no Boqueirão, em
-            Curitiba.
-          </p>
-        </div>
-
-        <div class="tour-shell reveal">
-          <iframe
-            title="Visualização em 360 graus do entorno do Colégio Estadual Euzébio da Mota"
-            src="https://www.google.com/maps/embed?pb=!4v1787088978333!6m8!1m7!1sxZxHOXEsjHJ3ayXhh1IJOg!2m2!1d-25.50319654876204!2d-49.25352978090518!3f59.78426749654259!4f-3.49070922237847!5f0.7820865974627469"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
-        </div>
-      </section>
-
-      <hr class="section-divider" aria-hidden="true" />
-
-      <section
         class="home-support section"
         id="apoio"
         aria-labelledby="support-title"
@@ -632,40 +569,188 @@
 
       <hr class="section-divider" aria-hidden="true" />
 
+      <section
+        class="home-gallery section"
+        id="galeria"
+        aria-labelledby="gallery-title"
+      >
+        <div class="home-gallery-heading reveal">
+          <p class="eyebrow">Registros da escola</p>
+          <h2 id="gallery-title">Galeria</h2>
+          <p>
+            Reunimos aqui imagens dos espaços, projetos e momentos do cotidiano
+            do Colégio Estadual Euzébio da Mota.
+          </p>
+          <a class="button" href="galeria/galeria.html">
+            Ver galeria completa
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="gallery-preview-grid" data-gallery-preview></div>
+
+        <template id="gallery-card-template">
+          <article class="gallery-card reveal">
+            <a class="gallery-card-image-link" href="#">
+              <figure class="gallery-image">
+                <img
+                  alt=""
+                  width="600"
+                  height="399"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+            </a>
+          </article>
+        </template>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
       <section class="contact-section section" id="contato">
-        <div class="location-panel reveal">
+        <div class="location-panel visit-panel reveal">
           <p class="eyebrow">Visite-nos</p>
 
-          <h2>Localização</h2>
+          <h2>Conheça a escola</h2>
 
-          <div class="map-wrap">
-            <iframe
-              title="Mapa do Colégio Estadual Euzébio da Mota"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.0465121045377!2d-49.255875589964795!3d-25.503495277421234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcfb180539a557%3A0x832d8340e4d19064!2sR.%20Clara%20Tedesco%2C%202773%20-%20Boqueir%C3%A3o%2C%20Curitiba%20-%20PR%2C%2081670-290!5e0!3m2!1spt-BR!2sbr!4v1786324498145!5m2!1spt-BR!2sbr"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin"
-            ></iframe>
-          </div>
-
-          <p class="address">
-            <i class="fa-solid fa-location-dot"></i>
-            Rua Clara Tedesco, 2773 · Boqueirão<br />
-            Curitiba – PR · 81670-290
+          <p class="visit-intro">
+            Escolha uma das opções para encontrar o endereço, explorar o entorno
+            ou ver um pouco da instituição por dentro.
           </p>
 
-          <a
-            class="map-directions"
-            href="https://www.google.com/maps/dir/?api=1&destination=Rua+Clara+Tedesco%2C+2773%2C+Curitiba%2C+PR"
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            class="visit-tabs"
+            role="tablist"
+            aria-label="Formas de conhecer a escola"
           >
-            Abrir rota no Google Maps
-            <i
-              class="fa-solid fa-arrow-up-right-from-square"
-              aria-hidden="true"
-            ></i>
-          </a>
+            <button
+              class="visit-tab"
+              id="visit-tab-map"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="visit-view-map"
+              data-visit-tab="map"
+            >
+              <i class="fa-solid fa-map" aria-hidden="true"></i>
+              Mapa
+            </button>
+            <button
+              class="visit-tab is-active"
+              id="visit-tab-360"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="visit-view-360"
+              data-visit-tab="360"
+            >
+              <i class="fa-solid fa-street-view" aria-hidden="true"></i>
+              360°
+            </button>
+            <button
+              class="visit-tab"
+              id="visit-tab-inside"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="visit-view-inside"
+              data-visit-tab="inside"
+            >
+              <i class="fa-solid fa-building" aria-hidden="true"></i>
+              Por dentro
+            </button>
+          </div>
+
+          <div class="visit-views">
+            <div
+              class="visit-view"
+              id="visit-view-map"
+              role="tabpanel"
+              aria-labelledby="visit-tab-map"
+              data-visit-view="map"
+              hidden
+            >
+              <div class="map-wrap">
+                <iframe
+                  title="Mapa do endereço do Colégio Estadual Euzébio da Mota"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3601.0465121045377!2d-49.255875589964795!3d-25.503495277421234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dcfb180539a557%3A0x832d8340e4d19064!2sR.%20Clara%20Tedesco%2C%202773%20-%20Boqueir%C3%A3o%2C%20Curitiba%20-%20PR%2C%2081670-290!5e0!3m2!1spt-BR!2sbr!4v1786324498145!5m2!1spt-BR!2sbr"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+
+              <p class="address">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                Rua Clara Tedesco, 2773 · Boqueirão<br />
+                Curitiba – PR · 81670-290
+              </p>
+
+              <a
+                class="map-directions"
+                href="https://www.google.com/maps/dir/?api=1&destination=Rua+Clara+Tedesco%2C+2773%2C+Curitiba%2C+PR"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Abrir rota no Google Maps
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </div>
+
+            <div
+              class="visit-view is-active"
+              id="visit-view-360"
+              role="tabpanel"
+              aria-labelledby="visit-tab-360"
+              data-visit-view="360"
+            >
+              <div class="map-wrap">
+                <iframe
+                  title="Visualização em 360 graus do entorno do Colégio Estadual Euzébio da Mota"
+                  src="https://www.google.com/maps/embed?pb=!4v1787088978333!6m8!1m7!1sxZxHOXEsjHJ3ayXhh1IJOg!2m2!1d-25.50319654876204!2d-49.25352978090518!3f59.78426749654259!4f-3.49070922237847!5f0.7820865974627469"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+              <p class="visit-view-note">
+                Explore o entorno da escola em uma visualização panorâmica.
+              </p>
+            </div>
+
+            <div
+              class="visit-view"
+              id="visit-view-inside"
+              role="tabpanel"
+              aria-labelledby="visit-tab-inside"
+              data-visit-view="inside"
+              hidden
+            >
+              <div class="map-wrap">
+                <iframe
+                  title="Visualização interna do Colégio Estadual Euzébio da Mota"
+                  src="https://www.google.com/maps/embed?pb=!4v1791313394668!6m8!1m7!1sCAoSFkNJSE0wb2dLRUlDQWdJRFU3WUxpRnc.!2m2!1d-25.50346937057401!2d-49.253559315692!3f68.79419820797816!4f-10.900980000819672!5f0.7820865974627469"
+                  loading="lazy"
+                  allowfullscreen
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+              <p class="visit-view-note">
+                Explore a instituição por dentro em uma visualização panorâmica.
+              </p>
+              <a class="map-directions" href="galeria/galeria.html">
+                Ver também as fotos do site
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <aside class="contact-panel reveal">

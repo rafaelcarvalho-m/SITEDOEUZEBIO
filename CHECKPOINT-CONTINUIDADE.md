@@ -1497,3 +1497,106 @@ Data: 5 de outubro de 2026
 - Os titulos `Eventos` e `Galeria` agora usam o laranja institucional.
 - O botao recebeu tratamento responsivo para continuar cabendo ao lado da
   logo em telas pequenas.
+
+## Atualizacao — reorganizacao da Home e experiencias de visita
+
+Data: 6 de outubro de 2026
+
+- A sequencia principal da Home agora segue Sobre, Eventos, Agenda, Ensino,
+  Projetos, Apoio, Biblioteca, Galeria e Contato.
+- Eventos foi incluido como item direto do header da Home e recebeu a mesma
+  navegacao sequencial no header da pagina dedicada.
+- A antiga secao separada do Tour 360 foi substituida por um seletor no bloco
+  de visita ao lado de Contato, com as opcoes Mapa, 360 graus e Por dentro.
+  A opcao Por dentro usa um iframe panoramico do Google Maps fornecido pelo
+  usuario, alem de manter um link para a Galeria do site.
+- Foi adicionado um botao flutuante de seta para cima, disponivel em todas as
+  paginas que carregam comum.js, com suporte a movimento reduzido.
+- O hero inicial da Home passou a ocupar pelo menos toda a altura visivel em
+  telas pequenas, medias e grandes (100svh).
+
+## Atualizacao — disciplinas organizadas por turma
+
+Data: 6 de outubro de 2026
+
+- As paginas de Desenvolvimento de Sistemas, Administracao, Exatas e Humanas
+  agora exibem as disciplinas separadas por ano e turma, permitindo que cada
+  serie tenha uma grade diferente.
+- A pagina de Alimentos passou a exibir a turma `2º ALI 2` com as oito
+  disciplinas informadas, mantendo explicita a ausencia de disciplinas
+  tecnicas identificadas na folha recebida.
+- Cada bloco informa a turma e a quantidade de disciplinas, e os cartoes foram
+  mantidos responsivos para telas menores.
+- Arquivos principais alterados: `paginas.css` e as cinco paginas HTML dentro
+  de `ensino-medio`.
+
+## Atualizacao — simplificacao das paginas de cursos
+
+Data: 6 de outubro de 2026
+
+- Removido o bloco de orientacoes `Como saber mais`/`Antes de decidir seu
+  caminho` de todas as paginas de cursos.
+- O titulo de Desenvolvimento de Sistemas recebeu ajuste responsivo para
+  permanecer em uma unica linha, reduzindo a fonte quando necessario.
+
+## Atualizacao — botao de opiniao reposicionado
+
+Data: 6 de outubro de 2026
+
+- O botao flutuante da Pesquisa de opiniao foi movido para o canto inferior
+  direito, em formato compacto, inspirado no posicionamento do VLibras.
+- A seta de voltar ao topo permanece abaixo dele, no mesmo lado, sem
+  sobreposicao, e o botao de opiniao continua levando ao formulario externo.
+
+## Atualizacao — alinhamento com o botao VLibras
+
+Data: 6 de outubro de 2026
+
+- O botao de opiniao passou a ter formato quadrado com bordas levemente
+  arredondadas.
+- Depois que o VLibras carrega, a posicao do botao de opiniao e calculada para
+  ficar logo abaixo do botao do VLibras e acompanhar redimensionamentos da tela.
+- O balão informativo continua aparecendo do lado esquerdo do botao.
+
+## Atualizacao — projetos do Clube Little Scientists
+
+Data: 6 de outubro de 2026
+
+- A pagina da professora Marlene agora apresenta quatro projetos em
+  desenvolvimento com descricoes completas: minifoguetes e reflorestamento,
+  Jardim das Sensacoes, Horta Escolar e Compostagem, e Estufa e Cisterna.
+- A proposta registra que o clube existe desde 2023 e informa esse dado nas
+  informacoes rapidas.
+- Foi criado um atalho `Projetos` no header da pagina, com rolagem ajustada,
+  e a grafia do nome `Little Scientists` foi corrigida no conteudo e nos
+  metadados.
+
+## Atualizacao — identificacao das imagens da pagina da Marlene
+
+Data: 6 de outubro de 2026
+
+- A imagem da horta em pneus foi identificada como `Jardim das Sensacoes`.
+- O canteiro de cultivo foi identificado como `Horta Escolar e Compostagem`.
+- A estrutura de observacao foi identificada como `Casa das Abelhas`.
+- A imagem da estufa foi mantida como `Estufa`, com a descricao ligada ao
+  apoio as pesquisas e a producao de mudas.
+
+## Atualizacao — textos nos cards de imagens da Marlene
+
+Data: 6 de outubro de 2026
+
+- As descricoes completas foram colocadas nos respectivos cards de imagens da
+  galeria: Jardim das Sensacoes, Horta Escolar e Compostagem, Casa das Abelhas
+  e Estufa.
+- O card de cada registro agora apresenta a imagem e o texto correspondente
+  dentro da opcao `Saiba mais`.
+
+## Atualizacao — conteudo reunido nos cards dos projetos da Marlene
+
+Data: 6 de outubro de 2026
+
+- Os cards de texto duplicados da parte superior foram removidos.
+- A galeria passou a concentrar a imagem, o titulo e as informacoes de cada
+  projeto ou estrutura correspondente.
+- O registro visual dos minifoguetes foi adicionado com sua descricao completa,
+  para que nenhum dos projetos em desenvolvimento fique sem informacao.

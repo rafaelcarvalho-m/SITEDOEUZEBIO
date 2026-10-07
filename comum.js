@@ -163,6 +163,44 @@
       if (window.VLibras?.Widget && !document.querySelector("[vw]")) {
         new window.VLibras.Widget("https://vlibras.gov.br/app");
       }
+
+      const feedbackButton = document.querySelector(".home-feedback-button");
+
+      if (!feedbackButton) return;
+
+      const positionFeedbackButton = () => {
+        const vlibrasButton = window.VLibrasWidget?.initBtn;
+
+        if (!vlibrasButton) return false;
+
+        const vlibrasBounds = vlibrasButton.getBoundingClientRect();
+        if (!vlibrasBounds.width || !vlibrasBounds.height) return false;
+
+        const buttonWidth = vlibrasBounds.width;
+        const buttonHeight = vlibrasBounds.height;
+        const gap = 6;
+        const top = vlibrasBounds.bottom + gap;
+        const right = Math.max(
+          0,
+          document.documentElement.clientWidth - vlibrasBounds.right,
+        );
+
+        feedbackButton.style.width = `${buttonWidth}px`;
+        feedbackButton.style.height = `${buttonHeight}px`;
+        feedbackButton.style.top = `${Math.max(16, top)}px`;
+        feedbackButton.style.right = `${right}px`;
+        feedbackButton.style.bottom = "auto";
+        return true;
+      };
+
+      const waitForVlibrasButton = (attempt = 0) => {
+        if (positionFeedbackButton() || attempt >= 20) return;
+        window.setTimeout(() => waitForVlibrasButton(attempt + 1), 250);
+      };
+
+      waitForVlibrasButton();
+      window.addEventListener("resize", positionFeedbackButton);
+      window.addEventListener("pointerup", positionFeedbackButton);
     });
     document.head.append(script);
   }
@@ -284,4 +322,41 @@ document.querySelectorAll(".button").forEach((button) => {
     document.body.classList.remove("site-lightbox-open");
     returnFocus?.focus();
   });
+})();
+
+(() => {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  const button = document.createElement("button");
+  button.className = "back-to-top floating-back-to-top";
+  button.type = "button";
+  button.setAttribute("aria-label", "Voltar ao topo");
+  button.title = "Voltar ao topo";
+  button.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+  document.body.append(button);
+
+  const updateVisibility = () => {
+    const footer = document.querySelector("footer");
+    const footerBounds = footer?.getBoundingClientRect();
+    const footerIsVisible =
+      footerBounds &&
+      footerBounds.top < window.innerHeight &&
+      footerBounds.bottom > 0;
+
+    button.classList.toggle(
+      "is-visible",
+      window.scrollY > 420 && !footerIsVisible,
+    );
+  };
+
+  button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: reduceMotion ? "auto" : "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  updateVisibility();
 })();
