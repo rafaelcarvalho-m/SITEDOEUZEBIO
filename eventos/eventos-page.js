@@ -8,9 +8,15 @@
   const yearFilters = document.querySelector("[data-year-filters]");
   const emptyState = document.querySelector("[data-events-empty]");
   const status = document.querySelector("[data-events-status]");
+  const eventYear = (event) => event.ano || event.data?.slice(0, 4);
   const datedEvents = events.filter((event) => event.data);
-  const categories = [...new Set(events.map((event) => event.categoria).filter(Boolean))];
-  const years = [...new Set(datedEvents.map((event) => event.data.slice(0, 4)))].sort(
+  const categories = [
+    ...new Set([
+      ...(window.SiteEvents?.categories || []),
+      ...events.map((event) => event.categoria).filter(Boolean),
+    ]),
+  ];
+  const years = [...new Set(events.map(eventYear).filter(Boolean))].sort(
     (first, second) => Number(second) - Number(first),
   );
   const titledEvents = events.some((event) => event.titulo?.trim());
@@ -113,7 +119,7 @@
       const matchesQuery = !query || event.titulo?.toLocaleLowerCase("pt-BR").includes(query);
       const matchesCategory =
         activeCategory === "all" || event.categoria === activeCategory;
-      const matchesYear = activeYear === "all" || event.data?.startsWith(activeYear);
+      const matchesYear = activeYear === "all" || eventYear(event) === activeYear;
       const isVisible = matchesQuery && matchesCategory && matchesYear;
       card.hidden = !isVisible;
       if (isVisible) visibleCount += 1;

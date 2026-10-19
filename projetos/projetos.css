@@ -61,7 +61,7 @@
 .science-page .science-hero:after {
   background: radial-gradient(
     420px circle at var(--pointer-x, 70%) var(--pointer-y, 35%),
-    rgba(255, 255, 255, 0.14),
+    rgba(255, 154, 92, 0.24),
     transparent 62%
   );
 }

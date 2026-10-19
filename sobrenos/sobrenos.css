@@ -232,6 +232,10 @@
 
 .history-section {
   position: relative;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  box-sizing: border-box;
   overflow: hidden;
   padding: 58px 0 66px;
   background: var(--glass-deep);

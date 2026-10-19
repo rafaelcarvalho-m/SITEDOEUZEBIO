@@ -197,6 +197,12 @@
   background: #0b4f6c;
 }
 
+.events-page-card.event-poster-card .events-page-image {
+  display: grid;
+  place-items: center;
+  background: #0b4f6c;
+}
+
 .events-page-card img {
   display: block;
   width: 100%;
@@ -207,6 +213,11 @@
 
 .events-page-card.event-logo-card img {
   padding: clamp(24px, 5vw, 54px);
+  object-fit: contain;
+}
+
+.events-page-card.event-poster-card img {
+  padding: 8px;
   object-fit: contain;
 }
 
@@ -245,6 +256,10 @@
   color: #71310f;
   font-size: 0.68rem;
   font-weight: 800;
+}
+
+.event-card-metadata > .event-card-category {
+  display: none;
 }
 
 .events-date-groups {

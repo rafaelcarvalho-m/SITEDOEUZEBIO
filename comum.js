@@ -238,8 +238,33 @@ document.querySelectorAll(".button").forEach((button) => {
       <button class="site-lightbox-close" type="button" aria-label="Fechar imagem ampliada">
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
+      <div class="site-lightbox-zoom-controls" role="group" aria-label="Controles de zoom">
+        <button class="site-lightbox-zoom-out" type="button" aria-label="Diminuir zoom" title="Diminuir zoom">
+          <i class="fa-solid fa-minus" aria-hidden="true"></i>
+        </button>
+        <label class="sr-only" for="site-lightbox-zoom-select">Nível de zoom</label>
+        <select class="site-lightbox-zoom-select" id="site-lightbox-zoom-select" aria-label="Nível de zoom">
+          <option value="1">100%</option>
+          <option value="1.25">125%</option>
+          <option value="1.5">150%</option>
+          <option value="1.75">175%</option>
+          <option value="2">200%</option>
+          <option value="2.25">225%</option>
+          <option value="2.5">250%</option>
+          <option value="2.75">275%</option>
+          <option value="3">300%</option>
+        </select>
+        <button class="site-lightbox-zoom-in" type="button" aria-label="Aumentar zoom" title="Aumentar zoom">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i>
+        </button>
+        <button class="site-lightbox-zoom-reset" type="button" aria-label="Redefinir zoom" title="Redefinir zoom">
+          <i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i>
+        </button>
+      </div>
       <figure class="site-lightbox-figure">
-        <img class="site-lightbox-image" alt="" />
+        <div class="site-lightbox-viewport">
+          <img class="site-lightbox-image" alt="" />
+        </div>
         <figcaption id="site-lightbox-caption">
           <span class="site-lightbox-caption"></span>
           <span class="site-lightbox-count" aria-live="polite"></span>
@@ -258,16 +283,47 @@ document.querySelectorAll(".button").forEach((button) => {
   if (typeof dialog.showModal !== "function") return;
 
   const lightboxImage = dialog.querySelector(".site-lightbox-image");
+  const lightboxViewport = dialog.querySelector(".site-lightbox-viewport");
   const lightboxCaption = dialog.querySelector(".site-lightbox-caption");
   const lightboxCount = dialog.querySelector(".site-lightbox-count");
   const closeButton = dialog.querySelector(".site-lightbox-close");
   const previousButton = dialog.querySelector(".site-lightbox-previous");
   const nextButton = dialog.querySelector(".site-lightbox-next");
+  const zoomOutButton = dialog.querySelector(".site-lightbox-zoom-out");
+  const zoomInButton = dialog.querySelector(".site-lightbox-zoom-in");
+  const zoomResetButton = dialog.querySelector(".site-lightbox-zoom-reset");
+  const zoomSelect = dialog.querySelector(".site-lightbox-zoom-select");
   let currentIndex = 0;
+  let currentZoom = 1;
   let returnFocus = null;
+
+  const updateZoom = () => {
+    const isZoomed = currentZoom > 1;
+    lightboxImage.style.width = `${currentZoom * 100}%`;
+    lightboxImage.style.maxHeight = isZoomed ? "none" : "";
+    lightboxImage.classList.toggle("is-zoomed", isZoomed);
+    zoomSelect.value = String(currentZoom);
+    zoomOutButton.disabled = currentZoom <= 1;
+    zoomInButton.disabled = currentZoom >= 3;
+    zoomResetButton.disabled = currentZoom === 1;
+
+    if (isZoomed) {
+      requestAnimationFrame(() => {
+        lightboxViewport.scrollLeft =
+          (lightboxViewport.scrollWidth - lightboxViewport.clientWidth) / 2;
+        lightboxViewport.scrollTop =
+          (lightboxViewport.scrollHeight - lightboxViewport.clientHeight) / 2;
+      });
+    } else {
+      lightboxViewport.scrollLeft = 0;
+      lightboxViewport.scrollTop = 0;
+    }
+  };
 
   const showItem = (index) => {
     currentIndex = (index + galleryLinks.length) % galleryLinks.length;
+    currentZoom = 1;
+    updateZoom();
     const link = galleryLinks[currentIndex];
     const sourceImage = link.querySelector("img");
 
@@ -301,6 +357,22 @@ document.querySelectorAll(".button").forEach((button) => {
   closeButton.addEventListener("click", () => dialog.close());
   previousButton.addEventListener("click", () => showItem(currentIndex - 1));
   nextButton.addEventListener("click", () => showItem(currentIndex + 1));
+  zoomOutButton.addEventListener("click", () => {
+    currentZoom = Math.max(1, currentZoom - 0.25);
+    updateZoom();
+  });
+  zoomInButton.addEventListener("click", () => {
+    currentZoom = Math.min(3, currentZoom + 0.25);
+    updateZoom();
+  });
+  zoomSelect.addEventListener("change", () => {
+    currentZoom = Number(zoomSelect.value);
+    updateZoom();
+  });
+  zoomResetButton.addEventListener("click", () => {
+    currentZoom = 1;
+    updateZoom();
+  });
 
   dialog.addEventListener("click", (event) => {
     if (event.target === dialog) dialog.close();

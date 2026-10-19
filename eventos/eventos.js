@@ -6,32 +6,34 @@
   2. Duplique um objeto abaixo.
   3. Preencha image, alt, width e height. Os demais campos são opcionais.
 
-  Campos opcionais: titulo, descricao, data (AAAA-MM-DD), categoria, local,
-  objectPosition e variant. Use variant: "logo" para artes que devem aparecer
+  Campos opcionais: titulo, descricao, data (AAAA-MM-DD), ano (AAAA), categoria,
+  local, objectPosition e variant. Use variant: "logo" para artes que devem aparecer
   inteiras. Datas, categorias e locais não devem ser estimados.
 */
 
 const siteEvents = [
-  {
-    image: "eventos/evento-clube-de-ciencias-teste.webp",
-    alt: "Sala do Clube de Ciências do Colégio Estadual Euzébio da Mota",
-    caption: "Espaço do Clube de Ciências",
-    titulo: "Espaço do Clube de Ciências",
+   {
+    image: "eventos/post_terceiroes_cascaneia.png",
+    alt: "Post de evento dos terceirões para passeio ao Cascaneia",
+    caption: "Passeio dos terceirões",
+    titulo: "Passeio ao Cascaneia",
+    ano: "2026",
+    categoria: "Passeio dos terceirões",
     width: 1600,
     height: 1063,
-  },
-  {
-    image: "eventos/logo-clube-de-ciencias-gabriele.webp",
-    alt: "Logo do Clube de Ciências orientado pela professora Gabriele",
-    caption: "Logo do Clube de Ciências",
-    titulo: "Logo do Clube de Ciências",
-    width: 864,
-    height: 864,
-    variant: "logo",
+    variant: "poster",
   },
 ];
 
-window.SiteEvents = Object.freeze({ items: siteEvents });
+const siteEventCategories = [
+  "Clube de Ciências",
+  "Passeio dos terceirões",
+];
+
+window.SiteEvents = Object.freeze({
+  items: siteEvents,
+  categories: siteEventCategories,
+});
 
 const eventsPrefix = document.body.dataset.eventsPrefix || "";
 const eventImageUrl = (event) => `${eventsPrefix}${event.image}`;
@@ -51,6 +53,7 @@ if (homeEventsGrid && homeEventTemplate) {
 
     link.classList.toggle("is-featured", index === 0);
     link.classList.toggle("is-logo", event.variant === "logo");
+    link.classList.toggle("is-poster", event.variant === "poster");
     link.href = "eventos/eventos.html";
     link.setAttribute(
       "aria-label",
@@ -78,6 +81,7 @@ if (eventsGrid && eventTemplate) {
     const metadata = card.querySelector(".event-card-metadata");
 
     article?.classList.toggle("event-logo-card", event.variant === "logo");
+    article?.classList.toggle("event-poster-card", event.variant === "poster");
     if (article) article.dataset.eventIndex = String(index);
     imageLink.href = eventImageUrl(event);
     imageLink.dataset.lightboxCaption = event.caption || event.alt;
@@ -99,11 +103,19 @@ if (eventsGrid && eventTemplate) {
         metadata.append(time);
       }
 
-      [event.categoria, event.local].filter(Boolean).forEach((value) => {
+      if (event.categoria) {
         const span = document.createElement("span");
-        span.textContent = value;
+        span.className = "event-card-category";
+        span.textContent = event.categoria;
         metadata.append(span);
-      });
+      }
+
+      if (event.local) {
+        const span = document.createElement("span");
+        span.className = "event-card-location";
+        span.textContent = event.local;
+        metadata.append(span);
+      }
 
       if (!metadata.childElementCount) metadata.remove();
     }
