@@ -15,7 +15,7 @@ const siteEvents = [
    {
     image: "eventos/post_terceiroes_cascaneia.png",
     alt: "Post de evento dos terceirões para passeio ao Cascaneia",
-    caption: "Passeio dos terceirões",
+    caption: "Passeio ao Cascaneia",
     titulo: "Passeio ao Cascaneia",
     ano: "2026",
     categoria: "Passeio dos terceirões",

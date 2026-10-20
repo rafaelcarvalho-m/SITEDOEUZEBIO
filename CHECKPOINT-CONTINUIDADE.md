@@ -1,12 +1,12 @@
 # Checkpoint de continuidade — Site do Colégio Estadual Euzébio da Mota
 
-Data do checkpoint: 31 de agosto de 2026  
+Data do checkpoint: 19 de outubro de 2026
 Projeto: `SITEDOEUZEBIO`  
 Diretório absoluto: `C:\Users\rafae\OneDrive\Desktop\SITEDOEUZEBIO`
 
 ## 1. Objetivo principal
 
-O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O trabalho desta conversa concentrou-se em revisar visualmente as páginas novas, padronizar banners e rodapés, corrigir espaçamentos, definir temas laranja/verde por página, remover textos que o usuário não queria mais e criar a nova página da Biblioteca.
+O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O histórico abaixo registra as mudanças anteriores de conteúdo e identidade visual. As atualizações mais recentes trataram da apresentação dos eventos e do lightbox de imagens, além da revisão da página antes chamada Apoio para descrever corretamente o Atendimento Educacional Especializado (AEE).
 
 O objetivo visual estabelecido é manter todas as páginas coerentes com o `index.html`, sobretudo em:
 
@@ -18,7 +18,7 @@ O objetivo visual estabelecido é manter todas as páginas coerentes com o `inde
 - comportamento responsivo;
 - ausência de blocos “Última atualização”.
 
-Estado atual: as últimas solicitações foram implementadas. Não existe uma tarefa ativa incompleta. O último ajuste concluído foi substituir a paleta azul da Biblioteca pelo laranja institucional, aproximar sua tipografia, superfícies e cards do padrão visual das demais páginas e aplicar o mesmo tema à chamada da Biblioteca na home.
+Estado atual: as solicitações mais recentes foram implementadas e não há tarefa ativa incompleta. A página de Eventos mantém categoria e ano nos dados/filtros, mas oculta visualmente as etiquetas de categoria; o lightbox oferece zoom ampliado e rolagem horizontal. A página de AEE agora apresenta a definição do serviço, sua diferença em relação a apoios escolares e as principais referências legais oficiais.
 
 ## 2. Contexto importante
 
@@ -1777,3 +1777,33 @@ Data: 7 de outubro de 2026
   respiros da pagina Apoio foram reduzidos e as imagens foram padronizadas.
 - Foram removidas versoes antigas nao utilizadas das imagens derivadas do
   Apoio; os seis arquivos originais foram preservados.
+
+## Atualizacao — Eventos, zoom de imagens e Atendimento Educacional Especializado
+
+Data: 19 de outubro de 2026
+
+- Na vitrine de Eventos da Home, a imagem de um evento agora ocupa o card sem
+  faixas laterais vazias; o card unico permanece centralizado e com largura
+  limitada para nao crescer excessivamente.
+- O lightbox de imagens oferece niveis de zoom de 100% a 300%, em passos de
+  25%. Os controles foram movidos para fora da imagem para nao encobrir o post.
+- A imagem ampliada usa uma area rolavel propria, com barra de rolagem
+  horizontal visivel abaixo dela; legenda e controles ficam fora dessa area.
+- Os textos sobrepostos nas imagens da Home e as etiquetas visuais de categoria
+  nos cards de Eventos foram ocultados de forma global. O campo `categoria`
+  permanece nos dados e continua disponivel para os filtros; a regra vale para
+  todos os eventos, nao apenas para o passeio dos terceiros.
+- A pagina `apoio/apoio.html` agora se apresenta como Atendimento Educacional
+  Especializado (AEE), substitui “aluno” por “estudante” e descreve o servico
+  na Sala de Recursos Multifuncionais, complementar ou suplementar a
+  escolarizacao e sem substituir a classe comum.
+- Foi incluida uma explicacao da diferenca entre AEE e apoios educacionais,
+  alem de uma secao com links oficiais para a Constituicao, LDB, Convencao
+  sobre os Direitos das Pessoas com Deficiencia, Resolucao CNE/CEB nº 4/2009,
+  Lei Brasileira de Inclusao e Decretos nº 12.686/2025 e nº 12.773/2025.
+- O resumo e o link para o AEE na Home (`index.html`) foram atualizados. O
+  identificador interno `#apoio` foi mantido para preservar os links existentes.
+- Arquivos principais: `apoio/apoio.html`, `apoio/apoio.css`, `index.html`,
+  `comum.js`, `style.css`, `eventos/eventos.js` e `eventos/eventos.css`.
+- `git diff --check` passou nas alteracoes desta atualizacao; os avisos de
+  conversao LF/CRLF sao do ambiente e nao indicam erros de espacos.

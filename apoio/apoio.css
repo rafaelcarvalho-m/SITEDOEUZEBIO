@@ -1,4 +1,4 @@
-@import url("../style.css");
+@import url("../style.css?v=20261019-revisao-site");
 
 .support-page {
   --support-accent: var(--warm);
@@ -88,7 +88,7 @@
 .support-page .nav-links {
   gap: clamp(18px, 2.2vw, 34px);
   margin-right: auto;
-  margin-left: clamp(60px, 6vw, 90px);
+  margin-left: clamp(8px, 1vw, 16px);
 }
 
 .support-page .nav-links a:hover {
@@ -143,6 +143,13 @@
   margin: auto;
   padding: 54px 0 60px;
   scroll-margin-top: 24px;
+}
+
+.support-divider {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid rgba(201, 90, 22, 0.2);
 }
 
 .support-page #sobre,
@@ -279,6 +286,22 @@
 .support-section-heading h2 {
   max-width: 760px;
   font-size: clamp(2.5rem, 5vw, 4.7rem);
+}
+
+#distincao .support-section-heading > .eyebrow,
+#fundamentacao .support-section-heading > .eyebrow,
+#como-funciona .support-section-heading > .eyebrow,
+#distincao .support-section-heading h2,
+#fundamentacao .support-section-heading h2,
+#como-funciona .support-section-heading h2 {
+  text-align: center;
+}
+
+#distincao .support-section-heading h2,
+#fundamentacao .support-section-heading h2,
+#como-funciona .support-section-heading h2 {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .support-card-grid {
@@ -664,6 +687,10 @@
   .support-hero-content,
   .support-section {
     width: calc(100% - 36px);
+  }
+
+  .support-page .nav-links {
+    margin: 0;
   }
 
   .support-hero-content h1 {

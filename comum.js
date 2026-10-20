@@ -205,17 +205,6 @@
     document.head.append(script);
   }
 
-  document.addEventListener("click", (event) => {
-    if (!(event.target instanceof Element)) return;
-
-    if (
-      event.target.closest(
-        ".vw-access-button, .vw-plugin-top-wrapper, [vw]",
-      )
-    ) {
-      document.body.classList.add("text-selection-enabled");
-    }
-  });
 })();
 
 document.querySelectorAll(".button").forEach((button) => {

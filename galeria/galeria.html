@@ -59,8 +59,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../paginas.css" />
-    <link rel="stylesheet" href="galeria.css" />
+    <link rel="stylesheet" href="../paginas.css?v=20261019-revisao-site" />
+    <link rel="stylesheet" href="galeria.css?v=20261019-revisao-site" />
   </head>
 
   <body
@@ -68,6 +68,7 @@
     data-gallery-prefix="../"
     id="inicio"
   >
+  <a class="skip-link" href="#conteudo">Pular para o conte&uacute;do</a>
     <header class="detail-hero">
       <img
         class="detail-hero-media"
@@ -111,7 +112,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="conteudo" tabindex="-1">
       <section
         class="gallery-page-section section"
         id="galeria"
@@ -174,6 +175,15 @@
           <a href="../acessibilidade.html">Acessibilidade</a>
         </div>
 
+        <div class="footer-creators">
+          <h3>Os Autores</h3>
+          <p>
+            Felipe Nolasco Tromer<br />
+            Lorenzo Risardi Soares<br />
+            Rafael Mira de Carvalho
+          </p>
+        </div>
+
         <a
           href="#inicio"
           class="footer-top"
@@ -187,6 +197,6 @@
     </footer>
 
     <script src="galeria.js"></script>
-    <script src="../comum.js"></script>
+    <script src="../comum.js?v=20261019-revisao-site"></script>
   </body>
 </html>
