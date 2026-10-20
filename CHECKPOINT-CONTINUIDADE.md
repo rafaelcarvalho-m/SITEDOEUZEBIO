@@ -1807,3 +1807,73 @@ Data: 19 de outubro de 2026
   `comum.js`, `style.css`, `eventos/eventos.js` e `eventos/eventos.css`.
 - `git diff --check` passou nas alteracoes desta atualizacao; os avisos de
   conversao LF/CRLF sao do ambiente e nao indicam erros de espacos.
+
+## Atualizacao — revisao geral, acessibilidade, referencias e creditos
+
+Data: 19 de outubro de 2026
+
+- Revisadas as 22 paginas HTML. Todas agora oferecem o link `Pular para o
+  conteudo`, com destino de foco no `<main>`.
+- Removido o bloqueio global de selecao de texto e o comportamento que so
+  liberava a selecao depois de abrir o VLibras. O texto do site pode ser
+  selecionado normalmente.
+- Ajustadas as cores principais laranja e verde para melhorar o contraste de
+  texto claro em botoes e elementos de destaque.
+- A pagina `acessibilidade.html` explica que a traducao do VLibras e automatica
+  e pode ter limitacoes de contexto. `privacidade.html` passou a informar o
+  tratamento descrito no aviso de privacidade do servico.
+- `referencias/referencias.html` recebeu fontes oficiais de acessibilidade,
+  Educacao Inclusiva e AEE, incluindo a Resolucao CNE/CEB nº 4/2009, a Lei
+  Brasileira de Inclusao e os Decretos nº 12.686/2025 e nº 12.773/2025.
+- Todos os 22 rodapes usam o titulo `Os Autores`. A lista de creditos inclui
+  `Felipe Nolasco Tromer`, seguido de Lorenzo Risardi Soares e Rafael Mira de
+  Carvalho. O bloco tambem foi incluido no rodape da Galeria.
+- Na secao de autoria das imagens em Referencias, a identificacao permanece
+  generalizada como `Os autores`, conforme a solicitacao anterior.
+- A validacao confirmou o padrao nos 22 rodapes, sem ocorrencias de `Criacao
+  do site` ou creditos incompletos. `git diff --check` nao indicou erros de
+  espacos; o Git apenas avisou sobre a conversao LF/CRLF ja configurada no
+  ambiente.
+- O dominio canonico e o sitemap continuam apontando para GitHub Pages; nao
+  foi encontrado o dominio da Vercel no repositorio para atualiza-los com
+  seguranca.
+
+## Atualizacao — botao da Pesquisa de opiniao oculto temporariamente
+
+Data: 20 de outubro de 2026
+
+- O botao flutuante da Pesquisa de opiniao foi ocultado temporariamente e
+  reativado no mesmo dia, a pedido do usuario.
+- HTML, link do formulario, estilos e logica de alinhamento com o VLibras
+  foram preservados. A regra temporaria `display: none` foi removida de
+  `.home-feedback-button` em `style.css`, restaurando o posicionamento
+  responsivo original.
+
+## Atualizacao — remocao de foto da galeria
+
+Data: 20 de outubro de 2026
+
+- Removida do cadastro `galeria/galeria.js` a foto do laboratorio de
+  informatica que aparecia como terceiro card na primeira fileira da Home.
+  Como o cadastro e compartilhado, ela tambem deixou de aparecer na pagina
+  completa da Galeria.
+- As demais ocorrencias da mesma imagem em `ensino-medio/ensinotecnico.html`
+  e nos metadados sociais de `ensino-medio/alimentos.html` foram substituidas
+  pela foto existente do teclado (`img-teclado-ensinotec`).
+- Os arquivos de imagem originais foram preservados; nao ha mais referencia
+  esperada a `img-computadores-ensinotec` no codigo do site.
+- Ajuste posterior: a pedido do usuario, o card `Alimentos` na pagina de
+  Ensino Tecnico ficou sem imagem. A imagem do teclado permanece na introducao
+  do Ensino Tecnico e nos metadados sociais de Alimentos.
+- Atualizacao posterior: a pedido do usuario, a imagem do teclado foi
+  recolocada no card `Alimentos` de Ensino Tecnico.
+
+## Atualizacao — bloqueio global de copia de texto
+
+Data: 20 de outubro de 2026
+
+- A pedido do usuario, a selecao e copia de texto foram bloqueadas nas paginas
+  do site por meio das regras globais de `user-select` em `style.css` e dos
+  bloqueios de eventos/atalhos em `comum.js`.
+- Esta instrucao substitui a decisao registrada na revisao de acessibilidade
+  de 19 de outubro, que havia liberado a selecao de texto.

@@ -28,16 +28,6 @@ const schoolGallery = [
   },
   {
     preview:
-      "ensino-medio/imgs-ensinomedio/imgs-ensinotecnico/img-computadores-ensinotec600x399.webp",
-    image:
-      "ensino-medio/imgs-ensinomedio/imgs-ensinotecnico/img-computadores-ensinotec1600x1063.webp",
-    alt: "Laboratório de informática com computadores do Ensino Técnico",
-    caption: "Laboratório de informática do Ensino Técnico",
-    width: 600,
-    height: 399,
-  },
-  {
-    preview:
       "ensino-medio/imgs-ensinomedio/imgs-ensinotecnico/img-digtacao-ensinotec600x399.webp",
     image:
       "ensino-medio/imgs-ensinomedio/imgs-ensinotecnico/img-digtacao-ensinotec1600x1063.webp",

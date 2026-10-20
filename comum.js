@@ -1,4 +1,21 @@
 (() => {
+  const preventTextCopy = (event) => event.preventDefault();
+
+  document.addEventListener("copy", preventTextCopy, true);
+  document.addEventListener("cut", preventTextCopy, true);
+  document.addEventListener("selectstart", preventTextCopy, true);
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      const key = event.key.toLowerCase();
+      const isCopyShortcut =
+        (event.ctrlKey || event.metaKey) && ["c", "x", "insert"].includes(key);
+
+      if (isCopyShortcut) event.preventDefault();
+    },
+    true,
+  );
+
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
