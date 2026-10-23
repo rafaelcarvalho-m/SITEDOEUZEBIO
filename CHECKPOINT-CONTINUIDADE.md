@@ -1,12 +1,12 @@
 # Checkpoint de continuidade — Site do Colégio Estadual Euzébio da Mota
 
-Data do checkpoint: 19 de outubro de 2026
+Data do checkpoint: 20 de outubro de 2026
 Projeto: `SITEDOEUZEBIO`  
 Diretório absoluto: `C:\Users\rafae\OneDrive\Desktop\SITEDOEUZEBIO`
 
 ## 1. Objetivo principal
 
-O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O histórico abaixo registra as mudanças anteriores de conteúdo e identidade visual. As atualizações mais recentes trataram da apresentação dos eventos e do lightbox de imagens, além da revisão da página antes chamada Apoio para descrever corretamente o Atendimento Educacional Especializado (AEE).
+O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O histórico abaixo registra as mudanças de conteúdo e identidade visual. As atualizações mais recentes também removeram uma foto da Galeria e de outras ocorrências, bloquearam a seleção/cópia de texto em todas as páginas e restauraram o botão da Pesquisa de opinião.
 
 O objetivo visual estabelecido é manter todas as páginas coerentes com o `index.html`, sobretudo em:
 
@@ -18,7 +18,7 @@ O objetivo visual estabelecido é manter todas as páginas coerentes com o `inde
 - comportamento responsivo;
 - ausência de blocos “Última atualização”.
 
-Estado atual: as solicitações mais recentes foram implementadas e não há tarefa ativa incompleta. A página de Eventos mantém categoria e ano nos dados/filtros, mas oculta visualmente as etiquetas de categoria; o lightbox oferece zoom ampliado e rolagem horizontal. A página de AEE agora apresenta a definição do serviço, sua diferença em relação a apoios escolares e as principais referências legais oficiais.
+Estado atual: não há tarefa ativa incompleta. A página de Eventos mantém categoria e ano nos dados/filtros, mas oculta visualmente as etiquetas de categoria; o lightbox oferece zoom ampliado e rolagem horizontal. A página de AEE apresenta a definição do serviço, sua diferença em relação a apoios escolares e referências legais oficiais. A foto do laboratório de informática foi removida do cadastro compartilhado da Galeria e substituída pela foto do teclado nas outras ocorrências. O card Alimentos de Ensino Técnico também usa a foto do teclado, após ter ficado temporariamente sem imagem. A seleção e a cópia de texto estão bloqueadas globalmente por CSS e JavaScript. O botão flutuante da Pesquisa de opinião está ativo novamente, com o posicionamento e os estilos preservados.
 
 ## 2. Contexto importante
 
@@ -1838,7 +1838,7 @@ Data: 19 de outubro de 2026
   foi encontrado o dominio da Vercel no repositorio para atualiza-los com
   seguranca.
 
-## Atualizacao — botao da Pesquisa de opiniao oculto temporariamente
+## Atualizacao — botao da Pesquisa de opiniao ocultado e restaurado
 
 Data: 20 de outubro de 2026
 
@@ -1875,5 +1875,7 @@ Data: 20 de outubro de 2026
 - A pedido do usuario, a selecao e copia de texto foram bloqueadas nas paginas
   do site por meio das regras globais de `user-select` em `style.css` e dos
   bloqueios de eventos/atalhos em `comum.js`.
+- As referencias versionadas de CSS e JavaScript foram atualizadas para
+  `20261020-feedback-restored` para renovar o cache das paginas.
 - Esta instrucao substitui a decisao registrada na revisao de acessibilidade
   de 19 de outubro, que havia liberado a selecao de texto.
