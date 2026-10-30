@@ -1879,3 +1879,125 @@ Data: 20 de outubro de 2026
   `20261020-feedback-restored` para renovar o cache das paginas.
 - Esta instrucao substitui a decisao registrada na revisao de acessibilidade
   de 19 de outubro, que havia liberado a selecao de texto.
+
+## Atualizacao — organizacao para manutencao, rodapes e suporte offline
+
+Data: 30 de outubro de 2026
+
+### Organizacao e dados editaveis
+
+- O projeto permanece um site estatico com HTML, CSS e JavaScript. Nao foi
+  introduzido framework, build, pacote npm ou dependencia nova.
+- Os dados de eventos foram separados da rotina de exibicao: `dados/eventos.js`
+  guarda os registros e categorias; `eventos/eventos.js` e
+  `eventos/eventos-page.js` cuidam da exibicao e dos recursos da pagina.
+  O cadastro existente foi preservado.
+- As 37 fotos compartilhadas entre a Home e a Galeria foram movidas para
+  `dados/galeria.js`; `galeria/galeria.js` passou a ser a rotina que monta a
+  interface. Para adicionar foto, duplicar um registro e atualizar `preview`,
+  `image`, `alt`, `caption`, `width` e `height`.
+- A configuracao do calendario esta em `dados/calendario.js`; `calendario.js`
+  aplica ano, arquivo PDF, link oficial e identificacao da norma na Home e em
+  Referencias. A ordem dos scripts nas paginas foi ajustada para carregar os
+  dados antes das rotinas que os exibem.
+- A secao chamada “Agenda escolar” na Home continua mostrando o PDF anual; o
+  projeto nao tem uma agenda independente para provas, reunioes ou atividades
+  semanais. Eventos em destaque continuam no cadastro de `dados/eventos.js`.
+- O calendario efetivamente incluido e o PDF escolar de 2026 em
+  `pdfs-do-site/calendario-escolar2026.pdf`. Na consulta de 30/10/2026, a pagina
+  da SEED listava 2026 como calendario mais recente. A Instrucao Normativa
+  005/2026 trata de criterios para 2027, mas nao fornece por si so o calendario
+  aprovado deste Colegio. Nao foram inventadas datas de 2027. A troca deve
+  aguardar e usar o PDF aprovado para a escola, atualizando `year`, `pdfFile`,
+  `officialUrl` e `officialNote` em `dados/calendario.js`.
+  Fontes consultadas: https://www.educacao.pr.gov.br/Pagina/Calendario-Escolar
+  e https://www.documentador.pr.gov.br/documentador/pub.do?action=d&emPg=true&uuid=%40gtf-escriba-seed%40d983f0e2-af6e-45f6-bb9d-0031c7cc8e07.
+- Textos de avisos, contatos, cursos, professores, turmas, disciplinas,
+  horarios, documentos, links institucionais e informacoes especificas de cada
+  pagina continuam no HTML correspondente; nao ha um cadastro central desses
+  conteudos. O procedimento esta descrito em `GUIA_DE_MANUTENCAO.md`.
+- Foram acrescentados comentarios didaticos em `comum.js`, `script.js`,
+  `eventos/eventos-page.js` e nos arquivos de dados, indicando finalidade,
+  campos editaveis e relacao entre os cadastros e a interface.
+
+### Guia e verificacao local
+
+- Criado `GUIA_DE_MANUTENCAO.md` na raiz com visao geral, passos para eventos,
+  calendario e galeria, atualizacao de textos e links, imagens, verificacao,
+  publicacao, problemas comuns, limitacoes e cuidados.
+- Criado `ferramentas/validar-site.js`, sem bibliotecas extras. Ele confere
+  referencias locais HTML/CSS, ancoras, imagens e PDFs usados nos cadastros,
+  formato dos dados e presença dos elementos de rodape nas paginas normais.
+- No projeto atual, o calendario anual continua sendo um PDF e nao ha sistema
+  proprio de formulario. Pesquisa de opiniao usa Google Forms; mapa e Tour 360
+  usam iframes do Google; VLibras, fontes e icones dependem de servicos externos.
+  Esses pontos estao descritos no guia junto dos links sociais e dos documentos.
+- O remoto Git aponta para GitHub e sitemap/robots apontam para GitHub Pages.
+  Nao foi encontrada configuracao de build ou workflow de publicacao. A branch
+  e a pasta efetivamente configuradas devem ser confirmadas em Settings > Pages
+  antes da publicacao por uma nova pessoa.
+- `sitemap.xml` teve seus `lastmod` atualizados para 2026-10-30. Nenhuma pagina
+  nova foi incluida no sitemap quando nao deveria ser indexada.
+
+### Rodapes e informacoes temporais
+
+- Todos os 22 rodapes das paginas existentes receberam uma coluna separada
+  para a instrutora `Naelly Pereira Brito`, mantendo a coluna dos autores.
+- O texto institucional da coluna do Colegio foi uniformizado com o texto
+  aprovado a partir da Home: “Ensino Fundamental, Médio e EJA; Curitiba –
+  Paraná”. O alinhamento do paragrafo no rodape evita espacos esticados e o
+  layout de colunas tem regras responsivas para telas menores.
+- O ano de copyright usa `data-current-year` e e preenchido por `comum.js`,
+  para nao exigir edicao anual em cada pagina.
+- A versao de cache dos arquivos comuns foi atualizada para incluir as novas
+  rotinas; estilos globais e especificos dos rodapes permanecem nos CSS
+  existentes.
+
+### Pagina de falha de conexao
+
+- Criado `offline.html`, com mensagem de falta de conexao, botao “Tentar
+  novamente” e link para a Home. O arquivo tem CSS proprio e nao depende de
+  fontes, imagens ou bibliotecas externas.
+- Criado `service-worker.js`. `comum.js` registra o service worker nas paginas
+  do site. Ele guarda somente a pagina offline e a devolve quando uma navegacao
+  falha por erro de rede. Uma resposta 404 normal continua sendo tratada pela
+  pagina `404.html`.
+- A tela offline so pode ser armazenada depois de uma visita com internet em
+  HTTPS (GitHub Pages) ou localhost. O recurso nao baixa nem disponibiliza o
+  site inteiro sem conexao. Se `offline.html` mudar, aumentar a versao do cache
+  `OFFLINE_CACHE` em `service-worker.js` para renovar a copia nos navegadores.
+- A pagina offline fica fora do sitemap e nao usa o rodape normal por ser uma
+  tela de reserva independente.
+
+### Validacoes realizadas e estado ao concluir
+
+- `node ferramentas/validar-site.js`: aprovado; 23 paginas HTML, 1 evento, 37
+  fotos e PDF do calendario de 2026 conferidos, sem referencias locais ausentes.
+- `node --check` foi executado nos 16 arquivos JavaScript: nenhum erro de
+  sintaxe. `git diff --check` tambem passou.
+- Teste de navegador em ambiente local: Home, Eventos, Galeria e Referencias
+  foram abertas; o cadastro de 1 evento, as 37 imagens da Galeria e o endereco/
+  nota do calendario foram observados. Eventos e Home foram conferidos em
+  larguras de 390, 768, 1440, 1920 e 3840 px; busca, estado sem resultados e
+  abertura/fechamento do lightbox foram exercitados.
+- O service worker foi testado no navegador com a rede simulada como offline:
+  uma navegacao para uma URL nao armazenada exibiu “Você está sem conexão”.
+  A inscricao e o cache temporarios usados no teste local foram removidos.
+- A responsividade nao foi inspecionada visualmente em todas as 23 paginas.
+  A configuracao remota do GitHub Pages tambem nao foi consultada; validar a
+  branch de publicacao permanece uma tarefa antes de publicar.
+
+### Arquivos criados ou modificados nesta etapa
+
+- Criados: `GUIA_DE_MANUTENCAO.md`, `calendario.js`, `dados/eventos.js`,
+  `dados/galeria.js`, `dados/calendario.js`, `ferramentas/validar-site.js`,
+  `offline.html` e `service-worker.js`.
+- Modificados: as 22 paginas HTML existentes, `comum.js`, `script.js`,
+  `eventos/eventos.js`, `eventos/eventos-page.js`, `galeria/galeria.js`, estilos
+  globais e especificos do rodape, `sitemap.xml` e este checkpoint. Foram
+  preservados conteudos, imagens, links e funcionalidades previamente
+  existentes, incluindo a pesquisa de opiniao restaurada e o bloqueio de copia
+  solicitado em 20/10/2026.
+- Nao foi realizada publicacao remota. Antes de atualizar o calendario, obter
+  o PDF escolar oficial de 2027; antes de publicar, confirmar Settings > Pages,
+  executar o validador e revisar no navegador as paginas alteradas.
