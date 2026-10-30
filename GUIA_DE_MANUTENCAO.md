@@ -235,6 +235,9 @@ visita anterior que tenha instalado o service worker. Abrir `index.html`
 diretamente como arquivo (`file://`) e digitar um endereço inexistente no
 navegador não testa essa função, pois nesse modo não há servidor para devolver
 uma página 404. O GitHub Pages usa o `404.html` que está na raiz publicada.
+As páginas de erro identificam automaticamente se o site está na subpasta
+`/SITEDOEUZEBIO/` do GitHub Pages ou na raiz `/` do domínio Vercel, ajustando
+estilos, logo e links internos para cada publicação.
 
 O navegador só consegue guardar essa página depois que a pessoa visitar o site
 com internet em um endereço HTTPS (como o GitHub Pages) ou em `localhost`.
@@ -244,8 +247,8 @@ confirmar a instalação. O recurso oferece uma página de aviso, mas não salva
 site inteiro para navegação sem internet.
 
 Se o texto ou o visual das páginas de reserva, CSS ou logo mudar, aumente o
-sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v3`, por
-exemplo, para `v4`). Isso faz o navegador guardar as cópias atualizadas. Não
+sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v4`, por
+exemplo, para `v5`). Isso faz o navegador guardar as cópias atualizadas. Não
 remova o service worker nem mova `offline.html`, `404.html`, os estilos ou a
 logo sem atualizar os caminhos correspondentes.
 

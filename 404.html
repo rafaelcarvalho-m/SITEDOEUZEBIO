@@ -47,11 +47,18 @@
     />
     <title>Página não encontrada | Colégio Estadual Euzébio da Mota</title>
 
-    <link
-      rel="shortcut icon"
-      href="/SITEDOEUZEBIO/imgs-home-index/icon-512-maskable.png"
-      type="image/png"
-    />
+    <script>
+      // O site fica em uma subpasta no GitHub Pages e na raiz do domínio Vercel.
+      window.schoolSiteRoot = location.pathname.startsWith("/SITEDOEUZEBIO/")
+        ? "/SITEDOEUZEBIO/"
+        : "/";
+      document.write(
+        `<link rel="shortcut icon" href="${window.schoolSiteRoot}imgs-home-index/icon-512-maskable.png" type="image/png">`,
+      );
+      document.write(
+        `<link rel="stylesheet" href="${window.schoolSiteRoot}paginas.css?v=20261030-maintenance">`,
+      );
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,7 +70,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="/SITEDOEUZEBIO/paginas.css?v=20261030-maintenance" />
   </head>
 
   <body class="internal-page error-page" id="inicio">
@@ -73,10 +79,12 @@
         <a
           class="internal-brand"
           href="/SITEDOEUZEBIO/"
+          data-site-path=""
           aria-label="Ir para a página inicial"
         >
           <img
             src="/SITEDOEUZEBIO/imgs-home-index/logo-escola.png"
+            data-site-asset="imgs-home-index/logo-escola.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
             width="666"
             height="374"
@@ -84,7 +92,7 @@
           />
         </a>
 
-        <a href="/SITEDOEUZEBIO/">
+        <a href="/SITEDOEUZEBIO/" data-site-path="">
           <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
           Voltar ao início
         </a>
@@ -105,7 +113,7 @@
           </p>
 
           <div class="error-actions">
-            <a class="button" href="/SITEDOEUZEBIO/">
+            <a class="button" href="/SITEDOEUZEBIO/" data-site-path="">
               Ir para a página inicial
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
@@ -119,6 +127,7 @@
         <a class="footer-brand" href="#inicio">
           <img
             src="/SITEDOEUZEBIO/imgs-home-index/logo-escola.png"
+            data-site-asset="imgs-home-index/logo-escola.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
             width="666"
             height="374"
@@ -134,12 +143,12 @@
 
         <div class="footer-reference">
           <h3>Referências</h3>
-          <a href="/SITEDOEUZEBIO/eventos/eventos.html">Eventos</a>
-          <a href="/SITEDOEUZEBIO/referencias/referencias.html"
+          <a href="/SITEDOEUZEBIO/eventos/eventos.html" data-site-path="eventos/eventos.html">Eventos</a>
+          <a href="/SITEDOEUZEBIO/referencias/referencias.html" data-site-path="referencias/referencias.html"
             >Consultar referências</a
           >
-          <a href="/SITEDOEUZEBIO/acessibilidade.html">Acessibilidade</a>
-          <a href="/SITEDOEUZEBIO/privacidade.html">Privacidade</a>
+          <a href="/SITEDOEUZEBIO/acessibilidade.html" data-site-path="acessibilidade.html">Acessibilidade</a>
+          <a href="/SITEDOEUZEBIO/privacidade.html" data-site-path="privacidade.html">Privacidade</a>
         </div>
 
         <div>
@@ -179,6 +188,17 @@
 
       <div class="copyright">© <span data-current-year>2026</span> Colégio Estadual Euzébio da Mota</div>
     </footer>
-    <script src="/SITEDOEUZEBIO/comum.js?v=20261030-offline"></script>
+    <script>
+      document.querySelectorAll("[data-site-path]").forEach((link) => {
+        link.href = `${window.schoolSiteRoot}${link.dataset.sitePath}`;
+      });
+      document.querySelectorAll("[data-site-asset]").forEach((image) => {
+        image.src = `${window.schoolSiteRoot}${image.dataset.siteAsset}`;
+      });
+
+      const sharedScript = document.createElement("script");
+      sharedScript.src = `${window.schoolSiteRoot}comum.js?v=20261030-offline`;
+      document.body.append(sharedScript);
+    </script>
   </body>
 </html>

@@ -5,7 +5,7 @@
   o navegador possa mostrá-la quando uma navegação falhar por falta de conexão.
   Aumente a versão do cache quando alterar a página offline.
 */
-const OFFLINE_CACHE = "euzebio-offline-v3";
+const OFFLINE_CACHE = "euzebio-offline-v4";
 const OFFLINE_URL = new URL("offline.html", self.registration.scope).href;
 const NOT_FOUND_URL = new URL("404.html", self.registration.scope).href;
 const PRECACHE_URLS = [

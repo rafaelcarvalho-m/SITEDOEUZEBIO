@@ -49,7 +49,12 @@ function localPath(source, reference) {
 
 function checkReference(source, reference, checkFragment = false) {
   const value = reference.trim();
-  if (!value || /^(?:[a-z][a-z0-9+.-]*:|\/\/|data:)/i.test(value)) return;
+  if (
+    !value ||
+    value.includes("${") ||
+    /^(?:[a-z][a-z0-9+.-]*:|\/\/|data:)/i.test(value)
+  )
+    return;
 
   const target = localPath(source, value);
   if (!fs.existsSync(target)) {

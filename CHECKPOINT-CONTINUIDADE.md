@@ -2011,7 +2011,7 @@ Data: 30 de outubro de 2026
   verde e laranja institucionais, faixa superior colorida, tipografia e
   hierarquia semelhantes as paginas do Colegio. A logo oficial foi incluida.
   A pagina continua independente de fontes e bibliotecas externas.
-- A versao do cache foi elevada para `euzebio-offline-v3`. A instalacao do
+- A versao do cache foi elevada para `euzebio-offline-v4`. A instalacao do
   service worker agora guarda tambem `404.html`, `paginas.css`, `style.css` e
   `imgs-home-index/logo-escola.png`, necessarios para montar a pagina 404 com
   seu estilo e logo mesmo quando o servidor nao entregar seu arquivo especial.
@@ -2020,12 +2020,20 @@ Data: 30 de outubro de 2026
   404. Falhas de rede continuam exibindo a pagina offline. Respostas normais
   do site seguem sendo exibidas como antes.
 - O carregamento de `comum.js` na 404 passou a usar caminho absoluto sob
-  `/SITEDOEUZEBIO/`, para funcionar quando a URL solicitada e uma rota aninhada
-  inexistente.
+  a raiz detectada do site para funcionar na raiz do Vercel e na subpasta
+  `/SITEDOEUZEBIO/` do GitHub Pages, inclusive em uma rota aninhada inexistente.
+- A raiz publica e detectada nas duas paginas de reserva. Assim, estilos, logo,
+  links internos e `comum.js` da 404 usam `/` no Vercel e `/SITEDOEUZEBIO/` no
+  GitHub Pages; o cache foi elevado para v4 para distribuir essa alteracao.
 - A 404 personalizada precisa de um servidor HTTP que aceite e devolva a
   pagina de erro, ou do service worker previamente instalado. Abrir o HTML
   localmente com `file://` nao aciona resposta 404 do servidor; o GitHub Pages
   usa o `404.html` na raiz configurada para publicacao.
+- Testado tambem o modo de hospedagem na raiz `/`, igual ao Vercel: URL
+  inexistente devolveu a pagina personalizada com status 404, CSS, logo,
+  `comum.js` e link para a Home resolvidos no dominio raiz. Com a rede desligada,
+  a pagina offline e a logo tambem foram exibidas e o link da Home apontou para
+  `/`. O cache usado nesse teste foi removido.
 - Teste local em servidor com base `/SITEDOEUZEBIO/`: uma URL inexistente
   exibiu `Página não encontrada`, carregou a logo, aplicou o fundo/estilos da
   classe `.error-hero` e preservou status HTTP 404. Com o servidor parado e a
