@@ -1,4 +1,45 @@
+/*
+  RECURSOS COMPARTILHADOS POR TODAS AS PÁGINAS
+
+  Este arquivo controla comportamentos comuns: animações acessíveis, menu
+  responsivo, VLibras, ampliação de imagens e botões de retorno ao topo.
+  Para atualizar o conteúdo mostrado, prefira os cadastros em dados/ e o HTML
+  da página correspondente. Evite alterar estas rotinas sem validar o site.
+*/
+
+/*
+  PREPARA UMA PÁGINA DE RESERVA PARA FALHAS DE CONEXÃO.
+
+  O service worker só funciona em HTTPS (ou em localhost) e precisa ser
+  instalado enquanto a pessoa ainda está com internet. A URL do arquivo comum
+  também indica a raiz do site, inclusive nas páginas que ficam em subpastas.
+*/
 (() => {
+  if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+
+  const commonScript = [...document.scripts].find((script) => {
+    if (!script.src) return false;
+    return new URL(script.src).pathname.endsWith("/comum.js");
+  });
+
+  if (!commonScript) return;
+
+  const workerUrl = new URL("service-worker.js", commonScript.src);
+  navigator.serviceWorker.register(workerUrl).catch((error) => {
+    console.warn("Não foi possível ativar a página de acesso sem conexão.", error);
+  });
+})();
+
+/* Atualiza automaticamente o ano de copyright marcado nos rodapés. */
+(() => {
+  const currentYear = String(new Date().getFullYear());
+  document.querySelectorAll("[data-current-year]").forEach((element) => {
+    element.textContent = currentYear;
+  });
+})();
+
+(() => {
+  // O bloqueio de cópia foi solicitado para este site; preserve-o ao editar.
   const preventTextCopy = (event) => event.preventDefault();
 
   document.addEventListener("copy", preventTextCopy, true);
@@ -16,6 +57,7 @@
     true,
   );
 
+  // Reúne animações, menu móvel e efeitos de ponteiro usados por páginas diferentes.
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -169,6 +211,7 @@
 })();
 
 (() => {
+  // Carrega o VLibras de forma tardia e alinha a pesquisa de opinião ao botão.
   const vlibrasScript = document.querySelector("script[data-vlibras-widget]");
 
   if (!vlibrasScript) {
@@ -221,7 +264,6 @@
     });
     document.head.append(script);
   }
-
 })();
 
 document.querySelectorAll(".button").forEach((button) => {
@@ -232,6 +274,7 @@ document.querySelectorAll(".button").forEach((button) => {
 });
 
 (() => {
+  // Cria uma única caixa de ampliação para todas as imagens marcadas com data-lightbox.
   const galleryLinks = [...document.querySelectorAll("[data-lightbox]")];
 
   if (!galleryLinks.length) return;
@@ -403,6 +446,7 @@ document.querySelectorAll(".button").forEach((button) => {
 })();
 
 (() => {
+  // O botão flutuante some quando o rodapé já está visível.
   const reduceMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;

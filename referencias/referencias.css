@@ -1,4 +1,4 @@
-@import url("../style.css?v=20261020-feedback-restored");
+@import url("../style.css?v=20261030-maintenance");
 
 .references-page {
   min-height: 100vh;
@@ -192,7 +192,7 @@
 
 @media (min-width: 1201px) {
   .references-page .footer-main {
-    grid-template-columns: 1.1fr 0.12fr 1.25fr 1fr 1.4fr;
+    grid-template-columns: 1.1fr 0.12fr 1.25fr 1fr 1.4fr 1.2fr;
     column-gap: 42px;
   }
 
@@ -216,8 +216,13 @@
     grid-row: 1;
   }
 
+  .references-page .footer-main > .footer-instructor {
+    grid-column: 6;
+    grid-row: 1;
+  }
+
   .references-page .footer-main > .footer-top {
-    grid-column: 5;
+    grid-column: 6;
     grid-row: 2;
   }
 }
@@ -261,6 +266,6 @@
   }
 
   .references-page .footer-main > .footer-top {
-    grid-row: 5;
+    grid-row: 6;
   }
 }

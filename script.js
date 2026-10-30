@@ -1,8 +1,10 @@
+/* Comportamentos exclusivos da Home: menu Explorar e abas do Tour 360°. */
 window.SiteUI.pointerGlow(".hero");
 window.SiteUI.tiltCards(".content-card");
 
 const navDropdown = document.querySelector(".nav-dropdown");
 
+// Fecha o menu depois de uma escolha ou quando a pessoa clica fora dele.
 navDropdown?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     navDropdown.open = false;
@@ -25,6 +27,7 @@ navDropdown?.addEventListener("keydown", (event) => {
 const visitTabs = [...document.querySelectorAll("[data-visit-tab]")];
 const visitViews = [...document.querySelectorAll("[data-visit-view]")];
 
+// Mantém as abas e os painéis do Tour sincronizados, inclusive pelo teclado.
 if (visitTabs.length && visitViews.length) {
   const setVisitView = (selectedView) => {
     visitTabs.forEach((tab) => {

@@ -1,3 +1,5 @@
+/* Filtros e agrupamento por data dos cards montados por eventos.js.
+   Para cadastrar conteúdo, edite dados/eventos.js em vez deste arquivo. */
 (() => {
   const events = window.SiteEvents?.items || [];
   const grid = document.querySelector("[data-events-grid]");
@@ -81,6 +83,7 @@
 
   if (tools) tools.hidden = !(titledEvents || categories.length || years.length);
 
+  // Eventos com data são separados automaticamente em próximos e anteriores.
   if (datedEvents.length && grid) {
     const dateGroups = document.querySelector("[data-date-groups]");
     const upcomingGrid = document.querySelector("[data-upcoming-grid]");

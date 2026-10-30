@@ -76,7 +76,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="style.css?v=20261020-feedback-restored" />
+    <link rel="stylesheet" href="style.css?v=20261030-maintenance" />
 
     <script type="application/ld+json">
       {
@@ -284,7 +284,7 @@
           <div class="calendar-shell">
             <div class="calendar-label">
               <span>Calendário escolar</span>
-              <strong>2026</strong>
+              <strong data-calendar-year>2026</strong>
             </div>
 
             <div class="calendar-pdf">
@@ -292,6 +292,7 @@
                 title="Calendário escolar 2026"
                 src="pdfs-do-site/calendario-escolar2026.pdf"
                 loading="lazy"
+                data-calendar-embed
               ></iframe>
             </div>
           </div>
@@ -300,6 +301,7 @@
             href="pdfs-do-site/calendario-escolar2026.pdf"
             class="calendar-download"
             download="calendario-escolar2026.pdf"
+            data-calendar-download
           >
             <i class="fa-solid fa-download"></i>
             <span>Baixar calendário</span>
@@ -873,6 +875,10 @@
             Rafael Mira de Carvalho
           </p>
         </div>
+        <div class="footer-instructor">
+          <h3>Instrutora</h3>
+          <p>Naelly Pereira Brito</p>
+        </div>
 
         <a
           href="#inicio"
@@ -884,12 +890,16 @@
         </a>
       </div>
 
-      <div class="copyright">© 2026 Colégio Estadual Euzébio da Mota</div>
+      <div class="copyright">© <span data-current-year>2026</span> Colégio Estadual Euzébio da Mota</div>
     </footer>
 
-    <script src="eventos/eventos.js?v=20261019-passeio-cascaneia"></script>
+    <script src="dados/eventos.js"></script>
+    <script src="eventos/eventos.js?v=20261030-maintenance"></script>
+    <script src="dados/galeria.js"></script>
     <script src="galeria/galeria.js"></script>
-    <script src="comum.js?v=20261020-feedback-restored"></script>
+    <script src="dados/calendario.js"></script>
+    <script src="calendario.js"></script>
+    <script src="comum.js?v=20261030-offline"></script>
     <script src="script.js"></script>
   </body>
 </html>

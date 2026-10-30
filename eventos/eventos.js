@@ -1,39 +1,11 @@
 /*
-  CADASTRO DE EVENTOS
+  EXIBIÇÃO DOS EVENTOS
 
-  Para publicar um novo evento:
-  1. Salve a imagem na pasta eventos/.
-  2. Duplique um objeto abaixo.
-  3. Preencha image, alt, width e height. Os demais campos são opcionais.
-
-  Campos opcionais: titulo, descricao, data (AAAA-MM-DD), ano (AAAA), categoria,
-  local, objectPosition e variant. Use variant: "logo" para artes que devem aparecer
-  inteiras. Datas, categorias e locais não devem ser estimados.
+  Os registros editáveis ficam em ../dados/eventos.js. Este arquivo cuida
+  apenas de montar os cards na Home e na página de Eventos.
 */
 
-const siteEvents = [
-   {
-    image: "eventos/post_terceiroes_cascaneia.png",
-    alt: "Post de evento dos terceirões para passeio ao Cascaneia",
-    caption: "Passeio ao Cascaneia",
-    titulo: "Passeio ao Cascaneia",
-    ano: "2026",
-    categoria: "Passeio dos terceirões",
-    width: 1600,
-    height: 1063,
-    variant: "poster",
-  },
-];
-
-const siteEventCategories = [
-  "Clube de Ciências",
-  "Passeio dos terceirões",
-];
-
-window.SiteEvents = Object.freeze({
-  items: siteEvents,
-  categories: siteEventCategories,
-});
+const siteEvents = window.SiteEvents?.items || [];
 
 const eventsPrefix = document.body.dataset.eventsPrefix || "";
 const eventImageUrl = (event) => `${eventsPrefix}${event.image}`;

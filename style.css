@@ -1799,8 +1799,8 @@ footer {
   margin: auto;
   padding: 42px 0 28px;
   display: grid;
-  grid-template-columns: 1.1fr 1.25fr 1fr 1fr 1.4fr;
-  gap: 35px;
+  grid-template-columns: 1.1fr 1.2fr 1fr 0.9fr 1.25fr 1fr;
+  gap: 28px;
 }
 
 .footer-main > div {
@@ -1826,6 +1826,10 @@ footer {
 
 .footer-main h2 {
   font-size: 1.1rem;
+}
+
+.footer-main p {
+  text-align: left;
 }
 
 .footer-main h3 {
@@ -3217,7 +3221,7 @@ footer {
 
   .footer-main > .footer-top {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 4;
     justify-self: end;
   }
 }
@@ -3229,7 +3233,7 @@ footer {
 
   .footer-main > .footer-top {
     grid-column: 3;
-    grid-row: 2;
+    grid-row: 3;
   }
 }
 
@@ -3247,6 +3251,10 @@ footer {
 
   .footer-main > .footer-top {
     grid-column: 1;
+    grid-row: 7;
+  }
+
+  .gallery-page .footer-main > .footer-top {
     grid-row: 6;
   }
 }
