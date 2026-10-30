@@ -10,8 +10,8 @@
       :root {
         color-scheme: light;
         font-family: Montserrat, Arial, sans-serif;
-        color: #26322d;
-        background: #f4f6f3;
+        color: #1f2923;
+        background: #faf9f5;
       }
 
       * {
@@ -24,31 +24,81 @@
         display: grid;
         place-items: center;
         padding: 24px;
+        background:
+          radial-gradient(circle at 8% 12%, rgb(59 129 64 / 12%), transparent 28%),
+          radial-gradient(circle at 92% 88%, rgb(191 82 16 / 10%), transparent 30%),
+          #faf9f5;
       }
 
       main {
+        position: relative;
+        overflow: hidden;
         width: min(100%, 620px);
         padding: clamp(28px, 7vw, 56px);
-        border: 1px solid #d8dfda;
-        border-radius: 24px;
+        border: 1px solid #dddcd5;
+        border-radius: 12px;
         background: #fff;
-        box-shadow: 0 18px 50px rgb(31 41 35 / 10%);
+        box-shadow: 0 20px 55px rgb(31 41 35 / 11%);
       }
 
-      .school-name {
-        margin: 0 0 32px;
-        color: #486354;
-        font-size: 0.9rem;
+      main::before {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 8px;
+        background: linear-gradient(90deg, #3b8140 0 68%, #bf5210 68%);
+        content: "";
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 34px;
+      }
+
+      .brand img {
+        width: 88px;
+        height: 58px;
+        object-fit: contain;
+      }
+
+      .brand-name {
+        margin: 0;
+        color: #424d47;
+        font-size: 0.8rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        line-height: 1.4;
+        text-transform: uppercase;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin: 0 0 18px;
+        color: #3b8140;
+        font-size: 0.76rem;
         font-weight: 800;
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
 
+      .status::before {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #bf5210;
+        content: "";
+      }
+
       h1 {
         margin: 0 0 16px;
         color: #1f2923;
+        font-family: "Archivo Black", Montserrat, Arial, sans-serif;
         font-size: clamp(2rem, 8vw, 3.5rem);
         line-height: 1.08;
+        letter-spacing: -0.045em;
       }
 
       p {
@@ -71,10 +121,10 @@
         align-items: center;
         justify-content: center;
         padding: 12px 18px;
-        border: 2px solid #486354;
-        border-radius: 999px;
+        border: 2px solid #bf5210;
+        border-radius: 6px;
         color: #fff;
-        background: #486354;
+        background: #bf5210;
         font: inherit;
         font-weight: 700;
         text-decoration: none;
@@ -82,13 +132,30 @@
       }
 
       button {
-        color: #26322d;
+        border-color: #3b8140;
+        color: #fff;
+        background: #3b8140;
+      }
+
+      a:hover,
+      button:hover {
+        filter: brightness(0.92);
+      }
+
+      button {
         background: #fff;
+        color: #1f2923;
+      }
+
+      a {
+        border-color: #bf5210;
+        color: #fff;
+        background: #bf5210;
       }
 
       a:focus-visible,
       button:focus-visible {
-        outline: 3px solid #d69b38;
+        outline: 3px solid #e97b35;
         outline-offset: 3px;
       }
 
@@ -101,7 +168,16 @@
   </head>
   <body>
     <main>
-      <p class="school-name">Colégio Estadual Euzébio da Mota</p>
+      <div class="brand">
+        <img
+          src="/SITEDOEUZEBIO/imgs-home-index/logo-escola.png"
+          alt=""
+          width="666"
+          height="374"
+        />
+        <p class="brand-name">Colégio Estadual<br />Euzébio da Mota</p>
+      </div>
+      <p class="status" role="status">Conexão indisponível</p>
       <h1>Você está sem conexão</h1>
       <p>
         Não foi possível abrir esta página porque a internet caiu ou o site não

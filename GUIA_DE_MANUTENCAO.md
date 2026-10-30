@@ -224,9 +224,17 @@ funcionar sem internet.
 
 `offline.html` é diferente de `404.html`: a página 404 avisa que o endereço
 não existe; a página offline avisa que o navegador não conseguiu se conectar.
-O arquivo `service-worker.js` guarda uma cópia simples de `offline.html` no
-navegador e a entrega quando uma navegação falha por falta de conexão. A tela
-offline tem CSS próprio e não depende de fontes, imagens ou bibliotecas externas.
+O arquivo `service-worker.js` guarda no navegador as páginas de reserva, os
+estilos e a logo usados nelas. Quando um servidor responde com erro 404, o
+service worker entrega a página 404 do projeto. Quando a navegação falha por
+falta de conexão, mostra a página offline. A tela offline tem CSS próprio e
+não depende de fontes ou bibliotecas externas.
+
+A 404 personalizada depende de um servidor que entregue `404.html` ou de uma
+visita anterior que tenha instalado o service worker. Abrir `index.html`
+diretamente como arquivo (`file://`) e digitar um endereço inexistente no
+navegador não testa essa função, pois nesse modo não há servidor para devolver
+uma página 404. O GitHub Pages usa o `404.html` que está na raiz publicada.
 
 O navegador só consegue guardar essa página depois que a pessoa visitar o site
 com internet em um endereço HTTPS (como o GitHub Pages) ou em `localhost`.
@@ -235,10 +243,11 @@ de preparar a cópia; abrir o site uma vez e navegar para outra página ajuda a
 confirmar a instalação. O recurso oferece uma página de aviso, mas não salva o
 site inteiro para navegação sem internet.
 
-Se o texto ou o visual de `offline.html` for alterado, aumente o sufixo de
-versão de `OFFLINE_CACHE` em `service-worker.js` (por exemplo, de `v1` para
-`v2`). Isso faz o navegador substituir a cópia antiga pela nova. Não remova o
-service worker nem mova `offline.html` sem atualizar o caminho correspondente.
+Se o texto ou o visual das páginas de reserva, CSS ou logo mudar, aumente o
+sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v3`, por
+exemplo, para `v4`). Isso faz o navegador guardar as cópias atualizadas. Não
+remova o service worker nem mova `offline.html`, `404.html`, os estilos ou a
+logo sem atualizar os caminhos correspondentes.
 
 ### Publicação
 

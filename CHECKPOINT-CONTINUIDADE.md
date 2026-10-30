@@ -1959,13 +1959,14 @@ Data: 30 de outubro de 2026
   novamente” e link para a Home. O arquivo tem CSS proprio e nao depende de
   fontes, imagens ou bibliotecas externas.
 - Criado `service-worker.js`. `comum.js` registra o service worker nas paginas
-  do site. Ele guarda somente a pagina offline e a devolve quando uma navegacao
-  falha por erro de rede. Uma resposta 404 normal continua sendo tratada pela
-  pagina `404.html`.
+  do site. Ele guarda as paginas de reserva, os estilos necessarios e a logo.
+  Quando a navegacao falha por erro de rede, devolve `offline.html`; quando o
+  servidor responde 404, devolve `404.html` preservando o status HTTP 404.
 - A tela offline so pode ser armazenada depois de uma visita com internet em
   HTTPS (GitHub Pages) ou localhost. O recurso nao baixa nem disponibiliza o
-  site inteiro sem conexao. Se `offline.html` mudar, aumentar a versao do cache
-  `OFFLINE_CACHE` em `service-worker.js` para renovar a copia nos navegadores.
+  site inteiro sem conexao. Se as paginas de reserva, CSS ou logo mudarem,
+  aumentar a versao do cache `OFFLINE_CACHE` em `service-worker.js` para renovar
+  as copias nos navegadores.
 - A pagina offline fica fora do sitemap e nao usa o rodape normal por ser uma
   tela de reserva independente.
 
@@ -2001,3 +2002,33 @@ Data: 30 de outubro de 2026
 - Nao foi realizada publicacao remota. Antes de atualizar o calendario, obter
   o PDF escolar oficial de 2027; antes de publicar, confirmar Settings > Pages,
   executar o validador e revisar no navegador as paginas alteradas.
+
+## Atualizacao complementar — identidade visual offline e correcao da pagina 404
+
+Data: 30 de outubro de 2026
+
+- `offline.html` foi aproximada da identidade visual do site: fundo creme,
+  verde e laranja institucionais, faixa superior colorida, tipografia e
+  hierarquia semelhantes as paginas do Colegio. A logo oficial foi incluida.
+  A pagina continua independente de fontes e bibliotecas externas.
+- A versao do cache foi elevada para `euzebio-offline-v3`. A instalacao do
+  service worker agora guarda tambem `404.html`, `paginas.css`, `style.css` e
+  `imgs-home-index/logo-escola.png`, necessarios para montar a pagina 404 com
+  seu estilo e logo mesmo quando o servidor nao entregar seu arquivo especial.
+- O tratamento do evento `fetch` agora reconhece navegacoes cuja resposta HTTP
+  seja 404 e troca o corpo pela pagina 404 personalizada, preservando o status
+  404. Falhas de rede continuam exibindo a pagina offline. Respostas normais
+  do site seguem sendo exibidas como antes.
+- O carregamento de `comum.js` na 404 passou a usar caminho absoluto sob
+  `/SITEDOEUZEBIO/`, para funcionar quando a URL solicitada e uma rota aninhada
+  inexistente.
+- A 404 personalizada precisa de um servidor HTTP que aceite e devolva a
+  pagina de erro, ou do service worker previamente instalado. Abrir o HTML
+  localmente com `file://` nao aciona resposta 404 do servidor; o GitHub Pages
+  usa o `404.html` na raiz configurada para publicacao.
+- Teste local em servidor com base `/SITEDOEUZEBIO/`: uma URL inexistente
+  exibiu `Página não encontrada`, carregou a logo, aplicou o fundo/estilos da
+  classe `.error-hero` e preservou status HTTP 404. Com o servidor parado e a
+  rede simulada como offline, uma navegacao exibiu `Você está sem conexão` e a
+  logo tambem carregou do cache. Os arquivos temporarios e a inscricao/cache
+  local do teste foram removidos.
