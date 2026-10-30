@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1f2923" />
+    <meta name="theme-color" content="#bf5210" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Sem conexão | Colégio Estadual Euzébio da Mota</title>
     <style>
       :root {
         color-scheme: light;
         font-family: Montserrat, Arial, sans-serif;
-        color: #1f2923;
-        background: #faf9f5;
+        color: #27170f;
+        background: #27170f;
       }
 
       * {
@@ -23,95 +23,160 @@
         margin: 0;
         display: grid;
         place-items: center;
-        padding: 24px;
+        padding: clamp(16px, 4vw, 48px);
         background:
-          radial-gradient(circle at 8% 12%, rgb(59 129 64 / 12%), transparent 28%),
-          radial-gradient(circle at 92% 88%, rgb(191 82 16 / 10%), transparent 30%),
-          #faf9f5;
+          radial-gradient(circle at 12% 14%, rgb(233 123 53 / 25%), transparent 30%),
+          radial-gradient(circle at 90% 88%, rgb(191 82 16 / 20%), transparent 32%),
+          #27170f;
       }
 
-      main {
-        position: relative;
+      .offline-card {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+        width: min(100%, 960px);
+        min-height: 500px;
         overflow: hidden;
-        width: min(100%, 620px);
-        padding: clamp(28px, 7vw, 56px);
-        border: 1px solid #dddcd5;
+        border: 1px solid rgb(255 255 255 / 14%);
         border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 20px 55px rgb(31 41 35 / 11%);
+        background: #faf9f5;
+        box-shadow: 0 28px 80px rgb(0 0 0 / 30%);
       }
 
-      main::before {
+      .school-panel {
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        padding: 38px;
+        color: #fff;
+        background: linear-gradient(150deg, #7c2d12 0%, #bf5210 55%, #8e3b12 100%);
+        text-align: center;
+      }
+
+      .school-panel::before,
+      .school-panel::after {
         position: absolute;
-        inset: 0 0 auto;
-        height: 8px;
-        background: linear-gradient(90deg, #3b8140 0 68%, #bf5210 68%);
+        z-index: -1;
+        width: 360px;
+        height: 360px;
+        border: 1px solid rgb(255 255 255 / 10%);
+        border-radius: 50%;
         content: "";
       }
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        margin-bottom: 34px;
+      .school-panel::before {
+        top: -205px;
+        right: -210px;
+        box-shadow:
+          0 0 0 44px rgb(255 255 255 / 3%),
+          0 0 0 88px rgb(255 255 255 / 2%);
       }
 
-      .brand img {
-        width: 88px;
-        height: 58px;
-        object-fit: contain;
+      .school-panel::after {
+        bottom: -270px;
+        left: -250px;
+        border-color: rgb(255 196 150 / 32%);
+        box-shadow: 0 0 0 52px rgb(255 196 150 / 8%);
       }
 
-      .brand-name {
+      .school-logo {
+        display: block;
+        width: min(100%, 360px);
+        height: auto;
+        margin-bottom: 22px;
+        filter: drop-shadow(0 8px 20px rgb(0 0 0 / 18%));
+      }
+
+      .school-name {
         margin: 0;
-        color: #424d47;
-        font-size: 0.8rem;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-        line-height: 1.4;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        line-height: 1.5;
         text-transform: uppercase;
+      }
+
+      .school-location {
+        margin: 9px 0 0;
+        color: rgb(255 255 255 / 72%);
+        font-size: 0.86rem;
+        letter-spacing: 0.04em;
+      }
+
+      .school-accent {
+        width: 62px;
+        height: 4px;
+        margin-top: 26px;
+        border-radius: 99px;
+        background: #ffb36b;
+      }
+
+      .message-panel {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(32px, 6vw, 72px);
       }
 
       .status {
         display: inline-flex;
         align-items: center;
-        gap: 9px;
-        margin: 0 0 18px;
-        color: #3b8140;
+        gap: 10px;
+        margin: 0 0 22px;
+        color: #a63e0a;
         font-size: 0.76rem;
         font-weight: 800;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
       .status::before {
-        width: 9px;
-        height: 9px;
+        width: 10px;
+        height: 10px;
+        border: 3px solid rgb(191 82 16 / 20%);
         border-radius: 50%;
         background: #bf5210;
+        box-shadow: 0 0 0 4px rgb(191 82 16 / 8%);
         content: "";
       }
 
       h1 {
-        margin: 0 0 16px;
-        color: #1f2923;
-        font-family: "Archivo Black", Montserrat, Arial, sans-serif;
-        font-size: clamp(2rem, 8vw, 3.5rem);
-        line-height: 1.08;
-        letter-spacing: -0.045em;
+        max-width: 520px;
+        margin: 0;
+        color: #27170f;
+        font-family: "Archivo Black", "Arial Black", Montserrat, sans-serif;
+        font-size: clamp(2.4rem, 5vw, 4.2rem);
+        letter-spacing: -0.055em;
+        line-height: 1;
       }
 
-      p {
-        margin: 0;
-        font-size: 1.05rem;
-        line-height: 1.7;
+      .message {
+        max-width: 490px;
+        margin: 22px 0 0;
+        color: #51433b;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .hint {
+        max-width: 490px;
+        margin: 18px 0 0;
+        padding-left: 14px;
+        border-left: 3px solid #e97b35;
+        color: #51433b;
+        font-size: 0.9rem;
+        line-height: 1.6;
       }
 
       .actions {
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        margin-top: 28px;
+        margin-top: 30px;
       }
 
       a,
@@ -120,83 +185,153 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        padding: 12px 18px;
+        padding: 12px 19px;
         border: 2px solid #bf5210;
         border-radius: 6px;
         color: #fff;
         background: #bf5210;
         font: inherit;
+        font-size: 0.9rem;
         font-weight: 700;
         text-decoration: none;
         cursor: pointer;
+        transition:
+          background-color 160ms ease,
+          border-color 160ms ease,
+          transform 160ms ease;
       }
 
       button {
-        border-color: #3b8140;
-        color: #fff;
-        background: #3b8140;
+        border-color: #bf5210;
+        color: #a63e0a;
+        background: #fff;
       }
 
       a:hover,
       button:hover {
-        filter: brightness(0.92);
-      }
-
-      button {
-        background: #fff;
-        color: #1f2923;
-      }
-
-      a {
-        border-color: #bf5210;
-        color: #fff;
-        background: #bf5210;
+        transform: translateY(-2px);
+        filter: brightness(0.93);
       }
 
       a:focus-visible,
       button:focus-visible {
         outline: 3px solid #e97b35;
-        outline-offset: 3px;
+        outline-offset: 4px;
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 700px) {
+        body {
+          padding: 16px;
+        }
+
+        .offline-card {
+          grid-template-columns: 1fr;
+          width: min(100%, 520px);
+          min-height: 0;
+        }
+
+        .school-panel {
+          min-height: 230px;
+          padding: 26px 20px;
+        }
+
+        .school-logo {
+          width: 250px;
+          margin-bottom: 12px;
+        }
+
+        .school-name {
+          font-size: 0.72rem;
+        }
+
+        .school-location,
+        .school-accent {
+          display: none;
+        }
+
+        .message-panel {
+          padding: 30px 26px 34px;
+        }
+
+        .status {
+          margin-bottom: 17px;
+        }
+
+        h1 {
+          font-size: clamp(2.3rem, 10vw, 3.3rem);
+        }
+      }
+
+      @media (max-width: 420px) {
         .actions {
+          width: 100%;
           flex-direction: column;
+        }
+
+        .actions a,
+        .actions button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
         }
       }
     </style>
   </head>
   <body>
-    <main>
-      <div class="brand">
+    <main class="offline-card" aria-labelledby="offline-title">
+      <aside class="school-panel" aria-label="Colégio Estadual Euzébio da Mota">
         <img
+          class="school-logo"
           src="/SITEDOEUZEBIO/imgs-home-index/logo-escola.png"
           data-site-asset="imgs-home-index/logo-escola.png"
           alt=""
           width="666"
           height="374"
         />
-        <p class="brand-name">Colégio Estadual<br />Euzébio da Mota</p>
-      </div>
-      <p class="status" role="status">Conexão indisponível</p>
-      <h1>Você está sem conexão</h1>
-      <p>
-        Não foi possível abrir esta página porque a internet caiu ou o site não
-        respondeu. Confira sua conexão e tente novamente quando estiver online.
-      </p>
-      <div class="actions">
-        <button type="button" onclick="window.location.reload()">
-          Tentar novamente
-        </button>
-        <a href="/SITEDOEUZEBIO/" data-site-path="">Ir para a página inicial</a>
-      </div>
+        <p class="school-name">Colégio Estadual<br />Euzébio da Mota</p>
+        <p class="school-location">Curitiba – Paraná</p>
+        <span class="school-accent" aria-hidden="true"></span>
+      </aside>
+
+      <section class="message-panel">
+        <p class="status" role="status">Conexão indisponível</p>
+        <h1 id="offline-title">A conexão caiu.</h1>
+        <p class="message">
+          Não conseguimos abrir esta página agora. Confira sua conexão com a
+          internet e tente novamente.
+        </p>
+        <p class="hint">
+          Quando a conexão voltar, use o botão abaixo para continuar navegando.
+        </p>
+        <div class="actions">
+          <button type="button" onclick="window.location.reload()">
+            Tentar novamente
+          </button>
+          <a href="/SITEDOEUZEBIO/" data-site-path="">Voltar ao início</a>
+        </div>
+      </section>
     </main>
+
     <script>
-      const siteRoot = location.pathname.startsWith("/SITEDOEUZEBIO/")
-        ? "/SITEDOEUZEBIO/"
-        : "/";
+      const siteRoot =
+        location.protocol === "file:"
+          ? new URL("./", location.href).href
+          : location.pathname.startsWith("/SITEDOEUZEBIO/")
+            ? "/SITEDOEUZEBIO/"
+            : "/";
       document.querySelectorAll("[data-site-path]").forEach((link) => {
-        link.href = `${siteRoot}${link.dataset.sitePath}`;
+        const destination =
+          location.protocol === "file:" && !link.dataset.sitePath
+            ? "index.html"
+            : link.dataset.sitePath;
+        link.href = `${siteRoot}${destination}`;
       });
       document.querySelectorAll("[data-site-asset]").forEach((image) => {
         image.src = `${siteRoot}${image.dataset.siteAsset}`;

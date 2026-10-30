@@ -49,14 +49,17 @@
 
     <script>
       // O site fica em uma subpasta no GitHub Pages e na raiz do domínio Vercel.
-      window.schoolSiteRoot = location.pathname.startsWith("/SITEDOEUZEBIO/")
-        ? "/SITEDOEUZEBIO/"
-        : "/";
+      window.schoolSiteRoot =
+        location.protocol === "file:"
+          ? new URL("./", location.href).href
+          : location.pathname.startsWith("/SITEDOEUZEBIO/")
+            ? "/SITEDOEUZEBIO/"
+            : "/";
       document.write(
         `<link rel="shortcut icon" href="${window.schoolSiteRoot}imgs-home-index/icon-512-maskable.png" type="image/png">`,
       );
       document.write(
-        `<link rel="stylesheet" href="${window.schoolSiteRoot}paginas.css?v=20261030-maintenance">`,
+        `<link rel="stylesheet" href="${window.schoolSiteRoot}paginas.css?v=20261030-orange-errors">`,
       );
     </script>
 
@@ -101,22 +104,35 @@
 
     <main class="error-main" id="conteudo" tabindex="-1">
       <section class="error-hero" aria-labelledby="error-title">
-        <div class="internal-container error-content">
-          <p class="eyebrow">Erro 404</p>
-          <p class="error-code" aria-hidden="true">404</p>
+        <div class="internal-container error-card">
+          <div class="error-brand-panel">
+            <img
+              class="error-logo"
+              src="/SITEDOEUZEBIO/imgs-home-index/logo-escola.png"
+              data-site-asset="imgs-home-index/logo-escola.png"
+              alt="Logo do Colégio Estadual Euzébio da Mota"
+              width="666"
+              height="374"
+              decoding="async"
+            />
+            <p class="error-school-name">Colégio Estadual<br />Euzébio da Mota</p>
+            <p class="error-brand-place">Curitiba – Paraná</p>
+            <p class="error-code" aria-hidden="true">404</p>
+          </div>
 
-          <h1 id="error-title">Página não encontrada.</h1>
-
-          <p class="error-message">
-            O endereço pode estar incorreto ou a página pode ter sido movida.
-            Você pode retornar à página inicial para continuar navegando.
-          </p>
-
-          <div class="error-actions">
-            <a class="button" href="/SITEDOEUZEBIO/" data-site-path="">
-              Ir para a página inicial
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </a>
+          <div class="error-content">
+            <p class="error-eyebrow">Página não encontrada</p>
+            <h1 id="error-title">Este caminho não existe.</h1>
+            <p class="error-message">
+              O endereço pode estar incorreto ou a página pode ter sido movida.
+              Volte ao início para continuar navegando pelo site.
+            </p>
+            <div class="error-actions">
+              <a class="button" href="/SITEDOEUZEBIO/" data-site-path="">
+                Ir para a página inicial
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -190,7 +206,11 @@
     </footer>
     <script>
       document.querySelectorAll("[data-site-path]").forEach((link) => {
-        link.href = `${window.schoolSiteRoot}${link.dataset.sitePath}`;
+        const destination =
+          location.protocol === "file:" && !link.dataset.sitePath
+            ? "index.html"
+            : link.dataset.sitePath;
+        link.href = `${window.schoolSiteRoot}${destination}`;
       });
       document.querySelectorAll("[data-site-asset]").forEach((image) => {
         image.src = `${window.schoolSiteRoot}${image.dataset.siteAsset}`;

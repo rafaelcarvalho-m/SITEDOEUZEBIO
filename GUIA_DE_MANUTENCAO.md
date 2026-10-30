@@ -230,6 +230,10 @@ service worker entrega a página 404 do projeto. Quando a navegação falha por
 falta de conexão, mostra a página offline. A tela offline tem CSS próprio e
 não depende de fontes ou bibliotecas externas.
 
+As telas Offline e 404 compartilham o painel escuro em tons de laranja, a logo
+ampliada do Colégio e a superfície clara para a mensagem. As páginas continuam
+ajustando os caminhos da logo e dos links para `file://`, GitHub Pages e Vercel.
+
 A 404 personalizada depende de um servidor que entregue `404.html` ou de uma
 visita anterior que tenha instalado o service worker. Abrir `index.html`
 diretamente como arquivo (`file://`) e digitar um endereço inexistente no
@@ -247,8 +251,8 @@ confirmar a instalação. O recurso oferece uma página de aviso, mas não salva
 site inteiro para navegação sem internet.
 
 Se o texto ou o visual das páginas de reserva, CSS ou logo mudar, aumente o
-sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v4`, por
-exemplo, para `v5`). Isso faz o navegador guardar as cópias atualizadas. Não
+sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v7`, por
+exemplo, para `v8`). Isso faz o navegador guardar as cópias atualizadas. Não
 remova o service worker nem mova `offline.html`, `404.html`, os estilos ou a
 logo sem atualizar os caminhos correspondentes.
 

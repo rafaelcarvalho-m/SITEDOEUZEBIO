@@ -5,13 +5,13 @@
   o navegador possa mostrá-la quando uma navegação falhar por falta de conexão.
   Aumente a versão do cache quando alterar a página offline.
 */
-const OFFLINE_CACHE = "euzebio-offline-v4";
+const OFFLINE_CACHE = "euzebio-offline-v7";
 const OFFLINE_URL = new URL("offline.html", self.registration.scope).href;
 const NOT_FOUND_URL = new URL("404.html", self.registration.scope).href;
 const PRECACHE_URLS = [
   OFFLINE_URL,
   NOT_FOUND_URL,
-  new URL("paginas.css?v=20261030-maintenance", self.registration.scope).href,
+  new URL("paginas.css?v=20261030-orange-errors", self.registration.scope).href,
   new URL("style.css?v=20261030-maintenance", self.registration.scope).href,
   new URL("imgs-home-index/logo-escola.png", self.registration.scope).href,
 ];

@@ -2011,7 +2011,7 @@ Data: 30 de outubro de 2026
   verde e laranja institucionais, faixa superior colorida, tipografia e
   hierarquia semelhantes as paginas do Colegio. A logo oficial foi incluida.
   A pagina continua independente de fontes e bibliotecas externas.
-- A versao do cache foi elevada para `euzebio-offline-v4`. A instalacao do
+- A versao do cache foi elevada para `euzebio-offline-v5`. A instalacao do
   service worker agora guarda tambem `404.html`, `paginas.css`, `style.css` e
   `imgs-home-index/logo-escola.png`, necessarios para montar a pagina 404 com
   seu estilo e logo mesmo quando o servidor nao entregar seu arquivo especial.
@@ -2034,9 +2034,78 @@ Data: 30 de outubro de 2026
   `comum.js` e link para a Home resolvidos no dominio raiz. Com a rede desligada,
   a pagina offline e a logo tambem foram exibidas e o link da Home apontou para
   `/`. O cache usado nesse teste foi removido.
+
+## Atualizacao — redesign da pagina offline e diagnostico do endereco Vercel
+
+Data: 30 de outubro de 2026
+
+- A pedido do usuario, `offline.html` foi redesenhada para ficar mais proxima
+  da identidade do Colegio. Agora tem uma composicao de dois paineis em telas
+  largas, com a logo branca sobre fundo verde-escuro; a mensagem fica sobre
+  superficie creme e usa verde e laranja nos destaques e botoes. Em telas
+  estreitas, os paineis ficam empilhados e os botoes ocupam a largura disponivel.
+- Diagnostico da logo que parecia ausente: o PNG tem o desenho branco com fundo
+  transparente; na versao anterior ele ficava sobre um cartao claro e se
+  confundia com o fundo. A logo agora fica sobre o painel verde-escuro, onde
+  contrasta e foi confirmada visivel no navegador local.
+- O CSS continua embutido na propria pagina para que a tela de reserva nao
+  dependa de estilos externos. A logo continua sendo servida do cache local e
+  o caminho e ajustado para a raiz do Vercel ou `/SITEDOEUZEBIO/` no GitHub Pages.
+- A versao do cache do service worker foi elevada para `euzebio-offline-v6`
+  para distribuir o novo layout nos navegadores que ja visitaram o site.
+- Revisao visual local em viewport estreito confirmou logo carregada, painel
+  responsivo e botoes empilhados sem transbordamento horizontal. O teste
+  automatizado do projeto passou: 23 paginas HTML, 1 evento, 37 fotos,
+  calendario 2026, 16 arquivos JavaScript sem erro de sintaxe e
+  `git diff --check` aprovado.
+- A captura enviada pelo usuario mostrou o endereco digitado como
+  `sitedoeuzebio.vercel.ap`, sem o `p` final de `.app`, e a mensagem
+  `DNS_PROBE_FINISHED_NXDOMAIN`. Esse e um erro de resolucao DNS antes de
+  chegar ao Vercel; o endereco correto informado anteriormente e
+  `https://sitedoeuzebio.vercel.app/`. Portanto, aquela captura nao testou nem
+  a Home publicada nem a pagina 404.
 - Teste local em servidor com base `/SITEDOEUZEBIO/`: uma URL inexistente
   exibiu `Página não encontrada`, carregou a logo, aplicou o fundo/estilos da
   classe `.error-hero` e preservou status HTTP 404. Com o servidor parado e a
   rede simulada como offline, uma navegacao exibiu `Você está sem conexão` e a
   logo tambem carregou do cache. Os arquivos temporarios e a inscricao/cache
   local do teste foram removidos.
+
+## Atualizacao — identidade laranja e redesenho da pagina 404
+
+Data: 30 de outubro de 2026
+
+- A pedido do usuario, a tela offline passou a usar somente tons de laranja
+  como cor de destaque, mantendo tons neutros para o fundo e os textos. Foram
+  removidos os detalhes verdes. A logo foi ampliada: ate 360 px em telas largas
+  e 250 px em telas estreitas.
+- A pagina `404.html` foi redesenhada para acompanhar a tela offline: cartao
+  responsivo com painel laranja escuro, logo maior do Colegio, identificacao
+  404 e texto/acao sobre superficie clara. O cabecalho, os links de navegacao e
+  o rodape institucional foram mantidos.
+- O estilo da 404 fica em `paginas.css`, com nova referencia de cache
+  `20261030-orange-errors`. O service worker passou a armazenar essa versao do
+  CSS e teve o cache elevado para `euzebio-offline-v7`.
+- Teste local direto via `file://` em viewport estreito: ambas as logos
+  carregaram (largura natural de 666 px), 404 e offline nao tiveram
+  transbordamento horizontal; a 404 empilhou os paineis para a tela estreita.
+
+## Atualizacao — caminho da logo ao abrir a pagina offline como arquivo local
+
+Data: 30 de outubro de 2026
+
+- A nova captura mostrou o icone de imagem quebrada no painel da pagina offline.
+  O teste com a URL `file:///.../offline.html` confirmou a causa: o detector de
+  raiz usava `/` para o protocolo `file:`, fazendo a imagem apontar para
+  `file:///C:/imgs-home-index/logo-escola.png` em vez da pasta do projeto.
+- `offline.html` e `404.html` agora detectam `file:` e calculam a raiz a partir
+  da propria pasta do arquivo. Em HTTPS, continuam usando a raiz `/` do Vercel
+  ou a subpasta `/SITEDOEUZEBIO/` do GitHub Pages. Os links de retorno tambem
+  apontam para `index.html` na previa local por arquivo.
+  - O cache do service worker foi elevado para `euzebio-offline-v7` para guardar
+  as paginas de reserva atualizadas depois da publicacao.
+- Reabertura de `offline.html` como `file://` confirmou que a logo agora usa
+  `file:///.../SITEDOEUZEBIO/imgs-home-index/logo-escola.png` e carrega com
+  largura natural de 666 px. A previa direta de `404.html` tambem carrega as
+  duas logos locais e o CSS; esse teste serve para visualizar os arquivos, nao
+  para testar o roteamento HTTP 404.
