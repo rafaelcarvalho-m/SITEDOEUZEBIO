@@ -15,7 +15,7 @@ const galleryTemplate = document.querySelector("#gallery-card-template");
 if (galleryGrid && galleryTemplate) {
   const pathPrefix = document.body.dataset.galleryPrefix || "";
   const isPreview = galleryGrid.hasAttribute("data-gallery-preview");
-  const galleryItems = isPreview ? schoolGallery.slice(0, 8) : schoolGallery;
+  const galleryItems = isPreview ? schoolGallery.slice(0, 9) : schoolGallery;
 
   galleryItems.forEach((item) => {
     const card = galleryTemplate.content.cloneNode(true);

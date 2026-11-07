@@ -1,4 +1,4 @@
-@import url("../style.css?v=20261030-maintenance");
+@import url("../style.css?v=20261107-footer-unified");
 
 .library-page {
   --library-accent: var(--warm);
@@ -503,16 +503,6 @@
   margin: 0;
   color: rgba(255, 255, 255, 0.72);
   text-align: left;
-}
-
-.library-page .footer-main h3,
-.library-page .footer-main a:hover {
-  color: var(--warm-light);
-}
-
-.library-page .footer-top:hover {
-  border-color: var(--warm-light);
-  color: var(--warm-light);
 }
 
 @media (max-width: 1080px) {

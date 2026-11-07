@@ -116,9 +116,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-horta600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-horta600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-horta1600x1063.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-horta1600x1063.webp",
       alt: "Horta do Clube de Ciências com canteiros feitos a partir de pneus reutilizados",
       caption: "Horta do Clube de Ciências",
       width: 600,
@@ -244,9 +244,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-canteiros600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-canteiros600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-canteiros1600x1063.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-canteiros1600x1063.webp",
       alt: "Canteiros do projeto de horta com pneus reutilizados",
       caption: "Canteiros da horta escolar",
       width: 600,
@@ -254,9 +254,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha1600x1063.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha1600x1063.webp",
       alt: "Estrutura colorida instalada entre as árvores do projeto",
       caption: "Estrutura do projeto Marlene",
       width: 600,
@@ -264,9 +264,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha-detalhe600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha-detalhe600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha-detalhe600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha-detalhe600x399.webp",
       alt: "Detalhe da estrutura de observação do projeto Marlene",
       caption: "Detalhe do projeto Marlene",
       width: 600,
@@ -274,9 +274,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha-01-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha-01-600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha-01600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha-01600x399.webp",
       alt: "Casinha de observação construída para o projeto Marlene",
       caption: "Casinha de observação",
       width: 600,
@@ -284,9 +284,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha-02-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha-02-600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-casinha-02600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-casinha-02600x399.webp",
       alt: "Detalhe de uma casinha de observação do projeto Marlene",
       caption: "Detalhes da casinha de observação",
       width: 600,
@@ -294,9 +294,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-estufa600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-estufa600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-estufa1600x1063.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-estufa1600x1063.webp",
       alt: "Estufa do projeto Marlene no espaço externo da escola",
       caption: "Estufa do projeto Marlene",
       width: 600,
@@ -304,9 +304,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-horta-luz600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-horta-luz600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-horta-luz600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-horta-luz600x399.webp",
       alt: "Horta escolar iluminada pelo sol entre os canteiros",
       caption: "Horta escolar ao fim da tarde",
       width: 600,
@@ -314,9 +314,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-mudas600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-mudas600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-mudas600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-mudas600x399.webp",
       alt: "Mudas crescendo nos canteiros do projeto Marlene",
       caption: "Mudas nos canteiros",
       width: 600,
@@ -324,9 +324,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-horta-02-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-horta-02-600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-horta-02-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-horta-02-600x399.webp",
       alt: "Canteiros de cultivo do projeto Marlene",
       caption: "Canteiros de cultivo",
       width: 600,
@@ -334,9 +334,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-canteiro-01-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-canteiro-01-600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-canteiro-01-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-canteiro-01-600x399.webp",
       alt: "Canteiro de cultivo do projeto Marlene",
       caption: "Canteiro de cultivo",
       width: 600,
@@ -344,9 +344,9 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-canteiro-02-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-canteiro-02-600x399.webp",
       image:
-        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-marlene/marlene-canteiro-02-600x399.webp",
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Little Scientists-marlene/marlene-canteiro-02-600x399.webp",
       alt: "Outro canteiro de cultivo do projeto Marlene",
       caption: "Mais um canteiro de cultivo",
       width: 600,

@@ -1,4 +1,4 @@
-@import url("../style.css?v=20261030-maintenance");
+@import url("../style.css?v=20261107-footer-unified");
 
 .support-page {
   --support-accent: var(--warm);
@@ -637,11 +637,6 @@
 .support-cta .button:hover {
   color: var(--white);
   background: var(--support-accent);
-}
-
-.support-page .footer-main h3,
-.support-page .footer-main a:hover {
-  color: var(--support-accent-light);
 }
 
 @media (max-width: 1080px) {

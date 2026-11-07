@@ -1,4 +1,4 @@
-@import url("../style.css?v=20261030-maintenance");
+@import url("../style.css?v=20261107-footer-unified");
 
 /* Clube de Ciências */
 .science-page {
@@ -291,24 +291,6 @@
   color: var(--science-petrol-light);
   border-color: var(--science-petrol-light);
   background: rgba(246, 184, 137, 0.16);
-}
-
-.science-page .footer-main a:hover {
-  color: var(--science-petrol-light);
-}
-
-.science-page .footer-main h3 {
-  color: var(--science-petrol-light);
-}
-
-.science-page .footer-top:hover {
-  background: var(--science-petrol);
-  border-color: var(--science-petrol-light);
-  box-shadow: 0 14px 28px rgba(233, 104, 27, 0.38);
-}
-
-.science-page .footer-top:active {
-  box-shadow: 0 5px 12px rgba(233, 104, 27, 0.3);
 }
 
 .science-page :focus-visible {

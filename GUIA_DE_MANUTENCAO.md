@@ -94,13 +94,12 @@ Para remover ou substituir uma imagem, remova ou edite o registro em
 `dados/eventos.js`. Antes de apagar um arquivo, pesquise seu nome no projeto:
 ele pode ser usado em outra página.
 
-## C. Como atualizar a agenda e o calendário escolar
+## C. Como atualizar o calendário escolar
 
 ### O que existe hoje
 
-A seção “Agenda escolar” da Home exibe o calendário anual oficial em PDF; não há
-uma agenda independente de provas, reuniões ou atividades semanais. Eventos
-divulgados como cards são mantidos em `dados/eventos.js`.
+A seção “Calendário escolar” da Home exibe o calendário anual oficial em PDF.
+Eventos divulgados como cards são mantidos em `dados/eventos.js`.
 
 O PDF ativo e seus dados estão separados:
 
@@ -153,7 +152,7 @@ troque o `src` no HTML e mantenha o texto alternativo `alt` atualizado.
 
 ## E. Como modificar textos, contatos e informações
 
-- Home, agenda, contatos, avisos e Tour 360°: `index.html`.
+- Home, calendário, contatos, avisos e Tour 360°: `index.html`.
 - História, etapas de ensino e informações da escola: `sobrenos/sobrenos.html`.
 - Cursos e áreas: páginas correspondentes em `ensino-medio/`.
 - Robótica, RPG e clubes: páginas correspondentes em `projetos/`.
@@ -191,10 +190,9 @@ cadastro central de turmas ou docentes.
   domínio mudar, também a linha `Sitemap:` de `robots.txt` e os metadados da
   página.
 
-Não existe formulário próprio: a Pesquisa de opinião direciona para um
-formulário externo do Google. O mapa e o Tour 360° também são iframes do Google;
-o VLibras é carregado do serviço oficial. Mudanças nesses serviços dependem das
-contas e links administrados fora deste repositório.
+O mapa e o Tour 360° usam iframes do Google; o VLibras é carregado do serviço
+oficial. Mudanças nesses serviços dependem das contas e links administrados
+fora deste repositório.
 
 ## G. Como verificar e publicar alterações
 
@@ -251,7 +249,7 @@ confirmar a instalação. O recurso oferece uma página de aviso, mas não salva
 site inteiro para navegação sem internet.
 
 Se o texto ou o visual das páginas de reserva, CSS ou logo mudar, aumente o
-sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v7`, por
+sufixo de versão de `OFFLINE_CACHE` em `service-worker.js` (atualmente `v8`, por
 exemplo, para `v8`). Isso faz o navegador guardar as cópias atualizadas. Não
 remova o service worker nem mova `offline.html`, `404.html`, os estilos ou a
 logo sem atualizar os caminhos correspondentes.

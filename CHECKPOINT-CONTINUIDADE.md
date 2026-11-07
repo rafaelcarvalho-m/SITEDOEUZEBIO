@@ -4,9 +4,13 @@ Data do checkpoint: 20 de outubro de 2026
 Projeto: `SITEDOEUZEBIO`  
 Diretório absoluto: `C:\Users\rafae\OneDrive\Desktop\SITEDOEUZEBIO`
 
+## Regra essencial de continuidade
+
+Durante cada sessão de trabalho neste projeto, registre no checkpoint as decisões, alterações, arquivos afetados, verificações e pendências conforme o trabalho avançar; não espere a sessão terminar. Atualize também esta regra sempre que necessário para que qualquer outra IA que leia o checkpoint saiba que deve documentar o progresso enquanto trabalha. Para a sessão de 7 de novembro de 2026, toda atividade realizada deve ser anotada aqui.
+
 ## 1. Objetivo principal
 
-O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O histórico abaixo registra as mudanças de conteúdo e identidade visual. As atualizações mais recentes também removeram uma foto da Galeria e de outras ocorrências, bloquearam a seleção/cópia de texto em todas as páginas e restauraram o botão da Pesquisa de opinião.
+O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O histórico abaixo registra as mudanças de conteúdo e identidade visual. As atualizações mais recentes também removeram uma foto da Galeria e de outras ocorrências, bloquearam a seleção/cópia de texto em todas as páginas e removeram o botão e os links da Pesquisa de opinião, encerrada em 7 de novembro de 2026.
 
 O objetivo visual estabelecido é manter todas as páginas coerentes com o `index.html`, sobretudo em:
 
@@ -18,7 +22,7 @@ O objetivo visual estabelecido é manter todas as páginas coerentes com o `inde
 - comportamento responsivo;
 - ausência de blocos “Última atualização”.
 
-Estado atual: não há tarefa ativa incompleta. A página de Eventos mantém categoria e ano nos dados/filtros, mas oculta visualmente as etiquetas de categoria; o lightbox oferece zoom ampliado e rolagem horizontal. A página de AEE apresenta a definição do serviço, sua diferença em relação a apoios escolares e referências legais oficiais. A foto do laboratório de informática foi removida do cadastro compartilhado da Galeria e substituída pela foto do teclado nas outras ocorrências. O card Alimentos de Ensino Técnico também usa a foto do teclado, após ter ficado temporariamente sem imagem. A seleção e a cópia de texto estão bloqueadas globalmente por CSS e JavaScript. O botão flutuante da Pesquisa de opinião está ativo novamente, com o posicionamento e os estilos preservados.
+Estado atual: não há tarefa ativa incompleta. A página de Eventos mantém categoria e ano nos dados/filtros, mas oculta visualmente as etiquetas de categoria; o lightbox oferece zoom ampliado e rolagem horizontal. A página de AEE apresenta a definição do serviço, sua diferença em relação a apoios escolares e referências legais oficiais. A foto do laboratório de informática foi removida do cadastro compartilhado da Galeria e substituída pela foto do teclado nas outras ocorrências. O card Alimentos de Ensino Técnico também usa a foto do teclado, após ter ficado temporariamente sem imagem. A seleção e a cópia de texto estão bloqueadas globalmente por CSS e JavaScript. A Pesquisa de opinião foi encerrada em 7 de novembro de 2026; o botão, o link externo e os recursos de posicionamento associados foram removidos.
 
 ## 2. Contexto importante
 
@@ -36,8 +40,8 @@ Estado atual: não há tarefa ativa incompleta. A página de Eventos mantém cat
 
 ### Preferências visuais definidas pelo usuário
 
-- O footer das páginas novas deve ter a mesma largura e estrutura do footer do `index.html`.
-- Privacidade, Referências e Acessibilidade são exceções: preservar a logo e ajustar apenas a distribuição/espaçamento dos outros elementos.
+- Todos os footers existentes devem seguir a mesma estrutura, ordem dos blocos, largura, grade, tipografia e cores do `index.html`; preservar apenas os caminhos relativos necessários a cada página.
+- A exceção anterior de grade para Privacidade, Referências e Acessibilidade foi removida em 7 de novembro de 2026, a pedido do usuário.
 - As páginas detalhadas com somente o título no banner devem usar `top: 60%` e centralização óptica.
 - Administração, Alimentos, Exatas, Humanas, Desenvolvimento de Sistemas, Gabriele e Marlene seguem atualmente o padrão de título único centralizado.
 - Alimentos e Humanas usam tema laranja.
@@ -292,39 +296,19 @@ O footer base vem de `style.css`:
 
 ```css
 .footer-main {
-  width: min(1180px, calc(100% - 48px));
-  grid-template-columns: 1.1fr 1.25fr 1fr 1fr 1.4fr;
-  gap: 35px;
+  width: min(var(--layout-max), calc(100% - var(--layout-gutter)));
+  grid-template-columns: 1.1fr 1.2fr 1fr 0.9fr 1fr 1.35fr;
+  gap: 20px;
 }
 ```
 
-Páginas novas que receberam a mesma estrutura de cinco colunas do index:
-
-- Desenvolvimento de Sistemas;
-- Administração;
-- Alimentos;
-- Exatas;
-- Humanas;
-- Clube Gabriele;
-- Clube Marlene.
-
-Foram adicionados os blocos `footer-reference` e “Redes sociais” onde faltavam.
-
-Exceções:
-
-- Privacidade e Acessibilidade usam uma grade especial em `paginas.css`.
-- Referências usa grade equivalente em `referencias/referencias.css`.
-- A logo não foi redimensionada nem reposicionada nesses três casos.
-- O separador após a logo foi reduzido de `0.35fr` para `0.12fr`.
-- Em desktop, a grade especial usa:
-
-  ```css
-  grid-template-columns: 1.1fr 0.12fr 1.25fr 1fr 1.4fr;
-  column-gap: 42px;
-  ```
-
-- O primeiro bloco textual começa na coluna 3; os seguintes nas colunas 4 e 5.
-- Em telas até 620 px, o botão de retorno fica na linha 5.
+O footer compartilhado usa a mesma estrutura em todas as 22 páginas que possuem
+footer: logo, identificação do Colégio, referências, redes sociais, autores,
+orientadora e retorno ao topo. A grade, largura, espaçamentos, tipografia,
+destaques e comportamento responsivo são definidos globalmente em `style.css`.
+Os caminhos da logo e dos links mudam conforme a pasta da página; os destinos e
+rótulos dos blocos permanecem equivalentes. A página offline continua sem
+footer por ser uma tela autônoma de conexão indisponível.
 
 ### 3.12 Privacidade
 
@@ -385,7 +369,7 @@ A página contém:
 - três cards sobre acervo, estudo e descoberta;
 - galeria com quatro fotografias e lightbox fornecido por `comum.js`;
 - orientações de convivência e cuidado;
-- footer de cinco colunas igual ao padrão do `index.html`.
+- footer com a mesma estrutura global usada no `index.html`.
 
 Decisões visuais finais:
 
@@ -457,9 +441,9 @@ Capturas temporárias de validação foram gravadas em `C:\Users\rafae\AppData\L
 ### CSS principal
 
 - `style.css`: estilos globais, footer base, navegação, botões, cards genéricos e responsividade global. Já estava modificado no worktree; preservar alterações existentes.
-- `paginas.css`: estilos das páginas internas detalhadas, temas, disciplinas, footers legais, Privacidade e Ensino Regular. É o arquivo central dos últimos ajustes.
+- `paginas.css`: estilos das páginas internas detalhadas, temas, disciplinas, clubes e Ensino Regular. O layout dos footers é compartilhado em `style.css`.
 - `ensino-medio/ensinomedio.css`: página de Ensino Técnico; contém a correção do espaço final e o layout dos cards técnicos.
-- `referencias/referencias.css`: layout da página Referências e grade especial do footer.
+- `referencias/referencias.css`: layout da página Referências; o footer usa a grade global de `style.css`.
 - `projetos/projetos.css`: estilos das páginas RPG, Robótica e Clube de Ciências; foi consultado, mas o tema dos clubes novos está em `paginas.css`.
 - `sobrenos/sobrenos.css`: estilos da página Sobre Nós; já contém outras alterações do projeto.
 - `biblioteca/biblioteca.css`: estilos exclusivos da Biblioteca, incluindo hero, apresentação, cards, galeria, orientações e responsividade. Importa `../style.css`.
@@ -521,11 +505,11 @@ A compensação existe porque Archivo Black com `letter-spacing: -0.06em` pareci
 
 1. Preservar o worktree sujo e todas as mudanças do usuário.
 2. Não restaurar imagens originais removidas nem desfazer a troca para arquivos otimizados sem autorização.
-3. Não alterar a logo nos footers de Privacidade, Referências e Acessibilidade.
-4. Manter o footer das demais páginas novas igual ao index: cinco colunas no desktop e mesma largura global.
+3. Manter todos os footers com a mesma estrutura e aparência global do index.
+4. Preservar caminhos relativos e links institucionais válidos em cada footer.
 5. Manter Privacidade com todo o fundo do `<main>` branco.
 6. Manter Alimentos e Humanas em laranja.
-7. Manter Gabriele e Marlene em azul, inclusive cards, hovers e footer.
+7. Manter Gabriele e Marlene em azul no conteúdo das páginas; os footers seguem a aparência compartilhada do site.
 8. Não reintroduzir blocos “Última atualização”.
 9. Não confundir `<dt>` de `.detail-facts` com `<h2>`.
 10. Ao centralizar títulos de banners detalhados, usar o padrão compartilhado e não criar offsets isolados sem verificar visualmente.
@@ -566,8 +550,7 @@ Não existe pendência funcional solicitada pelo usuário. Os próximos passos d
 - A seção de disciplinas usa quatro colunas no desktop e duas em telas menores para caber melhor após clicar no link do header.
 - A ausência de “Última atualização” foi verificada com busca global no HTML.
 - Ensino Técnico e Ensino Regular não têm mais a faixa de atualização entre a seção final e o footer.
-- `Referências`, `Privacidade` e `Acessibilidade` não usam exatamente a mesma composição de conteúdo do index; elas usam uma grade especial para distribuir os blocos sem mexer na logo.
-- O espaçador dessas grades especiais é `0.12fr`, após ter sido reduzido a pedido do usuário.
+- Os footers das 22 páginas usam agora a mesma composição e distribuição de blocos. A grade especial anterior das páginas legais e de Referências foi removida em 7 de novembro de 2026 a pedido do usuário.
 - O fundo branco de Privacidade deve ser aplicado ao `main` inteiro e ao `.internal-main`; aplicar apenas ao container deixa faixas laterais acinzentadas.
 - As imagens de hero de Gabriele e Marlene foram confirmadas no disco.
 - A Biblioteca é acessada por `biblioteca/biblioteca.html` e usa `biblioteca/biblioteca.css`.
@@ -1323,8 +1306,8 @@ Data: 2 de outubro de 2026
 - Os cards de Projetos na Home agora usam laranja no icone durante o hover,
   alinhados ao comportamento do card do Clube de Ciencias.
 - O botao flutuante de Pesquisa de opiniao agora abre o formulario informado
-  pelo usuario em uma nova aba:
-  `https://forms.gle/VaMBXP2f2MReUNUm8`
+  pelo usuario em uma nova aba. O endereco foi removido deste historico em
+  7 de novembro de 2026, depois do encerramento da pesquisa.
 - Removidos da Home o painel de previsao do tempo, o codigo de consulta da API
   meteorologica e todos os estilos responsivos relacionados.
 - Removidas as referencias restantes a previsao do tempo da Politica de
@@ -2109,3 +2092,132 @@ Data: 30 de outubro de 2026
   largura natural de 666 px. A previa direta de `404.html` tambem carrega as
   duas logos locais e o CSS; esse teste serve para visualizar os arquivos, nao
   para testar o roteamento HTTP 404.
+
+## Atualizacao — regra de registro continuo
+
+Data: 7 de novembro de 2026
+
+- O checkpoint foi consultado como base para a continuidade do trabalho.
+- Foi adicionada no início deste checkpoint uma regra essencial para qualquer
+  pessoa ou IA que continue o projeto: registrar decisões, alterações, arquivos
+  afetados, verificações e pendências enquanto o trabalho avança, sem deixar
+  para documentar tudo apenas no encerramento da sessão.
+- Para esta sessão, toda atividade realizada no projeto deve ser registrada
+  neste arquivo conforme for concluída.
+
+## Atualização — identificação da orientadora nos rodapés
+
+Data: 7 de novembro de 2026
+
+- Nos rodapés das 22 páginas HTML, o título `Instrutora` foi substituído por
+  `Orientadora` e o nome passou a ser exibido como `Professora Naelly Pereira
+  Brito`. A palavra por extenso foi escolhida por ser mais formal e clara do
+  que a abreviação `Profª`.
+- A busca nos arquivos HTML confirmou 22 blocos com o novo título e não
+  encontrou ocorrências restantes de `Instrutora`.
+
+## Atualização — nome da seção do calendário na Home
+
+Data: 7 de novembro de 2026
+
+- O item do header que apontava para a seção `#agenda` agora aparece como
+  `Calendário`, e o título da seção foi atualizado para `Consulte o calendário
+  escolar.`. O identificador interno `#agenda` foi mantido para preservar o
+  destino dos links existentes.
+- O guia de manutenção agora chama a seção de `Calendário escolar` e descreve
+  o recurso como calendário anual oficial em PDF.
+
+## Atualização — encerramento da Pesquisa de opinião
+
+Data: 7 de novembro de 2026
+
+- A pedido do usuário, removidos da Home o botão flutuante, o link externo para
+  o Google Forms e sua descrição acessível. Também foram removidos os estilos
+  próprios do botão, os ajustes de posição do botão junto ao VLibras e os
+  recuos específicos do botão de voltar ao topo.
+- O carregamento do VLibras foi mantido sem a lógica de posicionamento da
+  pesquisa. O guia de manutenção deixou de apresentar o formulário encerrado
+  como recurso ativo.
+- Busca nos arquivos do site confirmou que não restam o endereço do formulário,
+  o nome da pesquisa ou seletores/código de posicionamento ligados ao botão.
+
+## Trabalho em andamento — Friends of Science e galeria da Home
+
+Data: 7 de novembro de 2026
+
+- Iniciada a revisão solicitada para a página de Friends of Science, a galeria
+  da Home e a divulgação do telefone oficial da escola.
+- Inventariadas 21 fotografias na pasta `projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele`; as imagens serão associadas aos projetos somente após inspeção visual individual e comparação com as descrições existentes.
+- A Home já contém o telefone como link no rodapé, porém sem o número visível por extenso; a apresentação será aprimorada no contexto de contato solicitado.
+- Antes de editar, verificar se existe perfil oficial do grupo e identificar as duas fotos da última fileira da galeria principal.
+- O usuário confirmou os perfis oficiais da escola (`@euzebiodamota`), Friends of Science (`@friends_of_science`) e Little Scientists (`@_littlescientists_`) e corrigiu o nome do clube para `Friends of Science`.
+- A inspeção visual individual das 21 imagens encontrou grupos claros para os quatro projetos descritos na página: carrinho solar, sabão de óleo usado, giz reciclado e robô biohíbrido. Uma foto do giz está duplicada; as imagens do foguete de garrafa e da impressão 3D não correspondem de forma segura a nenhuma das quatro descrições atuais e não serão atribuídas a esses projetos.
+- Atualizados a página Friends of Science e a página de apresentação dos clubes com o nome oficial. A galeria da Friends of Science agora segue o formato de cards de “Projetos e registros”, com descrição e fotos complementares por projeto; a estrutura responsiva existente será reutilizada.
+- Incluídos links para os perfis oficiais da escola e dos dois clubes. A Home passou a exibir `(41) 3276-4234` como link `tel:+554132764234` com a chamada `Ligar para a escola`.
+- A prévia da galeria da Home foi ampliada de oito para nove fotos; a nona fotografia é o painel de apresentação do projeto escolar de RPG, completando a terceira coluna da última fileira.
+- Pendente: conferir se os caminhos das imagens resolvem, validar os links e revisar os novos cards em telas menores.
+
+## Continuidade — auditoria da implementação
+
+Data: 7 de novembro de 2026
+
+- Confirmada a pasta de trabalho `C:\Users\rafae\OneDrive\Desktop\SITEDOEUZEBIO` e lidos o checkpoint e o guia de manutenção antes de editar o site.
+- `git status --short` mostra um worktree com diversas alterações preexistentes, incluindo arquivos removidos da pasta `imgs-marlene`; essas mudanças serão preservadas.
+- A leitura inicial identificou que ainda é necessário revisar nomes e links dos clubes, a página de Gabriele e a galeria compartilhada. A página de apresentação dos clubes contém a grafia `LITLLE SCIENTISTS`, que será conferida e corrigida como parte da padronização solicitada.
+- Em andamento: investigar os caminhos inválidos do cadastro da Galeria, validar as alterações recentes e revisar a renderização responsiva. Registrar os resultados aqui após cada etapa.
+- Primeira execução real de `node ferramentas/validar-site.js`: foram encontrados 48 referências quebradas, todas apontando para os arquivos removidos de `imgs-marlene` (24 em `dados/galeria.js` e as demais nas páginas dos clubes). O inventário confirmou que os arquivos correspondentes estão na pasta adicionada `imgs-Little Scientists-marlene`; a correção planejada é atualizar os caminhos para essa pasta, preservando as remoções já feitas.
+- A auditoria também encontrou a grafia incorreta `LITLLE SCIENTISTS` em um card de `clube-de-ciencias.html`. O telefone e os três links de Instagram já estão presentes com os endereços fornecidos; a apresentação responsiva ainda será revisada.
+- Correção aplicada: os caminhos de `dados/galeria.js`, `clube-marlene.html` e `clube-de-ciencias.html` agora apontam para a pasta existente `imgs-Little Scientists-marlene` (codificada como `%20` nos endereços HTML). Isso preserva os arquivos removidos e corrige as referências quebradas tanto na Galeria quanto nas duas páginas dos clubes. Também foi corrigida a grafia `LITLLE` para `LITTLE`.
+- Nova execução de `node ferramentas/validar-site.js`: aprovada, com 23 páginas HTML, 1 evento, 37 fotos na Galeria e calendário 2026; não há caminhos locais quebrados. `node --check dados/galeria.js` e `node --check galeria/galeria.js` também passaram.
+- Etapa seguinte registrada: tentativa de revisão visual da Home e dos clubes em desktop e celular com navegador isolado; o resultado e a limitação constam abaixo.
+- Auditoria funcional dos dados: `dados/galeria.js` contém 37 fotos; a nona prévia é `img-rpg-mesa600x399.webp`, com arquivo de prévia e imagem ampliada existentes. O cadastro da Home usa os nove primeiros itens. O CSS mantém três colunas acima de 800 px e uma coluna até 800 px, evitando recorte ou transbordamento em telas estreitas.
+- Conferidos nos arquivos os três endereços oficiais: Instagram da escola `https://www.instagram.com/euzebiodamota/`, Friends of Science `https://www.instagram.com/friends_of_science/` e Little Scientists `https://www.instagram.com/_littlescientists_/`. O telefone visível `(41) 3276-4234` usa `tel:+554132764234` e inclui o texto `Ligar para a escola`.
+- A revisão visual por navegador não foi concluída. Chrome e Edge foram iniciados headless com perfis temporários isolados, mas ambos encerraram antes de produzir capturas por falha do processo gráfico (`GPU process isn't usable`); portanto, não há confirmação visual das páginas. A validação estática dos caminhos, links e regras CSS foi concluída.
+- Verificações finais: `node ferramentas/validar-site.js` aprovado sem erros; `node --check dados/galeria.js` e `node --check galeria/galeria.js` aprovados; `git diff --check` sem erros de whitespace (somente avisos de conversão LF/CRLF nos arquivos já modificados).
+- Arquivos modificados nesta continuação: `CHECKPOINT-CONTINUIDADE.md`, `dados/galeria.js`, `projetos/clube-de-ciencias.html` e `projetos/clube-marlene.html`. As demais mudanças que já estavam no worktree foram preservadas.
+- Pendente: abrir as três páginas em navegador com renderização gráfica funcional para conferir visualmente desktop e celular.
+
+## Ajuste dos rótulos dos contatos da Home
+
+Data: 7 de novembro de 2026
+
+- A pedido do usuário, o link do Instagram da escola agora exibe somente `Instagram`, com a mesma tipografia dos demais links do painel.
+- O link telefônico agora exibe somente `(41) 3276-4234`, também com a tipografia padrão de `Facebook`; o link continua como `tel:+554132764234`. O texto visível `Ligar para a escola` e os estilos exclusivos que davam tamanho diferente ao número foram removidos. O `aria-label` identifica o telefone da escola para leitores de tela.
+- Arquivos alterados nesta etapa: `index.html`, `style.css` e este checkpoint. Leitura final do trecho confirmou os rótulos visíveis, o destino do perfil e o `tel:` corretos; não executei testes automatizados para esta alteração pontual.
+
+## Ajuste visual das imagens dos projetos e do contato por e-mail
+
+Data: 7 de novembro de 2026
+
+- A pedido do usuário, removidas de `projetos/clube-gabriele.html` todas as imagens complementares dentro de “Saiba mais”. Os quatro cards mantêm uma imagem principal acima e a descrição dentro da expansão, seguindo a apresentação do Little Scientists.
+- Removidas de `paginas.css` as regras que eram exclusivas das imagens complementares. O texto introdutório da seção foi atualizado para descrever a estrutura atual dos cards.
+- A pedido do usuário, a Home agora mostra diretamente `ctaeuzebiomota@seed.pr.gov.br` na área Contato, mantendo o link `mailto:` e a tipografia padrão dos itens junto ao telefone.
+- Arquivos alterados nesta continuação: `projetos/clube-gabriele.html`, `paginas.css`, `index.html` e este checkpoint. Conferência do trecho confirmou uma imagem principal por projeto, descrições mantidas, ausência do seletor das imagens complementares e endereço visível com `mailto:`. Não executei testes automatizados.
+
+## Em andamento — áreas de Instagram e de descoberta cruzada dos clubes
+
+Data: 7 de novembro de 2026
+
+- Solicitação atual: apresentar, nas páginas de Friends of Science e Little Scientists, duas áreas distintas com títulos próprios: uma chamada para seguir o Instagram do clube e outra para conhecer o clube irmão.
+- As páginas usam atualmente um bloco único com os dois botões juntos. A implementação vai padronizar os títulos, o layout e os rótulos dos botões nas duas páginas, mantendo identidade azul e os links oficiais.
+- Implementação concluída nas duas páginas: cada uma agora tem dois cards lado a lado em telas largas e empilhados em telas estreitas. O primeiro tem título e botão `Siga [nome do clube] no Instagram`; o segundo tem título próprio e botão `Conhecer [nome do outro clube]`. Os perfis oficiais e links internos foram preservados.
+- Os footers de ambas as páginas agora aplicam `white-space: nowrap` ao nome da orientadora para manter `Professora Naelly Pereira Brito` em uma linha.
+- Arquivos alterados: `projetos/clube-gabriele.html`, `projetos/clube-marlene.html`, `paginas.css` e este checkpoint. A inspeção dos trechos confirmou estrutura equivalente, botões com os rótulos pedidos, destinos corretos e nome da orientadora sem quebra configurada. Não executei testes automatizados nem inspeção visual nesta etapa.
+- Correção após retorno do usuário de que o nome ainda quebrava: no HTML dos dois footers, os espaços do nome agora são não separáveis (`&nbsp;`); a coluna da orientadora recebe mais largura em desktop e os dois links de `paginas.css` usam a versão `20261107-club-footer-nowrap` para evitar CSS em cache. O `white-space: nowrap` permanece como reforço. Alterados nesta correção: os dois HTMLs dos clubes, `paginas.css` e este checkpoint.
+
+## Em andamento — padronização global dos footers
+
+Data: 7 de novembro de 2026
+
+- O pedido para deixar todos os footers iguais foi entendido como padronizar estrutura, ordem dos blocos, grade e cores em todas as páginas que têm footer, mantendo caminhos relativos válidos e informações institucionais.
+- A inspeção encontrou diferenças em Acessibilidade, Privacidade, Galeria e Referências. A página offline não possui footer e continuará sem um.
+- Padronização concluída nas 22 páginas que têm footer: todas agora usam a ordem logo, identificação do Colégio, Referências, Redes sociais, autores, orientadora e retorno ao topo. Acessibilidade, Privacidade, Galeria e Referências receberam os blocos ausentes ou foram reorganizadas; a seção Referências de Eventos passou a ter o mesmo título e conjunto de links.
+- A grade desktop, os espaçamentos e a tipografia agora são globais em `style.css`; as exceções de layout e cor de footer das páginas legais, Referências, clubes, Apoio, Biblioteca e Clube de Ciências foram removidas. Os nomes da orientadora permanecem em uma linha em todas as páginas. A resposta responsiva continua controlada pelas mesmas regras globais.
+- Todos os consumidores de CSS receberam o sufixo de cache `20261107-footer-unified`; o cache do service worker foi elevado para `euzebio-offline-v8`. O guia e as instruções atuais no checkpoint foram alinhados à nova regra, preservando o registro histórico das exceções que existiam antes.
+- Inspeção estática dos 22 footers confirmou a presença de `footer-reference`, do bloco “Redes sociais”, do mesmo heading “Referências” e da mesma ordem de blocos. A página offline permanece sem footer. Não executei testes automatizados nem conferência visual nesta etapa.
+- Arquivos atualizados incluem as páginas `acessibilidade.html`, `privacidade.html`, `eventos/eventos.html`, `galeria/galeria.html` e `referencias/referencias.html`; a folha global e folhas CSS compartilhadas; consumidores HTML de CSS; `service-worker.js`, `GUIA_DE_MANUTENCAO.md` e este checkpoint. As mudanças preexistentes restantes no worktree foram preservadas.
+- Uma primeira extração automatizada juntou rótulos quando o `>` de `</a>` aparecia na linha seguinte; a inspeção confirmou que essa marcação HTML é válida e que os links já estavam separados. Nenhum fechamento de âncora precisou ser alterado.
+- Concluída a atualização solicitada durante o trabalho: o endereço `https://www.instagram.com/euzebiodamota/` aparece como link `Instagram` em todos os 22 blocos de redes sociais. A coluna de autores recebeu `white-space: nowrap` e mais largura; o texto `Rafael Mira de Carvalho` permanece como nome único em todas as instâncias, sem alterar sua grafia.
+- Auditoria estática final encontrou 22 footers, todos com referências, redes sociais e o Instagram oficial; todos carregam a nova versão dos estilos. Não executei testes automatizados nem visualização de navegador nesta etapa.
+- Nova solicitação durante a padronização: manter `Rafael Mira de Carvalho` sem quebra em todos os footers e incluir o Instagram oficial do Colégio em todos os blocos de redes sociais, junto ao Facebook.
+- A pedido do usuário, os rótulos `Instagram do clube` e `Conheça o outro clube` nos dois cards finais passaram a usar texto branco para aumentar o contraste com o fundo azul. O seletor comum `.club-connection-card .eyebrow` aplica a cor às duas páginas. Arquivos alterados: `paginas.css` e este checkpoint.
