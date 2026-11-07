@@ -813,11 +813,6 @@ p:not(.eyebrow),
   background: var(--paper);
 }
 
-.gallery-card .gallery-image--portrait img {
-  object-fit: contain;
-  background: var(--ink);
-}
-
 .gallery-card img {
   display: block;
   width: 100%;

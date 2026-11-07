@@ -352,5 +352,240 @@ window.SiteGallery = Object.freeze({
       width: 600,
       height: 399,
     },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-lousa-01-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-lousa-01-1600.jpg",
+      alt: "Estudante desenha com giz reciclado na lousa durante atividade do Friends of Science.",
+      caption: "Giz reciclado em uso",
+      width: 338,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-molde-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-molde-1600.jpg",
+      alt: "Estudantes acomodam giz em um molde durante a produção do clube.",
+      caption: "Moldagem de giz reciclado",
+      width: 337,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-massa-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-massa-1600.jpg",
+      alt: "Massa colorida preparada para formar giz reciclado.",
+      caption: "Massa para giz reciclado",
+      width: 337,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-lousa-02-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-lousa-02-1600.jpg",
+      alt: "Estudante escreve na lousa com um pedaço de giz reciclado.",
+      caption: "Giz reciclado na lousa",
+      width: 338,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-reciclado-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-giz-reciclado-1600.jpg",
+      alt: "Bastões de giz coloridos dispostos em um molde.",
+      caption: "Giz reciclado pronto",
+      width: 337,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-impressao-3d-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-impressao-3d-1600.jpg",
+      alt: "Impressora 3D em operação durante atividade registrada pelo Friends of Science.",
+      caption: "Impressão 3D",
+      width: 338,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-carrinho-solar-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-carrinho-solar-1600.jpg",
+      alt: "Carrinho experimental equipado com painel solar sobre uma mesa.",
+      caption: "Protótipo de carrinho solar",
+      width: 600,
+      height: 338,
+      imageWidth: 1600,
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-carrinho-solar-modelo-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-carrinho-solar-modelo-1600.jpg",
+      alt: "Pequeno carrinho experimental apoiado na mão de um estudante.",
+      caption: "Outro modelo de carrinho solar",
+      width: 276,
+      height: 600,
+      imageWidth: 736,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-circuito-biohibrido-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-circuito-biohibrido-1600.jpg",
+      alt: "Circuito eletrônico conectado a uma planta durante um experimento.",
+      caption: "Circuito do projeto biohíbrido",
+      width: 600,
+      height: 338,
+      imageWidth: 1600,
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sensor-biohibrido-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sensor-biohibrido-1600.jpg",
+      alt: "Protótipo eletrônico com sensores ligado a uma planta sobre a bancada.",
+      caption: "Sensor capacitivo em teste",
+      width: 600,
+      height: 338,
+      imageWidth: 1600,
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-barra-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-barra-1600.jpg",
+      alt: "Estudante segura uma barra de sabão produzida com óleo usado.",
+      caption: "Barra de sabão produzida pelo clube",
+      width: 338,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-teste-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-teste-1600.jpg",
+      alt: "Estudante lava uma barra de sabão em um recipiente com água.",
+      caption: "Teste do sabão produzido",
+      width: 337,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-oleo-usado-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-oleo-usado-1600.jpg",
+      alt: "Óleo usado sendo transferido para recipientes durante a preparação do sabão.",
+      caption: "Separação do óleo usado",
+      width: 337,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-mistura-01-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-mistura-01-1600.jpg",
+      alt: "Mistura sendo mexida em um balde durante a produção de sabão.",
+      caption: "Mistura do sabão",
+      width: 337,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-barras-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-barras-1600.jpg",
+      alt: "Barras de sabão prontas após o processo de reaproveitamento de óleo.",
+      caption: "Barras de sabão",
+      width: 600,
+      height: 337,
+      imageWidth: 1600,
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-preparo-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-preparo-1600.jpg",
+      alt: "Óleo sendo despejado em um recipiente durante a preparação do sabão.",
+      caption: "Preparo do sabão",
+      width: 600,
+      height: 337,
+      imageWidth: 1600,
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-mistura-02-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-sabao-mistura-02-1600.jpg",
+      alt: "Mistura de sabão sendo mexida em um balde.",
+      caption: "Mistura do sabão",
+      width: 338,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-foguete-planejamento-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-foguete-planejamento-1600.jpg",
+      alt: "Esquema de foguete de garrafa desenhado na lousa.",
+      caption: "Planejamento de foguete de garrafa",
+      width: 338,
+      height: 600,
+      imageWidth: 900,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-foguete-prototipo-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-foguete-prototipo-1600.jpg",
+      alt: "Foguete experimental feito com garrafa plástica preparado para teste.",
+      caption: "Protótipo de foguete de garrafa",
+      width: 276,
+      height: 600,
+      imageWidth: 736,
+      variant: "portrait",
+    },
+    {
+      preview:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-foguete-teste-preview.jpg",
+      image:
+        "projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/friends-foguete-teste-1600.jpg",
+      alt: "Estudantes preparam um foguete de garrafa no pátio da escola.",
+      caption: "Teste de foguete de garrafa",
+      width: 276,
+      height: 600,
+      imageWidth: 736,
+      variant: "portrait",
+    },
   ],
 });

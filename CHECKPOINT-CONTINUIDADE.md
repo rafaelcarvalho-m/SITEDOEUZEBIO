@@ -2221,3 +2221,22 @@ Data: 7 de novembro de 2026
 - Auditoria estática final encontrou 22 footers, todos com referências, redes sociais e o Instagram oficial; todos carregam a nova versão dos estilos. Não executei testes automatizados nem visualização de navegador nesta etapa.
 - Nova solicitação durante a padronização: manter `Rafael Mira de Carvalho` sem quebra em todos os footers e incluir o Instagram oficial do Colégio em todos os blocos de redes sociais, junto ao Facebook.
 - A pedido do usuário, os rótulos `Instagram do clube` e `Conheça o outro clube` nos dois cards finais passaram a usar texto branco para aumentar o contraste com o fundo azul. O seletor comum `.club-connection-card .eyebrow` aplica a cor às duas páginas. Arquivos alterados: `paginas.css` e este checkpoint.
+
+## Concluído — inclusão de fotos Friends of Science na Galeria
+
+Data: 7 de novembro de 2026
+
+- Inventariadas as 21 fotos na pasta `projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele`. Duas imagens (`13.11.23-2.jpeg` e `13.11.23-2 (1).jpeg`) têm o mesmo hash SHA-256; foi cadastrada somente uma delas, totalizando 20 fotos únicas.
+- A inspeção visual confirmou registros de giz reciclado, carrinho solar, circuito/robô biohíbrido, sabão de óleo usado, impressão 3D e foguete de garrafa. As fotos de impressão 3D e foguete receberam legendas de atividade geral, sem atribuição a um dos quatro projetos descritos na página.
+- Criados 40 JPEGs derivados (prévia e versão ampliada para cada foto única), com prévias limitadas a 600 px no lado maior e versões ampliadas a 1600 px no lado maior. As originais foram mantidas intactas. As dimensões reais da prévia e da imagem ampliada foram registradas; `galeria/galeria.js` agora usa `imageWidth` no segundo candidato do `srcset`, com fallback para os itens anteriores.
+- As 20 novas fotos foram acrescentadas ao final de `dados/galeria.js`. A galeria completa passou a ter 57 itens; a prévia da Home continua usando os primeiros nove itens já existentes.
+- Verificações concluídas: os 40 caminhos das imagens novas existem; `node --check dados/galeria.js` e `node --check galeria/galeria.js` terminaram sem erros. Não foi executado o validador geral nem feita conferência visual no navegador nesta solicitação.
+- Arquivos alterados: `dados/galeria.js`, `galeria/galeria.js`, este checkpoint e os 40 JPEGs derivados em `projetos/imgs-projetos/imgs-clubedeciencias/imgs-Friends of Science-gabriele/`.
+
+## Concluído — preenchimento das fotos nos cards da Galeria
+
+Data: 7 de novembro de 2026
+
+- A pedido do usuário, removida a regra que mantinha as fotos verticais inteiras dentro da moldura horizontal dos cards, com faixas escuras. Agora elas usam o mesmo `object-fit: cover` das demais e preenchem toda a área da imagem do card; isso pode cortar parte das bordas das fotos verticais.
+- Atualizadas as referências de cache do CSS na Home e na página da Galeria, além da importação compartilhada, para que a mudança carregue após publicação.
+- Arquivos alterados: `style.css`, `index.html`, `galeria/galeria.html`, `paginas.css` e este checkpoint. Não fiz conferência visual no navegador nesta alteração.

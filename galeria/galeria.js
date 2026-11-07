@@ -38,7 +38,7 @@ if (galleryGrid && galleryTemplate) {
     image.srcset =
       item.image === item.preview
         ? `${pathPrefix}${item.preview} ${item.width}w`
-        : `${pathPrefix}${item.preview} ${item.width}w, ${pathPrefix}${item.image} 1600w`;
+        : `${pathPrefix}${item.preview} ${item.width}w, ${pathPrefix}${item.image} ${item.imageWidth || 1600}w`;
     image.sizes = isPreview
       ? "(min-width: 1200px) 31vw, (min-width: 801px) 30vw, 100vw"
       : "(min-width: 1000px) 31vw, (min-width: 641px) 46vw, 100vw";
