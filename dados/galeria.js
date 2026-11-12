@@ -6,7 +6,21 @@
   image é a imagem ampliada. Não altere o código de exibição em galeria.js.
 */
 
+const galleryCategories = [
+  { id: "all", label: "Todas as fotos" },
+  { id: "science-space", label: "Clube de Ciências" },
+];
+const galleryCategoryFor = (path) => {
+  const file = path.split("/").pop().toLowerCase();
+  if (path.includes("imgs-clubedeciencias/")) return "science-space";
+  if (path.includes("imgs-robotica/")) return "robotics";
+  if (path.includes("imgs-rpg/")) return "rpg";
+  if (path.includes("biblioteca/")) return "library";
+  if (path.includes("imgs-ensinomedio/") || /img-ensinoregular|img-ensinomedio/.test(file)) return "teaching";
+  return "school";
+};
 window.SiteGallery = Object.freeze({
+  categories: galleryCategories,
   items: [
     {
       preview: "sobrenos/imgs-sobrenos/img-saibamais600x398.webp",
@@ -587,5 +601,5 @@ window.SiteGallery = Object.freeze({
       imageWidth: 736,
       variant: "portrait",
     },
-  ],
+  ].map((item) => ({ ...item, category: galleryCategoryFor(item.preview) })),
 });

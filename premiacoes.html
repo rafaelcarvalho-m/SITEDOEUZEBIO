@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premiações, reconhecimentos e conquistas da comunidade do Colégio Estadual Euzébio da Mota."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1f2923" />
+    <link
+      rel="canonical"
+      href="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/premiacoes.html"
+    />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Colégio Estadual Euzébio da Mota" />
+    <meta
+      property="og:title"
+      content="Premiações da escola | Colégio Estadual Euzébio da Mota"
+    />
+    <meta
+      property="og:description"
+      content="Conheça as conquistas, premiações e projetos reconhecidos da comunidade escolar."
+    />
+    <meta
+      property="og:url"
+      content="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/premiacoes.html"
+    />
+    <title>Premiações da escola | Colégio Estadual Euzébio da Mota</title>
+    <link
+      rel="shortcut icon"
+      href="imgs-home-index/icon-512-maskable.png"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="paginas.css?v=20261111-awards-header-label" />
+    <link rel="stylesheet" href="premiacoes.css?v=20261112-awards-landing" />
+  </head>
+  <body class="detail-page title-only-detail-page awards-page" id="inicio">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="detail-hero">
+      <img
+        class="detail-hero-media"
+        src="sobrenos/imgs-sobrenos/img-saibamais1600x1063.webp"
+        alt="Espaço do Colégio Estadual Euzébio da Mota"
+        width="1600"
+        height="1063"
+        fetchpriority="high"
+      />
+      <nav class="topbar" aria-label="Navegação da página de conquistas">
+        <a
+          class="brand"
+          href="index.html#projetos"
+          aria-label="Página inicial do Colégio Estadual Euzébio da Mota"
+          ><img
+            src="imgs-home-index/logo-escola.png"
+            alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+        /></a>
+        <a
+          class="detail-home-button"
+          href="index.html#premiacoes"
+          aria-label="Voltar ao início"
+        >
+          Voltar ao início
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </a>
+      </nav>
+      <div class="detail-hero-content detail-hero-content-centered reveal">
+        <h1>Premiações da escola</h1>
+      </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <section
+        class="awards-section section"
+        id="conquistas"
+        aria-labelledby="awards-title"
+      >
+        <div class="awards-intro reveal">
+          <p class="eyebrow">Nossa comunidade</p>
+          <h2 id="awards-title">
+            Cada conquista reconhece um trabalho <em>coletivo.</em>
+          </h2>
+          <p>
+            Este espaço apresenta premiações e reconhecimentos conquistados
+            por estudantes, professores e projetos do Colégio Estadual Euzébio
+            da Mota. Cada registro conta o contexto da participação, o trabalho
+            reconhecido e os destaques da conquista.
+          </p>
+          <p>
+            Em destaque está o Friends of Science, que conquistou o 1º lugar na
+            categoria Cultura Oceânica da FECCI 2026 com um projeto de
+            reaproveitamento de giz de lousa.
+          </p>
+        </div>
+
+        <div
+          class="awards-register"
+          data-awards-grid
+          aria-label="Registro de conquistas"
+        ></div>
+      </section>
+    </main>
+
+    <template id="award-card-template">
+      <article class="award-card">
+        <header class="award-card-heading">
+          <div class="award-card-meta">
+            <span data-award-year></span><span data-award-category></span>
+          </div>
+          <p class="award-placement"><i class="fa-solid fa-trophy" aria-hidden="true"></i><span data-award-placement></span></p>
+          <p class="award-group" data-award-group></p>
+          <h2 data-award-title></h2>
+          <p class="award-institution" data-award-institution></p>
+        </header>
+
+        <section class="award-part award-project" aria-label="Sobre o trabalho premiado">
+          <div class="award-project-copy">
+            <p class="eyebrow">Sobre o trabalho premiado</p>
+            <h3 id="award-project-title" data-award-project-title></h3>
+            <p data-award-description></p>
+            <a class="award-project-link" data-award-project-link>
+              Conheça o Friends of Science
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+          <figure class="award-figure award-project-figure">
+            <a data-award-project-image-link data-lightbox data-lightbox-caption=""></a>
+            <figcaption data-award-project-caption></figcaption>
+          </figure>
+        </section>
+
+        <section class="award-part award-prizes" aria-label="Prêmios recebidos">
+          <div class="award-prizes-copy">
+            <p class="eyebrow">Reconhecimento</p>
+            <h3 id="award-prizes-title">Prêmios recebidos</h3>
+            <ul class="award-prize-list" data-award-prizes></ul>
+          </div>
+          <figure class="award-figure award-prizes-figure">
+            <a data-award-prize-image-link data-lightbox data-lightbox-caption=""></a>
+            <figcaption data-award-prize-caption></figcaption>
+          </figure>
+        </section>
+
+        <section class="award-part award-records" aria-label="Registros da conquista">
+          <div class="award-records-heading">
+            <p class="eyebrow">Registros da conquista</p>
+            <h3 id="award-records-title">A equipe na FECCI 2026</h3>
+          </div>
+          <div class="award-photo-gallery" data-award-photos></div>
+        </section>
+      </article>
+    </template>
+
+    <footer>
+      <div class="footer-main">
+        <a class="footer-brand" href="index.html#inicio"
+          ><img
+            src="imgs-home-index/logo-escola.png"
+            alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+            loading="lazy"
+            decoding="async"
+        /></a>
+        <div>
+          <h2>Colégio Estadual<br />Euzébio da Mota</h2>
+          <p>Ensino Fundamental, Médio e EJA<br />Curitiba – Paraná</p>
+        </div>
+        <div class="footer-reference">
+          <h3>Referências</h3>
+          <a href="eventos/eventos.html">Eventos</a
+          ><a href="referencias/referencias.html">Consultar referências</a
+          ><a href="acessibilidade.html">Acessibilidade</a
+          ><a href="privacidade.html">Privacidade</a>
+        </div>
+        <div>
+          <h3>Redes sociais</h3>
+          <a
+            href="https://web.facebook.com/euzebiodamotapr/?_rdc=1&amp;_rdr#"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            Facebook</a
+          ><a
+            href="https://www.instagram.com/euzebiodamota/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram oficial do Colégio Estadual Euzébio da Mota"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            Instagram</a
+          >
+        </div>
+        <div class="footer-creators">
+          <h3>Os Autores</h3>
+          <p>
+            Felipe Nolasco Tromer<br />Lorenzo Risardi Soares<br />Rafael Mira
+            de Carvalho
+          </p>
+        </div>
+        <div class="footer-instructor">
+          <h3>Orientadora</h3>
+          <p>Professora Naelly Pereira Brito</p>
+        </div>
+        <a href="#inicio" class="footer-top" aria-label="Voltar ao início"
+          ><i class="fa-solid fa-arrow-up" aria-hidden="true"></i
+        ></a>
+      </div>
+      <div class="copyright">
+        © <span data-current-year>2026</span> Colégio Estadual Euzébio da Mota
+      </div>
+    </footer>
+
+    <script src="dados/premiacoes.js"></script>
+    <script src="premiacoes.js?v=20261112-awards-landing"></script>
+    <script src="comum.js?v=20261030-offline"></script>
+  </body>
+</html>

@@ -336,3 +336,29 @@ Procedimento recomendado:
   originais de fotografias fora da pasta publicada.
 - Confirmar periodicamente os links externos, especialmente formulário, Google
   Maps, Facebook, fontes oficiais e VLibras.
+
+## Atualizacoes desta expansao
+
+### Documentos institucionais de Ensino
+
+- Os PDFs ficam em `ensino-medio/documentos-ensino/`: PPP em `versao_impressao_ppp_2023-2024.pdf` e Regimento Escolar em `regimento_versao_homologada_impressao.pdf`.
+- Para atualizar um documento, substitua o PDF mantendo o mesmo nome. Se mudar o nome, ajuste somente o campo `file` correspondente em `dados/documentos-ensino.js`.
+
+### Categorias da Galeria e fotos dos clubes
+
+- Categorias e associacao dos arquivos ficam em `dados/galeria.js`, nas variaveis `galleryCategories` e `galleryCategoryFor`. Crie ali o identificador, o rotulo e a regra para novos arquivos.
+- Cada foto em `items` precisa da previa, imagem ampliada, texto alternativo, legenda, dimensoes e caminhos desde a raiz. A categoria controla o filtro e o grupo independente do lightbox.
+- Em cada card dos clubes, `data-project-gallery` deve corresponder ao identificador da categoria. O script compartilhado monta as imagens a partir dos registros da Galeria.
+
+### Premiacoes e conquistas
+
+1. Confirme com a escola o nome, ano, entidade responsavel e descricao.
+2. Salve as imagens em `premiacoes/imagens/` e certificados em `premiacoes/documentos/`.
+3. Acrescente um objeto em `items` de `dados/premiacoes.js`, com `title`, `year`, `category`, `institution`, `description`, `image` e `imageAlt`. `certificate` e opcional. Caminhos partem da raiz do site.
+4. A pagina apresenta cada conquista como um registro editorial, separado por linhas e com a imagem em formato de apoio (sem o layout de eventos). Os filtros aparecem quando houver conteudo. Com a lista vazia, mostra a mensagem institucional, sem conquistas de exemplo.
+
+- Na Home, PPP e RE ficam acessiveis pelo botao abaixo dos cards do Ensino Medio. O calendario oferece abrir em nova aba e baixar o PDF; a URL dos dois controles acompanha dados/calendario.js.
+
+- A Galeria tem uma única categoria Clube de Ciências para reunir as fotos de Gabriele/Friends of Science e Marlene/Little Scientists. Para adicionar fotos desses grupos, use os caminhos sob imgs-clubedeciencias/; o cadastro as coloca nessa categoria comum.
+
+- A lista pública de filtros da Galeria fica enxuta: Todas as fotos e Clube de Ciências. As demais imagens continuam em Todas as fotos; suas categorias internas mantêm a navegação do lightbox separada.

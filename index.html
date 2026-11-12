@@ -76,7 +76,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="style.css?v=20261107-gallery-cards" />
+    <link rel="stylesheet" href="style.css?v=20261112-home-awards-final" />
 
     <script type="application/ld+json">
       {
@@ -125,6 +125,7 @@
             <div class="nav-dropdown-menu">
               <a href="#apoio">AEE</a>
               <a href="#biblioteca">Biblioteca</a>
+              <a href="#premiacoes">Premiações da escola</a>
               <a href="#galeria">Galeria</a>
             </div>
           </details>
@@ -279,15 +280,27 @@
             </div>
           </div>
 
-          <a
-            href="pdfs-do-site/calendario-escolar2026.pdf"
-            class="calendar-download"
-            download="calendario-escolar2026.pdf"
-            data-calendar-download
-          >
-            <i class="fa-solid fa-download"></i>
-            <span>Baixar calendário</span>
-          </a>
+          <div class="calendar-actions">
+            <a
+              href="pdfs-do-site/calendario-escolar2026.pdf"
+              class="calendar-download"
+              download="calendario-escolar2026.pdf"
+              data-calendar-download
+            >
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              <span>Baixar calendário</span>
+            </a>
+            <a
+              href="pdfs-do-site/calendario-escolar2026.pdf"
+              class="calendar-download calendar-open"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-calendar-open
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              <span>Abrir em nova aba</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -352,6 +365,22 @@
               <strong>Ensino Regular</strong>
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </span>
+          </a>
+        </div>
+
+        <div class="education-documents-cta reveal">
+          <a
+            class="button education-documents-button"
+            href="ensino-medio/documentos.html"
+          >
+            <span class="education-documents-icon" aria-hidden="true">
+              <i class="fa-solid fa-book-open"></i>
+            </span>
+            <span>Conferir PPP e RE</span>
+            <i
+              class="fa-solid fa-arrow-right education-documents-arrow"
+              aria-hidden="true"
+            ></i>
           </a>
         </div>
       </section>
@@ -551,6 +580,30 @@
             <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>
         </div>
+      </section>
+
+      <hr class="section-divider" aria-hidden="true" />
+
+      <section
+        class="home-awards section reveal"
+        id="premiacoes"
+        aria-labelledby="home-awards-title"
+      >
+        <span class="home-awards-icon" aria-hidden="true">
+          <i class="fa-solid fa-trophy"></i>
+        </span>
+        <div class="home-awards-copy">
+          <p class="eyebrow">Orgulho da nossa comunidade</p>
+          <h2 id="home-awards-title">Premiações da <em>escola.</em></h2>
+          <p>
+            Conheça o espaço dedicado aos reconhecimentos e às conquistas da
+            comunidade escolar.
+          </p>
+        </div>
+        <a class="button button-light home-awards-action" href="premiacoes.html">
+          Conheça as premiações
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </section>
 
       <hr class="section-divider" aria-hidden="true" />

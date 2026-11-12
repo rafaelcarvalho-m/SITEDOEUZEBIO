@@ -61,7 +61,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../paginas.css?v=20261107-footer-unified" />
+    <link rel="stylesheet" href="../paginas.css?v=20261111-project-galleries" />
   </head>
   <body class="detail-page detail-blue title-only-detail-page gabriele-page">
   <a class="skip-link" href="#conteudo">Pular para o conte&uacute;do</a>
@@ -175,10 +175,10 @@
         <div class="marlene-gallery-heading reveal">
           <p class="eyebrow">Projetos e registros</p>
           <h2 id="friends-projects-title">Ideias que viram <em>experimentos.</em></h2>
-          <p>Conheça os quatro projetos do Friends of Science. Cada card reúne a imagem principal e uma descrição daquele trabalho.</p>
+          <p>Fotografias agrupadas por projeto e atividade. Abra uma imagem para ampliar e percorrer somente os registros do mesmo grupo.</p>
         </div>
         <div class="marlene-gallery-grid">
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="friends-solar">
             <a class="marlene-gallery-card-image-link" href="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.24-3.jpeg" data-lightbox data-lightbox-caption="Protótipo de carrinho movido a energia solar">
               <img src="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.24-3.jpeg" alt="Carrinho experimental com painel solar, montado pelos estudantes" width="600" height="399" loading="lazy" decoding="async" />
             </a>
@@ -193,7 +193,7 @@
             </div>
           </article>
 
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="friends-soap">
             <a class="marlene-gallery-card-image-link" href="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.26-4.jpeg" data-lightbox data-lightbox-caption="Sabão produzido a partir de óleo usado">
               <img src="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.26-4.jpeg" alt="Barras de sabão feitas no projeto de reaproveitamento de óleo" width="600" height="399" loading="lazy" decoding="async" />
             </a>
@@ -208,7 +208,7 @@
             </div>
           </article>
 
-          <article class="marlene-gallery-card reveal friends-project-card--chalk">
+          <article class="marlene-gallery-card reveal friends-project-card--chalk" data-project-gallery="friends-chalk">
             <a class="marlene-gallery-card-image-link" href="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.24.jpeg" data-lightbox data-lightbox-caption="Giz colorido produzido com reaproveitamento de pó de giz">
               <img src="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.24.jpeg" alt="Bastões de giz coloridos em um molde reutilizado" width="600" height="399" loading="lazy" decoding="async" />
             </a>
@@ -223,7 +223,7 @@
             </div>
           </article>
 
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="friends-biohybrid">
             <a class="marlene-gallery-card-image-link" href="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.25-3.jpeg" data-lightbox data-lightbox-caption="Robô biohíbrido com sensor capacitivo">
               <img src="imgs-projetos/imgs-clubedeciencias/imgs-Friends%20of%20Science-gabriele/WhatsApp%20Image%202026-11-07%20at%2013.11.25-3.jpeg" alt="Sensor conectado a uma planta em uma bancada de experimentação" width="600" height="399" loading="lazy" decoding="async" />
             </a>
@@ -387,6 +387,8 @@
       </div>
       <div class="copyright">© <span data-current-year>2026</span> Colégio Estadual Euzébio da Mota</div>
     </footer>
-    <script src="../comum.js?v=20261030-offline"></script>
+    <script src="../dados/galeria.js"></script>
+    <script src="clubes-galerias.js?v=20261111-project-galleries"></script>
+    <script src="../comum.js?v=20261111-project-lightbox"></script>
   </body>
 </html>

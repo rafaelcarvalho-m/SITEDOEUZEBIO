@@ -8,6 +8,14 @@ Diretório absoluto: `C:\Users\rafae\OneDrive\Desktop\SITEDOEUZEBIO`
 
 Durante cada sessão de trabalho neste projeto, registre no checkpoint as decisões, alterações, arquivos afetados, verificações e pendências conforme o trabalho avançar; não espere a sessão terminar. Atualize também esta regra sempre que necessário para que qualquer outra IA que leia o checkpoint saiba que deve documentar o progresso enquanto trabalha. Para a sessão de 7 de novembro de 2026, toda atividade realizada deve ser anotada aqui.
 
+## Para revisar depois — auditoria final de 9 de novembro de 2026
+
+- **Domínio público confirmado pelo usuário:** o endereço usado é o domínio gratuito do Vercel (`https://sitedoeuzebio.vercel.app/`). `canonical`, `og:url`, `sitemap.xml` e `robots.txt` ainda apontam para `rafaelcarvalho-m.github.io/SITEDOEUZEBIO` e precisam ser alinhados ao Vercel.
+- **Seleção de texto:** o bloqueio global de seleção/cópia continua ativo por pedido anterior. Ele dificulta selecionar trechos e pode prejudicar a acessibilidade; decidir se deve ser removido ou mantido.
+- **Conferência pública:** o site Vercel e os destinos externos não puderam ser acessados durante a auditoria. Conferir a versão publicada e os links externos quando a rede estiver disponível.
+
+As verificações locais e as correções desta auditoria estão registradas no final do documento, na seção “Auditoria final — início e inventário”.
+
 ## 1. Objetivo principal
 
 O projeto é um site institucional estático do Colégio Estadual Euzébio da Mota, construído principalmente com HTML, CSS e JavaScript. O histórico abaixo registra as mudanças de conteúdo e identidade visual. As atualizações mais recentes também removeram uma foto da Galeria e de outras ocorrências, bloquearam a seleção/cópia de texto em todas as páginas e removeram o botão e os links da Pesquisa de opinião, encerrada em 7 de novembro de 2026.
@@ -2240,3 +2248,218 @@ Data: 7 de novembro de 2026
 - A pedido do usuário, removida a regra que mantinha as fotos verticais inteiras dentro da moldura horizontal dos cards, com faixas escuras. Agora elas usam o mesmo `object-fit: cover` das demais e preenchem toda a área da imagem do card; isso pode cortar parte das bordas das fotos verticais.
 - Atualizadas as referências de cache do CSS na Home e na página da Galeria, além da importação compartilhada, para que a mudança carregue após publicação.
 - Arquivos alterados: `style.css`, `index.html`, `galeria/galeria.html`, `paginas.css` e este checkpoint. Não fiz conferência visual no navegador nesta alteração.
+
+## Auditoria final — início e inventário
+
+Data: 9 de novembro de 2026
+
+- Lidos o checkpoint e o guia de manutenção antes de qualquer edição no site.
+- O estado inicial do Git era limpo: `main` alinhada com `origin/main`; nenhuma alteração de usuário estava pendente nesta pasta.
+- A estrutura contém 23 arquivos HTML: Home, páginas institucionais, cursos, projetos e clubes, Eventos, Galeria, Biblioteca, Referências, Acessibilidade, Privacidade, 404 e Offline.
+- O projeto é estático, sem `package.json` ou configuração de build/testes automatizados; o validador disponível é `node ferramentas/validar-site.js`.
+- Validação de baseline aprovada: 23 páginas, 1 evento, 57 fotos na Galeria, calendário 2026 e referências locais sem erros.
+- `node --check` passou em todos os arquivos `.js` encontrados.
+- A abertura do endereço publicado pela ferramenta web retornou erro de acesso; a comparação publicada permanece pendente até uma tentativa com navegador/requisição local.
+- Auditoria técnica, visual, de acessibilidade, links externos e recursos interativos em andamento. Nenhuma página do site foi alterada nesta etapa.
+
+### Achado visual e correção em andamento
+
+- Captura do Chrome local em `390 × 844` mostrou o título de duas linhas da Home cortado no lado direito. A origem era o tamanho mínimo de `2.7rem` na regra móvel de `.hero h1`.
+- Ajustado o tamanho responsivo do título da Home em `style.css` para `clamp(1.4rem, 6.5vw, 2.1rem)` e atualizado o sufixo de cache do CSS em `index.html`. Captura e medidas no Chrome confirmaram que ambas as linhas cabem em 320, 390 e 480 px.
+- Identificado o bloqueio global de seleção/cópia em `style.css` e `comum.js`. O histórico registra que foi solicitado explicitamente; será mantido nesta auditoria, com a limitação de acessibilidade documentada como pendência em vez de removido sem autorização.
+
+### Correções e validações concluídas
+
+- Removida a mensagem “Informações em atualização” dos painéis finais de Robótica e RPG. No lugar, ambos orientam o visitante a consultar a equipe escolar para informações sobre atividades e participação, sem acrescentar dados não confirmados.
+- Revisadas visualmente em tela móvel a Home, Eventos, Galeria, Biblioteca, os dois clubes, Desenvolvimento de Sistemas, AEE, 404 e Offline. A Home não corta mais o título e exibe o controle do menu; as páginas preservam seus temas e composições responsivas.
+- Verificadas as 23 páginas no Chrome em 390, 768, 1440, 1920 e 3840 px (115 combinações). Não houve overflow horizontal; cada página manteve um `h1`. A checagem estática encontrou IDs únicos, `alt` em todas as imagens e metadados `title`, descrição e canonical nas páginas.
+- O menu móvel abriu, atualizou `aria-expanded` e fechou com Escape. As abas de visita trocaram o painel e atualizaram `aria-selected`; os `<details>` de Marlene abriram e fecharam; a busca de Eventos filtrou resultado e estado vazio. Os lightboxes de Galeria, Biblioteca e Eventos abriram com legenda, carregaram a imagem ampliada e fecharam com Escape. A prévia da Home contém nove imagens.
+- Conferidos no DOM da Home o rótulo visível `(41) 3276-4234`, o destino `tel:+554132764234` e o item `Calendário` com âncora `#agenda`. Os três perfis de Instagram solicitados estão com os endereços fornecidos no HTML.
+- O validador do projeto passou com 23 páginas, 1 evento, 57 fotos cadastradas e calendário 2026. Os 16 arquivos JavaScript passaram em `node --check`; não foram observadas exceções JavaScript no navegador. `git diff --check` passou, restando apenas avisos de conversão LF/CRLF.
+- O endereço Vercel não pôde ser aberto pela ferramenta web nem por requisição local; a tentativa de acesso externo também falhou no ambiente. Assim, a versão publicada e a resposta online dos links externos não foram comparadas nesta sessão.
+
+### Pendências identificadas
+
+- O usuário confirmou que usa o domínio gratuito do Vercel: `https://sitedoeuzebio.vercel.app/`. `canonical`, `og:url`, `sitemap.xml` e `robots.txt` ainda usam `rafaelcarvalho-m.github.io/SITEDOEUZEBIO`; falta alinhar esses endereços ao domínio Vercel.
+- O bloqueio global de seleção/cópia continua em funcionamento por decisão anterior registrada no checkpoint. Ele reduz a acessibilidade e impede selecionar trechos de leitura; foi preservado conforme a orientação de não remover uma funcionalidade vigente.
+- A comparação com a versão publicada e a verificação online dos perfis sociais não foram possíveis por falta de acesso externo nesta execução. Os destinos locais conferem com as URLs indicadas pelo usuário.
+
+### Arquivos alterados nesta auditoria
+
+- `style.css`: escala responsiva do título principal da Home em celulares.
+- `index.html`: versão de cache da folha global para distribuir a correção visual.
+- `projetos/robotica.html` e `projetos/rpg.html`: remoção dos avisos de conteúdo em atualização e orientação neutra à equipe escolar.
+- `CHECKPOINT-CONTINUIDADE.md`: registro do inventário, achados, correções, validações e pendências desta auditoria.
+
+
+## Trabalho em andamento — documentos, galerias e conquistas
+
+Data: 11 de novembro de 2026
+
+- Revisto o estado inicial do repositório antes de editar. As alterações pendentes de `CHECKPOINT-CONTINUIDADE.md`, `index.html`, `style.css`, `projetos/robotica.html` e `projetos/rpg.html` foram preservadas.
+- Confirmados os PDFs institucionais existentes em `ensino-medio/documentos-ensino/`: `versao_impressao_ppp_2023-2024.pdf` (PPP) e `regimento_versao_homologada_impressao.pdf` (Regimento).
+- Implementada uma página de documentos com pré-visualização PDF, abertura em nova aba e download. Os nomes e textos dos dois documentos ficam centralizados em `dados/documentos-ensino.js`.
+- A Galeria passou a ter filtros por categoria/projeto. Os 57 registros atuais receberam categoria; nenhum ficou sem grupo. A navegação do lightbox usa imagens da categoria ativa.
+- Em andamento: galeria compartilhada para Friends of Science e Little Scientists, navegação isolada por projeto, página de Premiações e Conquistas sem dados fictícios, guia de manutenção e verificação funcional/responsiva.
+- Primeira validação estática após a implementação parcial: `node ferramentas/validar-site.js` encontrou 25 páginas HTML, 1 evento, 57 fotos e nenhum caminho local quebrado. `node --check` passou nos scripts novos e modificados. A verificação visual e os testes de interação ainda precisam ser concluídos.
+
+Observacao de manutencao: as instrucoes do guia para trocar os PDFs, categorizar fotos e cadastrar conquistas foram revisadas e corrigidas antes da validacao final.
+
+## Concluído — documentos, galerias e conquistas
+
+Data: 11 de novembro de 2026
+
+### Implementação
+
+- Criada a página `ensino-medio/documentos.html`. Os registros do PPP e do Regimento, incluindo os nomes exatos dos PDFs, ficam centralizados em `dados/documentos-ensino.js`; cada cartão inclui pré-visualização, abertura em nova aba e download. Os dois PDFs válidos ficam em `ensino-medio/documentos-ensino/`.
+- A Galeria passou a oferecer o filtro geral e uma categoria pública “Clube de Ciências”; as demais imagens continuam disponíveis em Todas as fotos. As fotos de Friends of Science/Gabriele e Little Scientists/Marlene ficam juntas em Clube de Ciências. Cada um dos 57 registros tem categoria, e a navegação ampliada fica dentro do grupo selecionado.
+- Criado `projetos/clubes-galerias.js`, que reutiliza as fotografias do cadastro compartilhado nas páginas Friends of Science e Little Scientists. Os 20 registros do Friends estão distribuídos em seis grupos; os 13 registros do Little Scientists em cinco grupos. Setas, teclado, Escape e clique no fundo mantêm o comportamento do lightbox.
+- Criada a página `premiacoes.html` e o cadastro vazio `dados/premiacoes.js`, com campos para nome, ano, categoria, entidade, descrição, imagem e certificado. Não foram adicionadas conquistas fictícias.
+- Atualizados os links de navegação, o sitemap e o guia de manutenção. Criados arquivos LEIA-ME nas pastas dos PDFs e dos futuros materiais de premiações. Alteradas as versões de cache das páginas que precisam carregar o CSS/JavaScript atualizado.
+
+### Validação
+
+- `node ferramentas/validar-site.js`: aprovado com 25 páginas, 1 evento, 57 imagens e calendário 2026; nenhum caminho local quebrado. `node --check` aprovado nos arquivos JavaScript usados nesta implementação.
+- Conferidos os dois PDFs: nomes, extensões, assinatura `%PDF-` e tamanhos de 9.486.995 bytes e 3.299.437 bytes.
+- Navegador testado em 390, 768 e 1440 px nas páginas da Galeria, Documentos, Premiações e nos dois clubes. Não houve rolagem horizontal.
+- Testado o filtro Friends of Science · Sabão: exibe 7 imagens. A caixa de ampliação navegou de `1 / 7` para `2 / 7`. Testados grupos separados: 20 imagens do Friends of Science e 13 do Little Scientists, sem navegação cruzada entre projetos.
+- Testados teclado (seta direita e Escape) e clique no fundo para fechar a ampliação. A página de Premiações começa com o estado vazio; a página de Documentos mostra dois PDFs, links `target=_blank` e nomes de download correspondentes.
+- A coleta de exceções JavaScript não registrou erros nas páginas Home, Galeria, Documentos e Premiações. `git diff --check` não encontrou problemas, apenas os avisos já esperados de conversão LF/CRLF.
+
+### Arquivos
+
+Novos: `ensino-medio/documentos.html`, `ensino-medio/documentos.css`, `ensino-medio/documentos.js`, `dados/documentos-ensino.js`, `projetos/clubes-galerias.js`, `premiacoes.html`, `premiacoes.css`, `premiacoes.js`, `dados/premiacoes.js` e arquivos LEIA-ME nas pastas de documentos e futuras conquistas.
+
+Modificados para a implementação: `index.html`, páginas Ensino Regular/Técnico, `dados/galeria.js`, arquivos HTML/CSS/JS da Galeria, páginas dos dois clubes, `comum.js`, `paginas.css`, `sitemap.xml`, este guia e este checkpoint. As alterações que já estavam pendentes em `style.css`, `projetos/robotica.html` e `projetos/rpg.html` foram preservadas.
+
+### Conteúdo ainda não fornecido
+
+- A página de Premiações está pronta, porém permanece vazia até a escola fornecer conquistas confirmadas, imagens e certificados. Nenhuma premiação, data ou entidade foi inventada.
+
+## Ajuste — acesso aos documentos, calendário e apresentação das conquistas
+
+Data: 11 de novembro de 2026
+
+- Removido o link de Documentos de Ensino do menu Explorar. O botão “Conferir PPP e RE” agora aparece abaixo dos cards de Ensino Médio na Home.
+- O calendário oferece “Abrir em nova aba” e “Baixar calendário”. Os dois links são atualizados com o PDF definido em `dados/calendario.js`.
+- Premiações usa um registro editorial em linhas, com imagens de apoio compactas e separadores; não reaproveita o formato visual dos cards de Eventos. Os filtros só aparecem quando houver conquistas reais no cadastro.
+- Arquivos ajustados: `index.html`, `style.css`, `calendario.js`, `premiacoes.html`, `premiacoes.css`, `GUIA_DE_MANUTENCAO.md` e este checkpoint.
+## Ajuste — espaçamento do botão PPP e RE
+
+- Conferido o print enviado em `Downloads`. O botão estava próximo aos cards e distante do hero de Projetos.
+- Ajustada a margem superior da chamada e reduzido o preenchimento inferior da seção para centralizar o botão nesse intervalo; em telas de até 620 px, os espaços ficam menores.
+- Atualizado o cache do CSS da Home. Arquivos alterados: `style.css`, `index.html` e este checkpoint.
+## Ajustes — categorias da Galeria, botão PPP/RE e nome de Premiações
+
+- Reunidas as imagens das pastas dos clubes de Gabriele/Friends of Science e Marlene/Little Scientists na categoria única “Clube de Ciências”. Removidas as categorias menores por projeto; permanecem as categorias gerais de ensino, biblioteca, espaços escolares, robótica e RPG.
+- O botão PPP/RE manteve ícone de livro e seta; sua aparência padrão agora é escura e o hover fica laranja.
+- O menu e o título da página usam “Premiações da escola”. O dropdown permite quebra de linha para manter o texto dentro do item em telas estreitas.
+- Arquivos ajustados: `dados/galeria.js`, `index.html`, `style.css`, `paginas.css`, `premiacoes.html`, `premiacoes.css`, guia e checkpoint.
+
+## Ajuste — navegação do header de Premiações
+
+- O header de `premiacoes.html` exibe a logo da escola à esquerda e somente o botão “Voltar ao início” à direita, usando o estilo compartilhado com o botão de retorno da Galeria.
+- Os filtros por ano e os demais controles da página Eventos foram preservados sem alteração.
+- Atualizada a versão de cache de `premiacoes.css`.
+- Arquivos ajustados: `premiacoes.html`, `premiacoes.css` e este checkpoint.
+
+### Separação da chamada na Home e posição do botão
+
+- Inserido um `<hr class="section-divider">` entre Biblioteca e Premiações na Home.
+- O botão de retorno de Premiações segue o estilo da Galeria e aponta diretamente para `index.html#premiacoes`.
+- Arquivos ajustados: `premiacoes.html`, `premiacoes.css`, `index.html` e este checkpoint.
+
+## Ajuste — título da página de documentos institucionais
+
+- O título “Documentos de Ensino” (página do PPP e do Regimento Escolar) agora usa o laranja institucional no banner.
+- Atualizada a versão de cache de `ensino-medio/documentos.css`.
+- Arquivos ajustados: `ensino-medio/documentos.html`, `ensino-medio/documentos.css` e este checkpoint.
+
+## Ajuste — acesso a Premiações pela Home
+
+- Criada na Home uma chamada institucional “Premiações da escola”, com link para `premiacoes.html`.
+- A chamada fica imediatamente após a seção da Biblioteca. O item “Premiações da escola” no menu Explorar leva a ela (`#premiacoes`), que oferece o acesso à página; sua posição no menu também segue a ordem da Home, entre Biblioteca e Galeria.
+- A chamada usa o tema escuro e laranja já aplicado na Home e se empilha em telas estreitas.
+- Atualizada a versão de cache do CSS da Home.
+- Arquivos ajustados: `index.html`, `style.css` e este checkpoint.
+
+### Refinamento visual da chamada de Premiações
+
+- Incluído um ícone de troféu em destaque, título com acento laranja e botão com acabamento reforçado.
+- Ajustado o layout para telas estreitas, mantendo a chamada e o botão legíveis.
+- Atualizada a versão de cache do CSS da Home.
+- Arquivos ajustados: `index.html`, `style.css` e este checkpoint.
+
+## Conquista Friends of Science na FECCI 2026
+
+Data: 12 de novembro de 2026
+
+- Implementação feita na pré-estrutura existente de Premiações. Foram lidos o checkpoint, o guia de manutenção, `premiacoes.html`, `premiacoes.css`, `premiacoes.js` e `dados/premiacoes.js`; as alterações pendentes anteriores foram preservadas.
+- Consultada a página `projetos/clube-gabriele.html`, que identifica o projeto como “Giz de lousa reciclado a partir do pó de giz” e descreve a reutilização de resíduo de giz para criar novos materiais de escrita. O cartaz fotografado na FECCI confirma o título “Giz Sustentável: Reaproveitamento e reconstituição de sobras de giz de lousa”.
+- Visualizadas todas as quatro fotografias novas em `premiacoes/imagens/`: equipe com certificados diante da marca FECCI, segundo retrato vertical da equipe, estudantes com os três tipos de prêmio e equipe junto ao cartaz/estande do projeto. A segunda foto da equipe é semelhante à primeira e será omitida para evitar repetição.
+- Marcas: o MacBook foi informado no contexto da conquista; as embalagens visíveis não permitem confirmar com segurança as marcas do celular e do tablet. Não serão atribuídos modelos nem marcas a esses dois itens.
+- Preenchido `dados/premiacoes.js` com o resultado confirmado (1º lugar em Cultura Oceânica na FECCI 2026), o nome do grupo, o título registrado no cartaz e a descrição coerente com a página do clube.
+- A página usa quatro partes: identificação e colocação; trabalho e link para Friends of Science; prêmios com observação de marca não confirmada para celular e tablet; registros fotográficos da equipe.
+- Usadas três fotos sem repetir enquadramentos: estande/cartaz, prêmios e equipe com certificados. Os originais foram mantidos no diretório `premiacoes/imagens/`.
+- `premiacoes.html`, `premiacoes.js` e `premiacoes.css` foram adaptados à pré-estrutura já criada. A galeria aproveita o lightbox de `comum.js`; os filtros existentes por ano e categoria permanecem. Os sufixos de cache do CSS e do JavaScript da página foram atualizados.
+- A descrição não atribui funcionamento, resultados ou objetivos além do que consta na página do Friends of Science e no cartaz.
+
+### Validações e pendência visual
+
+- `node ferramentas/validar-site.js` passou: 25 páginas, 1 evento, 57 fotos cadastradas e calendário 2026; os links locais e dados cadastrados conferem.
+- `node --check premiacoes.js` e `node --check dados/premiacoes.js` passaram.
+- Conferidos os caminhos das três imagens usadas na página; todos existem. A navegação local da Home já aponta para `premiacoes.html`, e o botão de retorno leva a `index.html#premiacoes`.
+- `git diff --check` passou sem erros de whitespace; o Git exibiu apenas os avisos conhecidos de conversão LF/CRLF em arquivos já alterados no repositório.
+- Pendência de verificação: não havia navegador nem ferramenta de captura visual disponível nesta sessão. Portanto, a página não foi renderizada nem conferida visualmente em viewports de celular, tablet e desktop; os breakpoints responsivos foram mantidos no CSS, mas essa conferência deve ser feita quando houver navegador disponível.
+
+Arquivos alterados nesta tarefa: `premiacoes.html`, `premiacoes.css`, `premiacoes.js`, `dados/premiacoes.js` e `CHECKPOINT-CONTINUIDADE.md`. Nenhum arquivo original de imagem foi modificado; os registros não usados foram preservados.
+
+## Ajuste — espaçamento da chamada de Premiações na Home
+
+Data: 12 de novembro de 2026
+
+- Aumentado o espaçamento interno do retângulo da chamada para afastar o ícone de troféu e o botão das bordas, incluindo uma margem mais confortável em telas estreitas.
+- Atualizado o sufixo de cache de `style.css` no `index.html`.
+- Arquivos alterados: `style.css`, `index.html` e este checkpoint.
+
+## Ajuste — chamada da Home e busca textual de Premiações
+
+Data: 12 de novembro de 2026
+
+- Reforçado o afastamento do conteúdo da chamada da Home: o padding horizontal agora chega a 88 px em telas maiores e 38 px em telas estreitas; aumentada também a folga vertical. Atualizado novamente o sufixo de cache de `style.css` no `index.html`.
+- Adicionado campo “Buscar por texto” à página de Premiações. A busca considera ano, grupo, evento, categoria, colocação, projeto, descrição, prêmios, legendas e textos alternativos das imagens; ignora diferenças de maiúsculas e acentos e funciona junto com os filtros de ano/categoria.
+- Adicionado estado informativo quando a busca e os filtros não encontram resultados. Atualizados os sufixos de cache do CSS e do JavaScript de Premiações.
+- Validação concluída: `node ferramentas/validar-site.js` passou com 25 páginas e referências locais válidas; `node --check premiacoes.js` passou; `git diff --check` não encontrou erros de whitespace (permanecem apenas avisos LF/CRLF já conhecidos). A busca foi conferida estaticamente para combinar texto com ano/categoria e informar quando não há resultados.
+- A chamada da Home e os campos da busca não foram renderizados visualmente em navegador nesta sessão; a ferramenta de navegador continua indisponível.
+
+## Ajustes finais — chamada da Home e página de Premiações
+
+Data: 12 de novembro de 2026
+
+- Aumentada novamente a margem interna da chamada da Home: até 112 px nas laterais em telas grandes e 44 px em telas estreitas. O botão móvel respeita a largura disponível. O `index.html` recebeu novo sufixo de cache do CSS.
+- Removidas das descrições dos prêmios as notas “Marca não confirmada nas imagens”, mantendo apenas Celular, MacBook e Tablet.
+- A foto do projeto agora ocupa toda a largura do card preservando sua proporção original, sem barras vazias e sem distorção.
+- Removido o estado que dizia que as conquistas seriam publicadas no futuro. A lista vazia fica sem esse aviso; buscas sem correspondência continuam exibindo apenas a mensagem própria de resultado zero.
+- Atualizados os sufixos de cache do CSS e JavaScript de Premiações.
+- Validação concluída: validador do site, `node --check` dos scripts e `git diff --check` passaram; os dois avisos removidos não aparecem mais no HTML, CSS, JS ou cadastro.
+
+## Conferência do print e novo recuo da chamada da Home
+
+- Aberta a captura `C:\Users\rafae\Downloads\Captura de tela 2026-11-12 185630.png`: nela o troféu e o botão aparecem junto às bordas do retângulo. O arquivo tem horário 18:56, anterior às alterações locais da Home às 19:39.
+- Reforçado o padding horizontal no CSS local para `clamp(80px, 8vw, 112px)` e, em até 620 px, `44px`. Atualizada a URL do CSS no `index.html` para `style.css?v=20261112-home-awards-safe-inset`.
+- O site publicado não foi alterado nem publicado; as alterações estão no diretório local do projeto.
+- Revisada a cascata do componente: não há posicionamento absoluto, largura total ou margens negativas no banner. O padding horizontal foi colocado diretamente no seletor de maior especificidade `.home-page .home-awards.section`, que define o layout final do componente, em `clamp(32px, 3vw, 40px)` no desktop e `clamp(24px, 7vw, 36px)` até 620 px. O cache agora usa `style.css?v=20261112-home-awards-balanced-padding`.
+- Para evitar que o texto da grade móvel force a largura, `.home-awards-copy` recebeu `min-width: 0` e, até 800 px, o container passa a ter largura limitada a `min(600px, calc(100vw - 36px))`. A URL do CSS foi atualizada para `style.css?v=20261112-home-awards-final`.
+- Captura local headless em desktop (1440 × 900), com o banner isolado para inspeção, confirmou aproximadamente 41 px em cada extremidade: borda esquerda do card em x≈130, ícone em x≈171, botão terminando em x≈1269 e borda direita em x≈1310. A estrutura mantém a ordem e o alinhamento vertical.
+- Validação final: `node ferramentas/validar-site.js`, `node --check premiacoes.js`, `node --check dados/premiacoes.js` e `git diff --check` aprovados. Não houve publicação.
+
+## Página de Premiações como apresentação institucional
+
+Data: 12 de novembro de 2026
+
+- O título principal da página recebeu a cor laranja institucional.
+- Removidos somente da página de Premiações o campo de busca textual, os filtros por ano/categoria, a contagem e a mensagem de nenhum resultado. A página Eventos não foi alterada.
+- A introdução foi ampliada para explicar o objetivo da página, o conteúdo de cada registro e apresentar a conquista do Friends of Science na FECCI 2026.
+- Removidas do JavaScript e do CSS de Premiações a lógica e as regras de filtragem sem uso; atualizados os sufixos de cache dos arquivos da página.
+- Renderização local em Chrome headless (1440 × 1000) conferiu o título principal em laranja.
+- `node ferramentas/validar-site.js`, `node --check premiacoes.js`, `node --check dados/premiacoes.js` e `git diff --check` passaram. A busca confirmou ausência de pesquisa/filtros em Premiações e preservação dos controles de Eventos.

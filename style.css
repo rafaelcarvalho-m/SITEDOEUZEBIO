@@ -217,7 +217,7 @@ p:not(.eyebrow),
   display: flex;
   flex-direction: column;
   gap: 4px;
-  width: 210px;
+  width: 250px;
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
@@ -245,6 +245,9 @@ p:not(.eyebrow),
 .nav-dropdown-menu a {
   padding: 11px 13px;
   border-radius: 6px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
 }
 
 .nav-dropdown-menu a:hover {
@@ -347,6 +350,7 @@ p:not(.eyebrow),
 .home-page #eventos,
 .home-page #tour-360,
 .home-page #apoio,
+.home-page #premiacoes,
 .home-page #biblioteca,
 .home-page #contato {
   scroll-margin-top: 28px;
@@ -1024,6 +1028,17 @@ p:not(.eyebrow),
   border: 0;
 }
 
+.calendar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.calendar-actions .calendar-download {
+  margin-top: 0;
+}
+
 .calendar-download {
   display: inline-flex;
   align-items: center;
@@ -1080,6 +1095,20 @@ p:not(.eyebrow),
   box-shadow: 0 5px 12px rgba(201, 90, 22, 0.2);
 }
 
+.calendar-open {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+.calendar-open:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
 .feature-banner {
   min-height: 380px;
   display: grid;
@@ -1124,6 +1153,62 @@ p:not(.eyebrow),
 .education-section,
 .projects-section {
   background: var(--paper);
+}
+
+.home-page .section.education-section {
+  padding-bottom: 54px;
+}
+
+.education-documents-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 54px;
+}
+
+.education-documents-button {
+  min-height: 58px;
+  padding: 8px 20px 8px 9px;
+  gap: 13px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: linear-gradient(115deg, #313b35, var(--ink));
+  color: var(--white);
+  box-shadow: 0 9px 22px rgba(31, 41, 35, 0.2);
+  letter-spacing: 0.045em;
+}
+
+.education-documents-icon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.13);
+  font-size: 1rem;
+}
+
+.education-documents-arrow {
+  margin-left: 3px;
+  transition: transform 0.25s ease;
+}
+
+.education-documents-button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(115deg, var(--warm-light), var(--warm));
+  border-color: var(--warm-light);
+  color: var(--white);
+  box-shadow: 0 14px 26px rgba(168, 68, 13, 0.28);
+}
+
+.education-documents-button:hover .education-documents-arrow {
+  transform: translateX(4px);
+}
+
+.education-documents-button:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
 }
 
 .home-support {
@@ -1270,6 +1355,85 @@ p:not(.eyebrow),
 
 .projects-section .content-card:hover i {
   color: var(--warm);
+}
+
+.home-awards {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(20px, 3vw, 38px);
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 72px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  color: var(--white);
+  background:
+    radial-gradient(circle at 8% 50%, rgba(201, 90, 22, 0.28), transparent 34%),
+    linear-gradient(115deg, #26312a, var(--ink) 62%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow);
+  scroll-margin-top: 28px;
+}
+
+.home-page .home-awards.section {
+  padding-block: clamp(48px, 5vw, 68px);
+  padding-inline: clamp(32px, 3vw, 40px);
+}
+
+.home-awards-copy {
+  min-width: 0;
+}
+
+.home-awards-icon {
+  display: grid;
+  width: clamp(66px, 8vw, 92px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 193, 130, 0.42);
+  border-radius: 50%;
+  color: #ffd19f;
+  background:
+    radial-gradient(circle, rgba(255, 193, 130, 0.2), rgba(201, 90, 22, 0.11));
+  box-shadow:
+    inset 0 0 0 7px rgba(255, 255, 255, 0.035),
+    0 10px 26px rgba(0, 0, 0, 0.18);
+  font-size: clamp(1.8rem, 3vw, 2.55rem);
+}
+
+.home-awards-copy .eyebrow {
+  margin-bottom: 9px;
+  color: var(--warm-light);
+}
+
+.home-awards-copy h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  line-height: 1.08;
+}
+
+.home-awards-copy h2 em {
+  color: var(--warm-soft);
+  font-style: normal;
+}
+
+.home-awards-copy > p:last-child {
+  max-width: 640px;
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  text-align: left;
+}
+
+.home-awards-action {
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.home-awards-action:hover,
+.home-awards-action:focus-visible {
+  color: var(--white);
+  background: var(--warm);
+  border-color: var(--warm);
 }
 
 .tour-section {
@@ -2607,6 +2771,10 @@ footer {
     padding-bottom: 60px;
   }
 
+  .home-page .home-awards.section {
+    width: min(600px, calc(100vw - 36px));
+  }
+
   .about-grid,
   .calendar-section,
   .tour-section,
@@ -2614,6 +2782,27 @@ footer {
   .home-support,
   .contact-section {
     grid-template-columns: 1fr;
+  }
+
+  .home-awards {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 18px 20px;
+  }
+
+  .home-awards-icon {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .home-awards-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .home-awards-action {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 2px;
   }
 
   .events-shell {
@@ -3012,8 +3201,8 @@ footer {
     width: calc(100% - 36px);
   }
 
-  .hero h1 {
-    font-size: clamp(1.8rem, 8.6vw, 2.65rem);
+  .home-page .hero h1 {
+    font-size: clamp(1.4rem, 6.5vw, 2.1rem);
   }
 
   .section {
@@ -3109,6 +3298,52 @@ footer {
 }
 
 @media (max-width: 620px) {
+  .home-awards {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 18px 16px;
+  }
+
+  .home-page .home-awards.section {
+    padding-block: 32px;
+    padding-inline: clamp(24px, 7vw, 36px);
+  }
+
+  .home-awards-icon {
+    width: 62px;
+    font-size: 1.65rem;
+  }
+
+  .home-awards-copy h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .home-awards-copy > p:last-child {
+    margin-top: 9px;
+    font-size: 0.88rem;
+  }
+
+  .home-awards-action {
+    grid-column: 1 / -1;
+    justify-self: start;
+    width: fit-content;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  .home-page .section.education-section {
+    padding-bottom: 38px;
+  }
+
+  .education-documents-cta {
+    margin-top: 38px;
+  }
+
+  .education-documents-button {
+    width: min(100%, 330px);
+    justify-content: center;
+    padding-right: 14px;
+  }
+
   .footer-main {
     grid-template-columns: 1fr;
     gap: 26px;

@@ -331,23 +331,41 @@ document.querySelectorAll(".button").forEach((button) => {
     }
   };
 
+  let activeGalleryLinks = galleryLinks;
+
+  const updateNavigation = () => {
+    const hasMultipleImages = activeGalleryLinks.length > 1;
+    previousButton.hidden = !hasMultipleImages;
+    nextButton.hidden = !hasMultipleImages;
+    lightboxCount.hidden = !hasMultipleImages;
+  };
+
   const showItem = (index) => {
-    currentIndex = (index + galleryLinks.length) % galleryLinks.length;
+    currentIndex = (index + activeGalleryLinks.length) % activeGalleryLinks.length;
     currentZoom = 1;
     updateZoom();
-    const link = galleryLinks[currentIndex];
+    const link = activeGalleryLinks[currentIndex];
     const sourceImage = link.querySelector("img");
 
     lightboxImage.src = link.getAttribute("href");
     lightboxImage.alt = sourceImage?.alt || "Fotografia ampliada";
     lightboxCaption.textContent =
       link.dataset.lightboxCaption || sourceImage?.alt || "Fotografia";
-    lightboxCount.textContent = `${currentIndex + 1} / ${galleryLinks.length}`;
+    lightboxCount.textContent = `${currentIndex + 1} / ${activeGalleryLinks.length}`;
   };
 
   const openLightbox = (index, link) => {
+    const group = link.dataset.lightboxGroup;
+    activeGalleryLinks = galleryLinks.filter((candidate) => {
+      const sameGroup = group
+        ? candidate.dataset.lightboxGroup === group
+        : !candidate.dataset.lightboxGroup;
+      return sameGroup && candidate.dataset.lightboxDisabled !== "true";
+    });
+    const groupIndex = activeGalleryLinks.indexOf(link);
+    updateNavigation();
     returnFocus = link;
-    showItem(index);
+    showItem(groupIndex >= 0 ? groupIndex : index);
     dialog.showModal();
     document.body.classList.add("site-lightbox-open");
     closeButton.focus();
@@ -360,10 +378,7 @@ document.querySelectorAll(".button").forEach((button) => {
     });
   });
 
-  const hasMultipleImages = galleryLinks.length > 1;
-  previousButton.hidden = !hasMultipleImages;
-  nextButton.hidden = !hasMultipleImages;
-  lightboxCount.hidden = !hasMultipleImages;
+  updateNavigation();
 
   closeButton.addEventListener("click", () => dialog.close());
   previousButton.addEventListener("click", () => showItem(currentIndex - 1));
@@ -390,12 +405,12 @@ document.querySelectorAll(".button").forEach((button) => {
   });
 
   dialog.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft" && hasMultipleImages) {
+    if (event.key === "ArrowLeft" && activeGalleryLinks.length > 1) {
       event.preventDefault();
       showItem(currentIndex - 1);
     }
 
-    if (event.key === "ArrowRight" && hasMultipleImages) {
+    if (event.key === "ArrowRight" && activeGalleryLinks.length > 1) {
       event.preventDefault();
       showItem(currentIndex + 1);
     }

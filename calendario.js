@@ -31,6 +31,15 @@
     downloadLink.download = calendar.pdfFile;
   }
 
+  const openLink = document.querySelector("[data-calendar-open]");
+  if (openLink) {
+    openLink.href = pdfUrl;
+    openLink.setAttribute(
+      "aria-label",
+      `Abrir calendário escolar ${calendar.year} em nova aba`,
+    );
+  }
+
   const sourceLink = document.querySelector("[data-calendar-source]");
   if (sourceLink) {
     sourceLink.href = calendar.officialUrl;

@@ -61,7 +61,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../paginas.css?v=20261107-footer-unified" />
+    <link rel="stylesheet" href="../paginas.css?v=20261111-project-galleries" />
   </head>
   <body class="detail-page detail-blue title-only-detail-page marlene-page">
   <a class="skip-link" href="#conteudo">Pular para o conte&uacute;do</a>
@@ -207,8 +207,8 @@
             Conheça os projetos do <em>clube.</em>
           </h2>
           <p>
-            Cada card reúne a imagem e as informações do projeto ou estrutura
-            correspondente.
+            Cada card reúne as imagens e as informações do projeto ou estrutura
+            correspondente. A ampliação navega somente pelas fotos daquele grupo.
           </p>
           <p>
             Os registros mostram o trabalho com ciência, biodiversidade,
@@ -216,7 +216,7 @@
           </p>
         </div>
         <div class="marlene-gallery-grid">
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="little-rockets">
             <a
               class="marlene-gallery-card-image-link"
               href="imgs-projetos/imgs-clubedeciencias/foto-fogueteclubedeciencias3200x2126.webp"
@@ -257,7 +257,7 @@
               </details>
             </div>
           </article>
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="little-sensory">
             <a
               class="marlene-gallery-card-image-link"
               href="imgs-projetos/imgs-clubedeciencias/imgs-Little%20Scientists-marlene/marlene-horta3200x2126.webp"
@@ -297,7 +297,7 @@
               </details>
             </div>
           </article>
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="little-garden">
             <a
               class="marlene-gallery-card-image-link"
               href="imgs-projetos/imgs-clubedeciencias/imgs-Little%20Scientists-marlene/marlene-canteiro-02-600x399.webp"
@@ -330,7 +330,7 @@
               </details>
             </div>
           </article>
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="little-bees">
             <a
               class="marlene-gallery-card-image-link"
               href="imgs-projetos/imgs-clubedeciencias/imgs-Little%20Scientists-marlene/marlene-casinha-01-600x399.webp"
@@ -361,7 +361,7 @@
               </details>
             </div>
           </article>
-          <article class="marlene-gallery-card reveal">
+          <article class="marlene-gallery-card reveal" data-project-gallery="little-greenhouse">
             <a
               class="marlene-gallery-card-image-link"
               href="imgs-projetos/imgs-clubedeciencias/imgs-Little%20Scientists-marlene/marlene-estufa3200x2126.webp"
@@ -518,6 +518,8 @@
       </div>
       <div class="copyright">© <span data-current-year>2026</span> Colégio Estadual Euzébio da Mota</div>
     </footer>
-    <script src="../comum.js?v=20261030-offline"></script>
+    <script src="../dados/galeria.js"></script>
+    <script src="clubes-galerias.js?v=20261111-project-galleries"></script>
+    <script src="../comum.js?v=20261111-project-lightbox"></script>
   </body>
 </html>

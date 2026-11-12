@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Acesse o Projeto Político-Pedagógico e o Regimento Escolar do Colégio Estadual Euzébio da Mota."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1f2923" />
+    <link
+      rel="canonical"
+      href="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/ensino-medio/documentos.html"
+    />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Colégio Estadual Euzébio da Mota" />
+    <meta
+      property="og:title"
+      content="Documentos institucionais | Colégio Estadual Euzébio da Mota"
+    />
+    <meta
+      property="og:description"
+      content="Consulte o Projeto Político-Pedagógico e o Regimento Escolar."
+    />
+    <meta
+      property="og:url"
+      content="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/ensino-medio/documentos.html"
+    />
+    <title>Documentos institucionais | Colégio Estadual Euzébio da Mota</title>
+    <link
+      rel="shortcut icon"
+      href="../imgs-home-index/icon-512-maskable.png"
+      type="image/png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../paginas.css?v=20261107-footer-unified" />
+    <link rel="stylesheet" href="documentos.css?v=20261111-documents-title-orange" />
+  </head>
+  <body
+    class="detail-page title-only-detail-page teaching-documents-page"
+    id="inicio"
+  >
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="detail-hero">
+      <img
+        class="detail-hero-media"
+        src="../imgs-home-index/img-ensinoregular1600x1063.webp"
+        alt="Sala de aula do Colégio Estadual Euzébio da Mota"
+        width="1600"
+        height="1063"
+        fetchpriority="high"
+      />
+      <nav class="topbar" aria-label="Navegação dos documentos institucionais">
+        <a
+          class="brand"
+          href="../index.html#ensino"
+          aria-label="Voltar à seção Ensino da página inicial"
+          ><img
+            src="../imgs-home-index/logo-escola.png"
+            alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+        /></a>
+        <div class="nav-links">
+          <a href="../index.html#ensino">Voltar</a>
+          <a href="ensinoregular.html">Ensino Regular</a>
+          <a href="ensinotecnico.html">Ensino Técnico</a>
+          <a href="#documentos">Documentos</a>
+        </div>
+      </nav>
+      <div class="detail-hero-content detail-hero-content-centered reveal">
+        <h1>Documentos de Ensino</h1>
+      </div>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <section
+        class="teaching-documents-section section"
+        id="documentos"
+        aria-labelledby="documents-title"
+      >
+        <div class="teaching-documents-heading reveal">
+          <p class="eyebrow">Transparência e orientação</p>
+          <h2 id="documents-title">
+            Documentos que orientam a <em>escola.</em>
+          </h2>
+          <p>
+            Consulte as diretrizes pedagógicas e as normas que organizam o
+            trabalho e a convivência escolar.
+          </p>
+        </div>
+        <div class="teaching-documents-grid" data-teaching-documents></div>
+        <noscript
+          ><p class="teaching-documents-note">
+            Ative o JavaScript para carregar os documentos institucionais.
+          </p></noscript
+        >
+      </section>
+    </main>
+
+    <template id="teaching-document-template">
+      <article class="teaching-document-card reveal">
+        <div class="teaching-document-heading">
+          <span class="teaching-document-icon" aria-hidden="true"
+            ><i class="fa-regular fa-file-pdf"></i
+          ></span>
+          <div>
+            <p class="eyebrow">Documento institucional</p>
+            <h2></h2>
+          </div>
+        </div>
+        <p class="teaching-document-description"></p>
+        <div class="teaching-document-actions">
+          <a
+            class="button"
+            data-document-open
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i
+              class="fa-solid fa-arrow-up-right-from-square"
+              aria-hidden="true"
+            ></i>
+            Abrir em nova aba</a
+          >
+          <a class="button button-outline" data-document-download
+            ><i class="fa-solid fa-download" aria-hidden="true"></i> Baixar
+            PDF</a
+          >
+        </div>
+        <div class="teaching-document-viewer">
+          <iframe
+            loading="lazy"
+            title="Pré-visualização de documento PDF"
+          ></iframe>
+        </div>
+      </article>
+    </template>
+
+    <footer>
+      <div class="footer-main">
+        <a class="footer-brand" href="../index.html#ensino"
+          ><img
+            src="../imgs-home-index/logo-escola.png"
+            alt="Logo do Colégio Estadual Euzébio da Mota"
+            width="666"
+            height="374"
+            loading="lazy"
+            decoding="async"
+        /></a>
+        <div>
+          <h2>Colégio Estadual<br />Euzébio da Mota</h2>
+          <p>Ensino Fundamental, Médio e EJA<br />Curitiba – Paraná</p>
+        </div>
+        <div class="footer-reference">
+          <h3>Referências</h3>
+          <a href="../eventos/eventos.html">Eventos</a
+          ><a href="../referencias/referencias.html">Consultar referências</a
+          ><a href="../acessibilidade.html">Acessibilidade</a
+          ><a href="../privacidade.html">Privacidade</a>
+        </div>
+        <div>
+          <h3>Redes sociais</h3>
+          <a
+            href="https://web.facebook.com/euzebiodamotapr/?_rdc=1&amp;_rdr#"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+            Facebook</a
+          ><a
+            href="https://www.instagram.com/euzebiodamota/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram oficial do Colégio Estadual Euzébio da Mota"
+            ><i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            Instagram</a
+          >
+        </div>
+        <div class="footer-creators">
+          <h3>Os Autores</h3>
+          <p>
+            Felipe Nolasco Tromer<br />Lorenzo Risardi Soares<br />Rafael Mira
+            de Carvalho
+          </p>
+        </div>
+        <div class="footer-instructor">
+          <h3>Orientadora</h3>
+          <p>Professora Naelly Pereira Brito</p>
+        </div>
+        <a href="#inicio" class="footer-top" aria-label="Voltar ao início"
+          ><i class="fa-solid fa-arrow-up" aria-hidden="true"></i
+        ></a>
+      </div>
+      <div class="copyright">
+        © <span data-current-year>2026</span> Colégio Estadual Euzébio da Mota
+      </div>
+    </footer>
+
+    <script src="../dados/documentos-ensino.js"></script>
+    <script src="documentos.js?v=20261111-documents"></script>
+    <script src="../comum.js?v=20261030-offline"></script>
+  </body>
+</html>

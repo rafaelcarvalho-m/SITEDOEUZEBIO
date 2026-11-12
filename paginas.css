@@ -1,4 +1,4 @@
-@import url("style.css?v=20261107-gallery-cards");
+@import url("style.css?v=20261111-awards-header-label");
 
 .internal-page {
   min-height: 100vh;
@@ -1227,6 +1227,34 @@
 .friends-project-card--chalk > .marlene-gallery-card-image-link img {
   object-fit: contain;
   background: #edf5f5;
+}
+
+.club-gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  padding: 6px 6px 0;
+}
+
+.club-gallery-thumbnails .marlene-gallery-card-image-link {
+  border-radius: 4px;
+}
+
+.club-gallery-thumbnails img {
+  aspect-ratio: 1;
+}
+
+.club-gallery-thumbnails + .marlene-gallery-card-copy {
+  padding-top: 16px;
+}
+
+.club-gallery-thumbnails + .marlene-gallery-card-copy::before {
+  content: "Mais fotografias deste projeto";
+  display: block;
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
 }
 
 .detail-blue .detail-hero::after {
