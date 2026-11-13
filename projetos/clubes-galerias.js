@@ -31,6 +31,10 @@
       title: "Foguetes de garrafa",
       label: "Planejamento, protótipos e testes de foguetes de garrafa",
     },
+    "friends-fecci": {
+      title: "Conquista na FECCI 2026",
+      label: "Registros do 1º lugar em Cultura Oceânica",
+    },
     "little-rockets": {
       title: "Minifoguetes e reflorestamento",
       label: "Registros do projeto de minifoguetes",
@@ -83,7 +87,9 @@
     const info = projectInfo[key];
     if (!info) return;
 
-    const projectItems = items.filter((item) => item.category === key);
+    const projectItems = items.filter(
+      (item) => item.project === key || item.category === key,
+    );
     if (!projectItems.length) return;
 
     let mainLink = card.querySelector(".marlene-gallery-card-image-link");

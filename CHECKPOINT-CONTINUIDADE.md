@@ -2463,3 +2463,39 @@ Data: 12 de novembro de 2026
 - Removidas do JavaScript e do CSS de Premiações a lógica e as regras de filtragem sem uso; atualizados os sufixos de cache dos arquivos da página.
 - Renderização local em Chrome headless (1440 × 1000) conferiu o título principal em laranja.
 - `node ferramentas/validar-site.js`, `node --check premiacoes.js`, `node --check dados/premiacoes.js` e `git diff --check` passaram. A busca confirmou ausência de pesquisa/filtros em Premiações e preservação dos controles de Eventos.
+
+## Fotos da FECCI na Galeria e categorias públicas
+
+Data: 12 de novembro de 2026
+
+- Conferidas visualmente as quatro fotografias novas em `premiacoes/imagens`: grupo com certificados no painel da FECCI, retrato vertical da equipe, equipe com os três prêmios e integrantes junto ao pôster do trabalho de giz.
+- Conferido que `dados/galeria.js` categoriza os registros de acordo com o caminho e que a Galeria completa cria seus filtros a partir de `SiteGallery.categories`. O catálogo tem fotos de espaços escolares, ensino, biblioteca, Clube de Ciências, Robótica e RPG.
+- As quatro fotos foram adicionadas ao catálogo compartilhado `dados/galeria.js`, classificadas em “Clube de Ciências”: equipe com certificados, retrato da equipe, prêmios recebidos e estande/pôster do trabalho.
+- Os mesmos quatro registros receberam o agrupamento opcional `friends-fecci`; a página `projetos/clube-gabriele.html` passa a exibir uma seção própria “Conquista na FECCI 2026” na galeria do Friends of Science, sem misturar essas fotos às etapas do projeto do giz.
+- Restaurados os filtros de Clube de Ciências, Espaços escolares, Ensino, Biblioteca, Robótica e RPG, além de Todas as fotos. Os itens continuam em grupos separados no lightbox conforme a categoria.
+- Atualizados os sufixos de cache do catálogo na Galeria e nas páginas dos clubes, junto ao script compartilhado de galerias.
+- Atualizada a seção D deste guia para documentar as categorias e a associação opcional dos registros a galerias específicas de clubes.
+- Verificações: `node ferramentas/validar-site.js` aprovou 25 páginas, 61 fotos e os caminhos locais; `node --check dados/galeria.js` e `node --check projetos/clubes-galerias.js` passaram; `git diff --check` não encontrou erros de whitespace (apenas avisos LF/CRLF existentes).
+- Renderização local em Chrome headless confirmou os seis filtros públicos e as quatro fotos novas no HTML renderizado da Galeria. A página `projetos/clube-gabriele.html` renderizou a seção gerada “Conquista na FECCI 2026” com os quatro registros agrupados.
+- Nenhuma marca de celular ou tablet foi inferida nesta alteração; as fotos estão na Galeria com legendas descritivas, sem catálogo de produtos.
+
+## Ajuste — filtros visíveis da Galeria em telas pequenas
+
+Data: 12 de novembro de 2026
+
+- Após o relato de que somente Clube de Ciências aparecia, revisada a responsividade da navegação de categorias. A causa provável era a regra móvel que mantinha os filtros em uma única linha rolável, escondendo as demais opções fora da área visível.
+- Em telas de até 620 px, os filtros agora quebram em várias linhas e ficam centralizados, em vez de depender de rolagem horizontal. Atualizado o sufixo de cache do CSS para `20261112-category-wrap`.
+- `node ferramentas/validar-site.js` aprovou novamente 25 páginas e 61 fotos; `git diff --check` passou, com os avisos LF/CRLF já existentes.
+- Revisão do HTML renderizado confirmou que as sete opções são geradas. A correção remove a rolagem horizontal móvel que deixava opções fora da tela; o novo parâmetro de versão do CSS força o navegador a buscar essa regra atualizada.
+- Conferida a captura `C:\Users\rafae\Downloads\galeria.png` enviada após o ajuste: ela exibe 57 fotografias e apenas “Todas as fotos”/“Clube de Ciências”, números e filtros da cópia anterior. A renderização local atual tem 61 fotografias e os sete filtros. A captura, portanto, não corresponde ao HTML atual do diretório; não houve publicação/atualização do site remoto.
+
+## RPG e expansão de categorias da Galeria
+
+Data: 12 de novembro de 2026
+
+- Conferidas visualmente as imagens do diretório `projetos/imgs-projetos/imgs-rpg/` e comparadas com a página de RPG e o catálogo. Há três registros visuais distintos: atividade em grupo, dado sobre a ficha e materiais organizados na mesa. O catálogo tinha somente dois itens; um deles associava a prévia do dado à foto de atividade em grupo.
+- Corrigida a associação da foto do dado para a versão ampliada correspondente. A foto do grupo entrou como terceiro item da categoria RPG. Na página `projetos/rpg.html`, removida a variante de 1600 px da imagem de grupo do `srcset` da foto do dado, que fazia o navegador selecionar uma imagem divergente do texto alternativo.
+- Adicionada a categoria “Apoio e inclusão” com cinco fotos de atividades do AEE já publicadas em `apoio/apoio.html`; o material da pasta `eventos/` contém cartaz e logotipos, não outro conjunto de fotografias para uma categoria de galeria.
+- Atualizado o cache do cadastro da Galeria e o guia de manutenção.
+- Resultado: a Galeria passa a ter 67 fotos em oito filtros públicos, contando “Todas as fotos”. RPG agora reúne três registros; Apoio e inclusão, cinco.
+- `node ferramentas/validar-site.js` aprovou 25 páginas, 67 fotos e os caminhos locais; `node --check dados/galeria.js` passou; `git diff --check` não encontrou erros de whitespace (permanecem avisos LF/CRLF).

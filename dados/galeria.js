@@ -9,12 +9,20 @@
 const galleryCategories = [
   { id: "all", label: "Todas as fotos" },
   { id: "science-space", label: "Clube de Ciências" },
+  { id: "school", label: "Espaços escolares" },
+  { id: "teaching", label: "Ensino" },
+  { id: "library", label: "Biblioteca" },
+  { id: "support", label: "Apoio e inclusão" },
+  { id: "robotics", label: "Robótica" },
+  { id: "rpg", label: "RPG" },
 ];
 const galleryCategoryFor = (path) => {
   const file = path.split("/").pop().toLowerCase();
+  if (path.includes("premiacoes/imagens/")) return "science-space";
   if (path.includes("imgs-clubedeciencias/")) return "science-space";
   if (path.includes("imgs-robotica/")) return "robotics";
   if (path.includes("imgs-rpg/")) return "rpg";
+  if (path.includes("apoio/imgs-apoio/")) return "support";
   if (path.includes("biblioteca/")) return "library";
   if (path.includes("imgs-ensinomedio/") || /img-ensinoregular|img-ensinomedio/.test(file)) return "teaching";
   return "school";
@@ -250,11 +258,20 @@ window.SiteGallery = Object.freeze({
     },
     {
       preview: "projetos/imgs-projetos/imgs-rpg/img-rpg600x400.webp",
-      image: "projetos/imgs-projetos/imgs-rpg/img-rpg-hero1600x1064.webp",
+      image: "projetos/imgs-projetos/imgs-rpg/img-rpg-hero1920x1276.webp",
       alt: "Dados e materiais de uma partida de RPG",
       caption: "Atividade de RPG",
       width: 600,
       height: 400,
+      imageWidth: 1920,
+    },
+    {
+      preview: "projetos/imgs-projetos/imgs-rpg/img-rpg-hero1600x1064.webp",
+      image: "projetos/imgs-projetos/imgs-rpg/img-rpg-hero1600x1064.webp",
+      alt: "Estudantes participam de uma atividade de RPG reunidos ao redor de uma mesa.",
+      caption: "Estudantes em uma atividade de RPG",
+      width: 1600,
+      height: 1064,
     },
     {
       preview:
@@ -600,6 +617,89 @@ window.SiteGallery = Object.freeze({
       height: 600,
       imageWidth: 736,
       variant: "portrait",
+    },
+    {
+      preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.50.47.jpeg",
+      image: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.50.47.jpeg",
+      alt: "Integrantes do Friends of Science exibem certificados no painel da FECCI 2026.",
+      caption: "Friends of Science com os certificados da FECCI 2026",
+      width: 1280,
+      height: 720,
+      project: "friends-fecci",
+    },
+    {
+      preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.51.13.jpeg",
+      image: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.51.13.jpeg",
+      alt: "Retrato dos integrantes do Friends of Science com seus certificados durante a FECCI 2026.",
+      caption: "Equipe do Friends of Science na FECCI 2026",
+      width: 720,
+      height: 1280,
+      variant: "portrait",
+      project: "friends-fecci",
+    },
+    {
+      preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.54.15.jpeg",
+      image: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.54.15.jpeg",
+      alt: "Integrantes do Friends of Science mostram o celular, o MacBook e os tablets recebidos na premiação.",
+      caption: "Prêmios recebidos pelo Friends of Science",
+      width: 1280,
+      height: 720,
+      project: "friends-fecci",
+    },
+    {
+      preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.54.47.jpeg",
+      image: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.54.47.jpeg",
+      alt: "Integrantes do Friends of Science junto ao pôster do trabalho Giz sustentável, na FECCI 2026.",
+      caption: "Estande do trabalho Giz sustentável",
+      width: 720,
+      height: 1280,
+      variant: "portrait",
+      project: "friends-fecci",
+    },
+    {
+      preview: "apoio/imgs-apoio/apoio-atividade-cartoes600x400.jpg",
+      image: "apoio/imgs-apoio/apoio-atividade-cartoes1600x1067.jpg",
+      alt: "Professor conversa com estudante durante uma atividade com cartões.",
+      caption: "Atividade com cartões",
+      width: 600,
+      height: 400,
+      imageWidth: 1600,
+    },
+    {
+      preview: "apoio/imgs-apoio/apoio-letras600x400.jpg",
+      image: "apoio/imgs-apoio/apoio-letras1600x1067.jpg",
+      alt: "Estudante utiliza cartões com letras durante uma atividade.",
+      caption: "Estudo com cartões de letras",
+      width: 600,
+      height: 400,
+      imageWidth: 1600,
+    },
+    {
+      preview: "apoio/imgs-apoio/apoio-aprendizagem600x400.jpg",
+      image: "apoio/imgs-apoio/apoio-aprendizagem1600x1067.jpg",
+      alt: "Professor e estudante conversam durante uma atividade de aprendizagem.",
+      caption: "Acompanhamento de aprendizagem",
+      width: 600,
+      height: 400,
+      imageWidth: 1600,
+    },
+    {
+      preview: "apoio/imgs-apoio/apoio-matematica-quadro600x400.jpg",
+      image: "apoio/imgs-apoio/apoio-matematica-quadro1600x1067.jpg",
+      alt: "Professor explica uma atividade de matemática diante do quadro.",
+      caption: "Atividade de matemática",
+      width: 600,
+      height: 400,
+      imageWidth: 1600,
+    },
+    {
+      preview: "apoio/imgs-apoio/apoio-material-matematica600x400.jpg",
+      image: "apoio/imgs-apoio/apoio-material-matematica1600x1067.jpg",
+      alt: "Materiais coloridos de contagem organizados sobre uma mesa.",
+      caption: "Materiais concretos de matemática",
+      width: 600,
+      height: 400,
+      imageWidth: 1600,
     },
   ].map((item) => ({ ...item, category: galleryCategoryFor(item.preview) })),
 });

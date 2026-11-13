@@ -91,11 +91,10 @@
 
 @media (max-width: 620px) {
   .gallery-category-nav {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: 2px 3px 12px;
-    scrollbar-width: thin;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: visible;
+    padding: 2px 0 12px;
   }
   .gallery-category-button {
     flex: 0 0 auto;

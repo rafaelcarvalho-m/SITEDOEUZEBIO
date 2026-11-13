@@ -146,6 +146,20 @@ completa. O mesmo cadastro alimenta a Home e a página Galeria; os primeiros
 itens também determinam a prévia da Home. Não altere `galeria/galeria.js` para
 inserir uma foto: ele monta os cards a partir do cadastro.
 
+O campo `category` é derivado do caminho da imagem em `dados/galeria.js`. A
+lista `galleryCategories` controla os botões de filtro da página completa; cada
+categoria deve corresponder ao identificador produzido por `galleryCategoryFor`.
+As categorias atuais são Clube de Ciências, Espaços escolares, Ensino,
+Biblioteca, Apoio e inclusão, Robótica e RPG, além de Todas as fotos. Para
+registros de premiações do Friends of Science que também devam aparecer na
+Galeria, mantenha-os na pasta `premiacoes/imagens/`; o cadastro os agrupa em
+Clube de Ciências.
+
+O campo opcional `project` também pode associar um registro a um agrupamento
+específico na página de um clube. A FECCI usa `friends-fecci` para manter as
+fotos da conquista reunidas em uma seção própria do Friends of Science, sem
+misturá-las às etapas do projeto do giz.
+
 Imagens de páginas específicas que não fazem parte da Galeria compartilhada
 continuam referenciadas diretamente no HTML daquela página. Nesses casos,
 troque o `src` no HTML e mantenha o texto alternativo `alt` atualizado.
