@@ -26,14 +26,14 @@
     "friends-3d": {
       title: "Impressão 3D",
       label: "Registro de atividade com impressão 3D",
+      description:
+        "A atividade apresenta a fabricação digital: a impressora transforma um modelo tridimensional em um objeto ao depositar material em camadas.",
     },
     "friends-rocket": {
       title: "Foguetes de garrafa",
       label: "Planejamento, protótipos e testes de foguetes de garrafa",
-    },
-    "friends-fecci": {
-      title: "Conquista na FECCI 2026",
-      label: "Registros do 1º lugar em Cultura Oceânica",
+      description:
+        "O projeto explora princípios de propulsão, estabilidade e trajetória por meio do planejamento, da montagem e da observação de foguetes feitos com garrafas.",
     },
     "little-rockets": {
       title: "Minifoguetes e reflorestamento",
@@ -128,7 +128,10 @@
         const card = document.createElement("article");
         card.className = "marlene-gallery-card reveal";
         card.dataset.projectGallery = key;
-        card.innerHTML = `<div class="marlene-gallery-card-copy"><h3>${info.title}</h3><p>${info.label}.</p></div>`;
+        const projectDetails = info.description
+          ? `<details><summary class="button">Saiba mais</summary><div class="marlene-gallery-card-panel"><p>${info.description}</p></div></details>`
+          : `<p>${info.label}.</p>`;
+        card.innerHTML = `<div class="marlene-gallery-card-copy"><h3>${info.title}</h3>${projectDetails}</div>`;
         grid?.append(card);
         populateCard(card);
       });

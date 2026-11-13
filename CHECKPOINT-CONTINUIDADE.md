@@ -2499,3 +2499,46 @@ Data: 12 de novembro de 2026
 - Atualizado o cache do cadastro da Galeria e o guia de manutenção.
 - Resultado: a Galeria passa a ter 67 fotos em oito filtros públicos, contando “Todas as fotos”. RPG agora reúne três registros; Apoio e inclusão, cinco.
 - `node ferramentas/validar-site.js` aprovou 25 páginas, 67 fotos e os caminhos locais; `node --check dados/galeria.js` passou; `git diff --check` não encontrou erros de whitespace (permanecem avisos LF/CRLF).
+
+## Correção — imagens dos projetos e separação de premiação
+
+Data: 13 de novembro de 2026
+
+- Lido este checkpoint antes da revisão. O worktree estava limpo antes das alterações desta tarefa.
+- Confirmadas visualmente, nos arquivos locais da pasta do Friends of Science, a impressora 3D em operação e três fotos de foguetes de garrafa: planejamento na lousa, protótipo e teste no pátio. Os arquivos já existiam e não foram copiados nem substituídos.
+- Causa dos cards vazios: os registros estavam em `dados/galeria.js`, mas não tinham os campos `project` que os associam a `friends-3d` e `friends-rocket`.
+- Identificada visualmente a foto dos quatro estudantes com certificados diante do painel FECCI 2026: `premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.50.47.jpeg`. A associação `friends-fecci` foi removida somente desse registro; o arquivo original foi preservado e continua cadastrado na Galeria compartilhada.
+- A inspeção também encontrou registros de reconhecimento da FECCI associados à seção de projeto: retrato da equipe com certificados (`17.51.13`), estudantes com os prêmios recebidos (`17.54.15`) e foto no estande/pôster (`17.54.47`). As associações foram removidas em revisão posterior descrita abaixo, após o usuário pedir a retirada integral do card da premiação.
+- `dados/galeria.js` agora associa a impressora a `friends-3d` e os três registros de foguete a `friends-rocket`; a versão do cadastro foi atualizada em `projetos/clube-gabriele.html`.
+- A foto específica dos quatro estudantes diante do painel deixou de integrar a galeria de projetos do Friends of Science. O arquivo original continua no mesmo diretório e o registro permanece no cadastro geral da Galeria.
+- Verificações concluídas: `node ferramentas/validar-site.js` aprovou 25 páginas e 67 fotos, com caminhos locais válidos; `node --check dados/galeria.js`, `node --check projetos/clubes-galerias.js` e `git diff --check` passaram (o Git apenas reporta os avisos conhecidos de conversão LF/CRLF).
+- A estrutura responsiva existente foi revisada: três colunas em desktop, duas até 800 px e uma em celular; as imagens mantêm proporção sem distorção pelo `object-fit`. Não havia navegador instalado/disponível nesta sessão para capturas renderizadas em desktop e celular.
+- Arquivos modificados: `dados/galeria.js`, `projetos/clube-gabriele.html` e este checkpoint. Nenhum arquivo de imagem foi excluído, movido ou editado.
+
+### Descrições e imagens dos cards de Impressão 3D e Foguetes de garrafa
+
+- A pedido do usuário, os cards gerados para Impressão 3D e Foguetes de garrafa agora incluem botão “Saiba mais” com uma descrição do tema de cada atividade.
+- Removidos do cadastro os campos `project: "friends-rocket"` das três fotos de foguetes. Elas deixam de aparecer no card Foguetes de garrafa; os registros da Galeria e os arquivos originais permanecem preservados.
+- Mantida a associação da foto da impressora 3D ao card Impressão 3D.
+- Atualizadas as versões de cache de `dados/galeria.js` e `projetos/clubes-galerias.js` em `projetos/clube-gabriele.html`.
+- Verificação: validador do site aprovou 25 páginas e 67 fotos; `node --check` dos dois scripts e `git diff --check` passaram. O Git reportou somente os avisos habituais de conversão LF/CRLF.
+- Arquivos alterados nesta etapa: `projetos/clubes-galerias.js`, `dados/galeria.js`, `projetos/clube-gabriele.html` e este checkpoint.
+
+### Revisão final — card de foguetes com uma foto e remoção integral do card de premiação
+
+- A pedido do usuário, somente a foto do protótipo (`friends-foguete-prototipo-1600.jpg` e sua prévia) ficou associada ao card Foguetes de garrafa. A foto fica no topo; abaixo vêm o título e o botão expansível “Saiba mais”, que contém a descrição. As fotos de planejamento e teste deixaram de integrar esse card, sem exclusão dos arquivos.
+- Removida a definição `friends-fecci` de `projetos/clubes-galerias.js`, para que o card “Conquista na FECCI 2026” não seja gerado.
+- Removidas as associações à página do Friends of Science das quatro fotos da FECCI: certificados no painel (`17.50.47`), retrato com certificados (`17.51.13`), estudantes com prêmios recebidos (`17.54.15`) e equipe junto ao pôster (`17.54.47`). Os arquivos e registros gerais da Galeria permanecem preservados, sem mover ou renomear.
+- As demais fotografias de projetos e atividades do Clube de Ciências permanecem associadas aos respectivos cards.
+- Alterações desta revisão: `dados/galeria.js`, `projetos/clubes-galerias.js`, `projetos/clube-gabriele.html` e este checkpoint. Nenhum arquivo de imagem foi excluído, movido ou editado.
+- Verificação concluída: o card Foguetes de garrafa tem exatamente um registro associado; não restam as chaves `friends-fecci` ou `friends-presentation-giz`; os quatro arquivos originais da FECCI continuam presentes. O validador aprovou 25 páginas e 67 fotos; `node --check` dos cadastros passou; `git diff --check` passou, com apenas os avisos conhecidos LF/CRLF.
+- A revisão da ordem do card foi feita na rotina de montagem: imagem inserida antes do bloco de texto, seguida por título, descrição visível e o `<details>` “Saiba mais”. A navegação visual em navegador não foi executada nesta sessão.
+- Ajuste posterior solicitado: aplicada `height: auto` às fotos dos cards com a proporção comum `600 / 399`, para impedir que os atributos intrínsecos das fotos retrato ampliem as imagens dos cards de Impressão 3D e Foguetes de garrafa. Removidas somente as frases curtas visíveis sob os títulos desses dois cards; a descrição interna e o botão “Saiba mais” foram mantidos. Cache de `paginas.css` atualizado em `projetos/clube-gabriele.html`.
+
+### Cor dos títulos e do botão dos footers azuis
+
+- Nos footers das páginas com a classe `detail-blue` (Friends of Science e Little Scientists), os títulos dos blocos usam azul claro. O botão de retorno ao topo fica transparente no estado normal e recebe fundo azul no hover; o estado ativo mantém o tratamento azul.
+- Atualizada a versão de cache de `paginas.css` em `projetos/clube-gabriele.html` e `projetos/clube-marlene.html`. O seletor fica limitado às páginas de tema azul.
+- Arquivos alterados: `paginas.css`, `projetos/clube-gabriele.html`, `projetos/clube-marlene.html` e este checkpoint. A revisão de `git diff --check` não apontou erros de whitespace (permanecem apenas os avisos conhecidos de LF/CRLF).
+- A pedido do usuário, adicionada uma linha horizontal (`.section-divider`) entre a apresentação do Friends of Science e a seção “Projetos e registros”, no arquivo `projetos/clube-gabriele.html`.
+- A pedido do usuário, deslocado todo o conteúdo do banner do Friends of Science levemente à direita por uma regra limitada a `.gabriele-page`; atualizado o cache de `paginas.css` nessa página. Little Scientists e outros banners não foram afetados.

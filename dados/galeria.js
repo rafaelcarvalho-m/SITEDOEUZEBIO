@@ -454,6 +454,7 @@ window.SiteGallery = Object.freeze({
       height: 600,
       imageWidth: 900,
       variant: "portrait",
+      project: "friends-3d",
     },
     {
       preview:
@@ -605,6 +606,7 @@ window.SiteGallery = Object.freeze({
       height: 600,
       imageWidth: 736,
       variant: "portrait",
+      project: "friends-rocket",
     },
     {
       preview:
@@ -625,7 +627,6 @@ window.SiteGallery = Object.freeze({
       caption: "Friends of Science com os certificados da FECCI 2026",
       width: 1280,
       height: 720,
-      project: "friends-fecci",
     },
     {
       preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.51.13.jpeg",
@@ -635,7 +636,6 @@ window.SiteGallery = Object.freeze({
       width: 720,
       height: 1280,
       variant: "portrait",
-      project: "friends-fecci",
     },
     {
       preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.54.15.jpeg",
@@ -644,7 +644,6 @@ window.SiteGallery = Object.freeze({
       caption: "Prêmios recebidos pelo Friends of Science",
       width: 1280,
       height: 720,
-      project: "friends-fecci",
     },
     {
       preview: "premiacoes/imagens/WhatsApp Image 2026-11-12 at 17.54.47.jpeg",
@@ -654,7 +653,6 @@ window.SiteGallery = Object.freeze({
       width: 720,
       height: 1280,
       variant: "portrait",
-      project: "friends-fecci",
     },
     {
       preview: "apoio/imgs-apoio/apoio-atividade-cartoes600x400.jpg",
