@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Premiações, reconhecimentos e conquistas da comunidade do Colégio Estadual Euzébio da Mota."
+      content="Premiações, projetos, participações científicas e publicações dos clubes de ciências da escola."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#1f2923" />
     <link
       rel="canonical"
-      href="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/premiacoes.html"
+      href="https://sitedoeuzebio.vercel.app/premiacoes.html"
     />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Colégio Estadual Euzébio da Mota" />
     <meta
       property="og:title"
-      content="Premiações da escola | Colégio Estadual Euzébio da Mota"
+      content="Premiações e trajetória científica | Clubes de Ciências"
     />
     <meta
       property="og:description"
-      content="Conheça as conquistas, premiações e projetos reconhecidos da comunidade escolar."
+      content="Conheça as premiações, projetos, participações científicas e publicações dos clubes de ciências da escola."
     />
     <meta
       property="og:url"
-      content="https://rafaelcarvalho-m.github.io/SITEDOEUZEBIO/premiacoes.html"
+      content="https://sitedoeuzebio.vercel.app/premiacoes.html"
     />
-    <title>Premiações da escola | Colégio Estadual Euzébio da Mota</title>
+    <title>Premiações e trajetória científica | Clubes de Ciências</title>
     <link
       rel="shortcut icon"
       href="imgs-home-index/icon-512-maskable.png"
@@ -44,8 +44,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="paginas.css?v=20261111-awards-header-label" />
-    <link rel="stylesheet" href="premiacoes.css?v=20261112-awards-landing" />
+    <link rel="stylesheet" href="paginas.css?v=20261113-scale-consistency" />
+    <link rel="stylesheet" href="premiacoes.css?v=20261115-awards-review" />
   </head>
   <body class="detail-page title-only-detail-page awards-page" id="inicio">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -79,7 +79,7 @@
         </a>
       </nav>
       <div class="detail-hero-content detail-hero-content-centered reveal">
-        <h1>Premiações da escola</h1>
+        <h1>Premiações e conquistas</h1>
       </div>
     </header>
 
@@ -90,80 +90,34 @@
         aria-labelledby="awards-title"
       >
         <div class="awards-intro reveal">
-          <p class="eyebrow">Nossa comunidade</p>
-          <h2 id="awards-title">
-            Cada conquista reconhece um trabalho <em>coletivo.</em>
-          </h2>
-          <p>
-            Este espaço apresenta premiações e reconhecimentos conquistados
-            por estudantes, professores e projetos do Colégio Estadual Euzébio
-            da Mota. Cada registro conta o contexto da participação, o trabalho
-            reconhecido e os destaques da conquista.
-          </p>
-          <p>
-            Em destaque está o Friends of Science, que conquistou o 1º lugar na
-            categoria Cultura Oceânica da FECCI 2026 com um projeto de
-            reaproveitamento de giz de lousa.
-          </p>
+          <p class="eyebrow">Clubes de Ciências</p>
+          <h2 id="awards-title">Pesquisa, participação e <em>reconhecimento.</em></h2>
+          <p>Registros de premiações, trabalhos apresentados e publicações dos clubes, organizados por evento e acompanhados das fotografias correspondentes.</p>
+          <p>A página reúne a conquista do Friends of Science na FECCI 2026 e as participações científicas do Little Scientists no VII SLEC e no XI EREBIO SUL 2025, além de duas premiações na III Feira Proficiências e III Mostra de Robótica.</p>
+        </div>
+
+        <div class="awards-controls" role="search" aria-label="Pesquisar e filtrar registros">
+          <label class="awards-search-label" for="awards-search">Pesquisar nos registros</label>
+          <input
+            class="awards-search-input"
+            id="awards-search"
+            type="search"
+            placeholder="Pesquise por evento, trabalho, autor ou premiação"
+            autocomplete="off"
+            data-awards-search
+          />
+          <nav class="awards-category-nav" data-awards-filters aria-label="Filtrar registros por categoria"></nav>
+          <p class="awards-results-count" data-awards-count aria-live="polite"></p>
+          <p class="awards-empty-state" data-awards-empty hidden>Nenhum registro corresponde à pesquisa e à categoria selecionadas.</p>
         </div>
 
         <div
           class="awards-register"
           data-awards-grid
-          aria-label="Registro de conquistas"
+          aria-label="Eventos, trabalhos e conquistas dos clubes de ciências"
         ></div>
       </section>
     </main>
-
-    <template id="award-card-template">
-      <article class="award-card">
-        <header class="award-card-heading">
-          <div class="award-card-meta">
-            <span data-award-year></span><span data-award-category></span>
-          </div>
-          <p class="award-placement"><i class="fa-solid fa-trophy" aria-hidden="true"></i><span data-award-placement></span></p>
-          <p class="award-group" data-award-group></p>
-          <h2 data-award-title></h2>
-          <p class="award-institution" data-award-institution></p>
-        </header>
-
-        <section class="award-part award-project" aria-label="Sobre o trabalho premiado">
-          <div class="award-project-copy">
-            <p class="eyebrow">Sobre o trabalho premiado</p>
-            <h3 id="award-project-title" data-award-project-title></h3>
-            <p data-award-description></p>
-            <a class="award-project-link" data-award-project-link>
-              Conheça o Friends of Science
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
-          <figure class="award-figure award-project-figure">
-            <a data-award-project-image-link data-lightbox data-lightbox-caption=""></a>
-            <figcaption data-award-project-caption></figcaption>
-          </figure>
-        </section>
-
-        <section class="award-part award-prizes" aria-label="Prêmios recebidos">
-          <div class="award-prizes-copy">
-            <p class="eyebrow">Reconhecimento</p>
-            <h3 id="award-prizes-title">Prêmios recebidos</h3>
-            <ul class="award-prize-list" data-award-prizes></ul>
-          </div>
-          <figure class="award-figure award-prizes-figure">
-            <a data-award-prize-image-link data-lightbox data-lightbox-caption=""></a>
-            <figcaption data-award-prize-caption></figcaption>
-          </figure>
-        </section>
-
-        <section class="award-part award-records" aria-label="Registros da conquista">
-          <div class="award-records-heading">
-            <p class="eyebrow">Registros da conquista</p>
-            <h3 id="award-records-title">A equipe na FECCI 2026</h3>
-          </div>
-          <div class="award-photo-gallery" data-award-photos></div>
-        </section>
-      </article>
-    </template>
 
     <footer>
       <div class="footer-main">
@@ -224,8 +178,8 @@
       </div>
     </footer>
 
-    <script src="dados/premiacoes.js"></script>
-    <script src="premiacoes.js?v=20261112-awards-landing"></script>
-    <script src="comum.js?v=20261030-offline"></script>
+    <script src="dados/premiacoes.js?v=20261115-awards-little-scientists-filter"></script>
+    <script src="premiacoes.js?v=20261115-awards-little-scientists-filter"></script>
+    <script src="comum.js?v=20261115-awards-native-resolution-fit"></script>
   </body>
 </html>

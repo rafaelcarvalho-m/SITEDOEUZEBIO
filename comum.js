@@ -304,18 +304,50 @@ document.querySelectorAll(".button").forEach((button) => {
   const zoomInButton = dialog.querySelector(".site-lightbox-zoom-in");
   const zoomResetButton = dialog.querySelector(".site-lightbox-zoom-reset");
   const zoomSelect = dialog.querySelector(".site-lightbox-zoom-select");
+  const useNativeResolutionFit = document.body.classList.contains("awards-page");
+  if (useNativeResolutionFit) {
+    zoomSelect.options[0].textContent = "Ajustar";
+    zoomSelect.title = "Os níveis de ampliação respeitam a resolução do arquivo original.";
+  }
   let currentIndex = 0;
   let currentZoom = 1;
+  let imageBaseScale = 1;
+  let maximumZoom = 3;
   let returnFocus = null;
 
   const updateZoom = () => {
+    if (useNativeResolutionFit) {
+      const zoomOptions = [...zoomSelect.options];
+      const allowedZooms = zoomOptions
+        .map((option) => Number(option.value))
+        .filter((zoom) => zoom <= maximumZoom);
+      maximumZoom = allowedZooms.at(-1) || 1;
+      zoomOptions.forEach((option) => {
+        option.disabled = Number(option.value) > maximumZoom;
+      });
+      currentZoom = Math.min(currentZoom, maximumZoom);
+    }
     const isZoomed = currentZoom > 1;
-    lightboxImage.style.width = `${currentZoom * 100}%`;
-    lightboxImage.style.maxHeight = isZoomed ? "none" : "";
+    if (useNativeResolutionFit) {
+      if (lightboxImage.naturalWidth && lightboxImage.naturalHeight) {
+        lightboxImage.style.width = `${lightboxImage.naturalWidth * imageBaseScale * currentZoom}px`;
+        lightboxImage.style.height = `${lightboxImage.naturalHeight * imageBaseScale * currentZoom}px`;
+        lightboxImage.style.maxWidth = "none";
+        lightboxImage.style.maxHeight = "none";
+      }
+    } else {
+      lightboxImage.style.width = `${currentZoom * 100}%`;
+      lightboxImage.style.maxHeight = isZoomed ? "none" : "";
+    }
     lightboxImage.classList.toggle("is-zoomed", isZoomed);
     zoomSelect.value = String(currentZoom);
     zoomOutButton.disabled = currentZoom <= 1;
-    zoomInButton.disabled = currentZoom >= 3;
+    zoomInButton.disabled = currentZoom >= maximumZoom;
+    if (useNativeResolutionFit && zoomInButton.disabled) {
+      zoomInButton.title = "Limite de ampliação da resolução original";
+    } else {
+      zoomInButton.title = "Aumentar zoom";
+    }
     zoomResetButton.disabled = currentZoom === 1;
 
     if (isZoomed) {
@@ -343,10 +375,26 @@ document.querySelectorAll(".button").forEach((button) => {
   const showItem = (index) => {
     currentIndex = (index + activeGalleryLinks.length) % activeGalleryLinks.length;
     currentZoom = 1;
+    imageBaseScale = 1;
+    maximumZoom = 3;
     updateZoom();
     const link = activeGalleryLinks[currentIndex];
     const sourceImage = link.querySelector("img");
 
+    lightboxImage.onload = useNativeResolutionFit ? () => {
+      const availableWidth = lightboxViewport.clientWidth || dialog.clientWidth;
+      const computedMaxHeight = Number.parseFloat(
+        window.getComputedStyle(lightboxViewport).maxHeight,
+      );
+      const availableHeight = computedMaxHeight || Math.max(240, window.innerHeight - 210);
+      imageBaseScale = Math.max(0.01, Math.min(
+        1,
+        availableWidth / lightboxImage.naturalWidth,
+        availableHeight / lightboxImage.naturalHeight,
+      ));
+      maximumZoom = Math.min(3, 1 / imageBaseScale);
+      updateZoom();
+    } : null;
     lightboxImage.src = link.getAttribute("href");
     lightboxImage.alt = sourceImage?.alt || "Fotografia ampliada";
     lightboxCaption.textContent =
@@ -384,11 +432,25 @@ document.querySelectorAll(".button").forEach((button) => {
   previousButton.addEventListener("click", () => showItem(currentIndex - 1));
   nextButton.addEventListener("click", () => showItem(currentIndex + 1));
   zoomOutButton.addEventListener("click", () => {
-    currentZoom = Math.max(1, currentZoom - 0.25);
+    if (useNativeResolutionFit) {
+      const allowedZooms = [...zoomSelect.options]
+        .filter((option) => !option.disabled)
+        .map((option) => Number(option.value));
+      currentZoom = allowedZooms.filter((zoom) => zoom < currentZoom).at(-1) || 1;
+    } else {
+      currentZoom = Math.max(1, currentZoom - 0.25);
+    }
     updateZoom();
   });
   zoomInButton.addEventListener("click", () => {
-    currentZoom = Math.min(3, currentZoom + 0.25);
+    if (useNativeResolutionFit) {
+      const allowedZooms = [...zoomSelect.options]
+        .filter((option) => !option.disabled)
+        .map((option) => Number(option.value));
+      currentZoom = allowedZooms.find((zoom) => zoom > currentZoom) || currentZoom;
+    } else {
+      currentZoom = Math.min(3, currentZoom + 0.25);
+    }
     updateZoom();
   });
   zoomSelect.addEventListener("change", () => {

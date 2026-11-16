@@ -1,96 +1,233 @@
 (() => {
-  const items = window.SchoolAwards?.items || [];
+  const events = [...(window.SchoolAwards?.items || [])];
   const grid = document.querySelector("[data-awards-grid]");
-  const template = document.querySelector("#award-card-template");
-  if (!grid || !template) return;
+  if (!grid) return;
 
-  const setFigureLink = (link, image, alt, caption) => {
-    if (!image) return;
-    link.href = image;
-    link.dataset.lightboxCaption = caption || alt;
-    const thumbnail = document.createElement("img");
-    thumbnail.src = image;
-    thumbnail.alt = alt || "";
-    thumbnail.loading = "lazy";
-    thumbnail.decoding = "async";
-    link.append(thumbnail);
+  const monthNumbers = {
+    janeiro: 0, fevereiro: 1, março: 2, marco: 2, abril: 3, maio: 4,
+    junho: 5, julho: 6, agosto: 7, setembro: 8, outubro: 9, novembro: 10,
+    dezembro: 11,
+  };
+  const eventDateOrder = (event) => {
+    const match = event.date?.toLocaleLowerCase("pt-BR").match(/\b\d{1,2}\s+(?:a\s+\d{1,2}\s+)?de\s+([a-zçã]+)/);
+    const month = match && monthNumbers[match[1]];
+    const day = event.date?.match(/\b(\d{1,2})\b/);
+    return month === undefined || !day ? null : new Date(event.year, month, Number(day[1])).getTime();
+  };
+  events.sort((first, second) => {
+    const yearDifference = Number(second.year) - Number(first.year);
+    if (yearDifference) return yearDifference;
+    const firstDate = eventDateOrder(first);
+    const secondDate = eventDateOrder(second);
+    if (firstDate === null || secondDate === null) {
+      if (firstDate === secondDate) return 0;
+      return firstDate === null ? 1 : -1;
+    }
+    return secondDate - firstDate;
+  });
+
+  const addText = (parent, tag, className, value) => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    element.textContent = value;
+    parent.append(element);
+    return element;
   };
 
-  const createCard = (item) => {
-    const fragment = template.content.cloneNode(true);
-    const card = fragment.querySelector(".award-card");
-    const title = fragment.querySelector("[data-award-title]");
-    const placement = fragment.querySelector("[data-award-placement]");
+  const yearGroups = new Map();
+  events.forEach((event, eventIndex) => {
+    const year = String(event.year || "Ano não informado");
+    let yearGroup = yearGroups.get(year);
+    if (!yearGroup) {
+      yearGroup = document.createElement("section");
+      yearGroup.className = "award-year-group";
+      yearGroup.dataset.year = year;
+      const yearHeading = document.createElement("div");
+      yearHeading.className = "award-year-heading";
+      addText(yearHeading, "h2", "", year);
+      const rule = document.createElement("span");
+      rule.setAttribute("aria-hidden", "true");
+      yearHeading.append(rule);
+      yearGroup.append(yearHeading);
+      const yearEvents = document.createElement("div");
+      yearEvents.className = "award-year-events";
+      yearGroup.append(yearEvents);
+      yearGroups.set(year, yearGroup);
+      grid.append(yearGroup);
+    }
+    const article = document.createElement("article");
+    article.className = "award-event reveal";
+    article.dataset.category = event.filterCategory || "scientific";
+    const heading = document.createElement("header");
+    heading.className = "award-card-heading";
+    const meta = document.createElement("div");
+    meta.className = "award-card-meta";
+    addText(meta, "span", "", String(event.year));
+    addText(meta, "span", "", event.category);
+    heading.append(meta);
+    addText(heading, "h2", "", event.event);
+    if (event.group) addText(heading, "p", "award-group", event.group);
+    const eventDetails = [event.date, event.location].filter(Boolean).join(" · ");
+    if (eventDetails) addText(heading, "p", "award-institution", eventDetails);
+    if (event.description) addText(heading, "p", "award-event-description", event.description);
+    article.append(heading);
 
-    fragment.querySelector("[data-award-year]").textContent =
-      item.year || "Ano não informado";
-    fragment.querySelector("[data-award-category]").textContent =
-      item.category || "Reconhecimento institucional";
-    placement.textContent = item.placement || "Conquista reconhecida";
-    fragment.querySelector("[data-award-group]").textContent =
-      item.group || "";
-    title.textContent = item.title || "Conquista escolar";
-    fragment.querySelector("[data-award-institution]").textContent =
-      item.institution || "Entidade responsável não informada";
-    fragment.querySelector("[data-award-project-title]").textContent =
-      item.projectTitle || "";
-    fragment.querySelector("[data-award-description]").textContent =
-      item.description || "";
-
-    const projectLink = fragment.querySelector("[data-award-project-link]");
-    if (item.projectLink) projectLink.href = item.projectLink;
-    else projectLink.hidden = true;
-
-    const projectImageLink = fragment.querySelector(
-      "[data-award-project-image-link]",
-    );
-    setFigureLink(
-      projectImageLink,
-      item.projectImage,
-      item.projectImageAlt,
-      item.projectImageCaption,
-    );
-    fragment.querySelector("[data-award-project-caption]").textContent =
-      item.projectImageCaption || "";
-
-    const prizeList = fragment.querySelector("[data-award-prizes]");
-    (item.prizes || []).forEach((prize) => {
-      const listItem = document.createElement("li");
-      const name = document.createElement("strong");
-      name.textContent = prize.name;
-      listItem.append(name);
-      if (prize.note) {
-        const note = document.createElement("span");
-        note.textContent = prize.note;
-        listItem.append(note);
+    const works = document.createElement("div");
+    works.className = "award-work-list";
+    event.works.forEach((work) => {
+      const card = document.createElement("article");
+      card.className = `award-work${work.award ? " award-work-recognized" : ""}`;
+      card.dataset.lightboxGroup = `event-${eventIndex}`;
+      const copy = document.createElement("div");
+      copy.className = "award-work-copy";
+      if (work.award) {
+        const badge = addText(copy, "p", "award-placement", work.award);
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-trophy";
+        icon.setAttribute("aria-hidden", "true");
+        badge.prepend(icon);
       }
-      prizeList.append(listItem);
+      addText(copy, "h3", "", work.title);
+      if (work.description) addText(copy, "p", "award-work-description", work.description);
+      if (work.projectLink) {
+        const projectLink = document.createElement("a");
+        projectLink.className = "award-project-link";
+        projectLink.href = work.projectLink;
+        projectLink.append(document.createTextNode("Conheça o Friends of Science "));
+        const arrow = document.createElement("i");
+        arrow.className = "fa-solid fa-arrow-right";
+        arrow.setAttribute("aria-hidden", "true");
+        projectLink.append(arrow);
+        copy.append(projectLink);
+      }
+      if (work.authors?.length) {
+        addText(copy, "p", "award-authors-label", "Autores e participantes");
+        const authors = document.createElement("ul");
+        authors.className = "award-authors";
+        work.authors.forEach((author) => addText(authors, "li", "", author));
+        copy.append(authors);
+      }
+      if (work.prizes?.length) {
+        addText(copy, "p", "award-authors-label", "Prêmios recebidos");
+        const prizes = document.createElement("ul");
+        prizes.className = "award-prize-list";
+        work.prizes.forEach((prize) => {
+          const item = document.createElement("li");
+          addText(item, "strong", "", prize);
+          prizes.append(item);
+        });
+        copy.append(prizes);
+      }
+      card.append(copy);
+
+      const addPhoto = (photo, caption) => {
+        const figure = document.createElement("figure");
+        figure.className = "award-figure award-work-figure";
+        const link = document.createElement("a");
+        link.href = photo.image;
+        link.dataset.lightbox = "";
+        link.dataset.lightboxGroup = `event-${eventIndex}`;
+        link.dataset.lightboxCaption = photo.caption || caption || photo.alt;
+        const image = document.createElement("img");
+        image.src = photo.image;
+        image.alt = photo.alt;
+        if (Number.isFinite(photo.width) && photo.width > 0) image.width = photo.width;
+        if (Number.isFinite(photo.height) && photo.height > 0) image.height = photo.height;
+        image.loading = "lazy";
+        image.decoding = "async";
+        link.append(image);
+        figure.append(link);
+        addText(figure, "figcaption", "", photo.caption || caption || "");
+        return figure;
+      };
+      card.append(addPhoto({
+        image: work.image,
+        alt: work.imageAlt,
+        width: work.imageWidth,
+        height: work.imageHeight,
+        caption: work.caption || work.title,
+      }));
+      if (work.prizeImage) {
+        const prizePhotoSection = document.createElement("section");
+        prizePhotoSection.className = "award-extra-photo";
+        addText(prizePhotoSection, "h4", "", "Registro dos prêmios");
+        prizePhotoSection.append(addPhoto({
+          image: work.prizeImage,
+          alt: work.prizeImageAlt,
+          width: work.prizeImageWidth,
+          height: work.prizeImageHeight,
+          caption: work.prizeCaption,
+        }));
+        card.append(prizePhotoSection);
+      }
+      if (work.photos?.length) {
+        const photos = document.createElement("div");
+        photos.className = "award-extra-photos";
+        work.photos.forEach((photo) => photos.append(addPhoto(photo)));
+        card.append(photos);
+      }
+      works.append(card);
     });
+    article.append(works);
+    yearGroup.querySelector(".award-year-events").append(article);
+  });
 
-    setFigureLink(
-      fragment.querySelector("[data-award-prize-image-link]"),
-      item.prizeImage,
-      item.prizeImageAlt,
-      item.prizeImageCaption,
-    );
-    fragment.querySelector("[data-award-prize-caption]").textContent =
-      item.prizeImageCaption || "";
+  const filters = document.querySelector("[data-awards-filters]");
+  const search = document.querySelector("[data-awards-search]");
+  const count = document.querySelector("[data-awards-count]");
+  const emptyState = document.querySelector("[data-awards-empty]");
+  const categories = [
+    { id: "all", label: "Todas as categorias" },
+    { id: "friends", label: "Friends of Science" },
+    { id: "little-scientists", label: "Little Scientists" },
+  ];
+  let activeCategory = "all";
 
-    const photoGallery = fragment.querySelector("[data-award-photos]");
-    (item.photos || []).forEach((photo) => {
-      const figure = document.createElement("figure");
-      figure.className = "award-figure";
-      const link = document.createElement("a");
-      link.dataset.lightbox = "";
-      setFigureLink(link, photo.image, photo.alt, photo.caption);
-      const caption = document.createElement("figcaption");
-      caption.textContent = photo.caption || photo.alt || "";
-      figure.append(link, caption);
-      photoGallery.append(figure);
+  categories.forEach((category) => {
+    if (category.id !== "all" && !events.some((item) => item.filterCategory === category.id)) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "awards-category-button";
+    button.dataset.category = category.id;
+    button.textContent = category.label;
+    button.setAttribute("aria-pressed", String(category.id === activeCategory));
+    filters?.append(button);
+  });
+
+  const normalize = (value) => value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("pt-BR");
+  const updateResults = () => {
+    const query = normalize(search?.value.trim() || "");
+    let visibleEvents = 0;
+    grid.querySelectorAll(".award-event").forEach((card, index) => {
+      const event = events[index];
+      const matchesCategory = activeCategory === "all" || event.filterCategory === activeCategory;
+      const matchesSearch = !query || normalize(JSON.stringify(event)).includes(query);
+      const visible = matchesCategory && matchesSearch;
+      card.hidden = !visible;
+      card.querySelectorAll("[data-lightbox]").forEach((link) => {
+        link.dataset.lightboxDisabled = String(!visible);
+      });
+      if (visible) visibleEvents += 1;
     });
-
-    return fragment;
+    grid.querySelectorAll(".award-year-group").forEach((group) => {
+      group.hidden = !group.querySelector(".award-event:not([hidden])");
+    });
+    if (count) count.textContent = `${visibleEvents} ${visibleEvents === 1 ? "evento" : "eventos"}`;
+    if (emptyState) emptyState.hidden = visibleEvents > 0;
   };
 
-  items.forEach((item) => grid.append(createCard(item)));
+  filters?.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-category]");
+    if (!button) return;
+    activeCategory = button.dataset.category;
+    filters.querySelectorAll("button[data-category]").forEach((filter) => {
+      filter.setAttribute("aria-pressed", String(filter === button));
+    });
+    updateResults();
+  });
+  search?.addEventListener("input", updateResults);
+  updateResults();
 })();

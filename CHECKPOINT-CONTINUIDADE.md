@@ -2542,3 +2542,63 @@ Data: 13 de novembro de 2026
 - Arquivos alterados: `paginas.css`, `projetos/clube-gabriele.html`, `projetos/clube-marlene.html` e este checkpoint. A revisão de `git diff --check` não apontou erros de whitespace (permanecem apenas os avisos conhecidos de LF/CRLF).
 - A pedido do usuário, adicionada uma linha horizontal (`.section-divider`) entre a apresentação do Friends of Science e a seção “Projetos e registros”, no arquivo `projetos/clube-gabriele.html`.
 - A pedido do usuário, deslocado todo o conteúdo do banner do Friends of Science levemente à direita por uma regra limitada a `.gabriele-page`; atualizado o cache de `paginas.css` nessa página. Little Scientists e outros banners não foram afetados.
+
+### Auditoria de escala visual entre páginas
+
+- Revisados os estilos compartilhados e as referências CSS das 25 páginas HTML. A escala-base e os breakpoints de fonte são definidos globalmente em `style.css`; não foram encontrados `zoom` nem overrides de tamanho-base isolados por página.
+- Encontradas referências de cache CSS antigas (outubro e 7/11) misturadas a URLs mais recentes. Isso podia deixar páginas usando cópias de folhas de estilo diferentes no navegador. Atualizados os parâmetros de cache de todos os CSS locais e imports para `20261113-scale-consistency`.
+- Verificação: `node ferramentas/validar-site.js` aprovou 25 páginas, 67 fotos e caminhos locais; `git diff --check` passou. A revisão foi estática; não havia navegador disponível para comparar capturas renderizadas.
+- Arquivos modificados nesta auditoria: referências CSS locais em páginas HTML e imports CSS, além deste checkpoint. O conteúdo de tipografia e escala não foi alterado.
+
+## Registros do Little Scientists em Premiações e Conquistas — 15 de novembro de 2026
+
+- Lidos o checkpoint de continuidade, a página existente `premiacoes.html`, seus estilos e scripts, a página do Clube Little Scientists e o documento Word `eventos clube publicações.docx`.
+- A página existente foi alimentada por dados em `dados/premiacoes.js`, mantendo o layout geral, cabeçalho, rodapé e tipografia compartilhada. Registros separados por evento, com edição futura concentrada nos dados.
+- Incluídos em ordem cronológica reversa os três eventos de 2025: XI EREBIO SUL (3 trabalhos apresentados em comunicação oral e publicados nos anais), VII SLEC (2 trabalhos) e III Feira Proficiências / III Mostra de Robótica (2 premiações: Trabalho Destaque e Primeiro Lugar — Voto Popular).
+- Cadastrados os autores/participantes, títulos, datas e locais conforme as informações fornecidas. As participações do SLEC e EREBIO não receberam prêmios.
+- Listadas e visualizadas todas as 11 imagens da pasta. Usadas as sete imagens cujos nomes correspondem aos títulos dos trabalhos; as quatro fotos WhatsApp foram identificadas visualmente como registros da FECCI 2026 e não foram associadas aos eventos de 2025. Os originais ficaram intactos.
+- Fotografias distribuídas pelos trabalhos correspondentes; lightbox compartilhado do site mantido com navegação agrupada por evento. Cards de premiação têm destaque visual separado das participações/publicações.
+- Arquivos desta tarefa: `premiacoes.html`, `premiacoes.css`, `premiacoes.js`, `dados/premiacoes.js` e este checkpoint. As alterações preexistentes em outros arquivos do worktree foram preservadas.
+- Verificações: `node --check premiacoes.js`, `node --check dados/premiacoes.js`, `node ferramentas/validar-site.js` (25 páginas, 67 fotos, links locais e dados válidos), `git diff --check` e abertura/decodificação de todas as imagens passaram. `git diff --check` mostrou apenas avisos CRLF/LF já conhecidos. Não foi feita captura em navegador nesta sessão.
+- Pendências: nenhuma associação de imagem pendente; as quatro imagens da FECCI não foram usadas nesta página.
+
+## Correção solicitada — preservar Friends of Science e reativar pesquisa — 15 de novembro de 2026
+
+- Corrigida a página de Premiações para manter o registro FECCI 2026 do Friends of Science junto aos novos conteúdos do Little Scientists. A conquista do Friends não substitui nem remove os três eventos do Little Scientists.
+- Reintegrados o 1º lugar em Cultura Oceânica, o trabalho “Giz Sustentável: Reaproveitamento e reconstituição de sobras de giz de lousa”, a descrição do reaproveitamento de giz, os prêmios Celular, MacBook e Tablet, o link para a página do Friends of Science e os três registros fotográficos antes usados (estande/cartaz, prêmios e equipe com certificados). Não foram acrescentados data, local ou nomes de participantes que não constavam no cadastro anterior.
+- Reativados filtros em formato de categorias, inspirados na Galeria, junto com pesquisa textual combinável. As categorias separam Friends of Science, premiações de 2025 e participações científicas. A pesquisa considera dados do evento e dos trabalhos, incluindo autores, títulos, descrições, prêmios, legendas e textos alternativos, ignorando diferenças de acentuação e maiúsculas/minúsculas.
+- O lightbox mantém navegação agrupada por evento; os resultados escondidos pelos filtros/pesquisa ficam desativados na navegação de imagens.
+- Arquivos desta correção: `premiacoes.html`, `premiacoes.css`, `premiacoes.js`, `dados/premiacoes.js` e este checkpoint. As imagens originais foram mantidas.
+
+## Ajuste — ordem cronológica, agrupamento anual e enquadramento de fotos — 15 de novembro de 2026
+
+- Os registros são ordenados por ano decrescente e, quando há data cadastrada, por data decrescente. O padrão começa por 2026 e segue para 2025; os eventos de 2025 aparecem de outubro a julho.
+- Criados cabeçalhos visuais por ano. Os grupos sem eventos correspondentes ficam ocultos quando filtros ou pesquisa reduzem os resultados.
+- Corrigido o enquadramento das fotografias: removida a proporção fixa que levava ao corte, e as imagens passaram a manter a proporção original, com `object-fit: contain` e limites de tamanho. Os arquivos de baixa resolução são exibidos sem ampliação artificial; a qualidade intrínseca desses arquivos não foi alterada.
+- Atualizado o parâmetro de cache de `premiacoes.css` e `premiacoes.js` em `premiacoes.html`.
+- Arquivos alterados nesta etapa: `premiacoes.js`, `premiacoes.css`, `premiacoes.html` e este checkpoint. Nenhum arquivo original de imagem foi modificado.
+
+## Correção de nitidez do lightbox e organização do card Friends — 15 de novembro de 2026
+
+- A correção de resolução do lightbox foi condicionada à classe `awards-page`; as demais páginas mantêm o comportamento anterior. O CSS global (`style.css`) foi restaurado ao estado que tinha antes desta correção, e a regra de apresentação nativa foi localizada em `premiacoes.css`.
+- O lightbox de Premiações agora dimensiona a fotografia pelo tamanho real do arquivo e pelo espaço disponível na tela. Os níveis de zoom acima da resolução nativa ficam desativados para evitar pixelização causada por ampliação; imagens grandes ainda podem ser ampliadas até o limite de pixels do original.
+- O card do Friends of Science recebeu maior espaçamento entre identificação do evento, classificação, trabalho, prêmios e fotografias. Mantidas as informações registradas e sem datas/autores adicionais.
+- Nenhum conteúdo foi incluído em outras páginas. Arquivos da etapa: `comum.js` (ramo condicionado a `awards-page`), `premiacoes.css`, `premiacoes.html` e este checkpoint.
+
+## Revisão geral da página de Premiações — 15 de novembro de 2026
+
+- Alinhados o canonical e o `og:url` da página ao domínio Vercel confirmado no checkpoint. O sitemap e o robots.txt continuam fora do escopo desta alteração, conforme a preferência de manter o trabalho restrito à página de Premiações.
+- Removida a margem adicional entre eventos do mesmo ano; o espaçamento passa a ser controlado somente pelo `gap` do grupo anual.
+- Incluídas as dimensões originais das dez fotografias usadas nos registros, emitidas como atributos `width` e `height` nas imagens para reservar a proporção e reduzir deslocamentos durante o carregamento.
+- A região de busca e filtros recebeu o papel acessível `search` e o rótulo já existente, para ser anunciada como landmark pelos leitores de tela.
+- Atualizadas as referências de cache da página, do CSS, do JavaScript de apresentação e do cadastro de dados.
+- Arquivos alterados: `premiacoes.html`, `premiacoes.css`, `premiacoes.js`, `dados/premiacoes.js` e este checkpoint. Nenhuma outra página ou imagem foi alterada.
+- O endereço público não pôde ser aberto pela ferramenta de navegação; a URL usada é a registrada como confirmada no checkpoint. Esta etapa não incluiu renderização visual em navegador.
+
+## Filtros de Premiações — categoria Little Scientists — 15 de novembro de 2026
+
+- Unificadas as categorias dos três eventos do Little Scientists em um único filtro “Little Scientists”, abrangendo as duas premiações da III Feira e as participações do VII SLEC e XI EREBIO SUL.
+- Removidos somente os filtros “Premiações 2025” e “Participações científicas”. Os rótulos internos dos eventos que distinguem premiações de participações foram mantidos, assim como todo o conteúdo, autores e fotografias.
+- Mantido o filtro “Friends of Science” separado.
+- Atualizadas as referências de cache do cadastro e do script de filtros.
+- Arquivos alterados: `dados/premiacoes.js`, `premiacoes.js`, `premiacoes.html` e este checkpoint. Nenhuma outra página ou imagem foi modificada.
