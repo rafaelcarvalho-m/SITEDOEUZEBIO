@@ -1,4 +1,4 @@
-@import url("style.css?v=20261113-scale-consistency");
+@import url("style.css?v=20261116-responsive-layout");
 
 .internal-page {
   min-height: 100vh;
@@ -1380,6 +1380,11 @@
   color: var(--club-blue-light);
 }
 
+.detail-blue footer .footer-main a:hover,
+.detail-blue footer .footer-main a:focus-visible {
+  color: var(--club-blue-light);
+}
+
 .detail-blue footer .footer-top {
   background: transparent;
   color: var(--white) !important;
@@ -2169,5 +2174,20 @@
   .systems-detail-page .subject-card {
     min-height: 210px;
     padding: 36px;
+  }
+}
+
+/* A seção final dos clubes completa a tela sem limitar o conteúdo no celular. */
+.detail-blue .club-connections {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  align-content: center;
+  padding-block: clamp(52px, 8svh, 96px);
+}
+
+@media (max-width: 800px) {
+  .detail-blue .club-connections {
+    padding-block: clamp(36px, 7svh, 58px);
   }
 }

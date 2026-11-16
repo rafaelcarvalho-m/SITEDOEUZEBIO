@@ -125,6 +125,18 @@
       if (willOpen) links.querySelector("a")?.focus();
     });
 
+    document.addEventListener("click", (event) => {
+      if (
+        !links.classList.contains("nav-open") ||
+        toggle.contains(event.target) ||
+        links.contains(event.target)
+      ) {
+        return;
+      }
+
+      setMenuState(false);
+    });
+
     links.addEventListener("click", (event) => {
       if (event.target.closest("a")) setMenuState(false);
     });

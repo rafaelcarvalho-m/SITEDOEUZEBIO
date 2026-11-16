@@ -2604,3 +2604,198 @@ Data: 13 de novembro de 2026
 - Atualizadas as referências de cache do cadastro e do script de filtros.
 - Arquivos alterados: `dados/premiacoes.js`, `premiacoes.js`, `premiacoes.html` e este checkpoint. Nenhuma outra página ou imagem foi modificada.
 - Verificação concluída: `node --check premiacoes.js`, `node --check dados/premiacoes.js` e `node ferramentas/validar-site.js` passaram; o validador confirmou 25 páginas e links locais válidos.
+
+## Padronização de altura e espaçamento das seções — 16 de novembro de 2026
+
+### Análise inicial
+
+- Lidos `CHECKPOINT-CONTINUIDADE.md` e `GUIA_DE_MANUTENCAO.md` antes de iniciar. O guia informa 25 páginas HTML independentes e recomenda verificar mudanças compartilhadas em páginas diferentes.
+- O `git status --short` estava limpo antes desta tarefa; as alterações existentes do histórico foram preservadas.
+- Mapeadas as 25 páginas HTML e suas seções `<section>`, incluindo as páginas de erro, as páginas legais e a página de referências. As páginas 404/offline e as listas de referências não são seções de conteúdo institucional e devem manter seu comportamento próprio.
+- Na Home, `.calendar-section` é um grid em duas colunas, com `align-items: center`, iframe do calendário de 410 px (500 px em telas grandes) e ações. O espaçamento base vem de `.section`; `.home-page .section` reduz o padding para 70/76 px no desktop e 54/60 px em telas estreitas. Em tablet/celular, o Calendário empilha texto e PDF e reduz o iframe para 390 px.
+- O Calendário serve de referência pela composição centralizada e pela área visual ampla; suas alturas não devem ser copiadas para galerias extensas, listas longas ou formulários. Seções com conteúdo grande precisam continuar crescendo sem corte.
+- A inspeção inicial identificou variação entre o espaçamento menor da Home, seções próprias de páginas internas sem `.section` e regras específicas de projetos, eventos, biblioteca, apoio, premiações, galeria e Sobre Nós. Nenhuma alteração de layout foi iniciada nesta etapa.
+- Limitação de conferência: não foram encontrados executáveis `msedge`, `chrome` ou `chromium`, nem módulos locais Playwright/Puppeteer. A disponibilidade de navegador será reavaliada antes da conferência final; validações estáticas podem ser executadas localmente.
+
+### Execução
+
+- Em `style.css`, criada uma regra reutilizável para as seções principais identificadas nas páginas Home, Cursos, Ensino Regular/Técnico, Projetos, Clubes, AEE, Biblioteca, Eventos, Galeria, Premiações e Sobre Nós. A regra não seleciona rodapés, banners já dimensionados, cards individuais nem o bloco compacto de eventos da Home.
+- Em desktop e notebooks, as seções selecionadas usam `min-block-size: clamp(620px, 100svh, 980px)` e padding vertical fluido; o conteúdo maior continua definindo uma altura natural superior. O grid existente pode centralizar seus itens com `align-content: center`.
+- Em tablets em retrato (601–800 px), o mínimo adapta-se a `clamp(680px, calc(100svh - 24px), 940px)`. Em telas até 600 px, a altura mínima volta a `auto` e o padding diminui para manter leitura e rolagem natural. Em telas baixas na horizontal, a altura mínima também é removida.
+- A Home mantém a composição em colunas do Calendário em desktop e tablet horizontal; nas larguras em que o CSS existente empilha conteúdo, a regra mantém fluxo vertical. Galerias, listas e conteúdos extensos podem crescer além do viewport, sem altura fixa ou corte.
+- Atualizados os parâmetros de cache da folha global nos arquivos que a carregam diretamente ou por import: `index.html`, `paginas.css`, `apoio/apoio.css`, `biblioteca/biblioteca.css`, `ensino-medio/ensinomedio.css`, `projetos/projetos.css`, `referencias/referencias.css` e `sobrenos/sobrenos.css`.
+- Verificação estática: `node ferramentas/validar-site.js` aprovou as 25 páginas, 67 fotos e os caminhos/cadastros locais; `git diff --check` não apontou erros de whitespace. Persistem somente os avisos habituais de conversão LF/CRLF.
+- Conferência visual tentada com Edge e Chrome headless. O Edge encerrou com falha no processo gráfico; a captura do Chrome ficou branca e a segunda tentativa não produziu imagem. Portanto, as cinco resoluções solicitadas (1440×900, 1366×768, 768×1024, 390×844 e 360×800), além das intermediárias e orientação horizontal, ainda precisam de captura válida em navegador interativo. Nenhum screenshot foi considerado aprovado.
+- Arquivos alterados nesta tarefa: `style.css`, os oito arquivos de CSS/HTML acima com versão de cache atualizada e este checkpoint. Nenhum texto, imagem ou funcionalidade do site foi removido ou substituído. Não houve commit, publicação ou deploy.
+
+### Refinos solicitados na Home — 16 de novembro de 2026
+
+- Concluídos os refinamentos de Biblioteca, AEE, Premiações e Localização/Contato; ajustados também os títulos e as seções de conexão dos clubes azuis.
+- Biblioteca na Home: `.home-library.section` volta a acompanhar a altura natural da foto e do painel de texto, sem mínimo de viewport nem padding interno; a grade estica os dois painéis juntos. Acrescentado espaçamento explícito entre o card e Premiações para que os blocos não se encostem nem se sobreponham.
+- AEE na Home: altura mínima limitada a `clamp(520px, 72svh, 700px)` em desktop; em tablets retrato fica natural e cresce somente se o conteúdo empilhado exigir. A página completa de AEE não foi alterada.
+- Premiações na Home: o retângulo passou a ter mínimo responsivo entre 500 e 600 px em telas maiores, com conteúdo reorganizado em três destaques confirmados no cadastro: 1º lugar em Cultura Oceânica na FECCI 2026; três trabalhos apresentados e publicados no EREBIO SUL 2025; duas premiações na III Feira Proficiências/III Mostra de Robótica. Em celular, o bloco cresce pelo conteúdo e o botão fica na sequência imediata do título, sem uma linha vazia na grade.
+- Localização/Contato na Home: mínimo da seção reduzido para `clamp(560px, 92svh, 860px)` (90svh em tablet retrato); os painéis diminuem um pouco o padding e o mapa fica entre 280 e 340 px em telas maiores.
+- Auditoria dos rodapés azuis: as únicas páginas com `detail-blue` são Friends of Science (Gabriele) e Little Scientists (Marlene). O hover e o foco dos links do footer agora usam azul claro; o botão de retorno ao topo já possuía hover azul e foi preservado.
+- Nos heros das páginas dos clubes, removida somente a palavra “CLUBE” dos títulos: agora exibem “FRIENDS OF SCIENCE” e “LITTLE SCIENTISTS”. Os metadados e os textos de outras áreas continuam como estavam.
+- A seção final de Instagram e acesso ao outro clube, presente nas duas páginas, agora tem `min-height: 100svh` e centralização do conteúdo em telas maiores. Em tablets/celulares, os cards empilham conforme as regras existentes e podem aumentar a seção naturalmente.
+- Atualizado o cache de `style.css` na Home e o cache de `paginas.css` nas 15 páginas HTML que o carregam, para publicar as regras novas também quando houver CSS guardado no navegador.
+- Verificação: `node ferramentas/validar-site.js` aprovou 25 páginas, 67 fotos e caminhos locais; `git diff --check` passou, com os avisos conhecidos de LF/CRLF. A conferência visual por navegador ainda não foi possível: as tentativas headless registradas acima falharam na renderização de screenshots.
+- Não houve commit, publicação ou deploy.
+- Menu responsivo: em `comum.js`, o menu fecha ao clicar fora dele; continuam ativos o fechamento ao escolher um link, o botão de alternância e a tecla Esc. Atualizados os parâmetros de cache do script nas 24 páginas que o carregam.
+- Centralização vertical: a regra reutilizável agora transforma as seções principais selecionadas em grids de uma coluna quando necessário, permitindo centralizar o conjunto de conteúdo dentro da altura disponível sem interferir nas grades internas. A Biblioteca usa rolagem de âncora calculada para deixar seu card natural no centro da tela, sem criar faixas vazias no próprio retângulo.
+- Home — Ensino e Projetos: os banners de fundo e as duas seções de cards passaram a ocupar no mínimo `100svh` (com fallback para `100vh` nos banners). Os títulos, cards e demais elementos permanecem centralizados; quando o conteúdo empilhado ultrapassa a tela, a seção cresce.
+- Atualizados os parâmetros de cache de `style.css`, `paginas.css` e folhas que importam o CSS global, além dos links de folhas específicas afetados, para evitar cópias antigas no navegador.
+- Verificações finais: `node --check comum.js`, `node ferramentas/validar-site.js` (25 páginas, 67 fotos) e `git diff --check` passaram. A conferência visual continua sem captura válida pelas falhas de renderização headless registradas acima.
+- Nenhum commit, publicação ou deploy foi realizado.
+
+## Refinos adicionais da Home — 16 de novembro de 2026
+
+- AEE: reduzido mais um pouco o mínimo do bloco da Home, de `clamp(520px, 72svh, 700px)` para `clamp(460px, 60svh, 580px)`; o conteúdo continua podendo aumentar a altura. O botão “Conheça o AEE” teve a largura mínima responsiva ampliada para `clamp(230px, 20vw, 270px)`.
+- Eventos: reduzida discretamente a largura máxima do destaque único para 500 px e a altura das linhas de múltiplos cards em telas grandes para `clamp(280px, 22vw, 300px)`. Os limites de telas menores que favorecem a leitura permanecem.
+- Calendário: o destino da âncora agora começa no topo da seção. Em celulares, o iframe e os espaços entre conteúdo e botões foram ajustados para manter as ações visíveis com mais folga.
+- Contato: removida a altura mínima proporcional à tela que podia disputar espaço com o conteúdo da seção. A altura passa a seguir os painéis e pode crescer naturalmente; o destino do link do header começa no início do bloco. O padding responsivo foi ajustado sem impor altura fixa.
+- Atualizado o parâmetro de cache de `style.css` em `index.html`.
+- Validações desta etapa: serão registradas após a execução dos validadores abaixo. A verificação visual por screenshot segue limitada pelas falhas de renderização headless documentadas na análise inicial; nenhuma captura inválida foi tratada como aprovada.
+- Validações concluídas: `node --check comum.js`, `node ferramentas/validar-site.js` (25 páginas, 67 fotos, dados e links locais conferidos) e `git diff --check` passaram. Os avisos de LF/CRLF são os já conhecidos do repositório. A validação visual headless continua indisponível pelas falhas registradas anteriormente.
+
+## Rodapés e painéis de Contato/Localização — 16 de novembro de 2026
+
+- Removido o link “Eventos” da lista de referências dos 24 rodapés do site, inclusive da própria página de Eventos. O acesso à seção e à página de Eventos continua disponível nas áreas de navegação e conteúdo.
+- Mantidos os mesmos três links restantes de referências — Consultar referências, Acessibilidade e Privacidade — em todos os rodapés. Não houve alteração nas cores ou nos temas: páginas com footer azul permanecem azuis, e as páginas com footer laranja permanecem laranjas. A retirada não altera a grade estrutural nem a posição do botão de retorno ao topo.
+- Contato/Localização na Home: diminuídos o padding dos painéis, a altura do mapa, as margens dos controles e o espaçamento da seção. No celular, o mapa fica com 210 px e os quatro controles são organizados em duas colunas; todo o conteúdo continua no fluxo natural.
+- A largura do botão “Conheça o AEE” foi ampliada responsivamente e o bloco AEE recebeu nova redução de altura. Os destinos de Calendário e Contato também foram alinhados para iniciar no topo das respectivas seções.
+- Verificações: validador do site e conferência de sintaxe executados após as mudanças; captura visual ainda não foi aprovada, pois o navegador headless falhou anteriormente.
+
+## Fotos de Premiações na Galeria e últimos refinamentos da Home — 16 de novembro de 2026
+
+- Comparadas as referências de imagem de `dados/premiacoes.js` com o catálogo `dados/galeria.js`. Dez imagens usadas na página de Premiações: as três fotos FECCI já cadastradas e sete fotografias dos eventos de 2025 que ainda não estavam na Galeria.
+- Cadastradas as sete fotos ausentes em `dados/galeria.js`, com texto alternativo, legenda e dimensões existentes no cadastro de Premiações. Não foram geradas ampliações nem cópias das imagens originais. A categoria é atribuída pelo caminho `premiacoes/imagens/` como `science-space` (Clube de Ciências).
+- A conferência por script confirmou zero fotos de Premiações faltando na Galeria e todas as 11 entradas que usam a pasta de Premiações na categoria Clube de Ciências. Uma das quatro fotos FECCI que já estavam na Galeria continua cadastrada mesmo sem uso atual na página de Premiações.
+- Atualizados os parâmetros de cache do catálogo de Galeria nas páginas que o carregam (`index.html`, Galeria e páginas dos dois clubes).
+- Contato/Localização: em telas a partir de 801 px, os painéis agora ficam centralizados verticalmente entre si e dentro de uma seção com mínimo responsivo; a altura cresce se o conteúdo exigir. Em tablets retrato há centralização com mínimo próprio, enquanto celulares mantêm fluxo natural sem altura forçada.
+- AEE na Home: reduzidos novamente o mínimo de altura, o padding, o vão entre colunas e a margem inferior. O divisor imediatamente anterior ao bloco foi deslocado para cima, mantendo separação visual da seção.
+- Atualizada a versão de cache de `style.css` em `index.html`.
+- Validações: `node --check dados/galeria.js`, `node --check dados/premiacoes.js`, `node ferramentas/validar-site.js` (25 páginas, 74 fotos no catálogo) e `git diff --check` passaram. A conferência de referências confirmou que todas as fotos usadas em Premiações estão na Galeria e classificadas como Clube de Ciências. A captura visual em navegador continua pendente, conforme a limitação de renderização registrada acima.
+
+## Alinhamento dos heros de Ensino e Projetos — 16 de novembro de 2026
+
+- Os destinos `#ensino` e `#projetos` ainda herdavam um `scroll-margin-top` de 28 px, configurado para conteúdo comum. Como ambos identificam heros dimensionados pela viewport, esse deslocamento deixava uma faixa da área anterior no topo e fazia a próxima seção entrar cedo no enquadramento ao navegar pelo header.
+- Zerada a margem de rolagem somente nesses dois destinos da Home; os heros mantêm `min-height: 100svh` e as seções de cards continuam com altura mínima de tela e crescimento natural.
+- Atualizado o parâmetro de cache da folha global em `index.html`.
+- Verificações: `node ferramentas/validar-site.js` (25 páginas e 74 fotos) e `git diff --check` passaram. A captura visual continua limitada pela falha de renderização headless previamente registrada.
+- Complemento: ampliado o espaço visual entre os cards de Projetos e o bloco AEE; o divisor foi reposicionado para cima e o AEE começa mais abaixo, mantendo os blocos visualmente separados. A correção dos destinos `#ensino` e `#projetos` remove o deslocamento que deixava uma faixa da seção vizinha no enquadramento.
+
+## Alinhamento dos painéis de Contato e Localização — 16 de novembro de 2026
+
+- Na Home, os itens da grade de Contato voltaram a usar `align-items: stretch` em telas maiores. Assim, os painéis de Localização e Contato ocupam a mesma altura de linha, definida pelo conteúdo mais alto, sem altura fixa nem corte.
+- Validação: `node ferramentas/validar-site.js` e `git diff --check` passaram; o validador reconheceu 25 páginas e 74 fotos.
+
+## Correção de centralização do Contato após navegação — 16 de novembro de 2026
+
+- Identificado conflito de especificidade: a regra desktop que deveria aplicar a altura mínima e centralização era menos específica que a regra base da seção, então os painéis não tinham espaço de grade para centralizar.
+- Corrigida a especificidade; em telas a partir de 801 px, a seção volta a ter mínimo responsivo e os painéis são centralizados na área visível ao acessar pelo link do header. O `scroll-margin` acompanha a diferença entre a altura da viewport e a altura da seção para centralizar o bloco no viewport.
+- Em telas baixas (até 600 px de altura), a altura mínima e o ajuste de âncora são removidos para preservar o fluxo natural e evitar cortes.
+- Atualizado o parâmetro de cache de `style.css` na Home.
+- Validação: `node ferramentas/validar-site.js` e `git diff --check` passaram; 25 páginas e 74 fotos conferidas.
+
+## Bloqueio de arraste das logos e compactação de Documentos — 16 de novembro de 2026
+
+- Adicionado `draggable="false"` às 50 imagens da logo encontradas nos 25 arquivos HTML, abrangendo cabeçalhos, rodapés, página de erro e página offline. O clique nos links que contêm a logo permanece ativo.
+- A página Ensino Médio > Documentos recebeu cartões mais compactos: menos padding e margens, descrição sem altura mínima artificial e pré-visualização do PDF dimensionada pela altura do viewport. Em tablets e celulares, os cartões empilham e os viewers usam uma altura menor, preservando rolagem natural para ler os documentos.
+- Atualizado o parâmetro de cache de `documentos.css` em `ensino-medio/documentos.html`.
+- Validações: todos os 50 usos de logo estão com arraste desativado; `node --check ensino-medio/documentos.js`, `node --check dados/documentos-ensino.js`, `node ferramentas/validar-site.js` (25 páginas, 74 fotos) e `git diff --check` passaram.
+
+## Nova premiação Friends of Science — FECCI 2025 — 16 de novembro de 2026
+
+- Cadastrado em Premiações o trabalho “PROTÓTIPO DE SEGUIDOR SOLAR CONTROLADO POR ARDUINO”, do Friends of Science, com 2º lugar na categoria Cultura Oceânica em 2025. O registro inclui o resumo fornecido, os três nomes, vínculo institucional, contato de e-mail e palavras-chave. Não foi inventada data nem local específico da feira.
+- Renomeadas as sete fotos adicionadas hoje com o prefixo `fecci-2025-seguidor-solar-arduino-` e descritores da cena (equipe, premiação, pôster, estande e demonstração). As sete foram associadas à nova premiação e incluídas também no catálogo da Galeria, classificadas na categoria Clube de Ciências. Os arquivos de imagem foram renomeados, sem edição do conteúdo visual.
+- Atualizadas as referências de cache da página de Premiações, do catálogo da Galeria e dos pontos que carregam suas fotos. Nenhum conteúdo foi acrescentado à seção/aba Projetos da Home.
+- Validações: `node --check premiacoes.js`, `node --check dados/premiacoes.js`, `node --check dados/galeria.js`, `node ferramentas/validar-site.js` (25 páginas, 81 fotos na Galeria) e `git diff --check` passaram. A validação visual em navegador continua pendente pela indisponibilidade de captura renderizada já registrada.
+
+## Separação da introdução e dos documentos institucionais — 16 de novembro de 2026
+
+- Em `ensino-medio/documentos.html`, a apresentação textual agora fica em uma seção própria (`#introducao-documentos`). Os cartões e os viewers dos PDFs ficam em uma segunda seção (`#documentos`), sem o texto introdutório dentro dela.
+- O link “Documentos” do header continua apontando para `#documentos` e agora leva diretamente à seção dos arquivos. A nova seção preserva layout responsivo: mínimo de viewport em desktop e altura natural em telas menores.
+- Atualizado o parâmetro de cache de `documentos.css`.
+- Validações: `node ferramentas/validar-site.js` (25 páginas, 81 fotos), `git diff --check` e verificação da âncora para a seção de documentos passaram.
+
+## Filtros por ano e reorganização das fotos FECCI — 16 de novembro de 2026
+
+- No sistema de busca de Premiações, separados os controles de clube e ano. Os anos são gerados a partir dos registros disponíveis e aparecem em ordem decrescente; neste momento, 2026 e 2025, além da opção “Todos os anos”. Os filtros de clube, ano e texto são combináveis.
+- Na entrada FECCI 2025 do Friends of Science, reorganizada a ordem da galeria: a foto panorâmica da entrega da premiação foi movida para o final e recebe uma apresentação compacta. As demais fotos do mesmo trabalho usam uma grade responsiva com quadros de proporção uniforme.
+- Validação de dados confirmou que as sete fotos do registro existem na Galeria, classificadas em Clube de Ciências, e que a panorâmica é a última foto. A âncora `#documentos` também foi verificada na seção que contém somente os arquivos.
+- `node --check premiacoes.js`, `node --check dados/premiacoes.js`, `node ferramentas/validar-site.js` (25 páginas, 81 fotos) e `git diff --check` passaram.
+
+## Filtro geral de Premiações — 16 de novembro de 2026
+
+- Alterado o filtro geral para “Todos os prêmios”, e o título do grupo para “Categoria”. A introdução e o rótulo acessível da lista também passaram a descrever as conquistas da comunidade escolar, sem restringir a página aos clubes de Ciências.
+- As categorias agora são derivadas dos próprios registros: usam o grupo configurado quando houver e, em registros futuros sem grupo/filtro específico, recorrem à categoria do evento. O filtro “Todos os prêmios” sempre mantém visíveis registros de qualquer grupo.
+- Atualizado o parâmetro de cache de `premiacoes.js`.
+- Validações: `node --check premiacoes.js`, `node ferramentas/validar-site.js` (25 páginas, 81 fotos) e `git diff --check` passaram.
+
+## Ajuste dos filtros de Premiações — opções fixas solicitadas
+
+- Fixada a lista de categorias exatamente nas três opções solicitadas: “Todos os prêmios”, “Friends of Science” e “Little Scientists”. A opção geral inclui todos os registros, inclusive prêmios futuros que não sejam de clubes.
+- Os filtros de ano foram mantidos como estavam (Todos os anos, 2026 e 2025).
+- Atualizado o parâmetro de cache de `premiacoes.js`.
+
+## Ajuste de espacamento da Biblioteca e do AEE na Home
+
+- Na pagina da Biblioteca, a hero agora usa a altura da viewport em todos os tamanhos de tela; removidos os minimos fixos menores que deixavam a secao seguinte aparecer junto da hero.
+- Removida a margem de rolagem das ancoras internas da Biblioteca para que, ao navegar, a hero anterior nao fique visivel como uma faixa sobre a secao selecionada.
+- Na Home, a ancora da Biblioteca deixa de centralizar o card no viewport, posicao que mantinha parte do bloco do AEE visivel ao navegar ate a Biblioteca. O card passa a iniciar no topo da area de conteudo.
+- O bloco do AEE voltou a altura natural do conteudo, com espacamento vertical reduzido em desktop, evitando que se estenda visualmente sobre a Biblioteca.
+- Atualizadas as referencias de cache dos estilos da Home e da pagina da Biblioteca.
+## Separacao visual entre Biblioteca e Premiacoes na Home
+
+- A secao da Biblioteca na Home agora reserva ao menos uma viewport completa e centraliza verticalmente o card sem esticar sua altura interna. Isso impede que o bloco seguinte, Premiacoes, apareca junto quando a navegacao chega a Biblioteca.
+- A altura segue naturalmente o conteudo em telas menores ou quando a composicao empilhada exceder a viewport; nao foi adicionada altura fixa nem corte.
+- Atualizado o cache de `style.css` em `index.html`.
+## Biblioteca interna: todas as secoes principais em tela cheia
+
+- Aplicada altura minima de `100svh` (com fallback `100vh`) a todas as secoes principais da pagina interna da Biblioteca: introducao, destaque com imagem, acervo, galeria e orientacoes. A hero ja ocupa uma viewport.
+- As secoes sao centralizadas verticalmente e mantem altura natural maior quando o conteudo excede a tela; em celulares e tablets o conteudo empilhado pode expandir a secao sem corte ou rolagem interna.
+- As ancoras internas alinham a secao selecionada ao topo da viewport, sem deixar a anterior sobreposta.
+- Atualizados os parametros de cache da folha local e da folha global importada.
+## Ajuste do proprio card Biblioteca na Home
+
+- A altura de viewport foi transferida para o card `.home-library` em si: o card agora ocupa a altura da tela e seus dois paineis internos se estendem juntos, sem uma moldura ou quadrado externo com espaco vazio.
+- Em celular, a composicao continua empilhada; o card preenche a viewport quando o conteudo permite e cresce naturalmente quando a leitura exige mais altura.
+- Atualizado o cache de `style.css` na Home.
+## Secao e filtro de Reportagens em Premiacoes
+
+- Adicionada categoria independente `Reportagens`; ao seleciona-la, a lista de eventos de premiacao e substituida por uma area propria de reportagens, sem misturar materias com os premios dos clubes.
+- Incluidos os dois videos informados: o video da TV Parana Turismo sobre protagonismo feminino na Rede de Clubes de Ciencia e o reel do 41 News Curitiba sobre a homenagem as merendeiras escolares. As descricoes resumem o assunto sem atribuir a reportagem das merendeiras especificamente a escola.
+- Pesquisa e filtros por ano tambem se aplicam as reportagens; a lista de anos continua mostrando os anos disponiveis nos registros.
+- Atualizados os parametros de cache dos estilos e scripts da pagina.
+## Video do YouTube incorporado em Premiacoes
+
+- O video da TV Parana Turismo agora e carregado diretamente dentro do card de reportagem com o `iframe` responsivo solicitado. O iframe conserva permissao de tela cheia e carregamento adiado; o reel do Instagram permanece como link externo.
+- Atualizadas as referencias de cache dos arquivos da pagina de Premiacoes.
+## Correcao de erro 153 no player do YouTube
+
+- Ao carregar a reportagem em uma pagina HTTP/HTTPS, o iframe agora informa a origem real (`window.location.origin`) no parametro `origin` e preserva `strict-origin-when-cross-origin`, que e a politica recomendada pelo YouTube.
+- Quando `premiacoes.html` e aberto diretamente como arquivo (`file://`), o navegador nao fornece um HTTP Referer ao player; nesse caso, a pagina apresenta uma explicacao curta e mantem o botao para abrir o video no YouTube, em vez de exibir o player com erro 153. Para reproducao incorporada na pre-visualizacao local, a pagina deve ser servida por HTTP/HTTPS.
+- Atualizados os caches da folha de estilos e do script de Premiacoes.
+- Validacoes: sintaxe dos dois scripts, validador do site (25 paginas) e `git diff --check` passaram.
+## Ajuste final do iframe de Reportagens
+
+- O card da TV Parana Turismo agora contem no HTML o iframe literal enviado pelo usuario, inclusive o `si=5QFa_8LHRJbcA-YU`. O player nao e mais montado por JavaScript nem recebe parametros extras na URL.
+- O iframe preserva as dimensoes fornecidas no HTML e se adapta ao card por CSS.
+- O filtro de Reportagens trata o card estatico junto com os cards gerados para outras materias.
+- Observacao tecnica: se esta pagina for aberta como `file://`, o navegador nao envia HTTP Referer e o YouTube bloqueia o embed com erro 153. A reproducao incorporada requer abrir o site sob HTTP/HTTPS; o codigo fornecido continua literal no HTML.
+## Reel do Instagram incorporado em Reportagens
+
+- O reel do 41 News Curitiba agora aparece incorporado no proprio card por um iframe do endpoint publico `/reel/{id}/embed/captioned/`. O link direto continua disponivel como alternativa.
+- Criada uma altura responsiva maior para o iframe vertical do Instagram; o video do YouTube permanece em 16:9.
+- O card fixo do Instagram usa os mesmos filtros de categoria, pesquisa e ano da secao de Reportagens.
+- Atualizados os caches de CSS e JavaScript da pagina.## Compactacao dos cards de Reportagens
+
+- Reduzidos os espacos internos do container e dos cards, bem como as margens do titulo, da fonte e do player.
+- Os cards alinham pelo topo e preservam altura natural: o card do YouTube nao estica junto do reel vertical do Instagram.
+- A altura do reel permanece responsiva para exibir o formato vertical sem corte.
+- Atualizado o cache de `premiacoes.css`.## Compactacao do card do reel do Instagram
+
+- O card do Instagram agora inicia recolhido, com opcao para expandir e reproduzir o reel incorporado. Assim, a altura inicial do card fica compacta como a do YouTube, sem cortar o video; o visitante abre o player quando quiser.
+- Reduzida a altura responsiva do player expandido e mantido o link externo do Instagram.
+- Atualizado o cache de `premiacoes.css`.

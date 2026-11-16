@@ -1,6 +1,9 @@
 (() => {
   const events = [...(window.SchoolAwards?.items || [])];
+  const reportages = [...(window.SchoolAwards?.reportages || [])];
   const grid = document.querySelector("[data-awards-grid]");
+  const reportagesSection = document.querySelector("[data-awards-reportages]");
+  const reportagesGrid = document.querySelector("[data-reportages-grid]");
   if (!grid) return;
 
   const monthNumbers = {
@@ -107,6 +110,30 @@
         work.authors.forEach((author) => addText(authors, "li", "", author));
         copy.append(authors);
       }
+      if (work.affiliation) {
+        const affiliation = document.createElement("p");
+        affiliation.className = "award-work-details";
+        affiliation.textContent = work.affiliation;
+        copy.append(affiliation);
+      }
+      if (work.contactEmail) {
+        const contact = document.createElement("p");
+        contact.className = "award-work-details";
+        contact.append(document.createTextNode("Contato: "));
+        const email = document.createElement("a");
+        email.href = `mailto:${work.contactEmail}`;
+        email.textContent = work.contactEmail;
+        contact.append(email);
+        copy.append(contact);
+      }
+      if (work.keywords?.length) {
+        addText(
+          copy,
+          "p",
+          "award-work-details",
+          `Palavras-chave: ${work.keywords.join("; ")}.`,
+        );
+      }
       if (work.prizes?.length) {
         addText(copy, "p", "award-authors-label", "Prêmios recebidos");
         const prizes = document.createElement("ul");
@@ -162,7 +189,9 @@
       }
       if (work.photos?.length) {
         const photos = document.createElement("div");
-        photos.className = "award-extra-photos";
+        photos.className = `award-extra-photos${
+          work.photoLayout === "compact-last" ? " award-extra-photos-compact-last" : ""
+        }`;
         work.photos.forEach((photo) => photos.append(addPhoto(photo)));
         card.append(photos);
       }
@@ -172,19 +201,62 @@
     yearGroup.querySelector(".award-year-events").append(article);
   });
 
+  reportages.forEach((reportage) => {
+    const card = document.createElement("article");
+    card.className = "award-reportage-card";
+    card.dataset.year = String(reportage.year || "");
+    card.dataset.search = JSON.stringify(reportage);
+
+    const source = document.createElement("p");
+    source.className = "award-reportage-source";
+    const icon = document.createElement("i");
+    icon.className = reportage.platform === "YouTube"
+      ? "fa-brands fa-youtube"
+      : "fa-brands fa-instagram";
+    icon.setAttribute("aria-hidden", "true");
+    source.append(icon, document.createTextNode(` ${reportage.source} · ${reportage.year}`));
+    card.append(source);
+
+    addText(card, "h3", "", reportage.title);
+    addText(card, "p", "award-reportage-description", reportage.description);
+
+    const link = document.createElement("a");
+    link.className = "award-reportage-link";
+    link.href = reportage.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.append(document.createTextNode(
+      reportage.platform === "YouTube" ? "Assistir no YouTube " : "Assistir reportagem ",
+    ));
+    const arrow = document.createElement("i");
+    arrow.className = "fa-solid fa-arrow-up-right-from-square";
+    arrow.setAttribute("aria-hidden", "true");
+    link.append(arrow);
+    card.append(link);
+    reportagesGrid?.append(card);
+  });
+
   const filters = document.querySelector("[data-awards-filters]");
+  const yearFilters = document.querySelector("[data-awards-years]");
   const search = document.querySelector("[data-awards-search]");
   const count = document.querySelector("[data-awards-count]");
   const emptyState = document.querySelector("[data-awards-empty]");
   const categories = [
-    { id: "all", label: "Todas as categorias" },
+    { id: "all", label: "Todos os prêmios" },
     { id: "friends", label: "Friends of Science" },
     { id: "little-scientists", label: "Little Scientists" },
+    { id: "reportages", label: "Reportagens" },
+  ];
+  const years = [
+    { id: "all", label: "Todos os anos" },
+    ...[...new Set([...events, ...reportages].map((item) => String(item.year)).filter(Boolean))]
+      .sort((first, second) => Number(second) - Number(first))
+      .map((year) => ({ id: year, label: year })),
   ];
   let activeCategory = "all";
+  let activeYear = "all";
 
   categories.forEach((category) => {
-    if (category.id !== "all" && !events.some((item) => item.filterCategory === category.id)) return;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "awards-category-button";
@@ -194,29 +266,55 @@
     filters?.append(button);
   });
 
+  years.forEach((year) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "awards-category-button awards-year-button";
+    button.dataset.year = year.id;
+    button.textContent = year.label;
+    button.setAttribute("aria-pressed", String(year.id === activeYear));
+    yearFilters?.append(button);
+  });
+
   const normalize = (value) => value
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLocaleLowerCase("pt-BR");
   const updateResults = () => {
     const query = normalize(search?.value.trim() || "");
-    let visibleEvents = 0;
+    const showingReportages = activeCategory === "reportages";
+    if (grid) grid.hidden = showingReportages;
+    if (reportagesSection) reportagesSection.hidden = !showingReportages;
+    let visibleItems = 0;
+
+    reportagesGrid?.querySelectorAll(".award-reportage-card").forEach((card) => {
+      const matchesYear = activeYear === "all" || card.dataset.year === activeYear;
+      const matchesSearch = !query || normalize(card.dataset.search || "").includes(query);
+      const visible = showingReportages && matchesYear && matchesSearch;
+      card.hidden = !visible;
+      if (visible) visibleItems += 1;
+    });
+
     grid.querySelectorAll(".award-event").forEach((card, index) => {
       const event = events[index];
-      const matchesCategory = activeCategory === "all" || event.filterCategory === activeCategory;
+      const matchesCategory = !showingReportages && (activeCategory === "all" || event.filterCategory === activeCategory);
+      const matchesYear = activeYear === "all" || String(event.year) === activeYear;
       const matchesSearch = !query || normalize(JSON.stringify(event)).includes(query);
-      const visible = matchesCategory && matchesSearch;
+      const visible = matchesCategory && matchesYear && matchesSearch;
       card.hidden = !visible;
       card.querySelectorAll("[data-lightbox]").forEach((link) => {
         link.dataset.lightboxDisabled = String(!visible);
       });
-      if (visible) visibleEvents += 1;
+      if (visible) visibleItems += 1;
     });
     grid.querySelectorAll(".award-year-group").forEach((group) => {
       group.hidden = !group.querySelector(".award-event:not([hidden])");
     });
-    if (count) count.textContent = `${visibleEvents} ${visibleEvents === 1 ? "evento" : "eventos"}`;
-    if (emptyState) emptyState.hidden = visibleEvents > 0;
+    const itemLabel = showingReportages
+      ? (visibleItems === 1 ? "reportagem" : "reportagens")
+      : (visibleItems === 1 ? "evento" : "eventos");
+    if (count) count.textContent = `${visibleItems} ${itemLabel}`;
+    if (emptyState) emptyState.hidden = visibleItems > 0;
   };
 
   filters?.addEventListener("click", (event) => {
@@ -224,6 +322,15 @@
     if (!button) return;
     activeCategory = button.dataset.category;
     filters.querySelectorAll("button[data-category]").forEach((filter) => {
+      filter.setAttribute("aria-pressed", String(filter === button));
+    });
+    updateResults();
+  });
+  yearFilters?.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-year]");
+    if (!button) return;
+    activeYear = button.dataset.year;
+    yearFilters.querySelectorAll("button[data-year]").forEach((filter) => {
       filter.setAttribute("aria-pressed", String(filter === button));
     });
     updateResults();

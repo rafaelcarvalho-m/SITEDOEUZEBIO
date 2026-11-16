@@ -1,4 +1,4 @@
-@import url("../style.css?v=20261113-scale-consistency");
+@import url("../style.css?v=20261116-library-awards-separation");
 
 .library-page {
   --library-accent: var(--warm);
@@ -34,7 +34,8 @@
 .library-hero {
   position: relative;
   isolation: isolate;
-  min-height: 620px;
+  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   color: var(--white);
   background:
@@ -110,7 +111,7 @@
 .library-page #acervo,
 .library-page #espaco,
 .library-page #orientacoes {
-  scroll-margin-top: 28px;
+  scroll-margin-block-start: 0;
 }
 
 .library-intro {
@@ -554,7 +555,8 @@
 
 @media (max-width: 800px) {
   .library-hero {
-    min-height: 560px;
+    min-height: 100vh;
+    min-height: 100svh;
     background-position: 58% center;
   }
 
@@ -680,7 +682,8 @@
 
 @media (max-width: 480px) {
   .library-hero {
-    min-height: 520px;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .library-hero-content {
@@ -740,7 +743,8 @@
 
 @media (min-width: 1600px) {
   .library-hero {
-    min-height: min(760px, 100svh);
+    min-height: 100vh;
+    min-height: 100svh;
     background:
       linear-gradient(105deg, rgba(15, 25, 20, 0.82), rgba(15, 25, 20, 0.24)),
       url("imgs-biblioteca/biblioteca-espaco-de-leitura1539x1022.webp") center
@@ -772,7 +776,8 @@
 
 @media (min-width: 2560px) {
   .library-hero {
-    min-height: min(1600px, 100svh);
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .library-section {
@@ -810,4 +815,16 @@
   .library-guidance-inner {
     padding: 138px 0 148px;
   }
+}
+
+/* Cada secao principal da Biblioteca ocupa uma tela e cresce com o conteudo. */
+body.library-page main > .library-intro,
+body.library-page main > .library-feature,
+body.library-page main > .library-collection,
+body.library-page main > .library-gallery,
+body.library-page main > .library-guidance {
+  min-block-size: 100vh;
+  min-block-size: 100svh;
+  align-content: center;
+  scroll-margin-block-start: 0;
 }

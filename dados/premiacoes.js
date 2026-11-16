@@ -1,5 +1,5 @@
 /*
-  Registros de eventos, trabalhos e conquistas do Little Scientists.
+  Registros de premiações, trabalhos apresentados e conquistas dos clubes de Ciências.
   Para novos registros, adicione um evento em items, incluindo somente dados
   confirmados e caminhos de fotografias correspondentes ao evento.
 */
@@ -41,6 +41,84 @@ window.SchoolAwards = Object.freeze({
           ],
         },
       ],
+    },
+    {
+      "event": "FECCI 2025 — Feira de Cultura Científica Paraná Faz Ciência",
+      "year": 2025,
+      "category": "Cultura Oceânica",
+      "filterCategory": "friends",
+      "group": "Friends of Science",
+      "works": [
+        {
+          "title": "PROTÓTIPO DE SEGUIDOR SOLAR CONTROLADO POR ARDUINO",
+          "authors": [
+            "Hasly de Jesus Pantoja Aviles",
+            "Thalita Mirian Soares da Silva",
+            "Gabriele Cristine da Silva"
+          ],
+          "affiliation": "Colégio Estadual Euzébio da Mota, Curitiba-PR",
+          "contactEmail": "gabriele.silva@escola.pr.gov.br",
+          "award": "2º lugar — Cultura Oceânica",
+          "description": "O projeto tem como objetivo o desenvolvimento de um protótipo de seguidor solar: um sistema fotovoltaico que se move para acompanhar a trajetória do Sol ao longo do dia. A crescente necessidade de utilizar fontes de energia renováveis influencia a busca por tecnologias que melhorem a geração de eletricidade. O Clube de Ciências Friends of Science desenvolve atividades relacionadas à Física, nesse sentido, a pesquisa sobre produção de energia surgiu a partir das discussões do grupo. O protótipo a ser construído foi projetado inicialmente no software Tinkercad, depois montado com componentes de robótica, sem o uso da placa fotovoltaica. Os resultados esperados são que o seguidor proporcione uma eficiência maior que a placa estática, mostrando o potencial desta tecnologia na geração de energia fotovoltaica, desde sistemas em residências a parques solares.",
+          "keywords": [
+            "seguidor solar",
+            "energia fotovoltaica",
+            "eficiência energética",
+            "energias renováveis",
+            "robótica"
+          ],
+          "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-equipe-premiacao-paisagem.jpeg",
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "imageAlt": "Equipe do Friends of Science exibe o certificado e medalhas diante do estande da FECCI 2025.",
+          "caption": "Equipe do Friends of Science na FECCI 2025.",
+          "photos": [
+            {
+              "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-equipe-premiacao-retrato.jpeg",
+              "width": 720,
+              "height": 1280,
+              "alt": "Estudantes do Friends of Science mostram o certificado e medalhas no estande da FECCI 2025.",
+              "caption": "Equipe do Friends of Science com o certificado na FECCI 2025."
+            },
+            {
+              "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-equipe-orientadora.jpeg",
+              "width": 720,
+              "height": 1280,
+              "alt": "Grupo do projeto posa com o certificado no estande da FECCI 2025.",
+              "caption": "Grupo do projeto com o certificado da FECCI 2025."
+            },
+            {
+              "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-poster-prototipo.jpeg",
+              "width": 720,
+              "height": 1280,
+              "alt": "Pôster do protótipo de seguidor solar controlado por Arduino e componentes expostos no estande.",
+              "caption": "Pôster e protótipo do seguidor solar."
+            },
+            {
+              "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-autoras-estande.jpeg",
+              "width": 720,
+              "height": 1280,
+              "alt": "Duas estudantes apresentam o circuito do seguidor solar ao lado do pôster do trabalho.",
+              "caption": "Autoras apresentam o protótipo no estande da FECCI 2025."
+            },
+            {
+              "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-demonstracao.jpeg",
+              "width": 960,
+              "height": 1280,
+              "alt": "Estudantes demonstram o circuito do seguidor solar para visitantes no estande.",
+              "caption": "Demonstração do seguidor solar durante a FECCI 2025."
+            },
+            {
+              "image": "premiacoes/imagens/fecci-2025-seguidor-solar-arduino-entrega-premiacao.jpeg",
+              "width": 1600,
+              "height": 720,
+              "alt": "Momento da entrega do reconhecimento ao grupo durante a FECCI 2025.",
+              "caption": "Entrega da premiação na FECCI 2025."
+            }
+          ],
+          "photoLayout": "compact-last"
+        }
+      ]
     },
     {
       event: "XI Encontro Regional Sul de Ensino de Biologia (EREBIO SUL 2025)",
@@ -133,4 +211,5 @@ window.SchoolAwards = Object.freeze({
       ],
     },
   ],
+  reportages: [],
 });

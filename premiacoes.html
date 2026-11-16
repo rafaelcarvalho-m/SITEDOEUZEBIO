@@ -44,8 +44,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="paginas.css?v=20261113-scale-consistency" />
-    <link rel="stylesheet" href="premiacoes.css?v=20261115-awards-review" />
+    <link rel="stylesheet" href="paginas.css?v=20261116-responsive-layout" />
+    <link rel="stylesheet" href="premiacoes.css?v=20261116-compact-instagram-card" />
   </head>
   <body class="detail-page title-only-detail-page awards-page" id="inicio">
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -67,8 +67,7 @@
             src="imgs-home-index/logo-escola.png"
             alt="Logo do Colégio Estadual Euzébio da Mota"
             width="666"
-            height="374"
-        /></a>
+            height="374" draggable="false" /></a>
         <a
           class="detail-home-button"
           href="index.html#premiacoes"
@@ -90,10 +89,10 @@
         aria-labelledby="awards-title"
       >
         <div class="awards-intro reveal">
-          <p class="eyebrow">Clubes de Ciências</p>
+          <p class="eyebrow">Conquistas da comunidade escolar</p>
           <h2 id="awards-title">Pesquisa, participação e <em>reconhecimento.</em></h2>
-          <p>Registros de premiações, trabalhos apresentados e publicações dos clubes, organizados por evento e acompanhados das fotografias correspondentes.</p>
-          <p>A página reúne a conquista do Friends of Science na FECCI 2026 e as participações científicas do Little Scientists no VII SLEC e no XI EREBIO SUL 2025, além de duas premiações na III Feira Proficiências e III Mostra de Robótica.</p>
+          <p>Registros de premiações, trabalhos apresentados e publicações, organizados por evento e acompanhados das fotografias correspondentes.</p>
+          <p>A página reúne as conquistas do Friends of Science na FECCI 2026 e na FECCI 2025, incluindo o 2º lugar em Cultura Oceânica com o protótipo de seguidor solar controlado por Arduino. Também registra as participações científicas e premiações do Little Scientists em 2025.</p>
         </div>
 
         <div class="awards-controls" role="search" aria-label="Pesquisar e filtrar registros">
@@ -106,16 +105,99 @@
             autocomplete="off"
             data-awards-search
           />
-          <nav class="awards-category-nav" data-awards-filters aria-label="Filtrar registros por categoria"></nav>
+          <div class="awards-filter-groups">
+            <div class="awards-filter-group">
+              <p class="awards-filter-label">Categoria</p>
+              <nav class="awards-category-nav" data-awards-filters aria-label="Filtrar registros por categoria"></nav>
+            </div>
+            <div class="awards-filter-group">
+              <p class="awards-filter-label">Ano</p>
+              <nav class="awards-category-nav awards-year-nav" data-awards-years aria-label="Filtrar registros por ano"></nav>
+            </div>
+          </div>
           <p class="awards-results-count" data-awards-count aria-live="polite"></p>
-          <p class="awards-empty-state" data-awards-empty hidden>Nenhum registro corresponde à pesquisa e à categoria selecionadas.</p>
+          <p class="awards-empty-state" data-awards-empty hidden>Nenhum item corresponde à pesquisa, à categoria e ao ano selecionados.</p>
         </div>
 
         <div
           class="awards-register"
           data-awards-grid
-          aria-label="Eventos, trabalhos e conquistas dos clubes de ciências"
+          aria-label="Eventos, trabalhos e conquistas da comunidade escolar"
         ></div>
+
+        <section
+          class="awards-reportages"
+          data-awards-reportages
+          hidden
+          aria-labelledby="awards-reportages-title"
+        >
+          <div class="awards-reportages-heading">
+            <p class="eyebrow">Na imprensa</p>
+            <h2 id="awards-reportages-title">Reportagens sobre a comunidade escolar</h2>
+            <p>Mat&#233;rias em v&#237;deo sobre ci&#234;ncia, educa&#231;&#227;o e pessoas que fazem parte do cotidiano escolar.</p>
+          </div>
+          <div class="awards-reportage-grid" data-reportages-grid>
+            <article
+              class="award-reportage-card"
+              data-year="2026"
+              data-search="rede clubes ciencia protagonismo meninas pesquisa escolar tv parana turismo"
+            >
+              <p class="award-reportage-source">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                TV Paran&#225; Turismo &#183; 2026
+              </p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/aGXRFVsH9oA?si=5QFa_8LHRJbcA-YU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <h3>Rede de Clubes de Ci&#234;ncia fortalece protagonismo de meninas na pesquisa escolar</h3>
+              <p class="award-reportage-description">
+                Reportagem sobre a Rede de Clubes de Ci&#234;ncia e a participa&#231;&#227;o feminina na pesquisa escolar.
+              </p>
+              <a
+                class="award-reportage-link"
+                href="https://youtu.be/aGXRFVsH9oA?is=d3SwHLbHbkXpFfu5"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Assistir no YouTube
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </article>
+            <article
+              class="award-reportage-card"
+              data-year="2026"
+              data-search="homenagem merendeiras escolares alimentacao acolhimento 41 news curitiba"
+            >
+              <p class="award-reportage-source">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                41 News Curitiba &#183; 2026
+              </p>
+              <details class="award-reportage-embed">
+                <summary>Mostrar reel incorporado</summary>
+<iframe
+                width="400"
+                height="700"
+                src="https://www.instagram.com/reel/DfIUoIihqnZ/embed/captioned/"
+                title="Homenagem às merendeiras escolares — 41 News Curitiba"
+                frameborder="0"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe></details>
+              <h3>Homenagem &#224;s merendeiras escolares</h3>
+              <p class="award-reportage-description">
+                O reel destaca o reconhecimento das merendeiras e o papel desses profissionais na alimentação e no acolhimento dos estudantes.
+              </p>
+              <a
+                class="award-reportage-link"
+                href="https://www.instagram.com/reel/DfIUoIihqnZ/?srtk=c2M5YnMxcGhwNjhn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Assistir no Instagram
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </article>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -128,16 +210,14 @@
             width="666"
             height="374"
             loading="lazy"
-            decoding="async"
-        /></a>
+            decoding="async" draggable="false" /></a>
         <div>
           <h2>Colégio Estadual<br />Euzébio da Mota</h2>
           <p>Ensino Fundamental, Médio e EJA<br />Curitiba – Paraná</p>
         </div>
         <div class="footer-reference">
           <h3>Referências</h3>
-          <a href="eventos/eventos.html">Eventos</a
-          ><a href="referencias/referencias.html">Consultar referências</a
+          <a href="referencias/referencias.html">Consultar referências</a
           ><a href="acessibilidade.html">Acessibilidade</a
           ><a href="privacidade.html">Privacidade</a>
         </div>
@@ -178,8 +258,8 @@
       </div>
     </footer>
 
-    <script src="dados/premiacoes.js?v=20261115-awards-little-scientists-filter"></script>
-    <script src="premiacoes.js?v=20261115-awards-little-scientists-filter"></script>
-    <script src="comum.js?v=20261115-awards-native-resolution-fit"></script>
+    <script src="dados/premiacoes.js?v=20261116-instagram-embed"></script>
+    <script src="premiacoes.js?v=20261116-instagram-embed"></script>
+    <script src="comum.js?v=20261116-menu-outside"></script>
   </body>
 </html>
