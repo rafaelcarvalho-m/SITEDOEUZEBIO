@@ -2600,5 +2600,7 @@ Data: 13 de novembro de 2026
 - Unificadas as categorias dos três eventos do Little Scientists em um único filtro “Little Scientists”, abrangendo as duas premiações da III Feira e as participações do VII SLEC e XI EREBIO SUL.
 - Removidos somente os filtros “Premiações 2025” e “Participações científicas”. Os rótulos internos dos eventos que distinguem premiações de participações foram mantidos, assim como todo o conteúdo, autores e fotografias.
 - Mantido o filtro “Friends of Science” separado.
+- Os filtros visíveis agora são “Todas as categorias”, “Friends of Science” e “Little Scientists”; as categorias internas de cada evento continuam indicando se é premiação ou participação científica.
 - Atualizadas as referências de cache do cadastro e do script de filtros.
 - Arquivos alterados: `dados/premiacoes.js`, `premiacoes.js`, `premiacoes.html` e este checkpoint. Nenhuma outra página ou imagem foi modificada.
+- Verificação concluída: `node --check premiacoes.js`, `node --check dados/premiacoes.js` e `node ferramentas/validar-site.js` passaram; o validador confirmou 25 páginas e links locais válidos.
