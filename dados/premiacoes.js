@@ -56,8 +56,6 @@ window.SchoolAwards = Object.freeze({
             "Thalita Mirian Soares da Silva",
             "Gabriele Cristine da Silva"
           ],
-          "affiliation": "Colégio Estadual Euzébio da Mota, Curitiba-PR",
-          "contactEmail": "gabriele.silva@escola.pr.gov.br",
           "award": "2º lugar — Cultura Oceânica",
           "description": "O projeto tem como objetivo o desenvolvimento de um protótipo de seguidor solar: um sistema fotovoltaico que se move para acompanhar a trajetória do Sol ao longo do dia. A crescente necessidade de utilizar fontes de energia renováveis influencia a busca por tecnologias que melhorem a geração de eletricidade. O Clube de Ciências Friends of Science desenvolve atividades relacionadas à Física, nesse sentido, a pesquisa sobre produção de energia surgiu a partir das discussões do grupo. O protótipo a ser construído foi projetado inicialmente no software Tinkercad, depois montado com componentes de robótica, sem o uso da placa fotovoltaica. Os resultados esperados são que o seguidor proporcione uma eficiência maior que a placa estática, mostrando o potencial desta tecnologia na geração de energia fotovoltaica, desde sistemas em residências a parques solares.",
           "keywords": [

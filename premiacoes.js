@@ -92,6 +92,14 @@
       }
       addText(copy, "h3", "", work.title);
       if (work.description) addText(copy, "p", "award-work-description", work.description);
+      if (work.keywords?.length) {
+        addText(
+          copy,
+          "p",
+          "award-work-details",
+          `Palavras-chave: ${work.keywords.join("; ")}.`,
+        );
+      }
       if (work.projectLink) {
         const projectLink = document.createElement("a");
         projectLink.className = "award-project-link";
@@ -125,14 +133,6 @@
         email.textContent = work.contactEmail;
         contact.append(email);
         copy.append(contact);
-      }
-      if (work.keywords?.length) {
-        addText(
-          copy,
-          "p",
-          "award-work-details",
-          `Palavras-chave: ${work.keywords.join("; ")}.`,
-        );
       }
       if (work.prizes?.length) {
         addText(copy, "p", "award-authors-label", "Prêmios recebidos");

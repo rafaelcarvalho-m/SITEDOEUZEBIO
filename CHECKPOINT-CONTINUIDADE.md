@@ -2799,3 +2799,11 @@ Data: 13 de novembro de 2026
 - O card do Instagram agora inicia recolhido, com opcao para expandir e reproduzir o reel incorporado. Assim, a altura inicial do card fica compacta como a do YouTube, sem cortar o video; o visitante abre o player quando quiser.
 - Reduzida a altura responsiva do player expandido e mantido o link externo do Instagram.
 - Atualizado o cache de `premiacoes.css`.
+
+## Ajustes em Premiações e Clubes de Ciências — 16 de novembro de 2026
+
+- Removido o segundo parágrafo após o título “Pesquisa, participação e reconhecimento” em `premiacoes.html`.
+- Atualizados os nomes de orientação nos cartões “Informações rápidas”: Gabriele Cristine da Silva em `projetos/clube-gabriele.html` e Marlene Salete Koch Lins em `projetos/clube-marlene.html`.
+- No registro FECCI 2025 de 2º lugar em Cultura Oceânica, removidas a afiliação da escola e o e-mail. A renderização das palavras-chave foi movida para logo após a descrição e antes de “Autores e participantes” em `premiacoes.js`; as palavras-chave existentes foram preservadas em `dados/premiacoes.js`.
+- Validações concluídas: `node --check premiacoes.js`, `node --check dados/premiacoes.js`, `node ferramentas/validar-site.js` (25 páginas, 81 fotos) e `git diff --check`.
+- Arquivos alterados: `premiacoes.html`, `premiacoes.js`, `dados/premiacoes.js`, `projetos/clube-gabriele.html`, `projetos/clube-marlene.html` e este checkpoint.
